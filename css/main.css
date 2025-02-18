@@ -1199,7 +1199,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff4b2b;
+  background: #536ff1;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2693,9 +2693,9 @@ mjx-container + br {
 body {
   background: url("/images/Dream.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: 50% 50% !important;
 }
 /* 设置博客主题内容的透明度 */
 body {
@@ -2705,5 +2705,11 @@ footer,
 footer a,
 footer p {
   color: #000 !important;
-/* 红色 */
+/* 黑色 */
+}
+footer {
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
