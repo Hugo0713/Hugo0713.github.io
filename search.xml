@@ -1,6 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>egs2/TEMPLATE/enh1/enh.sh 脚本分析笔记</title>
+    <url>/2025/02/19/espnet%E7%9A%84enh.sh%E7%9A%84%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>This is the common recipe for ESPnet2 speech enhancement frontend.<br>这是 ESPnet2 语音增强前端的通用配方。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#Stage-1%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE%E4%BB%8B%E7%BB%8D">Stage 1前的配置介绍</a></li>
+<li><a href="#%E5%90%84Stage%E5%8A%9F%E8%83%BD%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90">各Stage功能详细分析</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ol>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文为笔者学习espnet语音处理包的学习笔记，初稿为<strong>claude-3.5-sonnet</strong>辅助生成，后续会不断在此基础上更新，加入自己的理解。</p>
+<p><a href="https://github.com/espnet/espnet">ESPnet</a></p>
+<p><a href="https://espnet.github.io/espnet/recipe/enh1.html">语音增强</a></p>
+<h2 id="Stage-1前的配置介绍"><a href="#Stage-1前的配置介绍" class="headerlink" title="Stage 1前的配置介绍"></a>Stage 1前的配置介绍</h2><h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ol>
+<li><strong>bash调试模式设置</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -e        <span class="comment"># 遇到错误就退出</span></span><br><span class="line"><span class="built_in">set</span> -u        <span class="comment"># 使用未定义变量时报错</span></span><br><span class="line"><span class="built_in">set</span> -o pipefail  <span class="comment"># 管道中任一命令失败则整个管道失败</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>辅助函数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 日志函数：打印时间戳和调用位置信息</span></span><br><span class="line"><span class="built_in">log</span>() </span><br><span class="line"></span><br><span class="line"><span class="comment"># 求最小值函数：用于计算并行作业数</span></span><br><span class="line">min() </span><br></pre></td></tr></table></figure>
+
+<h3 id="必填参数"><a href="#必填参数" class="headerlink" title="必填参数"></a>必填参数</h3><ol>
+<li><strong>数据集相关</strong></li>
+</ol>
+<ul>
+<li><code>--train_set</code>: 训练集名称</li>
+<li><code>--valid_set</code>: 验证集名称</li>
+<li><code>--test_sets</code>: 测试集名称列表</li>
+</ul>
+<h3 id="选填参数"><a href="#选填参数" class="headerlink" title="选填参数"></a>选填参数</h3><ol>
+<li><strong>基本配置参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">stage=1                 <span class="comment"># 处理开始的阶段</span></span><br><span class="line">stop_stage=10000       <span class="comment"># 处理结束的阶段</span></span><br><span class="line">skip_data_prep=<span class="literal">false</span>   <span class="comment"># 是否跳过数据准备阶段</span></span><br><span class="line">skip_train=<span class="literal">false</span>       <span class="comment"># 是否跳过训练阶段  </span></span><br><span class="line">skip_eval=<span class="literal">false</span>        <span class="comment"># 是否跳过推理和评估阶段</span></span><br><span class="line">skip_packing=<span class="literal">true</span>      <span class="comment"># 是否跳过打包阶段</span></span><br><span class="line">skip_upload_hf=<span class="literal">true</span>    <span class="comment"># 是否跳过上传到HuggingFace阶段</span></span><br><span class="line">ngpu=1                 <span class="comment"># GPU数量(0表示使用CPU)</span></span><br><span class="line">num_nodes=1            <span class="comment"># 节点数量</span></span><br><span class="line">nj=32                  <span class="comment"># 并行作业数</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>特征提取相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">feats_type=raw        <span class="comment"># 特征类型(raw或fbank_pitch)</span></span><br><span class="line">audio_format=flac     <span class="comment"># 音频格式:wav,flac等</span></span><br><span class="line">fs=16k                <span class="comment"># 采样率</span></span><br><span class="line">min_wav_duration=0.1  <span class="comment"># 最短音频长度(秒)</span></span><br><span class="line">max_wav_duration=20   <span class="comment"># 最长音频长度(秒)</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>增强模型相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enh_exp=             <span class="comment"># 增强实验目录路径</span></span><br><span class="line">enh_tag=             <span class="comment"># 增强模型训练结果目录的后缀</span></span><br><span class="line">enh_config=          <span class="comment"># 增强模型训练配置</span></span><br><span class="line">enh_args=            <span class="comment"># 增强模型训练的额外参数</span></span><br><span class="line">ref_num=2            <span class="comment"># 参考信号数量(等于说话人数量)</span></span><br><span class="line">inf_num=             <span class="comment"># 模型输出的推理结果数量</span></span><br><span class="line">noise_type_num=1     <span class="comment"># 输入音频中的噪声类型数量</span></span><br><span class="line">dereverb_ref_num=1   <span class="comment"># 去混响参考信号数量</span></span><br><span class="line">is_tse_task=<span class="literal">false</span>    <span class="comment"># 是否为目标说话人提取任务</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>训练数据相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use_dereverb_ref=<span class="literal">false</span>   <span class="comment"># 是否使用去混响参考信号</span></span><br><span class="line">use_noise_ref=<span class="literal">false</span>      <span class="comment"># 是否使用噪声参考信号</span></span><br><span class="line">variable_num_refs=<span class="literal">false</span>  <span class="comment"># 是否使用可变数量的参考信号</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>推理和评估相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">inference_args=<span class="string">&quot;--normalize_output_wav true --output_format wav&quot;</span>  <span class="comment"># 推理参数</span></span><br><span class="line">inference_model=valid.loss.ave.pth  <span class="comment"># 推理使用的模型文件</span></span><br><span class="line">scoring_protocol=<span class="string">&quot;STOI SDR SAR SIR SI_SNR&quot;</span>  <span class="comment"># 评分指标</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="各Stage功能详细分析"><a href="#各Stage功能详细分析" class="headerlink" title="各Stage功能详细分析"></a>各Stage功能详细分析</h2><h3 id="Stage-1-数据准备"><a href="#Stage-1-数据准备" class="headerlink" title="Stage 1: 数据准备"></a>Stage 1: 数据准备</h3><ul>
+<li><strong>功能</strong>：准备训练、验证和测试数据集</li>
+<li><strong>执行</strong>：调用local&#x2F;data.sh脚本处理数据</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;stage&#125;</span> -le 1 ] &amp;&amp; [ <span class="variable">$&#123;stop_stage&#125;</span> -ge 1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">log</span> <span class="string">&quot;Stage 1: Data preparation for data/<span class="variable">$&#123;train_set&#125;</span>, data/<span class="variable">$&#123;valid_set&#125;</span>, etc.&quot;</span></span><br><span class="line">    <span class="comment"># [Task dependent] 需要为新语料库创建data.sh</span></span><br><span class="line">    <span class="built_in">local</span>/data.sh <span class="variable">$&#123;local_data_opts&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>重要说明</strong>：<ul>
+<li>这个阶段是任务相关的，需要根据具体的语料库创建相应的data.sh脚本</li>
+<li>local_data_opts参数可以传递给data.sh进行数据处理的定制</li>
+</ul>
+</li>
+</ul>
+<h3 id="Stage-2-速度扰动"><a href="#Stage-2-速度扰动" class="headerlink" title="Stage 2: 速度扰动"></a>Stage 2: 速度扰动</h3><ul>
+<li><strong>功能</strong>：对训练数据进行速度扰动增强</li>
+<li><strong>条件</strong>：仅在设置了speed_perturb_factors且不使用去混响参考时执行</li>
+<li><strong>处理</strong>：对音频进行不同速度的扰动，生成增强数据</li>
+</ul>
+<h3 id="Stage-3-音频格式化"><a href="#Stage-3-音频格式化" class="headerlink" title="Stage 3: 音频格式化"></a>Stage 3: 音频格式化</h3><ul>
+<li><strong>功能</strong>：统一处理音频格式</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 格式化wav.scp文件</span></span><br><span class="line">scripts/audio/format_wav_scp.sh --nj <span class="string">&quot;<span class="variable">$&#123;nj&#125;</span>&quot;</span> --cmd <span class="string">&quot;<span class="variable">$&#123;train_cmd&#125;</span>&quot;</span> \</span><br><span class="line">    --out-filename <span class="string">&quot;<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> \</span><br><span class="line">    --audio-format <span class="string">&quot;<span class="variable">$&#123;audio_format&#125;</span>&quot;</span> --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> <span class="variable">$&#123;_opts&#125;</span> \</span><br><span class="line">    <span class="string">&quot;data/<span class="variable">$&#123;dset&#125;</span>/<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> <span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span><span class="variable">$&#123;_suf&#125;</span>/<span class="variable">$&#123;dset&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>处理步骤</strong>：<ol>
+<li>重新创建”wav.scp”文件</li>
+<li>统一音频格式和采样率</li>
+<li>处理多说话人的情况</li>
+<li>支持segments文件的分割处理</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stage-4-数据筛选"><a href="#Stage-4-数据筛选" class="headerlink" title="Stage 4: 数据筛选"></a>Stage 4: 数据筛选</h3><ul>
+<li><strong>功能</strong>：移除不符合长度要求的音频数据</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算最小和最大长度（样本数）</span></span><br><span class="line">_fs=$(python3 -c <span class="string">&quot;import humanfriendly as h;print(h.parse_size(&#x27;<span class="variable">$&#123;fs&#125;</span>&#x27;))&quot;</span>)</span><br><span class="line">_min_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;min_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line">_max_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;max_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据长度筛选数据</span></span><br><span class="line">&lt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/org/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span> \</span><br><span class="line">    awk -v min_length=<span class="string">&quot;<span class="variable">$&#123;_min_length&#125;</span>&quot;</span> -v max_length=<span class="string">&quot;<span class="variable">$&#123;_max_length&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="string">&#x27;&#123; if ($2 &gt; min_length &amp;&amp; $2 &lt; max_length ) print $0; &#125;&#x27;</span> \</span><br><span class="line">    &gt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>处理步骤</strong>：<ol>
+<li>将时间长度转换为样本数</li>
+<li>根据样本数筛选音频</li>
+<li>更新相关的scp文件</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stage-5-统计收集"><a href="#Stage-5-统计收集" class="headerlink" title="Stage 5: 统计收集"></a>Stage 5: 统计收集</h3><ul>
+<li><strong>功能</strong>：收集训练所需的统计信息</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    --collect_stats <span class="literal">true</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    --train_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/train.JOB.scp&quot;</span> \</span><br><span class="line">    --valid_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/valid.JOB.scp&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/stats.JOB&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>处理步骤</strong>：<ol>
+<li>收集训练和验证数据的统计信息</li>
+<li>生成shape文件</li>
+<li>聚合统计信息</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stage-6-模型训练"><a href="#Stage-6-模型训练" class="headerlink" title="Stage 6: 模型训练"></a>Stage 6: 模型训练</h3><ul>
+<li><strong>功能</strong>：执行增强模型的训练</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_fold_length_param&#125;</span> \</span><br><span class="line">    --resume <span class="literal">true</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;init_param:+--init_param $init_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_opts&#125;</span> <span class="variable">$&#123;enh_args&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>处理步骤</strong>：<ol>
+<li>设置训练数据和验证数据</li>
+<li>配置训练参数</li>
+<li>支持断点续训</li>
+<li>可选预训练模型初始化</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stage-7-推理处理"><a href="#Stage-7-推理处理" class="headerlink" title="Stage 7: 推理处理"></a>Stage 7: 推理处理</h3><ul>
+<li><strong>功能</strong>：使用训练好的模型进行音频增强</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;infer_module&#125;</span> \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;_data_param&#125;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --train_config <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --model_file <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>处理步骤</strong>：<ol>
+<li>加载训练好的模型</li>
+<li>对测试集进行推理</li>
+<li>生成增强后的音频</li>
+<li>支持GPU推理</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stage-8-评分"><a href="#Stage-8-评分" class="headerlink" title="Stage 8: 评分"></a>Stage 8: 评分</h3><ul>
+<li><strong>功能</strong>：评估增强效果</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.enh_scoring \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB \</span><br><span class="line">    <span class="variable">$&#123;_ref_scp&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_inf_scp&#125;</span> \</span><br><span class="line">    --ref_channel <span class="variable">$&#123;ref_channel&#125;</span> \</span><br><span class="line">    --flexible_numspk <span class="variable">$&#123;flexible_numspk&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>评估指标</strong>：<ul>
+<li>STOI: 语音可懂度</li>
+<li>SDR: 信号失真比</li>
+<li>SAR: 伪影比</li>
+<li>SIR: 干扰比</li>
+<li>SI_SNR: 尺度不变信噪比</li>
+</ul>
+</li>
+</ul>
+<h3 id="Stage-9-10-ASR评估"><a href="#Stage-9-10-ASR评估" class="headerlink" title="Stage 9-10: ASR评估"></a>Stage 9-10: ASR评估</h3><ul>
+<li><strong>功能</strong>：使用ASR模型评估增强效果</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.asr_inference \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --data_path_and_name_and_type <span class="string">&quot;<span class="variable">$&#123;_ddir&#125;</span>/wav.scp,speech,<span class="variable">$&#123;_type&#125;</span>&quot;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --asr_train_config <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --asr_model_file <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_asr_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>处理步骤</strong>：<ol>
+<li>使用ASR模型解码增强后的音频</li>
+<li>计算字错误率(CER)或词错误率(WER)</li>
+<li>生成评估报告</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stage-11-模型打包"><a href="#Stage-11-模型打包" class="headerlink" title="Stage 11: 模型打包"></a>Stage 11: 模型打包</h3><ul>
+<li><strong>功能</strong>：将训练好的模型打包</li>
+<li><strong>处理</strong>：<ul>
+<li>打包模型文件</li>
+<li>打包配置信息</li>
+<li>生成发布包</li>
+</ul>
+</li>
+</ul>
+<h3 id="Stage-12-上传模型"><a href="#Stage-12-上传模型" class="headerlink" title="Stage 12: 上传模型"></a>Stage 12: 上传模型</h3><ul>
+<li><strong>功能</strong>：将模型上传到HuggingFace</li>
+<li><strong>条件</strong>：当skip_upload_hf&#x3D;false时执行</li>
+<li><strong>处理</strong>：<ul>
+<li>准备上传文件</li>
+<li>配置HuggingFace仓库</li>
+<li>上传模型</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>enh1.sh是一个完整的语音增强处理流程脚本，包含了从数据准备到模型训练、评估的全过程。通过合理配置参数，可以灵活控制处理流程的各个环节。使用时需要特别注意：</p>
+<ol>
+<li>必须提供训练集、验证集和测试集的名称</li>
+<li>根据需求合理设置GPU数量和并行作业数</li>
+<li>可以通过stage和stop_stage控制执行流程</li>
+<li>评估阶段提供了多种评估方式，包括客观指标和ASR评估</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>语音增强</tag>
+        <tag>技术分析</tag>
+        <tag>AI辅助</tag>
+        <tag>espnet</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2025/02/14/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -37,7 +244,8 @@
 </ul>
 </li>
 </ol>
-<p>当然这个寒假也不是什么都没有干，通过寒假前半段时间的完全放松，我彻底放下了一些感情上的羁绊，也逐渐思考发掘人生方向，将自己从低欲望的状态中解救出来，对心理学产生兴趣，重新发现存在主义的奥妙等等。后半段时间，每天被各种琐碎的事务占据，但也进行了一些不算完整的规划与自考。总体而言，从心理上在逐渐改进自己的认知。</p>
+<p>理想很丰满，现实很……</p>
+<p>当然这个寒假也不是什么都没有干，通过寒假前半段时间的完全放松，我彻底放下了一些感情上的羁绊，也逐渐思考发掘人生方向，将自己从低欲望的状态中解救出来，对心理学产生兴趣，重新发现存在主义的奥妙等等。后半段时间，每天被各种琐碎的事务占据，但也进行了一些不算完整的规划与思考。总体而言，从心理上在逐渐改进自己的认知。</p>
 <h2 id="TimeLine"><a href="#TimeLine" class="headerlink" title="TimeLine"></a>TimeLine</h2><table>
 <thead>
 <tr>
@@ -80,7 +288,7 @@
 </tbody></table>
 <p>除此之外</p>
 <ul>
-<li>更换新电脑<code>ThinkBook 14 G6+</code><ul>
+<li>更换新电脑<code>ThinkBook 14 G6+__</code><ul>
 <li>处理器：Intel(R) Core(TM) Ultra 9 185H   2.30 GHz</li>
 <li>机带 RAM：32.0 GB (31.6 GB 可用)</li>
 <li>硬盘 1T</li>
@@ -88,7 +296,7 @@
 <li>最重要的是只有1.5kg啊！！！<br>注：当时换电脑为wsl的转移折腾了两三天，碰到了各种奇奇怪怪的问题，之后打算写一篇帖子记录下。</li>
 </ul>
 </li>
-<li>换了新书包 <code>LEVEL8 MOMENT</code>  <ul>
+<li>换了新书包 <code>__LEVEL8 MOMENT__</code>  <ul>
 <li>颜值超高！分区便捷</li>
 <li>美中不足的是1.35kg略沉，于是包+电脑与之前相比重量几乎没什么变化(doge)</li>
 </ul>
@@ -110,7 +318,7 @@
 <p>一家人进行着时间利用率最低性价比最低的度假（但也有别样的风味，度假嘛是这样的</p>
 <p>体现为，在最后一天double decker时发现每一个知名景点我们都去过至少两遍了，比如武吉免登（在那个麦当劳路口来回过至少五遍）</p>
 <p>Langkawi人蛮少的，珍南沙滩也很舒服，但是海水实在是不怎么清澈，浮潜潜了个寂寞，不过奶油大虾特别好吃！强推卓峰海鲜餐厅的奶油老虎虾（我们去吃了两次）</p>
-<p>专门为本次独家购入一台<code>DJI FLIP</code>,飞行重任自然落到我头上了，只能说想好好运镜尝试拍大片，但是技术不允许()</p>
+<p>专门为本次独家购入一台<code>__DJI FLIP__</code>,飞行重任自然落到我头上了，只能说想好好运镜尝试拍大片，但是技术不允许()</p>
 <h3 id="春节档电影"><a href="#春节档电影" class="headerlink" title="春节档电影"></a>春节档电影</h3><h4 id="哪吒2"><a href="#哪吒2" class="headerlink" title="哪吒2"></a>哪吒2</h4><p>票房爆了，我也不想过多讨论，只是我个人感觉立意不比第一部，或者说我更喜欢第一部，但视效没得说。</p>
 <h4 id="唐探1900"><a href="#唐探1900" class="headerlink" title="唐探1900"></a>唐探1900</h4><p>很多人觉得爱国色彩植入太生硬，但我觉得刚刚好，何尝不是一种政治导向呢(doge)</p>
 <h3 id="驾考"><a href="#驾考" class="headerlink" title="驾考"></a>驾考</h3><p>我是速通派，去年寒假一晚上速通科一，结果去年十月考C1科目二上坡起步挂了，想着回来也没多少时间练车索性转了C2</p>
