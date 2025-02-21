@@ -8,8 +8,14 @@
 <h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
 <h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
 <ul>
-<li>Built-in commands: The interpreter contains the code to execute the command. 直接执行 eg. <code>cd</code></li>
-<li>System program commands: The command is a program name. 查找系统文件执行 eg. <code>ls</code></li>
+<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
+<li>直接执行 eg. <code>cd</code></li>
+</ul>
+</li>
+<li>System program commands: The command is a program name. <ul>
+<li>查找系统文件执行 eg. <code>ls</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
 <li>User</li>
@@ -404,37 +410,6 @@
       </tags>
   </entry>
   <entry>
-    <title>日记</title>
-    <url>/2025/02/21/%E6%97%A5%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>信息收集帖(持续更新)</title>
-    <url>/2025/02/21/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="adaa8b499617656e374425c8c078162263f19d5d9eefdb9ff672823e635645ef">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d232538f4f9631733ff815c960ea42fe51a4be6cd894dc44daa4d2efc5c7c8ebce38d035721acad425a8938b6e40e525bead63f2947b8823f36fc797ad92e616e80e5111df13afb34d7c02ccb904879ab7bec7f7582743ced535750798bb4856a3b19668bb033209d50d65994ffdd1cf2afb3300cb2e4d4bf6ff4b074ad9b9c8ad24a9d18c2d76b0c3ec1b6ea30553b6e9daa1cbd2dcbd5f37ae70e58758276bd6c6be70e8c3b38e2704c139a8b568dc238bde373c58b2553fe8bf2c7d8f1646a3aacf40b2ac73e2a1a63ad5efab146aba636b7f87b51cffbfc6ec240d8585bf6b8b57027cae5d897421c458af344a01db399e049901f0c5e711a26d3cb7587ff13a1290cffa591f977e2f9551efcfc77d8a3ec06d028adecffca2138366dff2c3cccf02debb96f2c5a7d8c72fe61c00cbe963f24e7a0e385f75e5407c7716acf3d40ead88b4629f5e365f71b229e66f6003c610467a2ebb88655e464a7cc2c265518725e93c0651c16bb9a9eda59e361a7a5c9cc427aec1a07458d8809ab139c3748560f7849763a18952477185c504a79d3ec6d2689f9e576b3508d0d9e25e37101466c50e3601ca0f361e86c33452af340348206be809ca52b3587adfb95fd8d7eb2d04eae802ff9fe98b7154887a70c64175f756f7671766e19c61244f50e9303f0167b18b2794c9c9ac8f3ec573c3a862e4c52184f467f991dbaaeed0a280a215a43778f7658d184ecd0dbbb8e91752d8efb8b20614b282c416915986f1ae7aeb402aa5ca599cc9dd2d0eaec39bccc3c5e71e826430736237013aba50457f395bd1c152fcdda79ed73125ccc8179ea27f61ed45f24e59ace7191770ee01f21445eb4c69e1d5cd14aa4b33fff66a045de23d3e1d8018d38b42153e2d47df5c3ea7356f5de153f06f8fecd646898ad55d5a1044453c1c3e1baf6320bcb98a88b0e8d698c7d23aa7381ec1d20158f249ed1e4ef57121d3791ea579a44398a3810e8df668afb702f786663394e7b0ec62363e035206928e358a2a26bdc14a5081f3009ffaa8d7a20930c35125d2b4fce0031b974ec7fa361cd18cf9684c4767fbf5fc3766be60258724ba64790bfac578a81ef50c7a7e19fbf3949021c8bb38a96b41782c206ee8b8ce1bbebdfd10e6789134931cfae50695f62bbecfa5c75f8025750405f12a8ddc8c5c509627b4cc960fa729bef81b2f5c36602f3fed8c1e0a566195a69b8691fc58a7c1e5cf68f69a4842a932712cf484f9c045d93c35d3fcf9ef2b6ae7ff0dfcaf0c55c4bf494b3e1c1064e0771638faeb2ee33ed909bc6736119c75ab3d28566feaa73871e2f16f4535f51a8897178292472db44e62e68f6cf6d112dbedad42455d7e694846867936cc70c540f3b0b93de172faf58f323fa173c53a0d2fdf32986e4d881fc5c2d2e0879bdaa4255605734c1374b77987a038f4775ecf32534e0b9538cc079468a7f07b507b218a148daaf06d05057cb3cd3ec1590d50cb40598d2eae7a842cf814593ac9707789ed65e0919df942f9c4f678015ec7bf74b31499258a2fc132d7a181ee290820ff09b744ef77184a7a3e0a85565aa65ab68a1bf61e6f80d895f9f2dadc812b66595a712df5d484c63296ebd1ca51dd8f4ca458f35c727bf1935b460975d4aa9bc5e3913f9cb846387c3ac3adbf5ab854b0d739e6b64093b620f1df00664fb08e93ad80a93e78a684e211cbe10fb5e5d9c31617dad2858415beb0e10be49dbbea35adeba7f2e0ece93f3a9a3d0c1a89d2dab6e5304fe3792847f965d937c197f09b6c086dd4b266cfe304b217195634131e886cac9492e6f21c14cc4041030574459ebe5381761712bb95a64ff364af997e73877432e009b0c9b041cbb8ad0ee6a950b5d3b603b2a69398a1f89a58f2308047d63e0dabb48dcdd3f9ee9d576b2511e8769804ebd2f7b25fa3d</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>学业规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>大二寒假小记</title>
     <url>/2025/02/16/%E5%A4%A7%E4%BA%8C%E5%AF%92%E5%81%87%E5%B0%8F%E8%AE%B0/</url>
     <content><![CDATA[<p>今天是寒假最后一天了，在此写下自己的第一篇博客，尽管寒假没怎么学习，但希望这篇小记作为新学期一个良好的开始！<br><span id="more"></span></p>
@@ -561,5 +536,36 @@
         <tag>旅行</tag>
         <tag>生活感悟</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>信息收集帖(持续更新)</title>
+    <url>/2025/02/21/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="adaa8b499617656e374425c8c078162263f19d5d9eefdb9ff672823e635645ef">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d232538f4f9631733ff815c960ea42fe51a4be6cd894dc44daa4d2efc5c7c8ebce38d035721acad425a8938b6e40e525bead63f2947b8823f36fc797ad92e616e80e5111df13afb34d7c02ccb904879ab7bec7f7582743ced535750798bb4856a3b19668bb033209d50d65994ffdd1cf2afb3300cb2e4d4bf6ff4b074ad9b9c8ad24a9d18c2d76b0c3ec1b6ea30553b6e9daa1cbd2dcbd5f37ae70e58758276bd6c6be70e8c3b38e2704c139a8b568dc238bde373c58b2553fe8bf2c7d8f1646a3aacf40b2ac73e2a1a63ad5efab146aba636b7f87b51cffbfc6ec240d8585bf6b8b57027cae5d897421c458af344a01db399e049901f0c5e711a26d3cb7587ff13a1290cffa591f977e2f9551efcfc77d8a3ec06d028adecffca2138366dff2c3cccf02debb96f2c5a7d8c72fe61c00cbe963f24e7a0e385f75e5407c7716acf3d40ead88b4629f5e365f71b229e66f6003c610467a2ebb88655e464a7cc2c265518725e93c0651c16bb9a9eda59e361a7a5c9cc427aec1a07458d8809ab139c3748560f7849763a18952477185c504a79d3ec6d2689f9e576b3508d0d9e25e37101466c50e3601ca0f361e86c33452af340348206be809ca52b3587adfb95fd8d7eb2d04eae802ff9fe98b7154887a70c64175f756f7671766e19c61244f50e9303f0167b18b2794c9c9ac8f3ec573c3a862e4c52184f467f991dbaaeed0a280a215a43778f7658d184ecd0dbbb8e91752d8efb8b20614b282c416915986f1ae7aeb402aa5ca599cc9dd2d0eaec39bccc3c5e71e826430736237013aba50457f395bd1c152fcdda79ed73125ccc8179ea27f61ed45f24e59ace7191770ee01f21445eb4c69e1d5cd14aa4b33fff66a045de23d3e1d8018d38b42153e2d47df5c3ea7356f5de153f06f8fecd646898ad55d5a1044453c1c3e1baf6320bcb98a88b0e8d698c7d23aa7381ec1d20158f249ed1e4ef57121d3791ea579a44398a3810e8df668afb702f786663394e7b0ec62363e035206928e358a2a26bdc14a5081f3009ffaa8d7a20930c35125d2b4fce0031b974ec7fa361cd18cf9684c4767fbf5fc3766be60258724ba64790bfac578a81ef50c7a7e19fbf3949021c8bb38a96b41782c206ee8b8ce1bbebdfd10e6789134931cfae50695f62bbecfa5c75f8025750405f12a8ddc8c5c509627b4cc960fa729bef81b2f5c36602f3fed8c1e0a566195a69b8691fc58a7c1e5cf68f69a4842a932712cf484f9c045d93c35d3fcf9ef2b6ae7ff0dfcaf0c55c4bf494b3e1c1064e0771638faeb2ee33ed909bc6736119c75ab3d28566feaa73871e2f16f4535f51a8897178292472db44e62e68f6cf6d112dbedad42455d7e694846867936cc70c540f3b0b93de172faf58f323fa173c53a0d2fdf32986e4d881fc5c2d2e0879bdaa4255605734c1374b77987a038f4775ecf32534e0b9538cc079468a7f07b507b218a148daaf06d05057cb3cd3ec1590d50cb40598d2eae7a842cf814593ac9707789ed65e0919df942f9c4f678015ec7bf74b31499258a2fc132d7a181ee290820ff09b744ef77184a7a3e0a85565aa65ab68a1bf61e6f80d895f9f2dadc812b66595a712df5d484c63296ebd1ca51dd8f4ca458f35c727bf1935b460975d4aa9bc5e3913f9cb846387c3ac3adbf5ab854b0d739e6b64093b620f1df00664fb08e93ad80a93e78a684e211cbe10fb5e5d9c31617dad2858415beb0e10be49dbbea35adeba7f2e0ece93f3a9a3d0c1a89d2dab6e5304fe3792847f965d937c197f09b6c086dd4b266cfe304b217195634131e886cac9492e6f21c14cc4041030574459ebe5381761712bb95a64ff364af997e73877432e009b0c9b041cbb8ad0ee6a950b5d3b603b2a69398a1f89a58f2308047d63e0dabb48dcdd3f9ee9d576b2511e8769804ebd2f7b25fa3d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>学业规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日记</title>
+    <url>/2025/02/21/%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
