@@ -6,6 +6,8 @@
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>This is the common recipe for ESPnet2 speech enhancement frontend.</strong><br><strong>这是 ESPnet2 语音增强前端的通用配方。</strong></p>
 <p>本文为笔者学习espnet语音处理包语音增强部分的学习笔记，初稿为<strong>claude-3.5-sonnet</strong>辅助生成，后续会不断在此基础上更新，加入自己的理解。</p>
 <span id="more"></span>
+
+
 <p>以下为espnet工具包相关的网址</p>
 <p><a href="https://github.com/espnet/espnet">ESPnet</a></p>
 <p><a href="https://espnet.github.io/espnet/installation.html">espnet installation</a></p>
@@ -20,55 +22,80 @@
 <p>以经典数据集<code>wsj0_2mix</code>为例，<a href="https://github.com/espnet/espnet/blob/master/egs2/wsj0_2mix">wsj0_2mix</a>,在<code>conf</code>目录的<code>tuning</code>子目录中选择配置，我选择的是<code>train_enh_rnn_tf.yaml</code>,该配置用于训练一个基于 RNN 的语音分离模型，其中<strong>tf</strong>后缀在这个配置文件名中代表 <strong>Time-Frequency domain（时频域）</strong></p>
 <p>接着运行<code>run.sh</code>,比如：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 1 --stop_stage 6 --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure>
-<p>以下是run.sh的具体内容（因为很短就贴出来）<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="comment"># Set bash to &#x27;debug&#x27; mode, it will exit on :</span></span><br><span class="line"><span class="comment"># -e &#x27;error&#x27;, -u &#x27;undefined variable&#x27;, -o ... &#x27;error in pipeline&#x27;, -x &#x27;print commands&#x27;,</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br><span class="line"></span><br><span class="line">min_or_max=min <span class="comment"># &quot;min&quot; or &quot;max&quot;. This is to determine how the mixtures are generated in local/data.sh.</span></span><br><span class="line">sample_rate=8k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">train_set=<span class="string">&quot;tr_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span></span><br><span class="line">valid_set=<span class="string">&quot;cv_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span></span><br><span class="line">test_sets=<span class="string">&quot;tt_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span> &quot;</span></span><br><span class="line"></span><br><span class="line">./enh.sh \</span><br><span class="line">    --train_set <span class="string">&quot;<span class="variable">$&#123;train_set&#125;</span>&quot;</span> \</span><br><span class="line">    --valid_set <span class="string">&quot;<span class="variable">$&#123;valid_set&#125;</span>&quot;</span> \</span><br><span class="line">    --test_sets <span class="string">&quot;<span class="variable">$&#123;test_sets&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span> \</span><br><span class="line">    --lang en \</span><br><span class="line">    --ngpu 1 \</span><br><span class="line">    --local_data_opts <span class="string">&quot;--sample_rate <span class="variable">$&#123;sample_rate&#125;</span> --min_or_max <span class="variable">$&#123;min_or_max&#125;</span>&quot;</span> \</span><br><span class="line">    --enh_config conf/tuning/train_enh_dprnn_tasnet.yaml \</span><br><span class="line">    <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure></p>
+
+<p>以下是run.sh的具体内容（因为很短就贴出来）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="comment"># Set bash to &#x27;debug&#x27; mode, it will exit on :</span></span><br><span class="line"><span class="comment"># -e &#x27;error&#x27;, -u &#x27;undefined variable&#x27;, -o ... &#x27;error in pipeline&#x27;, -x &#x27;print commands&#x27;,</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br><span class="line"></span><br><span class="line">min_or_max=min <span class="comment"># &quot;min&quot; or &quot;max&quot;. This is to determine how the mixtures are generated in local/data.sh.</span></span><br><span class="line">sample_rate=8k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">train_set=<span class="string">&quot;tr_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span></span><br><span class="line">valid_set=<span class="string">&quot;cv_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span></span><br><span class="line">test_sets=<span class="string">&quot;tt_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span> &quot;</span></span><br><span class="line"></span><br><span class="line">./enh.sh \</span><br><span class="line">    --train_set <span class="string">&quot;<span class="variable">$&#123;train_set&#125;</span>&quot;</span> \</span><br><span class="line">    --valid_set <span class="string">&quot;<span class="variable">$&#123;valid_set&#125;</span>&quot;</span> \</span><br><span class="line">    --test_sets <span class="string">&quot;<span class="variable">$&#123;test_sets&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span> \</span><br><span class="line">    --lang en \</span><br><span class="line">    --ngpu 1 \</span><br><span class="line">    --local_data_opts <span class="string">&quot;--sample_rate <span class="variable">$&#123;sample_rate&#125;</span> --min_or_max <span class="variable">$&#123;min_or_max&#125;</span>&quot;</span> \</span><br><span class="line">    --enh_config conf/tuning/train_enh_dprnn_tasnet.yaml \</span><br><span class="line">    <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>注意到，调用的<code>enh.sh</code>,实际上就是TEMPLATE中的enh.sh(下文会具体分析)</p>
-<p>1) 训练过程监控:</p>
+<ol>
+<li>训练过程监控:</li>
+</ol>
 <ul>
 <li>查看日志: <code>tail -f exp/enh_train_*/train.log</code></li>
 <li>查看关键指标：<code>grep &quot;loss:&quot; exp/enh_train_*/train.log</code></li>
 </ul>
-<p>2) 评估模型<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 7 --stop_stage 8 \</span><br><span class="line">    --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>评估模型</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 7 --stop_stage 8 \</span><br><span class="line">    --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure>
+
 <p>查看评估结果:</p>
 <ul>
 <li>结果保存在 <code>exp/enh_train_*/RESULTS.txt</code></li>
 <li>包含SI-SNR、SDR等指标</li>
 </ul>
-<p>3) 使用模型</p>
-<p>对单个音频进行增强:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m espnet2.bin.enh_inference \</span><br><span class="line">    --audio_file /path/to/mixed.wav \</span><br><span class="line">    --config exp/enh_train_*/config.yaml \</span><br><span class="line">    --model_file exp/enh_train_*/valid.acc.best.pth \</span><br><span class="line">    --output_dir ./enhanced</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>使用模型</li>
+</ol>
+<p>对单个音频进行增强:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m espnet2.bin.enh_inference \</span><br><span class="line">    --audio_file /path/to/mixed.wav \</span><br><span class="line">    --config exp/enh_train_*/config.yaml \</span><br><span class="line">    --model_file exp/enh_train_*/valid.acc.best.pth \</span><br><span class="line">    --output_dir ./enhanced</span><br></pre></td></tr></table></figure>
+
 <p>获取增强后的音频:</p>
 <ul>
 <li>增强结果保存在 <code>./enhanced</code> 目录</li>
 <li>每个说话人的分离结果单独保存</li>
 </ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1) 训练中断后继续:</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li>训练中断后继续:</li>
+</ol>
 <ul>
 <li>直接运行相同的命令即可</li>
 <li>ESPnet会自动加载最新的检查点</li>
 </ul>
-<p>2) 常见问题:</p>
+<ol start="2">
+<li>常见问题:</li>
+</ol>
 <ul>
 <li>内存不足: 减小 batch_size</li>
 <li>显存不足: 减小 batch_size 或使用梯度累积</li>
 <li>训练不收敛: 调整学习率或检查数据预处理</li>
 </ul>
-<p>3) 建议:</p>
+<ol start="3">
+<li>建议:</li>
+</ol>
 <ul>
 <li>先用小数据集测试流程</li>
 <li>保存好配置文件和日志</li>
 <li>定期备份实验结果</li>
 </ul>
 <h2 id="配置文件分析"><a href="#配置文件分析" class="headerlink" title="配置文件分析"></a>配置文件分析</h2><h3 id="基础训练参数"><a href="#基础训练参数" class="headerlink" title="基础训练参数"></a>基础训练参数</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">optim:</span> <span class="string">adam</span>  <span class="comment"># 优化器选择：adam优化器</span></span><br><span class="line"><span class="attr">init:</span> <span class="string">xavier_uniform</span>  <span class="comment"># 参数初始化方式：xavier均匀分布初始化</span></span><br><span class="line"><span class="attr">max_epoch:</span> <span class="number">100</span>  <span class="comment"># 最大训练轮数</span></span><br><span class="line"><span class="attr">batch_type:</span> <span class="string">folded</span>  <span class="comment"># 批次类型：folded表示按序列长度折叠</span></span><br><span class="line"><span class="attr">batch_size:</span> <span class="number">8</span>  <span class="comment"># 每批次样本数</span></span><br><span class="line"><span class="attr">num_workers:</span> <span class="number">4</span>  <span class="comment"># 数据加载器的并行工作进程数</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="优化器配置"><a href="#优化器配置" class="headerlink" title="优化器配置"></a>优化器配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">optim_conf:</span></span><br><span class="line">    <span class="attr">lr:</span> <span class="number">1.0e-03</span>          <span class="comment"># 初始学习率</span></span><br><span class="line">    <span class="attr">eps:</span> <span class="number">1.0e-08</span>         <span class="comment"># 数值稳定性参数</span></span><br><span class="line">    <span class="attr">weight_decay:</span> <span class="number">1.0e-7</span> <span class="comment"># L2正则化系数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 早停耐心值：验证集性能多少轮未改善就停止</span></span><br><span class="line"><span class="attr">patience:</span> <span class="number">10</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证集调度器判断标准</span></span><br><span class="line"><span class="attr">val_scheduler_criterion:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">loss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最佳模型保存标准</span></span><br><span class="line"><span class="attr">best_model_criterion:</span></span><br><span class="line"><span class="bullet">-</span>   <span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">si_snr</span>    <span class="comment"># 尺度不变信噪比</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">max</span>       <span class="comment"># 最大化</span></span><br><span class="line"><span class="bullet">-</span>   <span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">loss</span>      <span class="comment"># 损失值</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">min</span>       <span class="comment"># 最小化</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存最好的模型数量</span></span><br><span class="line"><span class="attr">keep_nbest_models:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 学习率调度器：当验证集性能不再提升时降低学习率</span></span><br><span class="line"><span class="attr">scheduler:</span> <span class="string">reducelronplateau</span></span><br><span class="line"><span class="attr">scheduler_conf:</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">min</span>            <span class="comment"># 监控模式：最小化</span></span><br><span class="line">    <span class="attr">factor:</span> <span class="number">0.7</span>         <span class="comment"># 学习率降低因子</span></span><br><span class="line">    <span class="attr">patience:</span> <span class="number">1</span>         <span class="comment"># 调度器耐心值</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="损失函数配置"><a href="#损失函数配置" class="headerlink" title="损失函数配置"></a>损失函数配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># A list for criterions</span></span><br><span class="line"><span class="comment"># The overlall loss in the multi-task learning will be:</span></span><br><span class="line"><span class="comment"># loss = weight_1 * loss_1 + ... + weight_N * loss_N</span></span><br><span class="line"><span class="comment"># The default `weight` for each sub-loss is 1.0</span></span><br><span class="line"><span class="attr">criterions:</span></span><br><span class="line">  <span class="comment"># 第一个损失函数：均方误差(MSE)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">mse</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">compute_on_mask:</span> <span class="literal">True</span>   <span class="comment"># 在掩码上计算</span></span><br><span class="line">      <span class="attr">mask_type:</span> <span class="string">PSM</span>         <span class="comment"># 相位敏感掩码</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span>             <span class="comment"># 用PIT（排列不变训练）包装</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">1.0</span>           <span class="comment"># 损失权重</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 第二个损失函数：L1损失</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">l1</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">compute_on_mask:</span> <span class="literal">False</span> <span class="comment"># 在波形上计算</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">1.0</span></span><br><span class="line">      <span class="attr">independent_perm:</span> <span class="literal">False</span> <span class="comment"># 使用前一个criterion的排列顺序</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 第三个损失函数：SI-SNR损失</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">si_snr</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">eps:</span> <span class="number">1.0e-7</span>           <span class="comment"># 数值稳定性参数</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">5.0</span>           <span class="comment"># 较大权重表示更重视此损失</span></span><br><span class="line">      <span class="attr">independent_perm:</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="模型架构配置"><a href="#模型架构配置" class="headerlink" title="模型架构配置"></a>模型架构配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">encoder:</span> <span class="string">stft</span> <span class="comment"># STFT编码器配置</span></span><br><span class="line"><span class="attr">encoder_conf:</span></span><br><span class="line">    <span class="attr">n_fft:</span> <span class="number">256</span>            <span class="comment"># FFT点数</span></span><br><span class="line">    <span class="attr">hop_length:</span> <span class="number">128</span>       <span class="comment"># 帧移</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># STFT解码器配置</span></span><br><span class="line"><span class="attr">decoder:</span> <span class="string">stft</span></span><br><span class="line"><span class="attr">decoder_conf:</span></span><br><span class="line">    <span class="attr">n_fft:</span> <span class="number">256</span></span><br><span class="line">    <span class="attr">hop_length:</span> <span class="number">128</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分离器配置：RNN架构</span></span><br><span class="line"><span class="attr">separator:</span> <span class="string">rnn</span></span><br><span class="line"><span class="attr">separator_conf:</span></span><br><span class="line">    <span class="attr">rnn_type:</span> <span class="string">blstm</span>       <span class="comment"># 双向LSTM</span></span><br><span class="line">    <span class="attr">num_spk:</span> <span class="number">2</span>           <span class="comment"># 说话人数量</span></span><br><span class="line">    <span class="attr">nonlinear:</span> <span class="string">relu</span>      <span class="comment"># 激活函数</span></span><br><span class="line">    <span class="attr">layer:</span> <span class="number">3</span>             <span class="comment"># RNN层数</span></span><br><span class="line">    <span class="attr">unit:</span> <span class="number">896</span>           <span class="comment"># 隐层单元数</span></span><br><span class="line">    <span class="attr">dropout:</span> <span class="number">0.5</span>        <span class="comment"># Dropout比率</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="enh-sh-的分析"><a href="#enh-sh-的分析" class="headerlink" title="enh.sh 的分析"></a>enh.sh 的分析</h2><h3 id="Stage-1前的配置介绍"><a href="#Stage-1前的配置介绍" class="headerlink" title="Stage 1前的配置介绍"></a>Stage 1前的配置介绍</h3><h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><ol>
-<li><p><strong>bash调试模式设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -e        <span class="comment"># 遇到错误就退出</span></span><br><span class="line"><span class="built_in">set</span> -u        <span class="comment"># 使用未定义变量时报错</span></span><br><span class="line"><span class="built_in">set</span> -o pipefail  <span class="comment"># 管道中任一命令失败则整个管道失败</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>辅助函数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 日志函数：打印时间戳和调用位置信息</span></span><br><span class="line"><span class="function"><span class="title">log</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> fname=<span class="variable">$&#123;BASH_SOURCE[1]##*/&#125;</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;<span class="subst">$(date &#x27;+%Y-%m-%dT%H:%M:%S&#x27;)</span> (<span class="variable">$&#123;fname&#125;</span>:<span class="variable">$&#123;BASH_LINENO[0]&#125;</span>:<span class="variable">$&#123;FUNCNAME[1]&#125;</span>) $*&quot;</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment"># 求最小值函数：用于计算并行作业数</span></span><br><span class="line">min() </span><br></pre></td></tr></table></figure>
-</li>
+<li><strong>bash调试模式设置</strong></li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -e        <span class="comment"># 遇到错误就退出</span></span><br><span class="line"><span class="built_in">set</span> -u        <span class="comment"># 使用未定义变量时报错</span></span><br><span class="line"><span class="built_in">set</span> -o pipefail  <span class="comment"># 管道中任一命令失败则整个管道失败</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>辅助函数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 日志函数：打印时间戳和调用位置信息</span></span><br><span class="line"><span class="function"><span class="title">log</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> fname=<span class="variable">$&#123;BASH_SOURCE[1]##*/&#125;</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;<span class="subst">$(date &#x27;+%Y-%m-%dT%H:%M:%S&#x27;)</span> (<span class="variable">$&#123;fname&#125;</span>:<span class="variable">$&#123;BASH_LINENO[0]&#125;</span>:<span class="variable">$&#123;FUNCNAME[1]&#125;</span>) $*&quot;</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment"># 求最小值函数：用于计算并行作业数</span></span><br><span class="line">min() </span><br></pre></td></tr></table></figure>
+
 <p>注：让我比较疑惑的一个点是为什么不把日志重定向输出到一个文件？直接echo的话不会很长吗？</p>
 <h4 id="必填参数"><a href="#必填参数" class="headerlink" title="必填参数"></a>必填参数</h4><ol>
 <li><strong>数据集相关</strong></li>
@@ -79,26 +106,37 @@
 <li><code>--test_sets</code>: 测试集名称列表</li>
 </ul>
 <h4 id="选填参数"><a href="#选填参数" class="headerlink" title="选填参数"></a>选填参数</h4><ol>
-<li><p><strong>基本配置参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">stage=1                <span class="comment"># 处理开始的阶段</span></span><br><span class="line">stop_stage=10000       <span class="comment"># 处理结束的阶段</span></span><br><span class="line">skip_data_prep=<span class="literal">false</span>   <span class="comment"># 是否跳过数据准备阶段</span></span><br><span class="line">skip_train=<span class="literal">false</span>       <span class="comment"># 是否跳过训练阶段  </span></span><br><span class="line">skip_eval=<span class="literal">false</span>        <span class="comment"># 是否跳过推理和评估阶段</span></span><br><span class="line">skip_packing=<span class="literal">true</span>      <span class="comment"># 是否跳过打包阶段</span></span><br><span class="line">skip_upload_hf=<span class="literal">true</span>    <span class="comment"># 是否跳过上传到HuggingFace阶段</span></span><br><span class="line">ngpu=1                 <span class="comment"># GPU数量(0表示使用CPU)</span></span><br><span class="line">num_nodes=1            <span class="comment"># 节点数量</span></span><br><span class="line">nj=32                  <span class="comment"># 并行作业数</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>特征提取相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">feats_type=raw        <span class="comment"># 特征类型(raw或fbank_pitch)</span></span><br><span class="line">audio_format=flac     <span class="comment"># 音频格式:wav,flac等</span></span><br><span class="line">fs=16k                <span class="comment"># 采样率</span></span><br><span class="line">min_wav_duration=0.1  <span class="comment"># 最短音频长度(秒)</span></span><br><span class="line">max_wav_duration=20   <span class="comment"># 最长音频长度(秒)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>增强模型相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enh_exp=             <span class="comment"># 增强实验目录路径</span></span><br><span class="line">enh_tag=             <span class="comment"># 增强模型训练结果目录的后缀</span></span><br><span class="line">enh_config=          <span class="comment"># 增强模型训练配置</span></span><br><span class="line">enh_args=            <span class="comment"># 增强模型训练的额外参数</span></span><br><span class="line">ref_num=2            <span class="comment"># 参考信号数量(等于说话人数量)</span></span><br><span class="line">inf_num=             <span class="comment"># 模型输出的推理结果数量</span></span><br><span class="line">noise_type_num=1     <span class="comment"># 输入音频中的噪声类型数量</span></span><br><span class="line">dereverb_ref_num=1   <span class="comment"># 去混响参考信号数量</span></span><br><span class="line">is_tse_task=<span class="literal">false</span>    <span class="comment"># 是否为目标说话人提取任务</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>训练数据相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use_dereverb_ref=<span class="literal">false</span>   <span class="comment"># 是否使用去混响参考信号</span></span><br><span class="line">use_noise_ref=<span class="literal">false</span>      <span class="comment"># 是否使用噪声参考信号</span></span><br><span class="line">variable_num_refs=<span class="literal">false</span>  <span class="comment"># 是否使用可变数量的参考信号</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>推理和评估相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">inference_args=<span class="string">&quot;--normalize_output_wav true --output_format wav&quot;</span>  <span class="comment"># 推理参数</span></span><br><span class="line">inference_model=valid.loss.ave.pth  <span class="comment"># 推理使用的模型文件</span></span><br><span class="line">scoring_protocol=<span class="string">&quot;STOI SDR SAR SIR SI_SNR&quot;</span>  <span class="comment"># 评分指标</span></span><br></pre></td></tr></table></figure>
-</li>
+<li><strong>基本配置参数</strong></li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">stage=1                <span class="comment"># 处理开始的阶段</span></span><br><span class="line">stop_stage=10000       <span class="comment"># 处理结束的阶段</span></span><br><span class="line">skip_data_prep=<span class="literal">false</span>   <span class="comment"># 是否跳过数据准备阶段</span></span><br><span class="line">skip_train=<span class="literal">false</span>       <span class="comment"># 是否跳过训练阶段  </span></span><br><span class="line">skip_eval=<span class="literal">false</span>        <span class="comment"># 是否跳过推理和评估阶段</span></span><br><span class="line">skip_packing=<span class="literal">true</span>      <span class="comment"># 是否跳过打包阶段</span></span><br><span class="line">skip_upload_hf=<span class="literal">true</span>    <span class="comment"># 是否跳过上传到HuggingFace阶段</span></span><br><span class="line">ngpu=1                 <span class="comment"># GPU数量(0表示使用CPU)</span></span><br><span class="line">num_nodes=1            <span class="comment"># 节点数量</span></span><br><span class="line">nj=32                  <span class="comment"># 并行作业数</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>特征提取相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">feats_type=raw        <span class="comment"># 特征类型(raw或fbank_pitch)</span></span><br><span class="line">audio_format=flac     <span class="comment"># 音频格式:wav,flac等</span></span><br><span class="line">fs=16k                <span class="comment"># 采样率</span></span><br><span class="line">min_wav_duration=0.1  <span class="comment"># 最短音频长度(秒)</span></span><br><span class="line">max_wav_duration=20   <span class="comment"># 最长音频长度(秒)</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>增强模型相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enh_exp=             <span class="comment"># 增强实验目录路径</span></span><br><span class="line">enh_tag=             <span class="comment"># 增强模型训练结果目录的后缀</span></span><br><span class="line">enh_config=          <span class="comment"># 增强模型训练配置</span></span><br><span class="line">enh_args=            <span class="comment"># 增强模型训练的额外参数</span></span><br><span class="line">ref_num=2            <span class="comment"># 参考信号数量(等于说话人数量)</span></span><br><span class="line">inf_num=             <span class="comment"># 模型输出的推理结果数量</span></span><br><span class="line">noise_type_num=1     <span class="comment"># 输入音频中的噪声类型数量</span></span><br><span class="line">dereverb_ref_num=1   <span class="comment"># 去混响参考信号数量</span></span><br><span class="line">is_tse_task=<span class="literal">false</span>    <span class="comment"># 是否为目标说话人提取任务</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>训练数据相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use_dereverb_ref=<span class="literal">false</span>   <span class="comment"># 是否使用去混响参考信号</span></span><br><span class="line">use_noise_ref=<span class="literal">false</span>      <span class="comment"># 是否使用噪声参考信号</span></span><br><span class="line">variable_num_refs=<span class="literal">false</span>  <span class="comment"># 是否使用可变数量的参考信号</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>推理和评估相关参数</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">inference_args=<span class="string">&quot;--normalize_output_wav true --output_format wav&quot;</span>  <span class="comment"># 推理参数</span></span><br><span class="line">inference_model=valid.loss.ave.pth  <span class="comment"># 推理使用的模型文件</span></span><br><span class="line">scoring_protocol=<span class="string">&quot;STOI SDR SAR SIR SI_SNR&quot;</span>  <span class="comment"># 评分指标</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="各Stage功能详细分析"><a href="#各Stage功能详细分析" class="headerlink" title="各Stage功能详细分析"></a>各Stage功能详细分析</h3><h4 id="Stage-1-数据准备"><a href="#Stage-1-数据准备" class="headerlink" title="Stage 1: 数据准备"></a>Stage 1: 数据准备</h4><ul>
 <li><strong>功能</strong>：准备训练、验证和测试数据集</li>
-<li><strong>执行</strong>：调用local/data.sh脚本处理数据</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;stage&#125;</span> -le 1 ] &amp;&amp; [ <span class="variable">$&#123;stop_stage&#125;</span> -ge 1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">log</span> <span class="string">&quot;Stage 1: Data preparation for data/<span class="variable">$&#123;train_set&#125;</span>, data/<span class="variable">$&#123;valid_set&#125;</span>, etc.&quot;</span></span><br><span class="line">    <span class="comment"># [Task dependent] 需要为新语料库创建data.sh</span></span><br><span class="line">    <span class="built_in">local</span>/data.sh <span class="variable">$&#123;local_data_opts&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>执行</strong>：调用local&#x2F;data.sh脚本处理数据</li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;stage&#125;</span> -le 1 ] &amp;&amp; [ <span class="variable">$&#123;stop_stage&#125;</span> -ge 1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">log</span> <span class="string">&quot;Stage 1: Data preparation for data/<span class="variable">$&#123;train_set&#125;</span>, data/<span class="variable">$&#123;valid_set&#125;</span>, etc.&quot;</span></span><br><span class="line">    <span class="comment"># [Task dependent] 需要为新语料库创建data.sh</span></span><br><span class="line">    <span class="built_in">local</span>/data.sh <span class="variable">$&#123;local_data_opts&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>重要说明</strong>：<ul>
 <li>这个阶段是任务相关的，需要根据具体的语料库创建相应的data.sh脚本</li>
 <li>local_data_opts参数可以传递给data.sh进行数据处理的定制</li>
@@ -132,7 +170,10 @@
 </ul>
 <h4 id="Stage-3-音频格式化"><a href="#Stage-3-音频格式化" class="headerlink" title="Stage 3: 音频格式化"></a>Stage 3: 音频格式化</h4><ul>
 <li><strong>功能</strong>：统一处理音频格式</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 格式化wav.scp文件</span></span><br><span class="line">scripts/audio/format_wav_scp.sh --nj <span class="string">&quot;<span class="variable">$&#123;nj&#125;</span>&quot;</span> --cmd <span class="string">&quot;<span class="variable">$&#123;train_cmd&#125;</span>&quot;</span> \</span><br><span class="line">    --out-filename <span class="string">&quot;<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> \</span><br><span class="line">    --audio-format <span class="string">&quot;<span class="variable">$&#123;audio_format&#125;</span>&quot;</span> --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> <span class="variable">$&#123;_opts&#125;</span> \</span><br><span class="line">    <span class="string">&quot;data/<span class="variable">$&#123;dset&#125;</span>/<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> <span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span><span class="variable">$&#123;_suf&#125;</span>/<span class="variable">$&#123;dset&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 格式化wav.scp文件</span></span><br><span class="line">scripts/audio/format_wav_scp.sh --nj <span class="string">&quot;<span class="variable">$&#123;nj&#125;</span>&quot;</span> --cmd <span class="string">&quot;<span class="variable">$&#123;train_cmd&#125;</span>&quot;</span> \</span><br><span class="line">    --out-filename <span class="string">&quot;<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> \</span><br><span class="line">    --audio-format <span class="string">&quot;<span class="variable">$&#123;audio_format&#125;</span>&quot;</span> --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> <span class="variable">$&#123;_opts&#125;</span> \</span><br><span class="line">    <span class="string">&quot;data/<span class="variable">$&#123;dset&#125;</span>/<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> <span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span><span class="variable">$&#123;_suf&#125;</span>/<span class="variable">$&#123;dset&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>处理步骤</strong>：<ol>
 <li>重新创建”wav.scp”文件</li>
 <li>统一音频格式和采样率</li>
@@ -152,7 +193,10 @@
 </ul>
 <h4 id="Stage-4-数据筛选"><a href="#Stage-4-数据筛选" class="headerlink" title="Stage 4: 数据筛选"></a>Stage 4: 数据筛选</h4><ul>
 <li><strong>功能</strong>：移除不符合长度要求的音频数据</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算最小和最大长度（样本数）</span></span><br><span class="line">_fs=$(python3 -c <span class="string">&quot;import humanfriendly as h;print(h.parse_size(&#x27;<span class="variable">$&#123;fs&#125;</span>&#x27;))&quot;</span>)</span><br><span class="line">_min_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;min_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line">_max_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;max_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据长度筛选数据</span></span><br><span class="line">&lt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/org/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span> \</span><br><span class="line">    awk -v min_length=<span class="string">&quot;<span class="variable">$&#123;_min_length&#125;</span>&quot;</span> -v max_length=<span class="string">&quot;<span class="variable">$&#123;_max_length&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="string">&#x27;&#123; if ($2 &gt; min_length &amp;&amp; $2 &lt; max_length ) print $0; &#125;&#x27;</span> \</span><br><span class="line">    &gt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算最小和最大长度（样本数）</span></span><br><span class="line">_fs=$(python3 -c <span class="string">&quot;import humanfriendly as h;print(h.parse_size(&#x27;<span class="variable">$&#123;fs&#125;</span>&#x27;))&quot;</span>)</span><br><span class="line">_min_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;min_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line">_max_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;max_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据长度筛选数据</span></span><br><span class="line">&lt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/org/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span> \</span><br><span class="line">    awk -v min_length=<span class="string">&quot;<span class="variable">$&#123;_min_length&#125;</span>&quot;</span> -v max_length=<span class="string">&quot;<span class="variable">$&#123;_max_length&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="string">&#x27;&#123; if ($2 &gt; min_length &amp;&amp; $2 &lt; max_length ) print $0; &#125;&#x27;</span> \</span><br><span class="line">    &gt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>处理步骤</strong>：<ol>
 <li>将时间长度转换为样本数</li>
 <li>根据样本数筛选音频</li>
@@ -171,7 +215,10 @@
 </ul>
 <h4 id="Stage-5-统计收集"><a href="#Stage-5-统计收集" class="headerlink" title="Stage 5: 统计收集"></a>Stage 5: 统计收集</h4><ul>
 <li><strong>功能</strong>：收集训练所需的统计信息</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    --collect_stats <span class="literal">true</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    --train_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/train.JOB.scp&quot;</span> \</span><br><span class="line">    --valid_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/valid.JOB.scp&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/stats.JOB&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    --collect_stats <span class="literal">true</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    --train_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/train.JOB.scp&quot;</span> \</span><br><span class="line">    --valid_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/valid.JOB.scp&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/stats.JOB&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>处理步骤</strong>：<ol>
 <li>收集训练和验证数据的统计信息</li>
 <li>生成shape文件</li>
@@ -191,7 +238,10 @@
 </ul>
 <h4 id="Stage-6-模型训练"><a href="#Stage-6-模型训练" class="headerlink" title="Stage 6: 模型训练"></a>Stage 6: 模型训练</h4><ul>
 <li><strong>功能</strong>：执行增强模型的训练</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_fold_length_param&#125;</span> \</span><br><span class="line">    --resume <span class="literal">true</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;init_param:+--init_param $init_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_opts&#125;</span> <span class="variable">$&#123;enh_args&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_fold_length_param&#125;</span> \</span><br><span class="line">    --resume <span class="literal">true</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;init_param:+--init_param $init_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_opts&#125;</span> <span class="variable">$&#123;enh_args&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>处理步骤</strong>：<ol>
 <li>设置训练数据和验证数据</li>
 <li>配置训练参数</li>
@@ -212,7 +262,10 @@
 </ul>
 <h4 id="Stage-7-推理处理"><a href="#Stage-7-推理处理" class="headerlink" title="Stage 7: 推理处理"></a>Stage 7: 推理处理</h4><ul>
 <li><strong>功能</strong>：使用训练好的模型进行音频增强</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;infer_module&#125;</span> \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;_data_param&#125;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --train_config <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --model_file <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;infer_module&#125;</span> \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;_data_param&#125;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --train_config <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --model_file <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>处理步骤</strong>：<ol>
 <li>加载训练好的模型</li>
 <li>对测试集进行推理</li>
@@ -232,7 +285,10 @@
 </ul>
 <h4 id="Stage-8-评分"><a href="#Stage-8-评分" class="headerlink" title="Stage 8: 评分"></a>Stage 8: 评分</h4><ul>
 <li><strong>功能</strong>：评估增强效果</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.enh_scoring \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB \</span><br><span class="line">    <span class="variable">$&#123;_ref_scp&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_inf_scp&#125;</span> \</span><br><span class="line">    --ref_channel <span class="variable">$&#123;ref_channel&#125;</span> \</span><br><span class="line">    --flexible_numspk <span class="variable">$&#123;flexible_numspk&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.enh_scoring \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB \</span><br><span class="line">    <span class="variable">$&#123;_ref_scp&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_inf_scp&#125;</span> \</span><br><span class="line">    --ref_channel <span class="variable">$&#123;ref_channel&#125;</span> \</span><br><span class="line">    --flexible_numspk <span class="variable">$&#123;flexible_numspk&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>评估指标</strong>：<ul>
 <li>STOI: 语音可懂度</li>
 <li>SDR: 信号失真比</li>
@@ -253,7 +309,10 @@
 </ul>
 <h4 id="Stage-9-10-ASR评估"><a href="#Stage-9-10-ASR评估" class="headerlink" title="Stage 9-10: ASR评估"></a>Stage 9-10: ASR评估</h4><ul>
 <li><strong>功能</strong>：使用ASR模型评估增强效果</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.asr_inference \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --data_path_and_name_and_type <span class="string">&quot;<span class="variable">$&#123;_ddir&#125;</span>/wav.scp,speech,<span class="variable">$&#123;_type&#125;</span>&quot;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --asr_train_config <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --asr_model_file <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_asr_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure></li>
+<li><strong>关键代码</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.asr_inference \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --data_path_and_name_and_type <span class="string">&quot;<span class="variable">$&#123;_ddir&#125;</span>/wav.scp,speech,<span class="variable">$&#123;_type&#125;</span>&quot;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --asr_train_config <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --asr_model_file <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_asr_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure>
+<ul>
 <li><strong>处理步骤</strong>：<ol>
 <li>使用ASR模型解码增强后的音频</li>
 <li>计算字错误率(CER)或词错误率(WER)</li>
@@ -264,7 +323,7 @@
 <li>在 <code>$&#123;_logdir&#125;/output.JOB</code> 目录下：<ul>
 <li>asr_inference.txt：ASR解码结果</li>
 <li>text：识别的文本结果</li>
-<li>wer.txt/cer.txt：错误率统计</li>
+<li>wer.txt&#x2F;cer.txt：错误率统计</li>
 </ul>
 </li>
 </ul>
@@ -290,7 +349,7 @@
 </ul>
 <h4 id="Stage-12-上传模型"><a href="#Stage-12-上传模型" class="headerlink" title="Stage 12: 上传模型"></a>Stage 12: 上传模型</h4><ul>
 <li><strong>功能</strong>：将模型上传到HuggingFace</li>
-<li><strong>条件</strong>：当skip_upload_hf=false时执行</li>
+<li><strong>条件</strong>：当skip_upload_hf&#x3D;false时执行</li>
 <li><strong>处理</strong>：<ul>
 <li>准备上传文件</li>
 <li>配置HuggingFace仓库</li>
@@ -328,7 +387,9 @@
   <entry>
     <title>大二寒假小记</title>
     <url>/2025/02/16/%E5%A4%A7%E4%BA%8C%E5%AF%92%E5%81%87%E5%B0%8F%E8%AE%B0/</url>
-    <content><![CDATA[<p>今天是寒假最后一天了，在此写下自己的第一篇博客，尽管寒假没怎么学习，但希望这篇小记作为新学期一个良好的开始！<br><span id="more"></span></p>
+    <content><![CDATA[<p>今天是寒假最后一天了，在此写下自己的第一篇博客，尽管寒假没怎么学习，但希望这篇小记作为新学期一个良好的开始！</p>
+<span id="more"></span>
+
 <h2 id="时间跨度"><a href="#时间跨度" class="headerlink" title="时间跨度"></a>时间跨度</h2><ul>
 <li>学校寒假：2025.1.20 —— 2025.2.17</li>
 <li>实际假期：2025.1.17 —— 2025.2.17</li>
@@ -346,16 +407,14 @@
 </ol>
 <p>理想很丰满，现实很……</p>
 <p>当然这个寒假也不是什么都没有干，通过寒假前半段时间的完全放松，我彻底放下了一些感情上的羁绊，也逐渐思考发掘人生方向，将自己从低欲望的状态中解救出来，对心理学产生兴趣，重新发现存在主义的奥妙等等。后半段时间，每天被各种琐碎的事务占据，但也进行了一些不算完整的规划与思考。总体而言，从心理上在逐渐改进自己的认知。</p>
-<h2 id="TimeLine"><a href="#TimeLine" class="headerlink" title="TimeLine"></a>TimeLine</h2><div class="table-container">
-<table>
+<h2 id="TimeLine"><a href="#TimeLine" class="headerlink" title="TimeLine"></a>TimeLine</h2><table>
 <thead>
 <tr>
 <th>日期</th>
 <th>日程</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>1.17</td>
 <td>考完</td>
 </tr>
@@ -387,9 +446,7 @@
 <td>2.16</td>
 <td>南京 -&gt; 上海</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <p>除此之外</p>
 <ul>
 <li>更换新电脑<code>ThinkBook 14 G6+__</code><ul>
@@ -457,7 +514,7 @@
     <title>信息收集帖(持续更新)</title>
     <url>/2025/02/21/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="812209f0a0ec27c9db3c46885c5b3f1190c92d09ffb4247407f9d224d5479428">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d232538f4f9631733ff815c960ea42fe51a4be6cd894dc44daa4d2efc5c7c8ebce38d035721acad425a8938b6e40e525bead63f2947b8823f36fc797ad92e616e80e5111df13afb34d7c02ccb904879ab7bec7f7582743ced535750798bb4856a3b19668bb033209d50d65994ffdd1cf2afb3300cb2e4d4bf6ff4b074ad9b9c8ad24a9d18c2d76b0c3ec1b6ea30553b6e9daa1cbd2dcbd5f37ae70e58758276bd6c6be70e8c3b38e2704c139a8b568dc238bde373c58b2553fe8bf2c7d8f1646a3aacf40b2ac73e2a1a63ad5efab146aba636b7f87b51cffbfc6ec240d8585bf6b8b57027cae5d897421c458af344a01db399e049901f0c5e711a26d3cb7587ff13a1290cffa591f977e2f9551efcfc77d8a3ec06d028adecffca2138366dff2c3cccf02debb96f2c5a7d8c72fe61c00cbe963f24e7a0e385f75e5407c7716acf3d40ead88b4629f5e365f71b229e66f6003c610467a2ebb88655e464a7cc2c265518725e93c0651c16bb9a9eda59e361a7a5c9cc427aec1a07458d8809ab139c3748560f7849763a18952477185c504a79d3ec6d2689f9e576b3508d0d9e25e37101466c50e3601ca0f361e86c33452af340348206be809ca52b3587adfb95fd8d7eb2d04eae802ff9fe98b7154887a70c64175f756f7671766e19c61244f50e9303f0167b18b2794c9c9ac8f3ec573c3a862e4c52184f467f991dbaaeed0a280a215a43778f7658d184ecd0dbbb8e91752d8efb8b20614b282c416915986f1ae7aeb402aa5ca599cc9dd2d0eaec39bccc3c5e71e826430736237013aba50457f395bd1c152fcdda79ed73125ccc8179ea27f61ed45f24e59ace7191770ee01f21445eb4c69e1d5cd14aa4b33fff66a045de23d3e1d8018d38b42153e2d47df5c3ea7356f5de153f06f8fecd646898ad55d5a1044453c1c3e1baf6320bcb98a88b0e8d698c7d23aa7381ec1d20158f249ed1e4ef57121d3791ea579a44398a3810e8df668afb702f786663394e7b0ec62363e035206928e358a2a26bdc14a5081f3009ffaa8d7a20930c35125d2b4fce0031b974ec7fa361cd18cf9684c4767fbf5fc3766be60258724ba64790bfac578a81ef50c7a7e19fbf3949021c8bb38a96b41782c206ee8b8ce1bbebdfd10e6789134931cfae50695f62bbecfa5c75f8024094fd4f8458f790a86fcc194413ee0c825b97dde27b62a4b0d5e8ff04ab082a15f51d10c78034bf92e04d5f3119fade341e21f08f57d2a78fb8bd1e53a30e1672ba8799fbde6ec566f111edb74250d6f4b2ae1564f9ed8120afa0a5c0203bec891807a77789df1a1f41b7f4e1d82ebb1a8834236eec013fba855d3355538d4ba437ec24f7dd8959d33bb2cdb197367e30ffa93e602fc291065bbc08b6b55b97</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="f61d4346b084eea030a721aa32b20b415f9e99c05976f21186015f8c50a0abc3">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d232538f4f9631733ff815c960ea42fe51a4be6cd894dc44daa4d2efc5c7c8ebce38d035721acad425a8938b6e40e525bead63f2947b8823f36fc797ad92e616e80e5111df13afb34d7c02ccb904879ab7bec7f7582743ced535750798bb4856a3b19668bb033209d50d65994ffdd1cf2afb3300cb2e4d4bf6ff4b074ad9b9c8ad24a9d18c2d76b0c3ec1b6ea30553b6e9daa1cbd2dcbd5f37ae70e58758276bd6c6be70e8c3b38e2704c139a8b568dc238bde373c58b2553fe8bf2c7d8f1646a3aacf40b2ac73e2a1a63ad5efab146aba636b7f87b51cffbfc6ec240d8585bf6b8167244f25cb79fbb39fdc235d472de35f53c134fcfdad432f9d84c7a2b71a8d8b9863e99cffcaf05bdb9aac3f197205c5f42a7e96a0033327813be6e150c89c505311cc39fb9df1d87eb549630cc1172d25e2e3f121c61e31c298ad359a7d974af19ca60393741b1671c283c7bc4c451c9e78ee04366c674a010a27a39a002770988aa2e3c44a94d0dc6f290dcffac21b79655c77a8a48ebe345138f135bdeb6df1b548e5de2419c33e88947e7d622fadffe2b22fb6499e8c28e258565dd6c6fb1006e58110e9c513607d5f282670d0e5e7416b8808041ff827b4fd43ce4178089277d3c2ad1aef9d8291310b71bba947c5935f238404ac0368cfca658cd8a153fc097366d59b6a5016b94bc9151ab9392245b7b91c451944280dd083f4d9ace7743dab332add1e77d9a54816eb117673402d3d3f43754f07f780005d56cb6c71df37742d31d2137d7b77feb50a405ed78337243c7e6935d712af4aa8d7becd87658c935f381ace3f4aded5906aea23896d2906818950f45db3b10d3e4fcf87fcad5003a1f2084995908492e4fb4f506b4c5b0ecb3a1341ad00f2418931b1370ea2f507d23ac47c4506310d04e67904bd63849ddfda3f23ebdc0048072f7c619f17055b3d0211aa433dbfb805e5ce2fb27786ad0415d55e72e13592f1b86f93bdb266585a82978e3700bb40ae14a9c47a3dcb0306260837880b71092cf9421543bec4daa8eff20129cd32ffbd694f6aabf3d8dc99875c86eaa5c7872270c8a5b408905b9ce94bbd29fa0df3e278e6d43ac4925f489a25f55f471469ce7df136b54f116c2bc3e45dd9c32c563853d2af715f934631f451a122f1a1f44d7aafc75bd5d79011f08c3426daa58e9427744f7ee03f2a31bda21d22d71e2da20aa034dc527900eebaec581384735b5b33a887516161fb8cf8ebf642e4fe4327008e7d83621c2aaa1c25481b59c451844376ad510d9329af4c04e7e79f4b078bc84fbe36d934c3bc2906eeb8de5149df0140e4cf2b57b29a8e8df28319aff55480d35d32cc5c6c5aa0cb03bbdfacee95b628e8f3de0961e99fa21ded004f956a5cd7851</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
