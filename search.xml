@@ -1,176 +1,328 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>NVIDIA DPU Course</title>
-    <url>/2025/02/22/NVIDIA-DPU-Course/</url>
-    <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
-<h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>NVIDIA BlueField DPU目前主要有以下几代产品:</p>
+    <title>espnet的enh训练任务分析笔记</title>
+    <url>/2025/02/19/espnet%E7%9A%84enh.sh%E7%9A%84%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>This is the common recipe for ESPnet2 speech enhancement frontend.</strong><br><strong>这是 ESPnet2 语音增强前端的通用配方。</strong></p>
+<p>本文为笔者学习espnet语音处理包语音增强部分的学习笔记，初稿为<strong>claude-3.5-sonnet</strong>辅助生成，后续会不断在此基础上更新，加入自己的理解。</p>
+<span id="more"></span>
+<p>以下为espnet工具包相关的网址</p>
+<p><a href="https://github.com/espnet/espnet">ESPnet</a></p>
+<p><a href="https://espnet.github.io/espnet/installation.html">espnet installation</a></p>
+<p><a href="https://github.com/espnet/espnet/blob/master/egs2/TEMPLATE/enh1/enh.sh">enh.sh</a></p>
+<p><a href="https://espnet.github.io/espnet/recipe/enh1.html">enh.sh官方文档</a></p>
+<p>该enh.sh在espnet中的位置：<code>egs2/TEMPLATE/enh1/enh.sh</code> , 13 stages are included.</p>
+<h2 id="训练任务流程"><a href="#训练任务流程" class="headerlink" title="训练任务流程"></a>训练任务流程</h2><ul>
+<li>选择数据集</li>
+<li>选择配置文件(可更改具体参数)</li>
+<li>运行脚本</li>
+</ul>
+<p>以经典数据集<code>wsj0_2mix</code>为例，<a href="https://github.com/espnet/espnet/blob/master/egs2/wsj0_2mix">wsj0_2mix</a>,在<code>conf</code>目录的<code>tuning</code>子目录中选择配置，我选择的是<code>train_enh_rnn_tf.yaml</code>,该配置用于训练一个基于 RNN 的语音分离模型，其中<strong>tf</strong>后缀在这个配置文件名中代表 <strong>Time-Frequency domain（时频域）</strong></p>
+<p>接着运行<code>run.sh</code>,比如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 1 --stop_stage 6 --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure>
+<p>以下是run.sh的具体内容（因为很短就贴出来）<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="comment"># Set bash to 'debug' mode, it will exit on :</span></span><br><span class="line"><span class="comment"># -e 'error', -u 'undefined variable', -o ... 'error in pipeline', -x 'print commands',</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br><span class="line"></span><br><span class="line">min_or_max=min <span class="comment"># "min" or "max". This is to determine how the mixtures are generated in local/data.sh.</span></span><br><span class="line">sample_rate=8k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">train_set=<span class="string">"tr_<span class="variable">${min_or_max}</span>_<span class="variable">${sample_rate}</span>"</span></span><br><span class="line">valid_set=<span class="string">"cv_<span class="variable">${min_or_max}</span>_<span class="variable">${sample_rate}</span>"</span></span><br><span class="line">test_sets=<span class="string">"tt_<span class="variable">${min_or_max}</span>_<span class="variable">${sample_rate}</span> "</span></span><br><span class="line"></span><br><span class="line">./enh.sh \</span><br><span class="line">    --train_set <span class="string">"<span class="variable">${train_set}</span>"</span> \</span><br><span class="line">    --valid_set <span class="string">"<span class="variable">${valid_set}</span>"</span> \</span><br><span class="line">    --test_sets <span class="string">"<span class="variable">${test_sets}</span>"</span> \</span><br><span class="line">    --fs <span class="string">"<span class="variable">${sample_rate}</span>"</span> \</span><br><span class="line">    --lang en \</span><br><span class="line">    --ngpu 1 \</span><br><span class="line">    --local_data_opts <span class="string">"--sample_rate <span class="variable">${sample_rate}</span> --min_or_max <span class="variable">${min_or_max}</span>"</span> \</span><br><span class="line">    --enh_config conf/tuning/train_enh_dprnn_tasnet.yaml \</span><br><span class="line">    <span class="string">"<span class="variable">$@</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>注意到，调用的<code>enh.sh</code>,实际上就是TEMPLATE中的enh.sh(下文会具体分析)</p>
+<p>1) 训练过程监控:</p>
 <ul>
-<li>BlueField-3 DPU</li>
-<li>BlueField-2 DPU (支持InfiniBand/以太网双版本)</li>
-<li>BlueField-1 系列控制器卡</li>
+<li>查看日志: <code>tail -f exp/enh_train_*/train.log</code></li>
+<li>查看关键指标：<code>grep "loss:" exp/enh_train_*/train.log</code></li>
 </ul>
-<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><h3 id="DOCA软件框架"><a href="#DOCA软件框架" class="headerlink" title="DOCA软件框架"></a>DOCA软件框架</h3><p>DOCA (Data center-on-chip Architecture)是NVIDIA为BlueField DPU开发的软件框架，包含：</p>
-<h4 id="DOCA-SDK-v2-10-0"><a href="#DOCA-SDK-v2-10-0" class="headerlink" title="DOCA SDK (v2.10.0)"></a>DOCA SDK (v2.10.0)</h4><ul>
-<li>RDMA加速SDK</li>
-<li>网络加速SDK</li>
-<li>安全加速SDK</li>
-<li>存储加速SDK</li>
-<li>数据路径加速(DPA) SDK</li>
-<li>管理SDK</li>
-</ul>
-<h4 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h4><ul>
-<li>统一通信接口(UCX)</li>
-<li>RDMA verbs</li>
-<li>GPUDirect</li>
-<li>软件定义网络(SDN)</li>
-<li>P4编程支持</li>
-<li>在线加密</li>
-<li>App Shield运行时安全</li>
-</ul>
-<h2 id="应用场景与功能"><a href="#应用场景与功能" class="headerlink" title="应用场景与功能"></a>应用场景与功能</h2><h3 id="1-网络加速"><a href="#1-网络加速" class="headerlink" title="1. 网络加速"></a>1. 网络加速</h3><h4 id="1-1-网络协议栈卸载"><a href="#1-1-网络协议栈卸载" class="headerlink" title="1.1 网络协议栈卸载"></a>1.1 网络协议栈卸载</h4><ul>
-<li><p><strong>TCP/IP卸载</strong></p>
+<p>2) 评估模型<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 7 --stop_stage 8 \</span><br><span class="line">    --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure></p>
+<p>查看评估结果:</p>
 <ul>
-<li>完整的TCP/IP协议栈处理</li>
-<li>支持TCP Offload Engine (TOE)</li>
-<li>降低主机CPU负载</li>
-<li>减少网络延迟</li>
+<li>结果保存在 <code>exp/enh_train_*/RESULTS.txt</code></li>
+<li>包含SI-SNR、SDR等指标</li>
+</ul>
+<p>3) 使用模型</p>
+<p>对单个音频进行增强:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m espnet2.bin.enh_inference \</span><br><span class="line">    --audio_file /path/to/mixed.wav \</span><br><span class="line">    --config exp/enh_train_*/config.yaml \</span><br><span class="line">    --model_file exp/enh_train_*/valid.acc.best.pth \</span><br><span class="line">    --output_dir ./enhanced</span><br></pre></td></tr></table></figure></p>
+<p>获取增强后的音频:</p>
+<ul>
+<li>增强结果保存在 <code>./enhanced</code> 目录</li>
+<li>每个说话人的分离结果单独保存</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1) 训练中断后继续:</p>
+<ul>
+<li>直接运行相同的命令即可</li>
+<li>ESPnet会自动加载最新的检查点</li>
+</ul>
+<p>2) 常见问题:</p>
+<ul>
+<li>内存不足: 减小 batch_size</li>
+<li>显存不足: 减小 batch_size 或使用梯度累积</li>
+<li>训练不收敛: 调整学习率或检查数据预处理</li>
+</ul>
+<p>3) 建议:</p>
+<ul>
+<li>先用小数据集测试流程</li>
+<li>保存好配置文件和日志</li>
+<li>定期备份实验结果</li>
+</ul>
+<h2 id="配置文件分析"><a href="#配置文件分析" class="headerlink" title="配置文件分析"></a>配置文件分析</h2><h3 id="基础训练参数"><a href="#基础训练参数" class="headerlink" title="基础训练参数"></a>基础训练参数</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">optim:</span> <span class="string">adam</span>  <span class="comment"># 优化器选择：adam优化器</span></span><br><span class="line"><span class="attr">init:</span> <span class="string">xavier_uniform</span>  <span class="comment"># 参数初始化方式：xavier均匀分布初始化</span></span><br><span class="line"><span class="attr">max_epoch:</span> <span class="number">100</span>  <span class="comment"># 最大训练轮数</span></span><br><span class="line"><span class="attr">batch_type:</span> <span class="string">folded</span>  <span class="comment"># 批次类型：folded表示按序列长度折叠</span></span><br><span class="line"><span class="attr">batch_size:</span> <span class="number">8</span>  <span class="comment"># 每批次样本数</span></span><br><span class="line"><span class="attr">num_workers:</span> <span class="number">4</span>  <span class="comment"># 数据加载器的并行工作进程数</span></span><br></pre></td></tr></table></figure>
+<h3 id="优化器配置"><a href="#优化器配置" class="headerlink" title="优化器配置"></a>优化器配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">optim_conf:</span></span><br><span class="line">    <span class="attr">lr:</span> <span class="number">1.0e-03</span>          <span class="comment"># 初始学习率</span></span><br><span class="line">    <span class="attr">eps:</span> <span class="number">1.0e-08</span>         <span class="comment"># 数值稳定性参数</span></span><br><span class="line">    <span class="attr">weight_decay:</span> <span class="number">1.0e-7</span> <span class="comment"># L2正则化系数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 早停耐心值：验证集性能多少轮未改善就停止</span></span><br><span class="line"><span class="attr">patience:</span> <span class="number">10</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证集调度器判断标准</span></span><br><span class="line"><span class="attr">val_scheduler_criterion:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">loss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最佳模型保存标准</span></span><br><span class="line"><span class="attr">best_model_criterion:</span></span><br><span class="line"><span class="bullet">-</span>   <span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">si_snr</span>    <span class="comment"># 尺度不变信噪比</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">max</span>       <span class="comment"># 最大化</span></span><br><span class="line"><span class="bullet">-</span>   <span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">loss</span>      <span class="comment"># 损失值</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">min</span>       <span class="comment"># 最小化</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存最好的模型数量</span></span><br><span class="line"><span class="attr">keep_nbest_models:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 学习率调度器：当验证集性能不再提升时降低学习率</span></span><br><span class="line"><span class="attr">scheduler:</span> <span class="string">reducelronplateau</span></span><br><span class="line"><span class="attr">scheduler_conf:</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">min</span>            <span class="comment"># 监控模式：最小化</span></span><br><span class="line">    <span class="attr">factor:</span> <span class="number">0.7</span>         <span class="comment"># 学习率降低因子</span></span><br><span class="line">    <span class="attr">patience:</span> <span class="number">1</span>         <span class="comment"># 调度器耐心值</span></span><br></pre></td></tr></table></figure>
+<h3 id="损失函数配置"><a href="#损失函数配置" class="headerlink" title="损失函数配置"></a>损失函数配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># A list for criterions</span></span><br><span class="line"><span class="comment"># The overlall loss in the multi-task learning will be:</span></span><br><span class="line"><span class="comment"># loss = weight_1 * loss_1 + ... + weight_N * loss_N</span></span><br><span class="line"><span class="comment"># The default `weight` for each sub-loss is 1.0</span></span><br><span class="line"><span class="attr">criterions:</span></span><br><span class="line">  <span class="comment"># 第一个损失函数：均方误差(MSE)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">mse</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">compute_on_mask:</span> <span class="literal">True</span>   <span class="comment"># 在掩码上计算</span></span><br><span class="line">      <span class="attr">mask_type:</span> <span class="string">PSM</span>         <span class="comment"># 相位敏感掩码</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span>             <span class="comment"># 用PIT（排列不变训练）包装</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">1.0</span>           <span class="comment"># 损失权重</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 第二个损失函数：L1损失</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">l1</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">compute_on_mask:</span> <span class="literal">False</span> <span class="comment"># 在波形上计算</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">1.0</span></span><br><span class="line">      <span class="attr">independent_perm:</span> <span class="literal">False</span> <span class="comment"># 使用前一个criterion的排列顺序</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 第三个损失函数：SI-SNR损失</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">si_snr</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">eps:</span> <span class="number">1.0e-7</span>           <span class="comment"># 数值稳定性参数</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">5.0</span>           <span class="comment"># 较大权重表示更重视此损失</span></span><br><span class="line">      <span class="attr">independent_perm:</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h3 id="模型架构配置"><a href="#模型架构配置" class="headerlink" title="模型架构配置"></a>模型架构配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">encoder:</span> <span class="string">stft</span> <span class="comment"># STFT编码器配置</span></span><br><span class="line"><span class="attr">encoder_conf:</span></span><br><span class="line">    <span class="attr">n_fft:</span> <span class="number">256</span>            <span class="comment"># FFT点数</span></span><br><span class="line">    <span class="attr">hop_length:</span> <span class="number">128</span>       <span class="comment"># 帧移</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># STFT解码器配置</span></span><br><span class="line"><span class="attr">decoder:</span> <span class="string">stft</span></span><br><span class="line"><span class="attr">decoder_conf:</span></span><br><span class="line">    <span class="attr">n_fft:</span> <span class="number">256</span></span><br><span class="line">    <span class="attr">hop_length:</span> <span class="number">128</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分离器配置：RNN架构</span></span><br><span class="line"><span class="attr">separator:</span> <span class="string">rnn</span></span><br><span class="line"><span class="attr">separator_conf:</span></span><br><span class="line">    <span class="attr">rnn_type:</span> <span class="string">blstm</span>       <span class="comment"># 双向LSTM</span></span><br><span class="line">    <span class="attr">num_spk:</span> <span class="number">2</span>           <span class="comment"># 说话人数量</span></span><br><span class="line">    <span class="attr">nonlinear:</span> <span class="string">relu</span>      <span class="comment"># 激活函数</span></span><br><span class="line">    <span class="attr">layer:</span> <span class="number">3</span>             <span class="comment"># RNN层数</span></span><br><span class="line">    <span class="attr">unit:</span> <span class="number">896</span>           <span class="comment"># 隐层单元数</span></span><br><span class="line">    <span class="attr">dropout:</span> <span class="number">0.5</span>        <span class="comment"># Dropout比率</span></span><br></pre></td></tr></table></figure>
+<h2 id="enh-sh-的分析"><a href="#enh-sh-的分析" class="headerlink" title="enh.sh 的分析"></a>enh.sh 的分析</h2><h3 id="Stage-1前的配置介绍"><a href="#Stage-1前的配置介绍" class="headerlink" title="Stage 1前的配置介绍"></a>Stage 1前的配置介绍</h3><h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><ol>
+<li><p><strong>bash调试模式设置</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -e        <span class="comment"># 遇到错误就退出</span></span><br><span class="line"><span class="built_in">set</span> -u        <span class="comment"># 使用未定义变量时报错</span></span><br><span class="line"><span class="built_in">set</span> -o pipefail  <span class="comment"># 管道中任一命令失败则整个管道失败</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>辅助函数</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 日志函数：打印时间戳和调用位置信息</span></span><br><span class="line"><span class="function"><span class="title">log</span></span>() {</span><br><span class="line">    <span class="built_in">local</span> fname=<span class="variable">${BASH_SOURCE[1]##*/}</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">"<span class="subst">$(date '+%Y-%m-%dT%H:%M:%S')</span> (<span class="variable">${fname}</span>:<span class="variable">${BASH_LINENO[0]}</span>:<span class="variable">${FUNCNAME[1]}</span>) $*"</span></span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="comment"># 求最小值函数：用于计算并行作业数</span></span><br><span class="line">min() </span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注：让我比较疑惑的一个点是为什么不把日志重定向输出到一个文件？直接echo的话不会很长吗？</p>
+<h4 id="必填参数"><a href="#必填参数" class="headerlink" title="必填参数"></a>必填参数</h4><ol>
+<li><strong>数据集相关</strong></li>
+</ol>
+<ul>
+<li><code>--train_set</code>: 训练集名称</li>
+<li><code>--valid_set</code>: 验证集名称</li>
+<li><code>--test_sets</code>: 测试集名称列表</li>
+</ul>
+<h4 id="选填参数"><a href="#选填参数" class="headerlink" title="选填参数"></a>选填参数</h4><ol>
+<li><p><strong>基本配置参数</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">stage=1                <span class="comment"># 处理开始的阶段</span></span><br><span class="line">stop_stage=10000       <span class="comment"># 处理结束的阶段</span></span><br><span class="line">skip_data_prep=<span class="literal">false</span>   <span class="comment"># 是否跳过数据准备阶段</span></span><br><span class="line">skip_train=<span class="literal">false</span>       <span class="comment"># 是否跳过训练阶段  </span></span><br><span class="line">skip_eval=<span class="literal">false</span>        <span class="comment"># 是否跳过推理和评估阶段</span></span><br><span class="line">skip_packing=<span class="literal">true</span>      <span class="comment"># 是否跳过打包阶段</span></span><br><span class="line">skip_upload_hf=<span class="literal">true</span>    <span class="comment"># 是否跳过上传到HuggingFace阶段</span></span><br><span class="line">ngpu=1                 <span class="comment"># GPU数量(0表示使用CPU)</span></span><br><span class="line">num_nodes=1            <span class="comment"># 节点数量</span></span><br><span class="line">nj=32                  <span class="comment"># 并行作业数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>特征提取相关参数</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">feats_type=raw        <span class="comment"># 特征类型(raw或fbank_pitch)</span></span><br><span class="line">audio_format=flac     <span class="comment"># 音频格式:wav,flac等</span></span><br><span class="line">fs=16k                <span class="comment"># 采样率</span></span><br><span class="line">min_wav_duration=0.1  <span class="comment"># 最短音频长度(秒)</span></span><br><span class="line">max_wav_duration=20   <span class="comment"># 最长音频长度(秒)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>增强模型相关参数</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enh_exp=             <span class="comment"># 增强实验目录路径</span></span><br><span class="line">enh_tag=             <span class="comment"># 增强模型训练结果目录的后缀</span></span><br><span class="line">enh_config=          <span class="comment"># 增强模型训练配置</span></span><br><span class="line">enh_args=            <span class="comment"># 增强模型训练的额外参数</span></span><br><span class="line">ref_num=2            <span class="comment"># 参考信号数量(等于说话人数量)</span></span><br><span class="line">inf_num=             <span class="comment"># 模型输出的推理结果数量</span></span><br><span class="line">noise_type_num=1     <span class="comment"># 输入音频中的噪声类型数量</span></span><br><span class="line">dereverb_ref_num=1   <span class="comment"># 去混响参考信号数量</span></span><br><span class="line">is_tse_task=<span class="literal">false</span>    <span class="comment"># 是否为目标说话人提取任务</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>训练数据相关参数</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use_dereverb_ref=<span class="literal">false</span>   <span class="comment"># 是否使用去混响参考信号</span></span><br><span class="line">use_noise_ref=<span class="literal">false</span>      <span class="comment"># 是否使用噪声参考信号</span></span><br><span class="line">variable_num_refs=<span class="literal">false</span>  <span class="comment"># 是否使用可变数量的参考信号</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>推理和评估相关参数</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">inference_args=<span class="string">"--normalize_output_wav true --output_format wav"</span>  <span class="comment"># 推理参数</span></span><br><span class="line">inference_model=valid.loss.ave.pth  <span class="comment"># 推理使用的模型文件</span></span><br><span class="line">scoring_protocol=<span class="string">"STOI SDR SAR SIR SI_SNR"</span>  <span class="comment"># 评分指标</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="各Stage功能详细分析"><a href="#各Stage功能详细分析" class="headerlink" title="各Stage功能详细分析"></a>各Stage功能详细分析</h3><h4 id="Stage-1-数据准备"><a href="#Stage-1-数据准备" class="headerlink" title="Stage 1: 数据准备"></a>Stage 1: 数据准备</h4><ul>
+<li><strong>功能</strong>：准备训练、验证和测试数据集</li>
+<li><strong>执行</strong>：调用local/data.sh脚本处理数据</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">${stage}</span> -le 1 ] &amp;&amp; [ <span class="variable">${stop_stage}</span> -ge 1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">log</span> <span class="string">"Stage 1: Data preparation for data/<span class="variable">${train_set}</span>, data/<span class="variable">${valid_set}</span>, etc."</span></span><br><span class="line">    <span class="comment"># [Task dependent] 需要为新语料库创建data.sh</span></span><br><span class="line">    <span class="built_in">local</span>/data.sh <span class="variable">${local_data_opts}</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>重要说明</strong>：<ul>
+<li>这个阶段是任务相关的，需要根据具体的语料库创建相应的data.sh脚本</li>
+<li>local_data_opts参数可以传递给data.sh进行数据处理的定制</li>
 </ul>
 </li>
-<li><p><strong>RDMA技术</strong></p>
-<ul>
-<li>支持RoCE v1/v2 (RDMA over Converged Ethernet)</li>
-<li>支持InfiniBand</li>
-<li>零拷贝数据传输</li>
-<li>内核旁路技术</li>
-<li>QP (Queue Pair) 管理</li>
-<li>支持RDMA Write/Read/Send/Receive操作</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2-网络虚拟化"><a href="#1-2-网络虚拟化" class="headerlink" title="1.2 网络虚拟化"></a>1.2 网络虚拟化</h4><ul>
-<li><p><strong>SR-IOV (Single Root I/O Virtualization)</strong></p>
-<ul>
-<li>支持多达1000个VF (Virtual Function)</li>
-<li>硬件级网络资源隔离</li>
-<li>虚拟机直通技术</li>
-</ul>
-</li>
-<li><p><strong>OVS (Open vSwitch) 加速</strong></p>
-<ul>
-<li>硬件卸载流表处理</li>
-<li>支持OpenFlow协议</li>
-<li>虚拟交换机性能优化</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-3-高级网络特性"><a href="#1-3-高级网络特性" class="headerlink" title="1.3 高级网络特性"></a>1.3 高级网络特性</h4><ul>
-<li><p><strong>流量管理</strong></p>
-<ul>
-<li>QoS (Quality of Service) 支持</li>
-<li>带宽控制</li>
-<li>流量整形</li>
-<li>拥塞控制</li>
-</ul>
-</li>
-<li><p><strong>网络安全</strong></p>
-<ul>
-<li>IPSec硬件加速</li>
-<li>TLS/SSL卸载</li>
-<li>防火墙规则处理</li>
-<li>DDoS防护</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-4-网络性能指标"><a href="#1-4-网络性能指标" class="headerlink" title="1.4 网络性能指标"></a>1.4 网络性能指标</h4><ul>
-<li><p><strong>带宽能力</strong></p>
-<ul>
-<li>支持25/50/100/200/400GbE</li>
-<li>BlueField-3支持高达800Gb/s带宽</li>
-<li>双端口配置选项</li>
-</ul>
-</li>
-<li><p><strong>延迟优化</strong></p>
-<ul>
-<li>端到端延迟&lt;1微秒</li>
-<li>硬件时间戳支持</li>
-<li>精确时间协议(PTP)支持</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-5-网络编程模型"><a href="#1-5-网络编程模型" class="headerlink" title="1.5 网络编程模型"></a>1.5 网络编程模型</h3><ul>
-<li><p><strong>DPDK支持</strong></p>
-<ul>
-<li>用户态网络驱动</li>
-<li>轮询模式驱动(PMD)</li>
-<li>零拷贝数据包处理</li>
-<li>大页内存支持</li>
-</ul>
-</li>
-<li><p><strong>P4可编程性</strong></p>
-<ul>
-<li>自定义数据包处理流水线</li>
-<li>协议无关的包处理</li>
-<li>灵活的转发规则定义</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-6-相关网络知识"><a href="#1-6-相关网络知识" class="headerlink" title="1.6 相关网络知识"></a>1.6 相关网络知识</h4><ul>
-<li><p><strong>网络分层模型</strong></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">应用层 (L7) - HTTP, FTP, SMTP等</span><br><span class="line">传输层 (L4) - TCP, UDP</span><br><span class="line">网络层 (L3) - IP, ICMP</span><br><span class="line">数据链路层 (L2) - 以太网, MAC</span><br><span class="line">物理层 (L1) - 物理介质</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>关键网络概念</strong></p>
-<ul>
-<li>MTU (Maximum Transmission Unit)</li>
-<li>VLAN (Virtual LAN)</li>
-<li>VXLAN (Virtual Extensible LAN)</li>
-<li>ARP (Address Resolution Protocol)</li>
-<li>BGP (Border Gateway Protocol)</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>data/${train_set}</code>, <code>data/${valid_set}</code> 等目录下生成：<ul>
+<li>wav.scp：音频文件路径映射</li>
+<li>utt2spk：话语到说话人映射</li>
+<li>spk2utt：说话人到话语映射</li>
+<li>mix.scp：混合音频文件列表</li>
+<li>ref.scp：参考音频文件列表</li>
 </ul>
 </li>
 </ul>
-<h4 id="1-7-性能优化建议"><a href="#1-7-性能优化建议" class="headerlink" title="1.7 性能优化建议"></a>1.7 性能优化建议</h4><ul>
-<li><p><strong>网络调优</strong></p>
-<ul>
-<li>启用巨帧(Jumbo Frame)</li>
-<li>配置RSS (Receive Side Scaling)</li>
-<li>优化中断亲和性</li>
-<li>使用NUMA感知内存分配</li>
-</ul>
 </li>
-<li><p><strong>最佳实践</strong></p>
-<ul>
-<li>合理规划网络拓扑</li>
-<li>选择适当的网络模式</li>
-<li>监控网络性能指标</li>
-<li>定期进行性能测试</li>
+</ul>
+<p>注：笔者一开始在找了好久<code>data.sh</code>在哪里，后面发现在具体的数据集中(详见上文训练任务流程)</p>
+<h4 id="Stage-2-速度扰动"><a href="#Stage-2-速度扰动" class="headerlink" title="Stage 2: 速度扰动"></a>Stage 2: 速度扰动</h4><ul>
+<li><strong>功能</strong>：对训练数据进行速度扰动增强</li>
+<li><strong>条件</strong>：仅在设置了speed_perturb_factors且不使用去混响参考时执行</li>
+<li><strong>处理</strong>：对音频进行不同速度的扰动，生成增强数据</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>data/${train_set}_sp</code> 目录下生成：<ul>
+<li>扰动后的音频文件和对应的配置文件</li>
+<li>更新的 wav.scp, utt2spk, spk2utt 等文件</li>
 </ul>
 </li>
 </ul>
-<h3 id="2-存储加速"><a href="#2-存储加速" class="headerlink" title="2. 存储加速"></a>2. 存储加速</h3><ul>
-<li>NVMe存储虚拟化</li>
-<li>存储加密与压缩</li>
-<li>零拷贝数据传输</li>
+</li>
 </ul>
-<h3 id="3-安全功能"><a href="#3-安全功能" class="headerlink" title="3. 安全功能"></a>3. 安全功能</h3><ul>
-<li>硬件加速加密</li>
-<li>IPsec安全网关</li>
-<li>零信任安全架构</li>
-<li>运行时安全保护</li>
+<h4 id="Stage-3-音频格式化"><a href="#Stage-3-音频格式化" class="headerlink" title="Stage 3: 音频格式化"></a>Stage 3: 音频格式化</h4><ul>
+<li><strong>功能</strong>：统一处理音频格式</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 格式化wav.scp文件</span></span><br><span class="line">scripts/audio/format_wav_scp.sh --nj <span class="string">"<span class="variable">${nj}</span>"</span> --cmd <span class="string">"<span class="variable">${train_cmd}</span>"</span> \</span><br><span class="line">    --out-filename <span class="string">"<span class="variable">${spk}</span>.scp"</span> \</span><br><span class="line">    --audio-format <span class="string">"<span class="variable">${audio_format}</span>"</span> --fs <span class="string">"<span class="variable">${fs}</span>"</span> <span class="variable">${_opts}</span> \</span><br><span class="line">    <span class="string">"data/<span class="variable">${dset}</span>/<span class="variable">${spk}</span>.scp"</span> <span class="string">"<span class="variable">${data_feats}</span><span class="variable">${_suf}</span>/<span class="variable">${dset}</span>"</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>处理步骤</strong>：<ol>
+<li>重新创建”wav.scp”文件</li>
+<li>统一音频格式和采样率</li>
+<li>处理多说话人的情况</li>
+<li>支持segments文件的分割处理</li>
+</ol>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${data_feats}/${dset}</code> 目录下：<ul>
+<li>统一格式后的音频文件</li>
+<li>更新的 wav.scp 文件</li>
+<li>各说话人的 .scp 文件</li>
 </ul>
-<h3 id="4-虚拟化支持"><a href="#4-虚拟化支持" class="headerlink" title="4. 虚拟化支持"></a>4. 虚拟化支持</h3><ul>
-<li>SR-IOV虚拟化</li>
-<li>虚拟设备模拟</li>
-<li>容器化工作负载支持</li>
+</li>
 </ul>
-<p><a href="https://www.nvidia.cn/dpubook-3">参考来源</a><br><a href="https://www.nvidia.cn/dpubook-4">DOCA框架文档</a></p>
+</li>
+</ul>
+<h4 id="Stage-4-数据筛选"><a href="#Stage-4-数据筛选" class="headerlink" title="Stage 4: 数据筛选"></a>Stage 4: 数据筛选</h4><ul>
+<li><strong>功能</strong>：移除不符合长度要求的音频数据</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算最小和最大长度（样本数）</span></span><br><span class="line">_fs=$(python3 -c <span class="string">"import humanfriendly as h;print(h.parse_size('<span class="variable">${fs}</span>'))"</span>)</span><br><span class="line">_min_length=$(python3 -c <span class="string">"print(int(<span class="variable">${min_wav_duration}</span> * <span class="variable">${_fs}</span>))"</span>)</span><br><span class="line">_max_length=$(python3 -c <span class="string">"print(int(<span class="variable">${max_wav_duration}</span> * <span class="variable">${_fs}</span>))"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据长度筛选数据</span></span><br><span class="line">&lt;<span class="string">"<span class="variable">${data_feats}</span>/org/<span class="variable">${dset}</span>/utt2num_samples"</span> \</span><br><span class="line">    awk -v min_length=<span class="string">"<span class="variable">${_min_length}</span>"</span> -v max_length=<span class="string">"<span class="variable">${_max_length}</span>"</span> \</span><br><span class="line">    <span class="string">'{ if ($2 &gt; min_length &amp;&amp; $2 &lt; max_length ) print $0; }'</span> \</span><br><span class="line">    &gt;<span class="string">"<span class="variable">${data_feats}</span>/<span class="variable">${dset}</span>/utt2num_samples"</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>处理步骤</strong>：<ol>
+<li>将时间长度转换为样本数</li>
+<li>根据样本数筛选音频</li>
+<li>更新相关的scp文件</li>
+</ol>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${data_feats}/${dset}</code> 目录下：<ul>
+<li>筛选后的 utt2num_samples 文件</li>
+<li>更新后的 wav.scp, spk.scp 等文件</li>
+<li>移除不符合长度要求的音频条目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-5-统计收集"><a href="#Stage-5-统计收集" class="headerlink" title="Stage 5: 统计收集"></a>Stage 5: 统计收集</h4><ul>
+<li><strong>功能</strong>：收集训练所需的统计信息</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">${python}</span> -m <span class="variable">${train_module}</span> \</span><br><span class="line">    --collect_stats <span class="literal">true</span> \</span><br><span class="line">    <span class="variable">${_train_data_param}</span> \</span><br><span class="line">    <span class="variable">${_valid_data_param}</span> \</span><br><span class="line">    --train_shape_file <span class="string">"<span class="variable">${_logdir}</span>/train.JOB.scp"</span> \</span><br><span class="line">    --valid_shape_file <span class="string">"<span class="variable">${_logdir}</span>/valid.JOB.scp"</span> \</span><br><span class="line">    --output_dir <span class="string">"<span class="variable">${_logdir}</span>/stats.JOB"</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>处理步骤</strong>：<ol>
+<li>收集训练和验证数据的统计信息</li>
+<li>生成shape文件</li>
+<li>聚合统计信息</li>
+</ol>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${_logdir}</code> 目录下：<ul>
+<li>stats.JOB 目录：包含统计信息</li>
+<li>train.JOB.scp：训练数据shape信息</li>
+<li>valid.JOB.scp：验证数据shape信息</li>
+<li>global_stats：全局统计信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-6-模型训练"><a href="#Stage-6-模型训练" class="headerlink" title="Stage 6: 模型训练"></a>Stage 6: 模型训练</h4><ul>
+<li><strong>功能</strong>：执行增强模型的训练</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">${python}</span> -m <span class="variable">${train_module}</span> \</span><br><span class="line">    <span class="variable">${_train_data_param}</span> \</span><br><span class="line">    <span class="variable">${_valid_data_param}</span> \</span><br><span class="line">    <span class="variable">${_train_shape_param}</span> \</span><br><span class="line">    <span class="variable">${_valid_shape_param}</span> \</span><br><span class="line">    <span class="variable">${_fold_length_param}</span> \</span><br><span class="line">    --resume <span class="literal">true</span> \</span><br><span class="line">    --output_dir <span class="string">"<span class="variable">${enh_exp}</span>"</span> \</span><br><span class="line">    <span class="variable">${init_param:+--init_param $init_param}</span> \</span><br><span class="line">    <span class="variable">${_opts}</span> <span class="variable">${enh_args}</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>处理步骤</strong>：<ol>
+<li>设置训练数据和验证数据</li>
+<li>配置训练参数</li>
+<li>支持断点续训</li>
+<li>可选预训练模型初始化</li>
+</ol>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${enh_exp}</code> 目录下：<ul>
+<li>config.yaml：模型配置文件</li>
+<li>模型检查点文件（*.pth）</li>
+<li>trainer.log：训练日志</li>
+<li>验证结果和曲线图表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-7-推理处理"><a href="#Stage-7-推理处理" class="headerlink" title="Stage 7: 推理处理"></a>Stage 7: 推理处理</h4><ul>
+<li><strong>功能</strong>：使用训练好的模型进行音频增强</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">${python}</span> -m <span class="variable">${infer_module}</span> \</span><br><span class="line">    --ngpu <span class="string">"<span class="variable">${_ngpu}</span>"</span> \</span><br><span class="line">    --fs <span class="string">"<span class="variable">${fs}</span>"</span> \</span><br><span class="line">    <span class="variable">${_data_param}</span> \</span><br><span class="line">    --key_file <span class="string">"<span class="variable">${_logdir}</span>"</span>/keys.JOB.scp \</span><br><span class="line">    --train_config <span class="string">"<span class="variable">${enh_exp}</span>"</span>/config.yaml \</span><br><span class="line">    --model_file <span class="string">"<span class="variable">${enh_exp}</span>"</span>/<span class="string">"<span class="variable">${inference_model}</span>"</span> \</span><br><span class="line">    --output_dir <span class="string">"<span class="variable">${_logdir}</span>"</span>/output.JOB</span><br></pre></td></tr></table></figure></li>
+<li><strong>处理步骤</strong>：<ol>
+<li>加载训练好的模型</li>
+<li>对测试集进行推理</li>
+<li>生成增强后的音频</li>
+<li>支持GPU推理</li>
+</ol>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${_logdir}/output.JOB</code> 目录下：<ul>
+<li>enhanced.wav：增强后的音频文件</li>
+<li>keys.JOB.scp：处理的音频键值对</li>
+<li>推理日志和结果文件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-8-评分"><a href="#Stage-8-评分" class="headerlink" title="Stage 8: 评分"></a>Stage 8: 评分</h4><ul>
+<li><strong>功能</strong>：评估增强效果</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">${python}</span> -m espnet2.bin.enh_scoring \</span><br><span class="line">    --key_file <span class="string">"<span class="variable">${_logdir}</span>"</span>/keys.JOB.scp \</span><br><span class="line">    --output_dir <span class="string">"<span class="variable">${_logdir}</span>"</span>/output.JOB \</span><br><span class="line">    <span class="variable">${_ref_scp}</span> \</span><br><span class="line">    <span class="variable">${_inf_scp}</span> \</span><br><span class="line">    --ref_channel <span class="variable">${ref_channel}</span> \</span><br><span class="line">    --flexible_numspk <span class="variable">${flexible_numspk}</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>评估指标</strong>：<ul>
+<li>STOI: 语音可懂度</li>
+<li>SDR: 信号失真比</li>
+<li>SAR: 伪影比</li>
+<li>SIR: 干扰比</li>
+<li>SI_SNR: 尺度不变信噪比</li>
+</ul>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${_logdir}/output.JOB</code> 目录下：<ul>
+<li>scoring.txt：包含各项评分指标</li>
+<li>score_stats：详细的评分统计</li>
+<li>各指标的得分分布图</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-9-10-ASR评估"><a href="#Stage-9-10-ASR评估" class="headerlink" title="Stage 9-10: ASR评估"></a>Stage 9-10: ASR评估</h4><ul>
+<li><strong>功能</strong>：使用ASR模型评估增强效果</li>
+<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">${python}</span> -m espnet2.bin.asr_inference \</span><br><span class="line">    --ngpu <span class="string">"<span class="variable">${_ngpu}</span>"</span> \</span><br><span class="line">    --data_path_and_name_and_type <span class="string">"<span class="variable">${_ddir}</span>/wav.scp,speech,<span class="variable">${_type}</span>"</span> \</span><br><span class="line">    --key_file <span class="string">"<span class="variable">${_logdir}</span>"</span>/keys.JOB.scp \</span><br><span class="line">    --asr_train_config <span class="string">"<span class="variable">${asr_exp}</span>"</span>/config.yaml \</span><br><span class="line">    --asr_model_file <span class="string">"<span class="variable">${asr_exp}</span>"</span>/<span class="string">"<span class="variable">${inference_asr_model}</span>"</span> \</span><br><span class="line">    --output_dir <span class="string">"<span class="variable">${_logdir}</span>"</span>/output.JOB</span><br></pre></td></tr></table></figure></li>
+<li><strong>处理步骤</strong>：<ol>
+<li>使用ASR模型解码增强后的音频</li>
+<li>计算字错误率(CER)或词错误率(WER)</li>
+<li>生成评估报告</li>
+</ol>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${_logdir}/output.JOB</code> 目录下：<ul>
+<li>asr_inference.txt：ASR解码结果</li>
+<li>text：识别的文本结果</li>
+<li>wer.txt/cer.txt：错误率统计</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-11-模型打包"><a href="#Stage-11-模型打包" class="headerlink" title="Stage 11: 模型打包"></a>Stage 11: 模型打包</h4><ul>
+<li><strong>功能</strong>：将训练好的模型打包</li>
+<li><strong>处理</strong>：<ul>
+<li>打包模型文件</li>
+<li>打包配置信息</li>
+<li>生成发布包</li>
+</ul>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 <code>${enh_exp}/pack</code> 目录下：<ul>
+<li>model.zip：打包的模型文件</li>
+<li>config.yaml：配置文件副本</li>
+<li>README.md：模型说明文档</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stage-12-上传模型"><a href="#Stage-12-上传模型" class="headerlink" title="Stage 12: 上传模型"></a>Stage 12: 上传模型</h4><ul>
+<li><strong>功能</strong>：将模型上传到HuggingFace</li>
+<li><strong>条件</strong>：当skip_upload_hf=false时执行</li>
+<li><strong>处理</strong>：<ul>
+<li>准备上传文件</li>
+<li>配置HuggingFace仓库</li>
+<li>上传模型</li>
+</ul>
+</li>
+<li><strong>运行产出</strong>：<ul>
+<li>在 HuggingFace仓库中：<ul>
+<li>上传的模型文件和配置</li>
+<li>模型卡片（model card）</li>
+<li>示例代码和使用说明</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>enh1.sh是一个完整的语音增强处理流程脚本，包含了从数据准备到模型训练、评估的全过程。通过合理配置参数，可以灵活控制处理流程的各个环节。使用时需要特别注意：</p>
+<ol>
+<li>必须提供训练集、验证集和测试集的名称</li>
+<li>根据需求合理设置GPU数量和并行作业数</li>
+<li>可以通过stage和stop_stage控制执行流程</li>
+<li>评估阶段提供了多种评估方式，包括客观指标和ASR评估</li>
+</ol>
 ]]></content>
       <categories>
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>NVIDIA</tag>
+        <tag>语音增强</tag>
+        <tag>技术分析</tag>
         <tag>AI辅助</tag>
+        <tag>espnet</tag>
       </tags>
   </entry>
   <entry>
@@ -255,331 +407,6 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>espnet的enh训练任务分析笔记</title>
-    <url>/2025/02/19/espnet%E7%9A%84enh.sh%E7%9A%84%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>This is the common recipe for ESPnet2 speech enhancement frontend.</strong><br><strong>这是 ESPnet2 语音增强前端的通用配方。</strong></p>
-<p>本文为笔者学习espnet语音处理包语音增强部分的学习笔记，初稿为<strong>claude-3.5-sonnet</strong>辅助生成，后续会不断在此基础上更新，加入自己的理解。</p>
-<span id="more"></span>
-<p>以下为espnet工具包相关的网址</p>
-<p><a href="https://github.com/espnet/espnet">ESPnet</a></p>
-<p><a href="https://espnet.github.io/espnet/installation.html">espnet installation</a></p>
-<p><a href="https://github.com/espnet/espnet/blob/master/egs2/TEMPLATE/enh1/enh.sh">enh.sh</a></p>
-<p><a href="https://espnet.github.io/espnet/recipe/enh1.html">enh.sh官方文档</a></p>
-<p>该enh.sh在espnet中的位置：<code>egs2/TEMPLATE/enh1/enh.sh</code> , 13 stages are included.</p>
-<h2 id="训练任务流程"><a href="#训练任务流程" class="headerlink" title="训练任务流程"></a>训练任务流程</h2><ul>
-<li>选择数据集</li>
-<li>选择配置文件(可更改具体参数)</li>
-<li>运行脚本</li>
-</ul>
-<p>以经典数据集<code>wsj0_2mix</code>为例，<a href="https://github.com/espnet/espnet/blob/master/egs2/wsj0_2mix">wsj0_2mix</a>,在<code>conf</code>目录的<code>tuning</code>子目录中选择配置，我选择的是<code>train_enh_rnn_tf.yaml</code>,该配置用于训练一个基于 RNN 的语音分离模型，其中<strong>tf</strong>后缀在这个配置文件名中代表 <strong>Time-Frequency domain（时频域）</strong></p>
-<p>接着运行<code>run.sh</code>,比如：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 1 --stop_stage 6 --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure>
-<p>以下是run.sh的具体内容（因为很短就贴出来）<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="comment"># Set bash to &#x27;debug&#x27; mode, it will exit on :</span></span><br><span class="line"><span class="comment"># -e &#x27;error&#x27;, -u &#x27;undefined variable&#x27;, -o ... &#x27;error in pipeline&#x27;, -x &#x27;print commands&#x27;,</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br><span class="line"></span><br><span class="line">min_or_max=min <span class="comment"># &quot;min&quot; or &quot;max&quot;. This is to determine how the mixtures are generated in local/data.sh.</span></span><br><span class="line">sample_rate=8k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">train_set=<span class="string">&quot;tr_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span></span><br><span class="line">valid_set=<span class="string">&quot;cv_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span></span><br><span class="line">test_sets=<span class="string">&quot;tt_<span class="variable">$&#123;min_or_max&#125;</span>_<span class="variable">$&#123;sample_rate&#125;</span> &quot;</span></span><br><span class="line"></span><br><span class="line">./enh.sh \</span><br><span class="line">    --train_set <span class="string">&quot;<span class="variable">$&#123;train_set&#125;</span>&quot;</span> \</span><br><span class="line">    --valid_set <span class="string">&quot;<span class="variable">$&#123;valid_set&#125;</span>&quot;</span> \</span><br><span class="line">    --test_sets <span class="string">&quot;<span class="variable">$&#123;test_sets&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;sample_rate&#125;</span>&quot;</span> \</span><br><span class="line">    --lang en \</span><br><span class="line">    --ngpu 1 \</span><br><span class="line">    --local_data_opts <span class="string">&quot;--sample_rate <span class="variable">$&#123;sample_rate&#125;</span> --min_or_max <span class="variable">$&#123;min_or_max&#125;</span>&quot;</span> \</span><br><span class="line">    --enh_config conf/tuning/train_enh_dprnn_tasnet.yaml \</span><br><span class="line">    <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure></p>
-<p>注意到，调用的<code>enh.sh</code>,实际上就是TEMPLATE中的enh.sh(下文会具体分析)</p>
-<p>1) 训练过程监控:</p>
-<ul>
-<li>查看日志: <code>tail -f exp/enh_train_*/train.log</code></li>
-<li>查看关键指标：<code>grep &quot;loss:&quot; exp/enh_train_*/train.log</code></li>
-</ul>
-<p>2) 评估模型<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./run.sh --stage 7 --stop_stage 8 \</span><br><span class="line">    --conf conf/tuning/train_enh_rnn_tf.yaml</span><br></pre></td></tr></table></figure></p>
-<p>查看评估结果:</p>
-<ul>
-<li>结果保存在 <code>exp/enh_train_*/RESULTS.txt</code></li>
-<li>包含SI-SNR、SDR等指标</li>
-</ul>
-<p>3) 使用模型</p>
-<p>对单个音频进行增强:<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m espnet2.bin.enh_inference \</span><br><span class="line">    --audio_file /path/to/mixed.wav \</span><br><span class="line">    --config exp/enh_train_*/config.yaml \</span><br><span class="line">    --model_file exp/enh_train_*/valid.acc.best.pth \</span><br><span class="line">    --output_dir ./enhanced</span><br></pre></td></tr></table></figure></p>
-<p>获取增强后的音频:</p>
-<ul>
-<li>增强结果保存在 <code>./enhanced</code> 目录</li>
-<li>每个说话人的分离结果单独保存</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>1) 训练中断后继续:</p>
-<ul>
-<li>直接运行相同的命令即可</li>
-<li>ESPnet会自动加载最新的检查点</li>
-</ul>
-<p>2) 常见问题:</p>
-<ul>
-<li>内存不足: 减小 batch_size</li>
-<li>显存不足: 减小 batch_size 或使用梯度累积</li>
-<li>训练不收敛: 调整学习率或检查数据预处理</li>
-</ul>
-<p>3) 建议:</p>
-<ul>
-<li>先用小数据集测试流程</li>
-<li>保存好配置文件和日志</li>
-<li>定期备份实验结果</li>
-</ul>
-<h2 id="配置文件分析"><a href="#配置文件分析" class="headerlink" title="配置文件分析"></a>配置文件分析</h2><h3 id="基础训练参数"><a href="#基础训练参数" class="headerlink" title="基础训练参数"></a>基础训练参数</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">optim:</span> <span class="string">adam</span>  <span class="comment"># 优化器选择：adam优化器</span></span><br><span class="line"><span class="attr">init:</span> <span class="string">xavier_uniform</span>  <span class="comment"># 参数初始化方式：xavier均匀分布初始化</span></span><br><span class="line"><span class="attr">max_epoch:</span> <span class="number">100</span>  <span class="comment"># 最大训练轮数</span></span><br><span class="line"><span class="attr">batch_type:</span> <span class="string">folded</span>  <span class="comment"># 批次类型：folded表示按序列长度折叠</span></span><br><span class="line"><span class="attr">batch_size:</span> <span class="number">8</span>  <span class="comment"># 每批次样本数</span></span><br><span class="line"><span class="attr">num_workers:</span> <span class="number">4</span>  <span class="comment"># 数据加载器的并行工作进程数</span></span><br></pre></td></tr></table></figure>
-<h3 id="优化器配置"><a href="#优化器配置" class="headerlink" title="优化器配置"></a>优化器配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">optim_conf:</span></span><br><span class="line">    <span class="attr">lr:</span> <span class="number">1.0e-03</span>          <span class="comment"># 初始学习率</span></span><br><span class="line">    <span class="attr">eps:</span> <span class="number">1.0e-08</span>         <span class="comment"># 数值稳定性参数</span></span><br><span class="line">    <span class="attr">weight_decay:</span> <span class="number">1.0e-7</span> <span class="comment"># L2正则化系数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 早停耐心值：验证集性能多少轮未改善就停止</span></span><br><span class="line"><span class="attr">patience:</span> <span class="number">10</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证集调度器判断标准</span></span><br><span class="line"><span class="attr">val_scheduler_criterion:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">loss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最佳模型保存标准</span></span><br><span class="line"><span class="attr">best_model_criterion:</span></span><br><span class="line"><span class="bullet">-</span>   <span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">si_snr</span>    <span class="comment"># 尺度不变信噪比</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">max</span>       <span class="comment"># 最大化</span></span><br><span class="line"><span class="bullet">-</span>   <span class="bullet">-</span> <span class="string">valid</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">loss</span>      <span class="comment"># 损失值</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">min</span>       <span class="comment"># 最小化</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存最好的模型数量</span></span><br><span class="line"><span class="attr">keep_nbest_models:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 学习率调度器：当验证集性能不再提升时降低学习率</span></span><br><span class="line"><span class="attr">scheduler:</span> <span class="string">reducelronplateau</span></span><br><span class="line"><span class="attr">scheduler_conf:</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">min</span>            <span class="comment"># 监控模式：最小化</span></span><br><span class="line">    <span class="attr">factor:</span> <span class="number">0.7</span>         <span class="comment"># 学习率降低因子</span></span><br><span class="line">    <span class="attr">patience:</span> <span class="number">1</span>         <span class="comment"># 调度器耐心值</span></span><br></pre></td></tr></table></figure>
-<h3 id="损失函数配置"><a href="#损失函数配置" class="headerlink" title="损失函数配置"></a>损失函数配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># A list for criterions</span></span><br><span class="line"><span class="comment"># The overlall loss in the multi-task learning will be:</span></span><br><span class="line"><span class="comment"># loss = weight_1 * loss_1 + ... + weight_N * loss_N</span></span><br><span class="line"><span class="comment"># The default `weight` for each sub-loss is 1.0</span></span><br><span class="line"><span class="attr">criterions:</span></span><br><span class="line">  <span class="comment"># 第一个损失函数：均方误差(MSE)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">mse</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">compute_on_mask:</span> <span class="literal">True</span>   <span class="comment"># 在掩码上计算</span></span><br><span class="line">      <span class="attr">mask_type:</span> <span class="string">PSM</span>         <span class="comment"># 相位敏感掩码</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span>             <span class="comment"># 用PIT（排列不变训练）包装</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">1.0</span>           <span class="comment"># 损失权重</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 第二个损失函数：L1损失</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">l1</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">compute_on_mask:</span> <span class="literal">False</span> <span class="comment"># 在波形上计算</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">1.0</span></span><br><span class="line">      <span class="attr">independent_perm:</span> <span class="literal">False</span> <span class="comment"># 使用前一个criterion的排列顺序</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 第三个损失函数：SI-SNR损失</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">si_snr</span></span><br><span class="line">    <span class="attr">conf:</span></span><br><span class="line">      <span class="attr">eps:</span> <span class="number">1.0e-7</span>           <span class="comment"># 数值稳定性参数</span></span><br><span class="line">    <span class="attr">wrapper:</span> <span class="string">pit</span></span><br><span class="line">    <span class="attr">wrapper_conf:</span></span><br><span class="line">      <span class="attr">weight:</span> <span class="number">5.0</span>           <span class="comment"># 较大权重表示更重视此损失</span></span><br><span class="line">      <span class="attr">independent_perm:</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<h3 id="模型架构配置"><a href="#模型架构配置" class="headerlink" title="模型架构配置"></a>模型架构配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">encoder:</span> <span class="string">stft</span> <span class="comment"># STFT编码器配置</span></span><br><span class="line"><span class="attr">encoder_conf:</span></span><br><span class="line">    <span class="attr">n_fft:</span> <span class="number">256</span>            <span class="comment"># FFT点数</span></span><br><span class="line">    <span class="attr">hop_length:</span> <span class="number">128</span>       <span class="comment"># 帧移</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># STFT解码器配置</span></span><br><span class="line"><span class="attr">decoder:</span> <span class="string">stft</span></span><br><span class="line"><span class="attr">decoder_conf:</span></span><br><span class="line">    <span class="attr">n_fft:</span> <span class="number">256</span></span><br><span class="line">    <span class="attr">hop_length:</span> <span class="number">128</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分离器配置：RNN架构</span></span><br><span class="line"><span class="attr">separator:</span> <span class="string">rnn</span></span><br><span class="line"><span class="attr">separator_conf:</span></span><br><span class="line">    <span class="attr">rnn_type:</span> <span class="string">blstm</span>       <span class="comment"># 双向LSTM</span></span><br><span class="line">    <span class="attr">num_spk:</span> <span class="number">2</span>           <span class="comment"># 说话人数量</span></span><br><span class="line">    <span class="attr">nonlinear:</span> <span class="string">relu</span>      <span class="comment"># 激活函数</span></span><br><span class="line">    <span class="attr">layer:</span> <span class="number">3</span>             <span class="comment"># RNN层数</span></span><br><span class="line">    <span class="attr">unit:</span> <span class="number">896</span>           <span class="comment"># 隐层单元数</span></span><br><span class="line">    <span class="attr">dropout:</span> <span class="number">0.5</span>        <span class="comment"># Dropout比率</span></span><br></pre></td></tr></table></figure>
-<h2 id="enh-sh-的分析"><a href="#enh-sh-的分析" class="headerlink" title="enh.sh 的分析"></a>enh.sh 的分析</h2><h3 id="Stage-1前的配置介绍"><a href="#Stage-1前的配置介绍" class="headerlink" title="Stage 1前的配置介绍"></a>Stage 1前的配置介绍</h3><h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><ol>
-<li><p><strong>bash调试模式设置</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -e        <span class="comment"># 遇到错误就退出</span></span><br><span class="line"><span class="built_in">set</span> -u        <span class="comment"># 使用未定义变量时报错</span></span><br><span class="line"><span class="built_in">set</span> -o pipefail  <span class="comment"># 管道中任一命令失败则整个管道失败</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>辅助函数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 日志函数：打印时间戳和调用位置信息</span></span><br><span class="line"><span class="function"><span class="title">log</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> fname=<span class="variable">$&#123;BASH_SOURCE[1]##*/&#125;</span></span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">&quot;<span class="subst">$(date &#x27;+%Y-%m-%dT%H:%M:%S&#x27;)</span> (<span class="variable">$&#123;fname&#125;</span>:<span class="variable">$&#123;BASH_LINENO[0]&#125;</span>:<span class="variable">$&#123;FUNCNAME[1]&#125;</span>) $*&quot;</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment"># 求最小值函数：用于计算并行作业数</span></span><br><span class="line">min() </span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>注：让我比较疑惑的一个点是为什么不把日志重定向输出到一个文件？直接echo的话不会很长吗？</p>
-<h4 id="必填参数"><a href="#必填参数" class="headerlink" title="必填参数"></a>必填参数</h4><ol>
-<li><strong>数据集相关</strong></li>
-</ol>
-<ul>
-<li><code>--train_set</code>: 训练集名称</li>
-<li><code>--valid_set</code>: 验证集名称</li>
-<li><code>--test_sets</code>: 测试集名称列表</li>
-</ul>
-<h4 id="选填参数"><a href="#选填参数" class="headerlink" title="选填参数"></a>选填参数</h4><ol>
-<li><p><strong>基本配置参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">stage=1                <span class="comment"># 处理开始的阶段</span></span><br><span class="line">stop_stage=10000       <span class="comment"># 处理结束的阶段</span></span><br><span class="line">skip_data_prep=<span class="literal">false</span>   <span class="comment"># 是否跳过数据准备阶段</span></span><br><span class="line">skip_train=<span class="literal">false</span>       <span class="comment"># 是否跳过训练阶段  </span></span><br><span class="line">skip_eval=<span class="literal">false</span>        <span class="comment"># 是否跳过推理和评估阶段</span></span><br><span class="line">skip_packing=<span class="literal">true</span>      <span class="comment"># 是否跳过打包阶段</span></span><br><span class="line">skip_upload_hf=<span class="literal">true</span>    <span class="comment"># 是否跳过上传到HuggingFace阶段</span></span><br><span class="line">ngpu=1                 <span class="comment"># GPU数量(0表示使用CPU)</span></span><br><span class="line">num_nodes=1            <span class="comment"># 节点数量</span></span><br><span class="line">nj=32                  <span class="comment"># 并行作业数</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>特征提取相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">feats_type=raw        <span class="comment"># 特征类型(raw或fbank_pitch)</span></span><br><span class="line">audio_format=flac     <span class="comment"># 音频格式:wav,flac等</span></span><br><span class="line">fs=16k                <span class="comment"># 采样率</span></span><br><span class="line">min_wav_duration=0.1  <span class="comment"># 最短音频长度(秒)</span></span><br><span class="line">max_wav_duration=20   <span class="comment"># 最长音频长度(秒)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>增强模型相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enh_exp=             <span class="comment"># 增强实验目录路径</span></span><br><span class="line">enh_tag=             <span class="comment"># 增强模型训练结果目录的后缀</span></span><br><span class="line">enh_config=          <span class="comment"># 增强模型训练配置</span></span><br><span class="line">enh_args=            <span class="comment"># 增强模型训练的额外参数</span></span><br><span class="line">ref_num=2            <span class="comment"># 参考信号数量(等于说话人数量)</span></span><br><span class="line">inf_num=             <span class="comment"># 模型输出的推理结果数量</span></span><br><span class="line">noise_type_num=1     <span class="comment"># 输入音频中的噪声类型数量</span></span><br><span class="line">dereverb_ref_num=1   <span class="comment"># 去混响参考信号数量</span></span><br><span class="line">is_tse_task=<span class="literal">false</span>    <span class="comment"># 是否为目标说话人提取任务</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>训练数据相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">use_dereverb_ref=<span class="literal">false</span>   <span class="comment"># 是否使用去混响参考信号</span></span><br><span class="line">use_noise_ref=<span class="literal">false</span>      <span class="comment"># 是否使用噪声参考信号</span></span><br><span class="line">variable_num_refs=<span class="literal">false</span>  <span class="comment"># 是否使用可变数量的参考信号</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>推理和评估相关参数</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">inference_args=<span class="string">&quot;--normalize_output_wav true --output_format wav&quot;</span>  <span class="comment"># 推理参数</span></span><br><span class="line">inference_model=valid.loss.ave.pth  <span class="comment"># 推理使用的模型文件</span></span><br><span class="line">scoring_protocol=<span class="string">&quot;STOI SDR SAR SIR SI_SNR&quot;</span>  <span class="comment"># 评分指标</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="各Stage功能详细分析"><a href="#各Stage功能详细分析" class="headerlink" title="各Stage功能详细分析"></a>各Stage功能详细分析</h3><h4 id="Stage-1-数据准备"><a href="#Stage-1-数据准备" class="headerlink" title="Stage 1: 数据准备"></a>Stage 1: 数据准备</h4><ul>
-<li><strong>功能</strong>：准备训练、验证和测试数据集</li>
-<li><strong>执行</strong>：调用local/data.sh脚本处理数据</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;stage&#125;</span> -le 1 ] &amp;&amp; [ <span class="variable">$&#123;stop_stage&#125;</span> -ge 1 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">log</span> <span class="string">&quot;Stage 1: Data preparation for data/<span class="variable">$&#123;train_set&#125;</span>, data/<span class="variable">$&#123;valid_set&#125;</span>, etc.&quot;</span></span><br><span class="line">    <span class="comment"># [Task dependent] 需要为新语料库创建data.sh</span></span><br><span class="line">    <span class="built_in">local</span>/data.sh <span class="variable">$&#123;local_data_opts&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>重要说明</strong>：<ul>
-<li>这个阶段是任务相关的，需要根据具体的语料库创建相应的data.sh脚本</li>
-<li>local_data_opts参数可以传递给data.sh进行数据处理的定制</li>
-</ul>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>data/$&#123;train_set&#125;</code>, <code>data/$&#123;valid_set&#125;</code> 等目录下生成：<ul>
-<li>wav.scp：音频文件路径映射</li>
-<li>utt2spk：话语到说话人映射</li>
-<li>spk2utt：说话人到话语映射</li>
-<li>mix.scp：混合音频文件列表</li>
-<li>ref.scp：参考音频文件列表</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>注：笔者一开始在找了好久<code>data.sh</code>在哪里，后面发现在具体的数据集中(详见上文训练任务流程)</p>
-<h4 id="Stage-2-速度扰动"><a href="#Stage-2-速度扰动" class="headerlink" title="Stage 2: 速度扰动"></a>Stage 2: 速度扰动</h4><ul>
-<li><strong>功能</strong>：对训练数据进行速度扰动增强</li>
-<li><strong>条件</strong>：仅在设置了speed_perturb_factors且不使用去混响参考时执行</li>
-<li><strong>处理</strong>：对音频进行不同速度的扰动，生成增强数据</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>data/$&#123;train_set&#125;_sp</code> 目录下生成：<ul>
-<li>扰动后的音频文件和对应的配置文件</li>
-<li>更新的 wav.scp, utt2spk, spk2utt 等文件</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-3-音频格式化"><a href="#Stage-3-音频格式化" class="headerlink" title="Stage 3: 音频格式化"></a>Stage 3: 音频格式化</h4><ul>
-<li><strong>功能</strong>：统一处理音频格式</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 格式化wav.scp文件</span></span><br><span class="line">scripts/audio/format_wav_scp.sh --nj <span class="string">&quot;<span class="variable">$&#123;nj&#125;</span>&quot;</span> --cmd <span class="string">&quot;<span class="variable">$&#123;train_cmd&#125;</span>&quot;</span> \</span><br><span class="line">    --out-filename <span class="string">&quot;<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> \</span><br><span class="line">    --audio-format <span class="string">&quot;<span class="variable">$&#123;audio_format&#125;</span>&quot;</span> --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> <span class="variable">$&#123;_opts&#125;</span> \</span><br><span class="line">    <span class="string">&quot;data/<span class="variable">$&#123;dset&#125;</span>/<span class="variable">$&#123;spk&#125;</span>.scp&quot;</span> <span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span><span class="variable">$&#123;_suf&#125;</span>/<span class="variable">$&#123;dset&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>处理步骤</strong>：<ol>
-<li>重新创建”wav.scp”文件</li>
-<li>统一音频格式和采样率</li>
-<li>处理多说话人的情况</li>
-<li>支持segments文件的分割处理</li>
-</ol>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;data_feats&#125;/$&#123;dset&#125;</code> 目录下：<ul>
-<li>统一格式后的音频文件</li>
-<li>更新的 wav.scp 文件</li>
-<li>各说话人的 .scp 文件</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-4-数据筛选"><a href="#Stage-4-数据筛选" class="headerlink" title="Stage 4: 数据筛选"></a>Stage 4: 数据筛选</h4><ul>
-<li><strong>功能</strong>：移除不符合长度要求的音频数据</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算最小和最大长度（样本数）</span></span><br><span class="line">_fs=$(python3 -c <span class="string">&quot;import humanfriendly as h;print(h.parse_size(&#x27;<span class="variable">$&#123;fs&#125;</span>&#x27;))&quot;</span>)</span><br><span class="line">_min_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;min_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line">_max_length=$(python3 -c <span class="string">&quot;print(int(<span class="variable">$&#123;max_wav_duration&#125;</span> * <span class="variable">$&#123;_fs&#125;</span>))&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据长度筛选数据</span></span><br><span class="line">&lt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/org/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span> \</span><br><span class="line">    awk -v min_length=<span class="string">&quot;<span class="variable">$&#123;_min_length&#125;</span>&quot;</span> -v max_length=<span class="string">&quot;<span class="variable">$&#123;_max_length&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="string">&#x27;&#123; if ($2 &gt; min_length &amp;&amp; $2 &lt; max_length ) print $0; &#125;&#x27;</span> \</span><br><span class="line">    &gt;<span class="string">&quot;<span class="variable">$&#123;data_feats&#125;</span>/<span class="variable">$&#123;dset&#125;</span>/utt2num_samples&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>处理步骤</strong>：<ol>
-<li>将时间长度转换为样本数</li>
-<li>根据样本数筛选音频</li>
-<li>更新相关的scp文件</li>
-</ol>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;data_feats&#125;/$&#123;dset&#125;</code> 目录下：<ul>
-<li>筛选后的 utt2num_samples 文件</li>
-<li>更新后的 wav.scp, spk.scp 等文件</li>
-<li>移除不符合长度要求的音频条目</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-5-统计收集"><a href="#Stage-5-统计收集" class="headerlink" title="Stage 5: 统计收集"></a>Stage 5: 统计收集</h4><ul>
-<li><strong>功能</strong>：收集训练所需的统计信息</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    --collect_stats <span class="literal">true</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    --train_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/train.JOB.scp&quot;</span> \</span><br><span class="line">    --valid_shape_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/valid.JOB.scp&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>/stats.JOB&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>处理步骤</strong>：<ol>
-<li>收集训练和验证数据的统计信息</li>
-<li>生成shape文件</li>
-<li>聚合统计信息</li>
-</ol>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;_logdir&#125;</code> 目录下：<ul>
-<li>stats.JOB 目录：包含统计信息</li>
-<li>train.JOB.scp：训练数据shape信息</li>
-<li>valid.JOB.scp：验证数据shape信息</li>
-<li>global_stats：全局统计信息</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-6-模型训练"><a href="#Stage-6-模型训练" class="headerlink" title="Stage 6: 模型训练"></a>Stage 6: 模型训练</h4><ul>
-<li><strong>功能</strong>：执行增强模型的训练</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;train_module&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_data_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_train_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_valid_shape_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_fold_length_param&#125;</span> \</span><br><span class="line">    --resume <span class="literal">true</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;init_param:+--init_param $init_param&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_opts&#125;</span> <span class="variable">$&#123;enh_args&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>处理步骤</strong>：<ol>
-<li>设置训练数据和验证数据</li>
-<li>配置训练参数</li>
-<li>支持断点续训</li>
-<li>可选预训练模型初始化</li>
-</ol>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;enh_exp&#125;</code> 目录下：<ul>
-<li>config.yaml：模型配置文件</li>
-<li>模型检查点文件（*.pth）</li>
-<li>trainer.log：训练日志</li>
-<li>验证结果和曲线图表</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-7-推理处理"><a href="#Stage-7-推理处理" class="headerlink" title="Stage 7: 推理处理"></a>Stage 7: 推理处理</h4><ul>
-<li><strong>功能</strong>：使用训练好的模型进行音频增强</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m <span class="variable">$&#123;infer_module&#125;</span> \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --fs <span class="string">&quot;<span class="variable">$&#123;fs&#125;</span>&quot;</span> \</span><br><span class="line">    <span class="variable">$&#123;_data_param&#125;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --train_config <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --model_file <span class="string">&quot;<span class="variable">$&#123;enh_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure></li>
-<li><strong>处理步骤</strong>：<ol>
-<li>加载训练好的模型</li>
-<li>对测试集进行推理</li>
-<li>生成增强后的音频</li>
-<li>支持GPU推理</li>
-</ol>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;_logdir&#125;/output.JOB</code> 目录下：<ul>
-<li>enhanced.wav：增强后的音频文件</li>
-<li>keys.JOB.scp：处理的音频键值对</li>
-<li>推理日志和结果文件</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-8-评分"><a href="#Stage-8-评分" class="headerlink" title="Stage 8: 评分"></a>Stage 8: 评分</h4><ul>
-<li><strong>功能</strong>：评估增强效果</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.enh_scoring \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB \</span><br><span class="line">    <span class="variable">$&#123;_ref_scp&#125;</span> \</span><br><span class="line">    <span class="variable">$&#123;_inf_scp&#125;</span> \</span><br><span class="line">    --ref_channel <span class="variable">$&#123;ref_channel&#125;</span> \</span><br><span class="line">    --flexible_numspk <span class="variable">$&#123;flexible_numspk&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li><strong>评估指标</strong>：<ul>
-<li>STOI: 语音可懂度</li>
-<li>SDR: 信号失真比</li>
-<li>SAR: 伪影比</li>
-<li>SIR: 干扰比</li>
-<li>SI_SNR: 尺度不变信噪比</li>
-</ul>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;_logdir&#125;/output.JOB</code> 目录下：<ul>
-<li>scoring.txt：包含各项评分指标</li>
-<li>score_stats：详细的评分统计</li>
-<li>各指标的得分分布图</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-9-10-ASR评估"><a href="#Stage-9-10-ASR评估" class="headerlink" title="Stage 9-10: ASR评估"></a>Stage 9-10: ASR评估</h4><ul>
-<li><strong>功能</strong>：使用ASR模型评估增强效果</li>
-<li><strong>关键代码</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$&#123;python&#125;</span> -m espnet2.bin.asr_inference \</span><br><span class="line">    --ngpu <span class="string">&quot;<span class="variable">$&#123;_ngpu&#125;</span>&quot;</span> \</span><br><span class="line">    --data_path_and_name_and_type <span class="string">&quot;<span class="variable">$&#123;_ddir&#125;</span>/wav.scp,speech,<span class="variable">$&#123;_type&#125;</span>&quot;</span> \</span><br><span class="line">    --key_file <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/keys.JOB.scp \</span><br><span class="line">    --asr_train_config <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/config.yaml \</span><br><span class="line">    --asr_model_file <span class="string">&quot;<span class="variable">$&#123;asr_exp&#125;</span>&quot;</span>/<span class="string">&quot;<span class="variable">$&#123;inference_asr_model&#125;</span>&quot;</span> \</span><br><span class="line">    --output_dir <span class="string">&quot;<span class="variable">$&#123;_logdir&#125;</span>&quot;</span>/output.JOB</span><br></pre></td></tr></table></figure></li>
-<li><strong>处理步骤</strong>：<ol>
-<li>使用ASR模型解码增强后的音频</li>
-<li>计算字错误率(CER)或词错误率(WER)</li>
-<li>生成评估报告</li>
-</ol>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;_logdir&#125;/output.JOB</code> 目录下：<ul>
-<li>asr_inference.txt：ASR解码结果</li>
-<li>text：识别的文本结果</li>
-<li>wer.txt/cer.txt：错误率统计</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-11-模型打包"><a href="#Stage-11-模型打包" class="headerlink" title="Stage 11: 模型打包"></a>Stage 11: 模型打包</h4><ul>
-<li><strong>功能</strong>：将训练好的模型打包</li>
-<li><strong>处理</strong>：<ul>
-<li>打包模型文件</li>
-<li>打包配置信息</li>
-<li>生成发布包</li>
-</ul>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 <code>$&#123;enh_exp&#125;/pack</code> 目录下：<ul>
-<li>model.zip：打包的模型文件</li>
-<li>config.yaml：配置文件副本</li>
-<li>README.md：模型说明文档</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="Stage-12-上传模型"><a href="#Stage-12-上传模型" class="headerlink" title="Stage 12: 上传模型"></a>Stage 12: 上传模型</h4><ul>
-<li><strong>功能</strong>：将模型上传到HuggingFace</li>
-<li><strong>条件</strong>：当skip_upload_hf=false时执行</li>
-<li><strong>处理</strong>：<ul>
-<li>准备上传文件</li>
-<li>配置HuggingFace仓库</li>
-<li>上传模型</li>
-</ul>
-</li>
-<li><strong>运行产出</strong>：<ul>
-<li>在 HuggingFace仓库中：<ul>
-<li>上传的模型文件和配置</li>
-<li>模型卡片（model card）</li>
-<li>示例代码和使用说明</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>enh1.sh是一个完整的语音增强处理流程脚本，包含了从数据准备到模型训练、评估的全过程。通过合理配置参数，可以灵活控制处理流程的各个环节。使用时需要特别注意：</p>
-<ol>
-<li>必须提供训练集、验证集和测试集的名称</li>
-<li>根据需求合理设置GPU数量和并行作业数</li>
-<li>可以通过stage和stop_stage控制执行流程</li>
-<li>评估阶段提供了多种评估方式，包括客观指标和ASR评估</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>AI辅助</tag>
-        <tag>语音增强</tag>
-        <tag>技术分析</tag>
-        <tag>espnet</tag>
       </tags>
   </entry>
   <entry>
@@ -779,6 +606,380 @@
       </categories>
       <tags>
         <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端人工智能技术</title>
+    <url>/2025/02/23/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<p>本文在deepseek辅助下帮助笔者理解移动端人工智能的知识蒸馏（Knowledge Distillation）、量化（Quantization）和剪枝（Pruning）三种模型压缩技术。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><span id="more"></span></h2><h3 id="1-知识蒸馏（Knowledge-Dististillation）"><a href="#1-知识蒸馏（Knowledge-Dististillation）" class="headerlink" title="1. 知识蒸馏（Knowledge Dististillation）"></a><strong>1. 知识蒸馏（Knowledge Dististillation）</strong></h3><h4 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过训练一个轻量化的“学生模型”（Student Model），模仿复杂“教师模型”（Teacher Model）的输出行为，从而将教师模型的知识迁移到学生模型中。</p>
+<ul>
+<li><strong>知识来源</strong>：教师模型的输出概率分布（软标签）、中间层特征或注意力机制。</li>
+<li><strong>目标</strong>：学生模型在保持小体积的同时，达到接近教师模型的性能。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：图像分类任务（如ImageNet数据集）  </p>
+<ul>
+<li><strong>教师模型</strong>：大型模型（如ResNet-50，准确率76%）。</li>
+<li><strong>学生模型</strong>：轻量模型（如MobileNetV3，准确率直接训练仅70%）。  </li>
+<li><strong>蒸馏过程</strong>：  <ol>
+<li>教师模型对训练数据生成“软标签”（Soft Labels，即各类别概率分布，如<code>[0.7, 0.2, 0.1]</code>）。  </li>
+<li>学生模型同时学习真实标签（硬标签）和软标签。<br>结合硬标签损失和软标签的KL散度损失函数：<script type="math/tex; mode=display">
+L = \alpha L_{CE} + (1 - \alpha) L_{KL}</script>其中，<script type="math/tex">L_{CE}</script>为交叉熵损失，<script type="math/tex">L_{KL}</script>为KL散度损失。</li>
+</ol>
+</li>
+</ul>
+<h4 id="深入思考"><a href="#深入思考" class="headerlink" title="深入思考"></a>深入思考</h4><p>1.<strong>为什么学生模型参数更少却能接近教师性能？</strong></p>
+<p>类比于二级结论，学生模型具有教师模型的先验知识（概率分布），而不需要从底层开始全部学习。我们称之为<strong>决策边界抽象能力</strong>。</p>
+<p>信息论角度：将教师模型中“有效信息”（决策边界、特征相关性）编码到学生模型的参数中，而非复制所有参数。</p>
+<p>2.<strong>软标签概率分布如何生成？</strong></p>
+<p>核心方法：温度缩放（Temperature Scaling）<br>软标签并非直接使用教师模型的原始输出，而是通过引入温度参数（Temperature, T）对概率分布进行平滑处理，以传递类别间的关系信息。</p>
+<p>数学公式：</p>
+<script type="math/tex; mode=display">
+p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其中，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="1.792ex" height="1.357ex" role="img" focusable="false" viewBox="0 -442 792 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mi" transform="translate(498,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>是教师模型在类别<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>的原始输出，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.593ex" height="1.532ex" role="img" focusable="false" viewBox="0 -677 704 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></svg></mjx-container>是温度参数，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.719ex" height="1.645ex" role="img" focusable="false" viewBox="0 -705 760 727"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container>是类别总数。</p>
+<p>T的作用：</p>
+<ul>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.717ex" role="img" focusable="false" viewBox="0 -677 2537.6 759"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，软标签等同于硬标签。</li>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.09ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.622ex" role="img" focusable="false" viewBox="0 -677 2537.6 717"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，概率分布更平滑，类别间关系信息更丰富。</li>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="7.375ex" height="1.557ex" role="img" focusable="false" viewBox="0 -677 3259.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2259.6,0)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g></g></g></svg></mjx-container> 时，概率分布趋近于均匀分布。</li>
+</ul>
+<p>3.<strong>为什么不在训练教师模型时使用软标签？</strong></p>
+<p>根本原因：教师模型的训练目标不同</p>
+<ul>
+<li>教师模型的使命：追求最高精度，而非传递知识<ul>
+<li>教师模型需尽可能拟合数据中的细节，硬标签（明确答案）是更直接的监督信号。</li>
+<li>软标签会引入不必要的“不确定性”，降低模型对正确类别的置信度。</li>
+</ul>
+</li>
+<li>软标签的来源矛盾：<ul>
+<li>知识蒸馏中，软标签由更强大的教师模型生成（例如ResNet-50教MobileNet）。</li>
+<li>若在训练教师模型时使用软标签，需要另一个更强的模型生成软标签，但这会导致无限递归问题（谁来生成这个更强的模型的软标签？）</li>
+</ul>
+</li>
+</ul>
+<p>4.<strong>知识蒸馏的局限性</strong></p>
+<ul>
+<li>需要高质量的教师模型：教师模型需要足够大，才能提供高质量的软标签。</li>
+<li>需要大量计算资源：教师模型需要大量计算资源，才能生成高质量的软标签。</li>
+<li>需要大量数据：教师模型需要大量数据，才能生成高质量的软标签。</li>
+</ul>
+<hr>
+<h3 id="2-量化（Quantization）"><a href="#2-量化（Quantization）" class="headerlink" title="2. 量化（Quantization）"></a><strong>2. 量化（Quantization）</strong></h3><h4 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>将模型参数（权重）和激活值从高精度浮点数（如32位）转换为低精度数值（如8位整数），减少模型体积和计算资源消耗。  </p>
+<ul>
+<li><strong>类型</strong>：  <ul>
+<li><strong>训练后量化（Post-training Quantization）</strong>：直接对训练好的模型进行量化。  </li>
+<li><strong>量化感知训练（Quantization-aware Training）</strong>：在训练过程中模拟量化误差，提升最终量化模型的精度。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：手机端语音识别模型  </p>
+<ul>
+<li><strong>原始模型</strong>：基于LSTM的语音识别模型，使用FP32精度，大小120MB，延迟50ms。  </li>
+<li><strong>量化步骤</strong>：  <ol>
+<li>将权重和激活值从FP32量化为INT8（范围映射到-128~127）。  </li>
+<li>引入反量化（Dequantization）层，在关键计算节点恢复精度。  </li>
+</ol>
+</li>
+<li><strong>结果</strong>：模型大小缩减至30MB，延迟降至15ms，准确率损失小于1%。</li>
+</ul>
+<p>下面以Pytorch为例，展示训练后量化和量化感知训练的实现。</p>
+<h5 id="训练后量化"><a href="#训练后量化" class="headerlink" title="训练后量化"></a>训练后量化</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.quantization</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> mobilenet_v2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 加载预训练模型</span></span><br><span class="line">model = mobilenet_v2(pretrained=<span class="literal">True</span>)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 定义量化配置</span></span><br><span class="line">model.qconfig = torch.quantization.get_default_qconfig(<span class="string">'qnnpack'</span>)  <span class="comment"># 移动端优化配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 插入观察器（Observer）校准量化参数</span></span><br><span class="line">model_fp32_prepared = torch.quantization.prepare(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 用校准数据运行模型（此处用随机数据示例）</span></span><br><span class="line">input_fp32 = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>)  <span class="comment"># 假设输入尺寸为224x224</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    model_fp32_prepared(input_fp32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 转换为量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_fp32_prepared)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存量化模型</span></span><br><span class="line">torch.save(model_int8.state_dict(), <span class="string">"mobilenet_v2_quantized.pth"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查模型大小</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)     <span class="comment"># 约14MB</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"INT8模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2_quantized.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)  <span class="comment"># 约3.5MB</span></span><br></pre></td></tr></table></figure>
+<h5 id="量化感知训练"><a href="#量化感知训练" class="headerlink" title="量化感知训练"></a>量化感知训练</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.quantization <span class="keyword">import</span> QuantStub, DeQuantStub</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 定义支持量化的模型结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuantizableModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.quant = QuantStub()      <span class="comment"># 量化入口</span></span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.dequant = DeQuantStub()  <span class="comment"># 反量化出口</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.quant(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.conv(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.dequant(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 插入伪量化节点</span></span><br><span class="line">model = QuantizableModel()</span><br><span class="line">model.qconfig = torch.quantization.get_default_qat_qconfig(<span class="string">'qnnpack'</span>)</span><br><span class="line">model.train()  <span class="comment"># 切换到训练模式</span></span><br><span class="line">model_prepared = torch.quantization.prepare_qat(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 正常训练流程（需使用FP32数据）</span></span><br><span class="line">optimizer = torch.optim.SGD(model_prepared.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model_prepared(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 转换为最终量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_prepared)</span><br></pre></td></tr></table></figure>
+<h4 id="深入思考-1"><a href="#深入思考-1" class="headerlink" title="深入思考"></a>深入思考</h4><p>手动实现量化计算：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原始FP32计算</span></span><br><span class="line">W_fp32 = torch.tensor([<span class="number">2.5</span>, -<span class="number">1.3</span>, <span class="number">0.8</span>], dtype=torch.float32)</span><br><span class="line">x_fp32 = torch.tensor([<span class="number">0.4</span>, <span class="number">1.2</span>, -<span class="number">0.5</span>], dtype=torch.float32)</span><br><span class="line">y_fp32 = torch.dot(W_fp32, x_fp32)  <span class="comment"># 输出：2.5*0.4 + (-1.3)*1.2 + 0.8*(-0.5) = -1.56</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 量化到INT8（范围假设为[-5, 5]）</span></span><br><span class="line">scale_W = <span class="number">5</span> / <span class="number">127</span>  <span class="comment"># 对称量化，scale = max(abs(W)) / 127</span></span><br><span class="line">W_int8 = torch.clamp((W_fp32 / scale_W).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line">scale_x = <span class="number">5</span> / <span class="number">127</span></span><br><span class="line">x_int8 = torch.clamp((x_fp32 / scale_x).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数计算</span></span><br><span class="line">y_int32 = torch.dot(W_int8.<span class="built_in">float</span>(), x_int8.<span class="built_in">float</span>())  <span class="comment"># 转为float避免溢出</span></span><br><span class="line">y_dequant = y_int32 * (scale_W * scale_x)  <span class="comment"># 反量化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32结果:"</span>, y_fp32.item())        <span class="comment"># -1.56</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"量化结果:"</span>, y_dequant.item())     <span class="comment"># 约-1.55（存在微小误差）</span></span><br></pre></td></tr></table></figure>
+<p>量化完整流程：</p>
+<ul>
+<li>准备阶段<ul>
+<li>插入观察器到模型中，统计各层的权重和激活值分布。</li>
+<li>代码操作：model_prepared = prepare(model)</li>
+</ul>
+</li>
+<li>校准阶段<ul>
+<li>用代表性数据运行模型，观察器记录各层的min/max值。</li>
+<li>代码操作：model_prepared(input_data)</li>
+</ul>
+</li>
+<li>转换阶段<ul>
+<li>根据校准结果计算量化参数，替换浮点算子为量化算子。</li>
+<li>代码操作：model_quantized = convert(model_prepared)</li>
+</ul>
+</li>
+</ul>
+<p><strong>核心公式</strong>：</p>
+<ul>
+<li>量化公式：<script type="math/tex">Q(x) = \text{clamp}\left(\text{round}\left(\frac{x}{\text{scale}} + \text{zero\_point}\right), \text{min}, \text{max}\right)</script><ul>
+<li>clamp：将结果限制在min和max之间</li>
+<li>round：四舍五入</li>
+<li>zero_point：量化偏移量, 用于校准, 通常为0</li>
+</ul>
+</li>
+<li>反量化公式：<script type="math/tex">x = \left(\text{Q}(x) - \text{zero\_point}\right) \times \text{scale}</script></li>
+</ul>
+<h4 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
+<li>TensorFlow Lite：默认支持训练后量化，可将目标检测模型（如SSD MobileNet）从16MB压缩到4MB。  </li>
+<li>苹果Core ML：在iPhone上运行量化后的StyleGAN模型，实现实时人像风格迁移。</li>
+</ul>
+<hr>
+<h3 id="3-剪枝（Pruning）"><a href="#3-剪枝（Pruning）" class="headerlink" title="3. 剪枝（Pruning）"></a><strong>3. 剪枝（Pruning）</strong></h3><h4 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过移除模型中不重要的参数（如接近零的权重）或结构（如冗余神经元），减少模型复杂度。  </p>
+<ul>
+<li><strong>类型</strong>：  <ul>
+<li><strong>非结构化剪枝</strong>：删除单个权重（稀疏化）。  </li>
+<li><strong>结构化剪枝</strong>：删除整层神经元或通道（更适合硬件加速）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：自然语言处理中的BERT模型压缩  </p>
+<ul>
+<li><strong>原始模型</strong>：BERT-base（1.1亿参数，模型大小400MB）。  </li>
+<li><strong>剪枝过程</strong>：  <ol>
+<li>在微调阶段，根据权重绝对值或梯度重要性评分，剪枝30%的注意力头。  </li>
+<li>重新训练剩余参数以恢复精度。  </li>
+</ol>
+</li>
+<li><strong>结果</strong>：模型大小减少至280MB，推理速度提升1.5倍，在GLUE基准上精度下降仅0.5%。</li>
+</ul>
+<p>以下是Pytorch实现剪枝的示例：</p>
+<h5 id="非结构化剪枝"><a href="#非结构化剪枝" class="headerlink" title="非结构化剪枝"></a>非结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.utils.prune <span class="keyword">as</span> prune</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义示例模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">16</span>, <span class="number">3</span>)  <span class="comment"># 输入通道3，输出通道16</span></span><br><span class="line">        <span class="variable language_">self</span>.fc = nn.Linear(<span class="number">16</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 假设输入图像尺寸为28x28</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.conv1(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleCNN()</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 剪枝步骤 ---</span></span><br><span class="line"><span class="comment"># Step 1: 选择剪枝目标（这里剪枝conv1层的权重）</span></span><br><span class="line">parameters_to_prune = [(model.conv1, <span class="string">'weight'</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 应用L1范数剪枝（剪去20%的权重）</span></span><br><span class="line">prune.global_unstructured(</span><br><span class="line">    parameters_to_prune,</span><br><span class="line">    pruning_method=prune.L1Unstructured,</span><br><span class="line">    amount=<span class="number">0.2</span>  <span class="comment"># 剪枝比例20%</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 查看剪枝效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的权重稀疏度："</span>, </span><br><span class="line">      torch.<span class="built_in">sum</span>(model.conv1.weight == <span class="number">0</span>).item() / model.conv1.weight.nelement())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 永久移除剪枝的权重（可选）</span></span><br><span class="line">prune.remove(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 微调剪枝后的模型</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>为什么用L1范数剪枝？</strong>：<br>L1范数具有自然的稀疏性特征，通过最小化L1范数，模型倾向于将一些权重推向0以实现稀疏化，并且计算简单。</p>
+<h5 id="结构化剪枝"><a href="#结构化剪枝" class="headerlink" title="结构化剪枝"></a>结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.nn.utils.prune <span class="keyword">import</span> ln_structured, remove_structured</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 剪枝整个通道（基于L2范数）</span></span><br><span class="line"><span class="comment"># 对conv1层的输出通道进行剪枝（移除20%的通道）</span></span><br><span class="line">prune.ln_structured(</span><br><span class="line">    model.conv1,</span><br><span class="line">    name=<span class="string">"weight"</span>,</span><br><span class="line">    amount=<span class="number">0.2</span>,</span><br><span class="line">    n=<span class="number">2</span>,  <span class="comment"># L2范数</span></span><br><span class="line">    dim=<span class="number">0</span>  <span class="comment"># 沿输出通道维度剪枝</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 查看通道剪枝后的权重形状</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的conv1.weight形状:"</span>, model.conv1.weight.shape)  </span><br><span class="line"><span class="comment"># 原始形状[16,3,3,3] → 剪枝后[13,3,3,3]（假设移除3个通道）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 永久应用剪枝</span></span><br><span class="line">remove_structured(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 调整后续层（重要！结构化剪枝需适配网络结构）</span></span><br><span class="line"><span class="comment"># 原fc层输入维度为16*26*26，剪枝后变为13*26*26 → 需要重新定义</span></span><br><span class="line">model.fc = nn.Linear(<span class="number">13</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 修改输入维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调模型（同上）</span></span><br></pre></td></tr></table></figure>
+<p><strong>为什么用L2范数剪枝？</strong>：</p>
+<ul>
+<li>避免极端值：均匀缩小</li>
+<li>计算效率：L2范数计算复杂度较低</li>
+</ul>
+<h4 id="实际应用-1"><a href="#实际应用-1" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
+<li>NVIDIA的Nemo框架：对语音识别模型（如QuartzNet）进行结构化剪枝，GPU推理速度提升2倍。  </li>
+<li>无人机避障算法：剪枝后的YOLOv5模型在边缘设备上实时检测障碍物，功耗降低40%。</li>
+</ul>
+<hr>
+<h3 id="三者的对比与协同使用"><a href="#三者的对比与协同使用" class="headerlink" title="三者的对比与协同使用"></a><strong>三者的对比与协同使用</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>核心目标</th>
+<th>优势</th>
+<th>局限性</th>
+<th>典型压缩率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识蒸馏</td>
+<td>迁移知识到小模型</td>
+<td>精度接近教师模型</td>
+<td>依赖高质量教师模型</td>
+<td>2-5倍</td>
+</tr>
+<tr>
+<td>量化</td>
+<td>降低数值精度</td>
+<td>显著减少体积和计算开销</td>
+<td>可能损失精度（需校准）</td>
+<td>4倍+</td>
+</tr>
+<tr>
+<td>剪枝</td>
+<td>移除冗余参数或结构</td>
+<td>提升推理速度，降低内存占用</td>
+<td>可能破坏模型结构完整性</td>
+<td>2-10倍</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>协同使用案例</strong>：<br>谷歌的MobileNetV4模型结合三者：  </p>
+<ol>
+<li>用知识蒸馏从EfficientNet迁移知识；  </li>
+<li>对模型进行混合精度量化（部分层用INT8，关键层用FP16）；  </li>
+<li>剪枝掉80%的冗余通道，最终模型体积减少6倍，速度提升3倍，精度仅下降2%。  </li>
+</ol>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>知识蒸馏、量化和剪枝是移动端AI模型压缩的三大核心技术：  </p>
+<ul>
+<li><strong>知识蒸馏</strong>：通过“师生学习”传递知识，适合模型功能迁移；  </li>
+<li><strong>量化</strong>：降低数值精度，直接压缩体积和加速计算；  </li>
+<li><strong>剪枝</strong>：消除冗余参数，提升硬件执行效率。<br>实际应用中，三者常结合使用（如“蒸馏+量化+剪枝”流程），在保证精度的前提下，实现移动端AI模型的极致优化。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>端侧AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA DPU Course</title>
+    <url>/2025/02/22/NVIDIA-DPU-Course/</url>
+    <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
+<h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>NVIDIA BlueField DPU目前主要有以下几代产品:</p>
+<ul>
+<li>BlueField-3 DPU</li>
+<li>BlueField-2 DPU (支持InfiniBand/以太网双版本)</li>
+<li>BlueField-1 系列控制器卡</li>
+</ul>
+<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><h3 id="DOCA软件框架"><a href="#DOCA软件框架" class="headerlink" title="DOCA软件框架"></a>DOCA软件框架</h3><p>DOCA (Data center-on-chip Architecture)是NVIDIA为BlueField DPU开发的软件框架，包含：</p>
+<h4 id="DOCA-SDK-v2-10-0"><a href="#DOCA-SDK-v2-10-0" class="headerlink" title="DOCA SDK (v2.10.0)"></a>DOCA SDK (v2.10.0)</h4><ul>
+<li>RDMA加速SDK</li>
+<li>网络加速SDK</li>
+<li>安全加速SDK</li>
+<li>存储加速SDK</li>
+<li>数据路径加速(DPA) SDK</li>
+<li>管理SDK</li>
+</ul>
+<h4 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h4><ul>
+<li>统一通信接口(UCX)</li>
+<li>RDMA verbs</li>
+<li>GPUDirect</li>
+<li>软件定义网络(SDN)</li>
+<li>P4编程支持</li>
+<li>在线加密</li>
+<li>App Shield运行时安全</li>
+</ul>
+<h2 id="应用场景与功能"><a href="#应用场景与功能" class="headerlink" title="应用场景与功能"></a>应用场景与功能</h2><h3 id="1-网络加速"><a href="#1-网络加速" class="headerlink" title="1. 网络加速"></a>1. 网络加速</h3><h4 id="1-1-网络协议栈卸载"><a href="#1-1-网络协议栈卸载" class="headerlink" title="1.1 网络协议栈卸载"></a>1.1 网络协议栈卸载</h4><ul>
+<li><p><strong>TCP/IP卸载</strong></p>
+<ul>
+<li>完整的TCP/IP协议栈处理</li>
+<li>支持TCP Offload Engine (TOE)</li>
+<li>降低主机CPU负载</li>
+<li>减少网络延迟</li>
+</ul>
+</li>
+<li><p><strong>RDMA技术</strong></p>
+<ul>
+<li>支持RoCE v1/v2 (RDMA over Converged Ethernet)</li>
+<li>支持InfiniBand</li>
+<li>零拷贝数据传输</li>
+<li>内核旁路技术</li>
+<li>QP (Queue Pair) 管理</li>
+<li>支持RDMA Write/Read/Send/Receive操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-网络虚拟化"><a href="#1-2-网络虚拟化" class="headerlink" title="1.2 网络虚拟化"></a>1.2 网络虚拟化</h4><ul>
+<li><p><strong>SR-IOV (Single Root I/O Virtualization)</strong></p>
+<ul>
+<li>支持多达1000个VF (Virtual Function)</li>
+<li>硬件级网络资源隔离</li>
+<li>虚拟机直通技术</li>
+</ul>
+</li>
+<li><p><strong>OVS (Open vSwitch) 加速</strong></p>
+<ul>
+<li>硬件卸载流表处理</li>
+<li>支持OpenFlow协议</li>
+<li>虚拟交换机性能优化</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-高级网络特性"><a href="#1-3-高级网络特性" class="headerlink" title="1.3 高级网络特性"></a>1.3 高级网络特性</h4><ul>
+<li><p><strong>流量管理</strong></p>
+<ul>
+<li>QoS (Quality of Service) 支持</li>
+<li>带宽控制</li>
+<li>流量整形</li>
+<li>拥塞控制</li>
+</ul>
+</li>
+<li><p><strong>网络安全</strong></p>
+<ul>
+<li>IPSec硬件加速</li>
+<li>TLS/SSL卸载</li>
+<li>防火墙规则处理</li>
+<li>DDoS防护</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4-网络性能指标"><a href="#1-4-网络性能指标" class="headerlink" title="1.4 网络性能指标"></a>1.4 网络性能指标</h4><ul>
+<li><p><strong>带宽能力</strong></p>
+<ul>
+<li>支持25/50/100/200/400GbE</li>
+<li>BlueField-3支持高达800Gb/s带宽</li>
+<li>双端口配置选项</li>
+</ul>
+</li>
+<li><p><strong>延迟优化</strong></p>
+<ul>
+<li>端到端延迟&lt;1微秒</li>
+<li>硬件时间戳支持</li>
+<li>精确时间协议(PTP)支持</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-网络编程模型"><a href="#1-5-网络编程模型" class="headerlink" title="1.5 网络编程模型"></a>1.5 网络编程模型</h3><ul>
+<li><p><strong>DPDK支持</strong></p>
+<ul>
+<li>用户态网络驱动</li>
+<li>轮询模式驱动(PMD)</li>
+<li>零拷贝数据包处理</li>
+<li>大页内存支持</li>
+</ul>
+</li>
+<li><p><strong>P4可编程性</strong></p>
+<ul>
+<li>自定义数据包处理流水线</li>
+<li>协议无关的包处理</li>
+<li>灵活的转发规则定义</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-6-相关网络知识"><a href="#1-6-相关网络知识" class="headerlink" title="1.6 相关网络知识"></a>1.6 相关网络知识</h4><ul>
+<li><p><strong>网络分层模型</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">应用层 (L7) - HTTP, FTP, SMTP等</span><br><span class="line">传输层 (L4) - TCP, UDP</span><br><span class="line">网络层 (L3) - IP, ICMP</span><br><span class="line">数据链路层 (L2) - 以太网, MAC</span><br><span class="line">物理层 (L1) - 物理介质</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键网络概念</strong></p>
+<ul>
+<li>MTU (Maximum Transmission Unit)</li>
+<li>VLAN (Virtual LAN)</li>
+<li>VXLAN (Virtual Extensible LAN)</li>
+<li>ARP (Address Resolution Protocol)</li>
+<li>BGP (Border Gateway Protocol)</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-7-性能优化建议"><a href="#1-7-性能优化建议" class="headerlink" title="1.7 性能优化建议"></a>1.7 性能优化建议</h4><ul>
+<li><p><strong>网络调优</strong></p>
+<ul>
+<li>启用巨帧(Jumbo Frame)</li>
+<li>配置RSS (Receive Side Scaling)</li>
+<li>优化中断亲和性</li>
+<li>使用NUMA感知内存分配</li>
+</ul>
+</li>
+<li><p><strong>最佳实践</strong></p>
+<ul>
+<li>合理规划网络拓扑</li>
+<li>选择适当的网络模式</li>
+<li>监控网络性能指标</li>
+<li>定期进行性能测试</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-存储加速"><a href="#2-存储加速" class="headerlink" title="2. 存储加速"></a>2. 存储加速</h3><ul>
+<li>NVMe存储虚拟化</li>
+<li>存储加密与压缩</li>
+<li>零拷贝数据传输</li>
+</ul>
+<h3 id="3-安全功能"><a href="#3-安全功能" class="headerlink" title="3. 安全功能"></a>3. 安全功能</h3><ul>
+<li>硬件加速加密</li>
+<li>IPsec安全网关</li>
+<li>零信任安全架构</li>
+<li>运行时安全保护</li>
+</ul>
+<h3 id="4-虚拟化支持"><a href="#4-虚拟化支持" class="headerlink" title="4. 虚拟化支持"></a>4. 虚拟化支持</h3><ul>
+<li>SR-IOV虚拟化</li>
+<li>虚拟设备模拟</li>
+<li>容器化工作负载支持</li>
+</ul>
+<p><a href="https://www.nvidia.cn/dpubook-3">参考来源</a><br><a href="https://www.nvidia.cn/dpubook-4">DOCA框架文档</a></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>NVIDIA</tag>
       </tags>
   </entry>
 </search>
