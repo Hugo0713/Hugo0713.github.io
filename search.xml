@@ -1,90 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>OS-02 Functions and Structures</title>
-    <url>/2025/02/21/OS02/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Operating systems provide an environment for program executions and services to programs/users<br><span id="more"></span></p>
-<p><img src="/images/OS02-overview.jpg" alt="overview"></p>
-<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
-<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
-<ul>
-<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
-<li>直接执行 eg. <code>cd</code></li>
-</ul>
-</li>
-<li>System program commands: The command is a program name. <ul>
-<li>查找系统文件执行 eg. <code>ls</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
-<li>User</li>
-<li>Kernel<br>转换：系统调用，中断，异常</li>
-</ul>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>System calls are mostly accessed by programs via a high-level Application Program Interface (API) rather than direct system call use.<br>性质：</p>
-<ul>
-<li>易用：无需了解底层实现，直接调用</li>
-<li>可移植：API具有跨平台兼容性</li>
-<li>安全：直接调用与内核交互</li>
-</ul>
-<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><ul>
-<li>寄存器：快，少</li>
-<li>内存表</li>
-<li>栈</li>
-</ul>
-<p>The last two methods do not limit the number or length of parameters being passed 性能损耗</p>
-<h4 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h4><h5 id="Type-1-Process-control"><a href="#Type-1-Process-control" class="headerlink" title="Type 1: Process control"></a>Type 1: Process control</h5><ul>
-<li>Control the current process: end， abort， execute， load……</li>
-<li>Control a different process</li>
-<li>Allocate memory and release memory</li>
-<li>Debugger</li>
-<li>Locks for managing access to shared data between processes</li>
-</ul>
-<h5 id="Type-2-File-management"><a href="#Type-2-File-management" class="headerlink" title="Type 2: File management"></a>Type 2: File management</h5><h5 id="Type-3-Device-management"><a href="#Type-3-Device-management" class="headerlink" title="Type 3: Device management"></a>Type 3: Device management</h5><h5 id="Type-4-Information-maintenance"><a href="#Type-4-Information-maintenance" class="headerlink" title="Type 4: Information maintenance"></a>Type 4: Information maintenance</h5><h5 id="Type-5-Communications"><a href="#Type-5-Communications" class="headerlink" title="Type 5: Communications"></a>Type 5: Communications</h5><ul>
-<li>message passing model 内核中转，离散</li>
-<li>shared-memory model 共享物理内存</li>
-</ul>
-<h5 id="Type-6-Protection"><a href="#Type-6-Protection" class="headerlink" title="Type 6: Protection"></a>Type 6: Protection</h5><h3 id="System-Services"><a href="#System-Services" class="headerlink" title="System Services"></a>System Services</h3><p>In computer hierarchy, system services are higher than system calls.</p>
-<p>System services use system calls to interact with the OS kernel</p>
-<h4 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h4><ul>
-<li>System Programs：Login program, shell, window manager</li>
-<li>Application Programs：Email, web browsers, gaming software, word processors</li>
-</ul>
-<h4 id="Why-Applications-are-Operating-System-Specific："><a href="#Why-Applications-are-Operating-System-Specific：" class="headerlink" title="Why Applications are Operating System Specific："></a>Why Applications are Operating System Specific：</h4><p>Reason: Each operating system provides its own unique system calls</p>
-<p>eg. file format</p>
-<h4 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h4><ul>
-<li>File management</li>
-<li>Status information <ul>
-<li>Some systems implement a registry (注册表) - used to store and retrieve configuration information </li>
-</ul>
-</li>
-<li>File modification</li>
-<li>Programming-language support</li>
-<li>Program loading and execution</li>
-<li>Communications</li>
-<li>Background Services<ul>
-<li>Known as services, subsystems, daemons</li>
-</ul>
-</li>
-</ul>
-<h2 id="Operating-System-Structures"><a href="#Operating-System-Structures" class="headerlink" title="Operating System Structures"></a>Operating System Structures</h2><ul>
-<li>Simple Structure – MS-DOS</li>
-<li>Monolithic (单体)Structure – Original UNIX</li>
-<li>Layered Approach</li>
-<li>Microkernel System Structure - Mach</li>
-<li>Hybrid Systems - windows, macOS, Android </li>
-</ul>
-<h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p><img src="/images/OS02-V.jpeg" alt="visulization"></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/images/OS02-S.jpeg" alt="topics"></p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>NVIDIA DPU Course</title>
     <url>/2025/02/22/NVIDIA-DPU-Course/</url>
     <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
@@ -255,6 +171,90 @@
       <tags>
         <tag>NVIDIA</tag>
         <tag>AI辅助</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OS-02 Functions and Structures</title>
+    <url>/2025/02/21/OS02/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Operating systems provide an environment for program executions and services to programs/users<br><span id="more"></span></p>
+<p><img src="/images/OS02-overview.jpg" alt="overview"></p>
+<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
+<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
+<ul>
+<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
+<li>直接执行 eg. <code>cd</code></li>
+</ul>
+</li>
+<li>System program commands: The command is a program name. <ul>
+<li>查找系统文件执行 eg. <code>ls</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
+<li>User</li>
+<li>Kernel<br>转换：系统调用，中断，异常</li>
+</ul>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>System calls are mostly accessed by programs via a high-level Application Program Interface (API) rather than direct system call use.<br>性质：</p>
+<ul>
+<li>易用：无需了解底层实现，直接调用</li>
+<li>可移植：API具有跨平台兼容性</li>
+<li>安全：直接调用与内核交互</li>
+</ul>
+<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><ul>
+<li>寄存器：快，少</li>
+<li>内存表</li>
+<li>栈</li>
+</ul>
+<p>The last two methods do not limit the number or length of parameters being passed 性能损耗</p>
+<h4 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h4><h5 id="Type-1-Process-control"><a href="#Type-1-Process-control" class="headerlink" title="Type 1: Process control"></a>Type 1: Process control</h5><ul>
+<li>Control the current process: end， abort， execute， load……</li>
+<li>Control a different process</li>
+<li>Allocate memory and release memory</li>
+<li>Debugger</li>
+<li>Locks for managing access to shared data between processes</li>
+</ul>
+<h5 id="Type-2-File-management"><a href="#Type-2-File-management" class="headerlink" title="Type 2: File management"></a>Type 2: File management</h5><h5 id="Type-3-Device-management"><a href="#Type-3-Device-management" class="headerlink" title="Type 3: Device management"></a>Type 3: Device management</h5><h5 id="Type-4-Information-maintenance"><a href="#Type-4-Information-maintenance" class="headerlink" title="Type 4: Information maintenance"></a>Type 4: Information maintenance</h5><h5 id="Type-5-Communications"><a href="#Type-5-Communications" class="headerlink" title="Type 5: Communications"></a>Type 5: Communications</h5><ul>
+<li>message passing model 内核中转，离散</li>
+<li>shared-memory model 共享物理内存</li>
+</ul>
+<h5 id="Type-6-Protection"><a href="#Type-6-Protection" class="headerlink" title="Type 6: Protection"></a>Type 6: Protection</h5><h3 id="System-Services"><a href="#System-Services" class="headerlink" title="System Services"></a>System Services</h3><p>In computer hierarchy, system services are higher than system calls.</p>
+<p>System services use system calls to interact with the OS kernel</p>
+<h4 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h4><ul>
+<li>System Programs：Login program, shell, window manager</li>
+<li>Application Programs：Email, web browsers, gaming software, word processors</li>
+</ul>
+<h4 id="Why-Applications-are-Operating-System-Specific："><a href="#Why-Applications-are-Operating-System-Specific：" class="headerlink" title="Why Applications are Operating System Specific："></a>Why Applications are Operating System Specific：</h4><p>Reason: Each operating system provides its own unique system calls</p>
+<p>eg. file format</p>
+<h4 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h4><ul>
+<li>File management</li>
+<li>Status information <ul>
+<li>Some systems implement a registry (注册表) - used to store and retrieve configuration information </li>
+</ul>
+</li>
+<li>File modification</li>
+<li>Programming-language support</li>
+<li>Program loading and execution</li>
+<li>Communications</li>
+<li>Background Services<ul>
+<li>Known as services, subsystems, daemons</li>
+</ul>
+</li>
+</ul>
+<h2 id="Operating-System-Structures"><a href="#Operating-System-Structures" class="headerlink" title="Operating System Structures"></a>Operating System Structures</h2><ul>
+<li>Simple Structure – MS-DOS</li>
+<li>Monolithic (单体)Structure – Original UNIX</li>
+<li>Layered Approach</li>
+<li>Microkernel System Structure - Mach</li>
+<li>Hybrid Systems - windows, macOS, Android </li>
+</ul>
+<h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p><img src="/images/OS02-V.jpeg" alt="visulization"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/images/OS02-S.jpeg" alt="topics"></p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -709,6 +709,27 @@
       </tags>
   </entry>
   <entry>
+    <title>解读尼采</title>
+    <url>/2025/02/21/%E5%B0%BC%E9%87%87/</url>
+    <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
+<p>To be continued……<br><span id="more"></span></p>
+<h2 id="虚无主义"><a href="#虚无主义" class="headerlink" title="虚无主义"></a>虚无主义</h2><p>“Nihilism, is an inability to desire”</p>
+<p>虚无主义，是一种欲望的缺失</p>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>“nothing is true，everything is allowed.”</p>
+<p>生活的核心驱动是“情和欲”(erotic), 人生追求无法基于理性？</p>
+<h3 id="虚无的起源"><a href="#虚无的起源" class="headerlink" title="虚无的起源"></a>虚无的起源</h3><p>生活充满随机性，不一定具有逻辑</p>
+<p>量化不一定合理</p>
+<p>自洽就是真理吗？</p>
+<p>“情欲匮乏”与“自我蔑视”self contempt</p>
+]]></content>
+      <categories>
+        <category>哲学</category>
+      </categories>
+      <tags>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用网址(持续更新)</title>
     <url>/2025/02/21/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -758,27 +779,6 @@
       </categories>
       <tags>
         <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解读尼采</title>
-    <url>/2025/02/21/%E5%B0%BC%E9%87%87/</url>
-    <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
-<p>To be continued……<br><span id="more"></span></p>
-<h2 id="虚无主义"><a href="#虚无主义" class="headerlink" title="虚无主义"></a>虚无主义</h2><p>“Nihilism, is an inability to desire”</p>
-<p>虚无主义，是一种欲望的缺失</p>
-<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>“nothing is true，everything is allowed.”</p>
-<p>生活的核心驱动是“情和欲”(erotic), 人生追求无法基于理性？</p>
-<h3 id="虚无的起源"><a href="#虚无的起源" class="headerlink" title="虚无的起源"></a>虚无的起源</h3><p>生活充满随机性，不一定具有逻辑</p>
-<p>量化不一定合理</p>
-<p>自洽就是真理吗？</p>
-<p>“情欲匮乏”与“自我蔑视”self contempt</p>
-]]></content>
-      <categories>
-        <category>哲学</category>
-      </categories>
-      <tags>
-        <tag>尼采</tag>
       </tags>
   </entry>
   <entry>
