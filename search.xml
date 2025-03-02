@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CS61C-1 Introduction and C</title>
+    <url>/2025/02/28/CS61C/CS61C-1/</url>
+    <content><![CDATA[<p>记录CS61C课程的学习过程，跟随<a href="https://cs61c.org/sp25/">CS61C: Computer Architecture(Machine Structures)</a>25春季版本。<br>本文包含课程的Introduction和C语言基础。<br><span id="more"></span></p>
+<h2 id="Thinking-about-Machine-Structures"><a href="#Thinking-about-Machine-Structures" class="headerlink" title="Thinking about Machine Structures"></a>Thinking about Machine Structures</h2><p><img src="/images/CS61C-1-1.png" alt="Old-school Machine Structures"></p>
+<h2 id="Great-Ideas-in-Computer-Architecture"><a href="#Great-Ideas-in-Computer-Architecture" class="headerlink" title="Great Ideas in Computer Architecture"></a>Great Ideas in Computer Architecture</h2><ol>
+<li>Abstraction (Layers of Representation/Interpretation)</li>
+<li>Mooreʼs Law</li>
+<li>Principle of Locality/Memory Hierarchy</li>
+<li>Parallelism</li>
+<li>Performance Measurement &amp; Improvement</li>
+<li>Dependability via Redundancy</li>
+</ol>
+<h2 id="Discussion-1"><a href="#Discussion-1" class="headerlink" title="Discussion 1"></a>Discussion 1</h2><p><a href="https://cs61c.org/sp25/pdfs/discussions/disc01-sols.pdf">Discussion 1 Solutions</a></p>
+]]></content>
+      <categories>
+        <category>CS61C</category>
+      </categories>
+      <tags>
+        <tag>体系结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algorithm-1</title>
     <url>/2025/02/27/Algorithm/Algorithm-1/</url>
     <content><![CDATA[<p>算法课的相关笔记。</p>
@@ -24,28 +46,6 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>AI辅助</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CS61C-1 Introduction and C</title>
-    <url>/2025/02/28/CS61C/CS61C-1/</url>
-    <content><![CDATA[<p>记录CS61C课程的学习过程，跟随<a href="https://cs61c.org/sp25/">CS61C: Computer Architecture(Machine Structures)</a>25春季版本。<br>本文包含课程的Introduction和C语言基础。<br><span id="more"></span></p>
-<h2 id="Thinking-about-Machine-Structures"><a href="#Thinking-about-Machine-Structures" class="headerlink" title="Thinking about Machine Structures"></a>Thinking about Machine Structures</h2><p><img src="/images/CS61C-1-1.png" alt="Old-school Machine Structures"></p>
-<h2 id="Great-Ideas-in-Computer-Architecture"><a href="#Great-Ideas-in-Computer-Architecture" class="headerlink" title="Great Ideas in Computer Architecture"></a>Great Ideas in Computer Architecture</h2><ol>
-<li>Abstraction (Layers of Representation/Interpretation)</li>
-<li>Mooreʼs Law</li>
-<li>Principle of Locality/Memory Hierarchy</li>
-<li>Parallelism</li>
-<li>Performance Measurement &amp; Improvement</li>
-<li>Dependability via Redundancy</li>
-</ol>
-<h2 id="Discussion-1"><a href="#Discussion-1" class="headerlink" title="Discussion 1"></a>Discussion 1</h2><p><a href="https://cs61c.org/sp25/pdfs/discussions/disc01-sols.pdf">Discussion 1 Solutions</a></p>
-]]></content>
-      <categories>
-        <category>CS61C</category>
-      </categories>
-      <tags>
-        <tag>体系结构</tag>
       </tags>
   </entry>
   <entry>
@@ -709,90 +709,6 @@
       </tags>
   </entry>
   <entry>
-    <title>OS-02 Functions and Structures</title>
-    <url>/2025/02/21/OS/OS02/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Operating systems provide an environment for program executions and services to programs/users<br><span id="more"></span></p>
-<p><img src="/images/OS02-overview.jpg" alt="overview"></p>
-<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
-<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
-<ul>
-<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
-<li>直接执行 eg. <code>cd</code></li>
-</ul>
-</li>
-<li>System program commands: The command is a program name. <ul>
-<li>查找系统文件执行 eg. <code>ls</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
-<li>User</li>
-<li>Kernel<br>转换：系统调用，中断，异常</li>
-</ul>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>System calls are mostly accessed by programs via a high-level Application Program Interface (API) rather than direct system call use.<br>性质：</p>
-<ul>
-<li>易用：无需了解底层实现，直接调用</li>
-<li>可移植：API具有跨平台兼容性</li>
-<li>安全：直接调用与内核交互</li>
-</ul>
-<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><ul>
-<li>寄存器：快，少</li>
-<li>内存表</li>
-<li>栈</li>
-</ul>
-<p>The last two methods do not limit the number or length of parameters being passed 性能损耗</p>
-<h4 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h4><h5 id="Type-1-Process-control"><a href="#Type-1-Process-control" class="headerlink" title="Type 1: Process control"></a>Type 1: Process control</h5><ul>
-<li>Control the current process: end， abort， execute， load……</li>
-<li>Control a different process</li>
-<li>Allocate memory and release memory</li>
-<li>Debugger</li>
-<li>Locks for managing access to shared data between processes</li>
-</ul>
-<h5 id="Type-2-File-management"><a href="#Type-2-File-management" class="headerlink" title="Type 2: File management"></a>Type 2: File management</h5><h5 id="Type-3-Device-management"><a href="#Type-3-Device-management" class="headerlink" title="Type 3: Device management"></a>Type 3: Device management</h5><h5 id="Type-4-Information-maintenance"><a href="#Type-4-Information-maintenance" class="headerlink" title="Type 4: Information maintenance"></a>Type 4: Information maintenance</h5><h5 id="Type-5-Communications"><a href="#Type-5-Communications" class="headerlink" title="Type 5: Communications"></a>Type 5: Communications</h5><ul>
-<li>message passing model 内核中转，离散</li>
-<li>shared-memory model 共享物理内存</li>
-</ul>
-<h5 id="Type-6-Protection"><a href="#Type-6-Protection" class="headerlink" title="Type 6: Protection"></a>Type 6: Protection</h5><h3 id="System-Services"><a href="#System-Services" class="headerlink" title="System Services"></a>System Services</h3><p>In computer hierarchy, system services are higher than system calls.</p>
-<p>System services use system calls to interact with the OS kernel</p>
-<h4 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h4><ul>
-<li>System Programs：Login program, shell, window manager</li>
-<li>Application Programs：Email, web browsers, gaming software, word processors</li>
-</ul>
-<h4 id="Why-Applications-are-Operating-System-Specific："><a href="#Why-Applications-are-Operating-System-Specific：" class="headerlink" title="Why Applications are Operating System Specific："></a>Why Applications are Operating System Specific：</h4><p>Reason: Each operating system provides its own unique system calls</p>
-<p>eg. file format</p>
-<h4 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h4><ul>
-<li>File management</li>
-<li>Status information <ul>
-<li>Some systems implement a registry (注册表) - used to store and retrieve configuration information </li>
-</ul>
-</li>
-<li>File modification</li>
-<li>Programming-language support</li>
-<li>Program loading and execution</li>
-<li>Communications</li>
-<li>Background Services<ul>
-<li>Known as services, subsystems, daemons</li>
-</ul>
-</li>
-</ul>
-<h2 id="Operating-System-Structures"><a href="#Operating-System-Structures" class="headerlink" title="Operating System Structures"></a>Operating System Structures</h2><ul>
-<li>Simple Structure – MS-DOS</li>
-<li>Monolithic (单体)Structure – Original UNIX</li>
-<li>Layered Approach</li>
-<li>Microkernel System Structure - Mach</li>
-<li>Hybrid Systems - windows, macOS, Android </li>
-</ul>
-<h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p><img src="/images/OS02-V.jpeg" alt="visulization"></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/images/OS02-S.jpeg" alt="topics"></p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OS-03 Process</title>
     <url>/2025/02/26/OS/OS03/</url>
     <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Process is a program in execution.</p>
@@ -1019,427 +935,6 @@
       </categories>
       <tags>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA DPU Course</title>
-    <url>/2025/02/22/Technology/NVIDIA-DPU-Course/</url>
-    <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
-<h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>NVIDIA BlueField DPU目前主要有以下几代产品:</p>
-<ul>
-<li>BlueField-3 DPU</li>
-<li>BlueField-2 DPU (支持InfiniBand/以太网双版本)</li>
-<li>BlueField-1 系列控制器卡</li>
-</ul>
-<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><h3 id="DOCA软件框架"><a href="#DOCA软件框架" class="headerlink" title="DOCA软件框架"></a>DOCA软件框架</h3><p>DOCA (Data center-on-chip Architecture)是NVIDIA为BlueField DPU开发的软件框架，包含：</p>
-<h4 id="DOCA-SDK-v2-10-0"><a href="#DOCA-SDK-v2-10-0" class="headerlink" title="DOCA SDK (v2.10.0)"></a>DOCA SDK (v2.10.0)</h4><ul>
-<li>RDMA加速SDK</li>
-<li>网络加速SDK</li>
-<li>安全加速SDK</li>
-<li>存储加速SDK</li>
-<li>数据路径加速(DPA) SDK</li>
-<li>管理SDK</li>
-</ul>
-<h4 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h4><ul>
-<li>统一通信接口(UCX)</li>
-<li>RDMA verbs</li>
-<li>GPUDirect</li>
-<li>软件定义网络(SDN)</li>
-<li>P4编程支持</li>
-<li>在线加密</li>
-<li>App Shield运行时安全</li>
-</ul>
-<h2 id="应用场景与功能"><a href="#应用场景与功能" class="headerlink" title="应用场景与功能"></a>应用场景与功能</h2><h3 id="1-网络加速"><a href="#1-网络加速" class="headerlink" title="1. 网络加速"></a>1. 网络加速</h3><h4 id="1-1-网络协议栈卸载"><a href="#1-1-网络协议栈卸载" class="headerlink" title="1.1 网络协议栈卸载"></a>1.1 网络协议栈卸载</h4><ul>
-<li><p><strong>TCP/IP卸载</strong></p>
-<ul>
-<li>完整的TCP/IP协议栈处理</li>
-<li>支持TCP Offload Engine (TOE)</li>
-<li>降低主机CPU负载</li>
-<li>减少网络延迟</li>
-</ul>
-</li>
-<li><p><strong>RDMA技术</strong></p>
-<ul>
-<li>支持RoCE v1/v2 (RDMA over Converged Ethernet)</li>
-<li>支持InfiniBand</li>
-<li>零拷贝数据传输</li>
-<li>内核旁路技术</li>
-<li>QP (Queue Pair) 管理</li>
-<li>支持RDMA Write/Read/Send/Receive操作</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2-网络虚拟化"><a href="#1-2-网络虚拟化" class="headerlink" title="1.2 网络虚拟化"></a>1.2 网络虚拟化</h4><ul>
-<li><p><strong>SR-IOV (Single Root I/O Virtualization)</strong></p>
-<ul>
-<li>支持多达1000个VF (Virtual Function)</li>
-<li>硬件级网络资源隔离</li>
-<li>虚拟机直通技术</li>
-</ul>
-</li>
-<li><p><strong>OVS (Open vSwitch) 加速</strong></p>
-<ul>
-<li>硬件卸载流表处理</li>
-<li>支持OpenFlow协议</li>
-<li>虚拟交换机性能优化</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-3-高级网络特性"><a href="#1-3-高级网络特性" class="headerlink" title="1.3 高级网络特性"></a>1.3 高级网络特性</h4><ul>
-<li><p><strong>流量管理</strong></p>
-<ul>
-<li>QoS (Quality of Service) 支持</li>
-<li>带宽控制</li>
-<li>流量整形</li>
-<li>拥塞控制</li>
-</ul>
-</li>
-<li><p><strong>网络安全</strong></p>
-<ul>
-<li>IPSec硬件加速</li>
-<li>TLS/SSL卸载</li>
-<li>防火墙规则处理</li>
-<li>DDoS防护</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-4-网络性能指标"><a href="#1-4-网络性能指标" class="headerlink" title="1.4 网络性能指标"></a>1.4 网络性能指标</h4><ul>
-<li><p><strong>带宽能力</strong></p>
-<ul>
-<li>支持25/50/100/200/400GbE</li>
-<li>BlueField-3支持高达800Gb/s带宽</li>
-<li>双端口配置选项</li>
-</ul>
-</li>
-<li><p><strong>延迟优化</strong></p>
-<ul>
-<li>端到端延迟&lt;1微秒</li>
-<li>硬件时间戳支持</li>
-<li>精确时间协议(PTP)支持</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-5-网络编程模型"><a href="#1-5-网络编程模型" class="headerlink" title="1.5 网络编程模型"></a>1.5 网络编程模型</h3><ul>
-<li><p><strong>DPDK支持</strong></p>
-<ul>
-<li>用户态网络驱动</li>
-<li>轮询模式驱动(PMD)</li>
-<li>零拷贝数据包处理</li>
-<li>大页内存支持</li>
-</ul>
-</li>
-<li><p><strong>P4可编程性</strong></p>
-<ul>
-<li>自定义数据包处理流水线</li>
-<li>协议无关的包处理</li>
-<li>灵活的转发规则定义</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-6-相关网络知识"><a href="#1-6-相关网络知识" class="headerlink" title="1.6 相关网络知识"></a>1.6 相关网络知识</h4><ul>
-<li><p><strong>网络分层模型</strong></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">应用层 (L7) - HTTP, FTP, SMTP等</span><br><span class="line">传输层 (L4) - TCP, UDP</span><br><span class="line">网络层 (L3) - IP, ICMP</span><br><span class="line">数据链路层 (L2) - 以太网, MAC</span><br><span class="line">物理层 (L1) - 物理介质</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>关键网络概念</strong></p>
-<ul>
-<li>MTU (Maximum Transmission Unit)</li>
-<li>VLAN (Virtual LAN)</li>
-<li>VXLAN (Virtual Extensible LAN)</li>
-<li>ARP (Address Resolution Protocol)</li>
-<li>BGP (Border Gateway Protocol)</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-7-性能优化建议"><a href="#1-7-性能优化建议" class="headerlink" title="1.7 性能优化建议"></a>1.7 性能优化建议</h4><ul>
-<li><p><strong>网络调优</strong></p>
-<ul>
-<li>启用巨帧(Jumbo Frame)</li>
-<li>配置RSS (Receive Side Scaling)</li>
-<li>优化中断亲和性</li>
-<li>使用NUMA感知内存分配</li>
-</ul>
-</li>
-<li><p><strong>最佳实践</strong></p>
-<ul>
-<li>合理规划网络拓扑</li>
-<li>选择适当的网络模式</li>
-<li>监控网络性能指标</li>
-<li>定期进行性能测试</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-存储加速"><a href="#2-存储加速" class="headerlink" title="2. 存储加速"></a>2. 存储加速</h3><ul>
-<li>NVMe存储虚拟化</li>
-<li>存储加密与压缩</li>
-<li>零拷贝数据传输</li>
-</ul>
-<h3 id="3-安全功能"><a href="#3-安全功能" class="headerlink" title="3. 安全功能"></a>3. 安全功能</h3><ul>
-<li>硬件加速加密</li>
-<li>IPsec安全网关</li>
-<li>零信任安全架构</li>
-<li>运行时安全保护</li>
-</ul>
-<h3 id="4-虚拟化支持"><a href="#4-虚拟化支持" class="headerlink" title="4. 虚拟化支持"></a>4. 虚拟化支持</h3><ul>
-<li>SR-IOV虚拟化</li>
-<li>虚拟设备模拟</li>
-<li>容器化工作负载支持</li>
-</ul>
-<p><a href="https://www.nvidia.cn/dpubook-3">参考来源</a><br><a href="https://www.nvidia.cn/dpubook-4">DOCA框架文档</a></p>
-]]></content>
-      <categories>
-        <category>Technology</category>
-      </categories>
-      <tags>
-        <tag>AI辅助</tag>
-        <tag>NVIDIA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解读尼采</title>
-    <url>/2025/02/21/Philosophy/%E5%B0%BC%E9%87%87/</url>
-    <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
-<p>To be continued……<br><span id="more"></span></p>
-<h2 id="虚无主义"><a href="#虚无主义" class="headerlink" title="虚无主义"></a>虚无主义</h2><p>“Nihilism, is an inability to desire”</p>
-<p>虚无主义，是一种欲望的缺失</p>
-<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>“nothing is true，everything is allowed.”</p>
-<p>生活的核心驱动是“情和欲”(erotic), 人生追求无法基于理性？</p>
-<h3 id="虚无的起源"><a href="#虚无的起源" class="headerlink" title="虚无的起源"></a>虚无的起源</h3><p>生活充满随机性，不一定具有逻辑</p>
-<p>量化不一定合理</p>
-<p>自洽就是真理吗？</p>
-<p>“情欲匮乏”与“自我蔑视”self contempt</p>
-]]></content>
-      <categories>
-        <category>Philosophy</category>
-      </categories>
-      <tags>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用网址(持续更新)</title>
-    <url>/2025/02/21/Tools/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d4f1d30c3377ffbb73d4361471e3918f7d888dd5e9ae72fb581deab081b58b05">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d238dfc0e32a001104ae7d5117be1ef8c373d51e7c0e8b73982e038f290561c2c819ee2fe72e0d698798cd5e204b4ca80c9e09361fdfffa8829aa7fa4c63557338a0cffe6f19f531ca6f4fdc4252e2f4a64c9fd58fcfee0bc5d5a25d894efe1efd38ebf18c55929848c6eb7a63ab2a5c1ddbe2887ab75eb38710144d31024f7bd05f3be8a76cf50121fd6f51a7d26889f130b36f97fafc58a060cb84288ca8755542ae3fd35ea57cb5249803d62c7cd98a0942cdf580e872ef4806182105f1fe80ab3225b42449c2324a31d5c5489d182ef8680c8a62469ceef90b409d244444c88781330f52899dcbb4c359afa31d848742c11780f8e438329843e233f2378de486e8a90e63bdfabbc478d614ccd6c7dcab59200fdf4a28747ef2bfa42f7fac0771ae4cb043373e9c1077fbc9d594380fe9407aff47651b5ac617c170b16b46589c9f7353200d9b399586ce4bc814c55895ee87ebabb8c902640518087a0bb2019b36999570ade2ca2bc9253ee1323168d896f7bf2d6924609035f042dec4d3a8b686b1c031f8d1b8f16e989d2ba08125b4684ce2024bb229ccbfa5b021af4bd3aeeaf62eb700562e0af949a8a59aec6184e5cce68bd62f4b4aa74c021d619caf5ab9f2a3c4c2409a53e0298e501eb381c837cb01f36ca58329e07a962a269f91e4df24e1f349bd064e39808dc1df13ff77d3ae78ecfabff62c1daa36d68a7ae19d771fd83913114cd0dae3a2c2be64065f2c5029c23629707ff81ce1232adc25fa6f783564d403cec616f1cbae93285830d68d6f390af2c3233e3fbac73504a0f672a8a87be9c0d4f752190a39b3bb57770e451ee6beb479d7b51e4790ed5053ed6494e2d9ea0212677965f7fae48ffea0ef7866b08233cf77782689b485ca7b3c2b7c5fc89d41de0c4930c6ebe0410096b23d8e411582fdc9637ab70fc6f10094659a93131a7e6c59f1eabb6ae02aa0038fd29ffad3f089769a21242b10a4cbb330b58d894889e267b669ab7b99c77ebeec42c3a3c9e21ee6e5799b22dd24f57a680ee173df6036f484015a31b18f2eb497ccb7c084f77318c74069bffb06f118dd80d6d0ed27da1ca6d1671e1a06c95c6810be1a20d105f5d54a0d8489f79ff0d644fd964d85469c7639ac0e341f4663414025351ea73614d0e542dc12dd18a9c648062c41e54f8eba34fe2faa026b022015521a369529e72f5a71f933490be050277310f6647cca410b3a6073b6cd17d67878c5ebc8a787571eaebd55c4aba8c239f7a63abd1d4f52d7cef725380bf96694879d61adaaf0a40c03ce2e643eea1c1764eabc9cdf8b800abebc6da1ac1cae71b855607cfe33cfd3049e5815b5d3327612fe48940508f5447c9c0f5f41eec75b917eec504164e0d36b44b3674479c477af1994ba8e95d1ed3564c98779a1275673ee7882ae0c5d8005f35f37d01303fce1b979db64c6e565fea40e680707b1187b3fd349d9fca7b719936dca534a81367dee6d9c1fe774fff96ab37e454a94fc1956914457a8b4d37332ce7ae66e47e03392a7caa6378258f87cee7be28931841f4ec9be032295272b738ddfb07f8ff0da6366287fd3d9c186fe6d9f39001feddc6dc175805a0d8d4a56f18c61e1fe2bf2a3d0dbf8574fc0153fb0b4e84116ce043b64b4095dd52b852046be869a14bd335fe6a9ee185cc151370b1ee1901b8c8904c733e75305825eac18483a0648b05b869ab5f0dad40b3f8b1f0aff51ccc48c0a1d374be742c2581bbd9c07d77c86d693bc81cdd609efc65af4c03ebd596c65162de642c23f63f53d5a4484913c2ea1ac038e8433a310cc5a7d91112781e68d5bbe80fd745eb08de9154e551c8bf035988c1961de30c3e02ee46aaf00d0dd1b2751a1b7d53c46a3d88b13fe65a3e6e3154bc30adb5e0d1747b722784253b2d12da839f939128417708a6c51f6582d64c5ee0a0e64871e58c26be5b5621caf78bf04c6eecc6b8ac654a462643daad160821185db51ea4bd91aacc578d1d37ae5fe60dc7588b25427677c0e09bbc01d71a713cf4cf2e91d6bf1f5f3b717a1ac1489509c699c0178126c69e815cb30c8322ebcdfc86816bc069236c04cb9528b05ff3e61eab42e8bf703909bbd6cd5cb9a8260323f8a36441617e7b94a4f1c5f6f02695d5568ee7933a136f68dd25622f461709cae45fc68c0cf32dd360f7888b969315396367d6ad50ca62b891f22c6a93c763c203e65cb187c9786167686927b34afad2f232801743b45ecf0876b338a9a771b491e7be49ff633c08fc92003a202221fc4bc17396e1621271ff50b99825dfa6a26fbe544ba9ff813e42ac734cf17118c2905ec26cffe9c5c0769949321fadfb06106bb83e6c5089a7acd2b5ef301a0ff89131a8a5799fd7647da749486a6b160031e9514cc1d1ae5e3f8f4fef5df8aa4547197af9db3431a660f4d8161e3bd4e6991d8018cd706e2b6369e21100d6464e05474a5e2652384df1f743111229cc978c2f7bebbf2f363081029f998b76a8505f0acbddab96e4f6ec32cbd6c3dd6bb885ba7a9ab37b3a8f585af82daf511f766961b8dcd05087d82e41a7fc41b9360e582c83d1dc98d75ea9c076815dd22a44df59ee1cfe902d03ebe6f7ceb5779d0395afde6d81e5bfc6f3ea12d98a2cb745c6148ca5ac136f8f32e858462735524360cbd17a6c755088c24ec4b3e05a4a30cedc66953af2a00cb9948fcc9b71abd195439263bfc69853d5d58229c2be36c8a2c92a02472aff5d45c94de94a3f222a53c4c85f4b642bb5bf78415f12cb0ac3211396a9a4d4de70a2cca04af2135ed6d1dbcffa95a5aacdca16c6d942bb887d382e70e8d58f71e2b7c5602e08f2226f81a9f69ce27e47f7f334d52c74acacc7272bc9f8c5d3751857caae5bcb4a9397cd57e2a4634e94376ca2cd6fdf2a4ead6ff6ea8d05468f4ffbac25052273f797e078d999dedbfc319f911ff77b8866b28bcd06f39315e730eb929c60f6f3568ae8f085bd9d6de510e56f2761c4ddb28d9c2652e06897ab7e4340cde793991358f136713f5bd98b35a1468f02a4bba177e0b4010730e468fd8f34121fc07ca7b7b60cae5bde9d8e4201aa7c5a8c8ef54d7391c76be7d8d45c5ed2a7cd2472ea153bf5a831867dda87b8c0345f8b144474e983b1301e132fa6d427bf26920c3ac18b95c5ac11a004faafe234b5ccec7175db883bd12c5e90cbb1153229b15bfad9e76fda2248e89b20dce3b280f70154bf31e8b60e9347139a2c3fbb421195ae3ce8344a7b45afe5bd7a0c00b08d2de92d52d01223fe3699323a568de76c08f17a4b267995de3cf5a28a66592a60fb03152d9762363445740a9422f9827a27f4e51619fa4cef5063255b65d47a5ac24de0a022e3fc58d7894431564ad72e771538d14177e4e14e965b80cc3989abd6059d6465ef5aae6c6ee2d1b59fe41d04ca407044eff936d253d1e92d8f51f7c8ad8a11105d6cb84f14dfe3f6402cec20f4b61c613302bbe8cf8b042058ad387ba55a85cae58f37b1c78c5cced059eade40331fae2338c0a2bd5567540f47424f84cee7cc4bd12eb1c74c964072db9e3c5269feeba71a55e888d1497a5e02892ab79aae3a07c0e0cbfde74db9d35cee380c0c9787a38aa0d3533f2f8d969c465cb456975929595badec8b46ca203787029d0da7eccfb7923ce3c2e0fca0988285f3960d8d1f2a08d036d30d76215d9f3e87e01018bf6e2b0d2bb71c54c89dd6877b7aea5002ff1ad854659707d0f32a23063e141c68d9dc394e0e25bd4a1cba736df4b2e3148204f0fee9abebcd292c0370fdeb5a97ede079c4e6a0edfdf19266da27f950e18e9d0d8e1417a6be6e4978f67abcd14500a684d96a096f195d9fa3ff067759772e453e4825ae17b7b5d0f54cd7106cb184f8cc6cd135ce6e420874ed0095aa2f33e330a041c414e753d279aaabebdf3cb6127e01c43f744587a31d95fa68805b33c0265e0f9ab6f5244b39c72f148a3c94fef3a534af38d42882c651ef626b15f5900b8dccbdc37eb2b2c009dad5fb98eacb2fb87659e1a1210c27f73eb8e05302f8873e4315039f8e84a57cebeae81c0c4b023474fb14154d4b4673d96493fd2f6f74158069a31702381dbb743a1f39f623cedb4d2245ad10ebdd318bbf72b32128d8957427f54cb25e2f4e8228bfdcb0107e68247add8271481067680ae04b2ada75d53695b9ecdc24f06f0f6490b7bdc42f890856d7bd6ea31093e36d649366b4b912162309da8f68e1f61673d011f4909ba0bb16732c61b153ebdbcc235123008ac556a842cba36cbb726525aac8cd8c9c18721317e09cebfd1faf0075366722da8bb66dc1d94df15f7251f93790a81d56adee41406ba21c719ad5eb181dc7877dcb9e22096c7bbc4c55993a5d30c550aa22ee60f0764e4918ee653084ee6861d189a8a93cab83e3888ab0d7085efbc51a0463668f7beb2c70cfe892414d62f1e4e5e4a9ecb5746b05ec77b2f7b319ce3b6d1b15169fc4c3d3883002e426497f98cc8e479e73e32683fc4483aaf07d8f16d5d60659c5a558ff2ef49cf8ae7acdfe50737d841fa177d3637dec06d65c7d09e8aa6889d0d4d13bba8079b91932ec064552219ab0559a3ca5e6dfef26b7d17b3ca8db22b4951b52f55f9697cc87369b1a1ec71458bf20046d43260263bbc39178d9479ca8f0e549dbcaf2352d9206f146d2aedb0cf6567a4817bbb9eb47bbb5648d0fa3d9c2c259cb40594c82d0f1846d89f519773d357fc334bf4de5791e7833ae832bca8a8bc008c9dcac88b5eeadc7289ae2f1b6fa65396d3546437d5fadad95bfdff562e7ffbaa308605b9b877f4a2b5c97d199395c403f207ce6fc33a103b9871bca5b2ba3898f76959bec183ccd133e486586c44ca1243ff15fc2d74035bf1a12a6edf1c591204f3bc5af0762908b39776950260b28053336f4cbe069884ff45634d00008c86570d1df9f71160bcbf7e484b93b66dc59892722110c103520f27036957e8e618c5e85c969f88b8f1d0378166fa2bc8290f0079d682f3ec959fd4a24ff9d2e786a8d9f0a273f2de60d0e3ef6e3b7371a1fba5c58c66187bdf3e843eb5c23420ecf2618ccd199598283a3711c54929f61945eab97b5ad00a750550e20d8c5c740cf31dc6e752722499eca611da77f2d4b5f480897eb8807969343efb4730f60cca11ccff00256e471ac6a6905dac3c647d2291da6811f3f9f1baf4d1127fcf7db7b42ff2b80c17350c05fe0ab3d82602776e6e2d0d3c4cbe9293a1cfe3ba95803e26629b556d28507a18efe62be3f7dae1684bf7639342bc02bb29f8be3b3a26d702f1f70ac8a0ddedd5c520248ebbb7b55bac1d9d3e3afd8871a1b8e6f3104915fdfec432753b8563932471f6d5a8ad1bb17819f448620ae64dfdb0f319ca206343181f0db4595a74738eacb240dbd2142d29793c8890fb1c075e876f6e4c19aa695be6ec0886ebf00a74e38156ea9cf038a04c66890938a1bd3a7ff1ae168e7260e2d16df1f9f7cb88ffc83946e070d21383f016ea9ec91536fa96f2d926ab36e5adaabd1872a58dd8c18bcaee25d7d070cd3d572048b46e001460cd2c9549dfde9645f14e50d14be00447b3f2deaf2508a93eff22ee0f3bd0f72792ab346303a2a434ebba5a2ea369f24702f01997e610785b01f293027ab3534d81755d4372a2617b8ce85af786661</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>学业规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>移动端人工智能技术</title>
-    <url>/2025/02/23/Technology/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8A%80%E6%9C%AF/</url>
-    <content><![CDATA[<p>本文在deepseek辅助下帮助笔者理解移动端人工智能的知识蒸馏（Knowledge Distillation）、量化（Quantization）和剪枝（Pruning）三种模型压缩技术。<br><span id="more"></span></p>
-<h3 id="1-知识蒸馏（Knowledge-Dististillation）"><a href="#1-知识蒸馏（Knowledge-Dististillation）" class="headerlink" title="1. 知识蒸馏（Knowledge Dististillation）"></a><strong>1. 知识蒸馏（Knowledge Dististillation）</strong></h3><h4 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过训练一个轻量化的“学生模型”（Student Model），模仿复杂“教师模型”（Teacher Model）的输出行为，从而将教师模型的知识迁移到学生模型中。</p>
-<ul>
-<li><strong>知识来源</strong>：教师模型的输出概率分布（软标签）、中间层特征或注意力机制。</li>
-<li><strong>目标</strong>：学生模型在保持小体积的同时，达到接近教师模型的性能。</li>
-</ul>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：图像分类任务（如ImageNet数据集）  </p>
-<ul>
-<li><strong>教师模型</strong>：大型模型（如ResNet-50，准确率76%）。</li>
-<li><strong>学生模型</strong>：轻量模型（如MobileNetV3，准确率直接训练仅70%）。  </li>
-<li><strong>蒸馏过程</strong>：  <ol>
-<li>教师模型对训练数据生成“软标签”（Soft Labels，即各类别概率分布，如<code>[0.7, 0.2, 0.1]</code>）。  </li>
-<li>学生模型同时学习真实标签（硬标签）和软标签。<br>结合硬标签损失和软标签的KL散度损失函数：<script type="math/tex; mode=display">
-L = \alpha L_{CE} + (1 - \alpha) L_{KL}</script>其中，<script type="math/tex">L_{CE}</script>为交叉熵损失，<script type="math/tex">L_{KL}</script>为KL散度损失。</li>
-</ol>
-</li>
-</ul>
-<h4 id="深入思考"><a href="#深入思考" class="headerlink" title="深入思考"></a>深入思考</h4><p>1.<strong>为什么学生模型参数更少却能接近教师性能？</strong></p>
-<p>类比于二级结论，学生模型具有教师模型的先验知识（概率分布），而不需要从底层开始全部学习。我们称之为<strong>决策边界抽象能力</strong>。</p>
-<p>信息论角度：将教师模型中“有效信息”（决策边界、特征相关性）编码到学生模型的参数中，而非复制所有参数。</p>
-<p>2.<strong>软标签概率分布如何生成？</strong></p>
-<p>核心方法：温度缩放（Temperature Scaling）<br>软标签并非直接使用教师模型的原始输出，而是通过引入温度参数（Temperature, T）对概率分布进行平滑处理，以传递类别间的关系信息。</p>
-<p>数学公式：</p>
-<script type="math/tex; mode=display">
-p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其中，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="1.792ex" height="1.357ex" role="img" focusable="false" viewBox="0 -442 792 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mi" transform="translate(498,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>是教师模型在类别<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>的原始输出，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.593ex" height="1.532ex" role="img" focusable="false" viewBox="0 -677 704 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></svg></mjx-container>是温度参数，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.719ex" height="1.645ex" role="img" focusable="false" viewBox="0 -705 760 727"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container>是类别总数。</p>
-<p>T的作用：</p>
-<ul>
-<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.717ex" role="img" focusable="false" viewBox="0 -677 2537.6 759"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，软标签等同于硬标签。</li>
-<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.09ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.622ex" role="img" focusable="false" viewBox="0 -677 2537.6 717"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，概率分布更平滑，类别间关系信息更丰富。</li>
-<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="7.375ex" height="1.557ex" role="img" focusable="false" viewBox="0 -677 3259.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2259.6,0)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g></g></g></svg></mjx-container> 时，概率分布趋近于均匀分布。</li>
-</ul>
-<p>3.<strong>为什么不在训练教师模型时使用软标签？</strong></p>
-<p>根本原因：教师模型的训练目标不同</p>
-<ul>
-<li>教师模型的使命：追求最高精度，而非传递知识<ul>
-<li>教师模型需尽可能拟合数据中的细节，硬标签（明确答案）是更直接的监督信号。</li>
-<li>软标签会引入不必要的“不确定性”，降低模型对正确类别的置信度。</li>
-</ul>
-</li>
-<li>软标签的来源矛盾：<ul>
-<li>知识蒸馏中，软标签由更强大的教师模型生成（例如ResNet-50教MobileNet）。</li>
-<li>若在训练教师模型时使用软标签，需要另一个更强的模型生成软标签，但这会导致无限递归问题（谁来生成这个更强的模型的软标签？）</li>
-</ul>
-</li>
-</ul>
-<p>4.<strong>知识蒸馏的局限性</strong></p>
-<ul>
-<li>需要高质量的教师模型：教师模型需要足够大，才能提供高质量的软标签。</li>
-<li>需要大量计算资源：教师模型需要大量计算资源，才能生成高质量的软标签。</li>
-<li>需要大量数据：教师模型需要大量数据，才能生成高质量的软标签。</li>
-</ul>
-<hr>
-<h3 id="2-量化（Quantization）"><a href="#2-量化（Quantization）" class="headerlink" title="2. 量化（Quantization）"></a><strong>2. 量化（Quantization）</strong></h3><h4 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>将模型参数（权重）和激活值从高精度浮点数（如32位）转换为低精度数值（如8位整数），减少模型体积和计算资源消耗。  </p>
-<ul>
-<li><strong>类型</strong>：  <ul>
-<li><strong>训练后量化（Post-training Quantization）</strong>：直接对训练好的模型进行量化。  </li>
-<li><strong>量化感知训练（Quantization-aware Training）</strong>：在训练过程中模拟量化误差，提升最终量化模型的精度。</li>
-</ul>
-</li>
-</ul>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：手机端语音识别模型  </p>
-<ul>
-<li><strong>原始模型</strong>：基于LSTM的语音识别模型，使用FP32精度，大小120MB，延迟50ms。  </li>
-<li><strong>量化步骤</strong>：  <ol>
-<li>将权重和激活值从FP32量化为INT8（范围映射到-128~127）。  </li>
-<li>引入反量化（Dequantization）层，在关键计算节点恢复精度。  </li>
-</ol>
-</li>
-<li><strong>结果</strong>：模型大小缩减至30MB，延迟降至15ms，准确率损失小于1%。</li>
-</ul>
-<p>下面以Pytorch为例，展示训练后量化和量化感知训练的实现。</p>
-<h5 id="训练后量化"><a href="#训练后量化" class="headerlink" title="训练后量化"></a>训练后量化</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.quantization</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> mobilenet_v2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 加载预训练模型</span></span><br><span class="line">model = mobilenet_v2(pretrained=<span class="literal">True</span>)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 定义量化配置</span></span><br><span class="line">model.qconfig = torch.quantization.get_default_qconfig(<span class="string">'qnnpack'</span>)  <span class="comment"># 移动端优化配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 插入观察器（Observer）校准量化参数</span></span><br><span class="line">model_fp32_prepared = torch.quantization.prepare(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 用校准数据运行模型（此处用随机数据示例）</span></span><br><span class="line">input_fp32 = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>)  <span class="comment"># 假设输入尺寸为224x224</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    model_fp32_prepared(input_fp32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 转换为量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_fp32_prepared)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存量化模型</span></span><br><span class="line">torch.save(model_int8.state_dict(), <span class="string">"mobilenet_v2_quantized.pth"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查模型大小</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)     <span class="comment"># 约14MB</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"INT8模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2_quantized.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)  <span class="comment"># 约3.5MB</span></span><br></pre></td></tr></table></figure>
-<h5 id="量化感知训练"><a href="#量化感知训练" class="headerlink" title="量化感知训练"></a>量化感知训练</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.quantization <span class="keyword">import</span> QuantStub, DeQuantStub</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 定义支持量化的模型结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuantizableModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.quant = QuantStub()      <span class="comment"># 量化入口</span></span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.dequant = DeQuantStub()  <span class="comment"># 反量化出口</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.quant(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.conv(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.dequant(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 插入伪量化节点</span></span><br><span class="line">model = QuantizableModel()</span><br><span class="line">model.qconfig = torch.quantization.get_default_qat_qconfig(<span class="string">'qnnpack'</span>)</span><br><span class="line">model.train()  <span class="comment"># 切换到训练模式</span></span><br><span class="line">model_prepared = torch.quantization.prepare_qat(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 正常训练流程（需使用FP32数据）</span></span><br><span class="line">optimizer = torch.optim.SGD(model_prepared.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model_prepared(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 转换为最终量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_prepared)</span><br></pre></td></tr></table></figure>
-<h4 id="深入思考-1"><a href="#深入思考-1" class="headerlink" title="深入思考"></a>深入思考</h4><p>手动实现量化计算：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原始FP32计算</span></span><br><span class="line">W_fp32 = torch.tensor([<span class="number">2.5</span>, -<span class="number">1.3</span>, <span class="number">0.8</span>], dtype=torch.float32)</span><br><span class="line">x_fp32 = torch.tensor([<span class="number">0.4</span>, <span class="number">1.2</span>, -<span class="number">0.5</span>], dtype=torch.float32)</span><br><span class="line">y_fp32 = torch.dot(W_fp32, x_fp32)  <span class="comment"># 输出：2.5*0.4 + (-1.3)*1.2 + 0.8*(-0.5) = -1.56</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 量化到INT8（范围假设为[-5, 5]）</span></span><br><span class="line">scale_W = <span class="number">5</span> / <span class="number">127</span>  <span class="comment"># 对称量化，scale = max(abs(W)) / 127</span></span><br><span class="line">W_int8 = torch.clamp((W_fp32 / scale_W).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line">scale_x = <span class="number">5</span> / <span class="number">127</span></span><br><span class="line">x_int8 = torch.clamp((x_fp32 / scale_x).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数计算</span></span><br><span class="line">y_int32 = torch.dot(W_int8.<span class="built_in">float</span>(), x_int8.<span class="built_in">float</span>())  <span class="comment"># 转为float避免溢出</span></span><br><span class="line">y_dequant = y_int32 * (scale_W * scale_x)  <span class="comment"># 反量化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32结果:"</span>, y_fp32.item())        <span class="comment"># -1.56</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"量化结果:"</span>, y_dequant.item())     <span class="comment"># 约-1.55（存在微小误差）</span></span><br></pre></td></tr></table></figure>
-<p>量化完整流程：</p>
-<ul>
-<li>准备阶段<ul>
-<li>插入观察器到模型中，统计各层的权重和激活值分布。</li>
-<li>代码操作：model_prepared = prepare(model)</li>
-</ul>
-</li>
-<li>校准阶段<ul>
-<li>用代表性数据运行模型，观察器记录各层的min/max值。</li>
-<li>代码操作：model_prepared(input_data)</li>
-</ul>
-</li>
-<li>转换阶段<ul>
-<li>根据校准结果计算量化参数，替换浮点算子为量化算子。</li>
-<li>代码操作：model_quantized = convert(model_prepared)</li>
-</ul>
-</li>
-</ul>
-<p><strong>核心公式</strong>：</p>
-<ul>
-<li>量化公式：<script type="math/tex">Q(x) = \text{clamp}\left(\text{round}\left(\frac{x}{\text{scale}} + \text{zero\_point}\right), \text{min}, \text{max}\right)</script><ul>
-<li>clamp：将结果限制在min和max之间</li>
-<li>round：四舍五入</li>
-<li>zero_point：量化偏移量, 用于校准, 通常为0</li>
-</ul>
-</li>
-<li>反量化公式：<script type="math/tex">x = \left(\text{Q}(x) - \text{zero\_point}\right) \times \text{scale}</script></li>
-</ul>
-<h4 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
-<li>TensorFlow Lite：默认支持训练后量化，可将目标检测模型（如SSD MobileNet）从16MB压缩到4MB。  </li>
-<li>苹果Core ML：在iPhone上运行量化后的StyleGAN模型，实现实时人像风格迁移。</li>
-</ul>
-<hr>
-<h3 id="3-剪枝（Pruning）"><a href="#3-剪枝（Pruning）" class="headerlink" title="3. 剪枝（Pruning）"></a><strong>3. 剪枝（Pruning）</strong></h3><h4 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过移除模型中不重要的参数（如接近零的权重）或结构（如冗余神经元），减少模型复杂度。  </p>
-<ul>
-<li><strong>类型</strong>：  <ul>
-<li><strong>非结构化剪枝</strong>：删除单个权重（稀疏化）。  </li>
-<li><strong>结构化剪枝</strong>：删除整层神经元或通道（更适合硬件加速）。</li>
-</ul>
-</li>
-</ul>
-<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：自然语言处理中的BERT模型压缩  </p>
-<ul>
-<li><strong>原始模型</strong>：BERT-base（1.1亿参数，模型大小400MB）。  </li>
-<li><strong>剪枝过程</strong>：  <ol>
-<li>在微调阶段，根据权重绝对值或梯度重要性评分，剪枝30%的注意力头。  </li>
-<li>重新训练剩余参数以恢复精度。  </li>
-</ol>
-</li>
-<li><strong>结果</strong>：模型大小减少至280MB，推理速度提升1.5倍，在GLUE基准上精度下降仅0.5%。</li>
-</ul>
-<p>以下是Pytorch实现剪枝的示例：</p>
-<h5 id="非结构化剪枝"><a href="#非结构化剪枝" class="headerlink" title="非结构化剪枝"></a>非结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.utils.prune <span class="keyword">as</span> prune</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义示例模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">16</span>, <span class="number">3</span>)  <span class="comment"># 输入通道3，输出通道16</span></span><br><span class="line">        <span class="variable language_">self</span>.fc = nn.Linear(<span class="number">16</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 假设输入图像尺寸为28x28</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.conv1(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleCNN()</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 剪枝步骤 ---</span></span><br><span class="line"><span class="comment"># Step 1: 选择剪枝目标（这里剪枝conv1层的权重）</span></span><br><span class="line">parameters_to_prune = [(model.conv1, <span class="string">'weight'</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 应用L1范数剪枝（剪去20%的权重）</span></span><br><span class="line">prune.global_unstructured(</span><br><span class="line">    parameters_to_prune,</span><br><span class="line">    pruning_method=prune.L1Unstructured,</span><br><span class="line">    amount=<span class="number">0.2</span>  <span class="comment"># 剪枝比例20%</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 查看剪枝效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的权重稀疏度："</span>, </span><br><span class="line">      torch.<span class="built_in">sum</span>(model.conv1.weight == <span class="number">0</span>).item() / model.conv1.weight.nelement())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 永久移除剪枝的权重（可选）</span></span><br><span class="line">prune.remove(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 微调剪枝后的模型</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>为什么用L1范数剪枝？</strong>：<br>L1范数具有自然的稀疏性特征，通过最小化L1范数，模型倾向于将一些权重推向0以实现稀疏化，并且计算简单。</p>
-<h5 id="结构化剪枝"><a href="#结构化剪枝" class="headerlink" title="结构化剪枝"></a>结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.nn.utils.prune <span class="keyword">import</span> ln_structured, remove_structured</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 剪枝整个通道（基于L2范数）</span></span><br><span class="line"><span class="comment"># 对conv1层的输出通道进行剪枝（移除20%的通道）</span></span><br><span class="line">prune.ln_structured(</span><br><span class="line">    model.conv1,</span><br><span class="line">    name=<span class="string">"weight"</span>,</span><br><span class="line">    amount=<span class="number">0.2</span>,</span><br><span class="line">    n=<span class="number">2</span>,  <span class="comment"># L2范数</span></span><br><span class="line">    dim=<span class="number">0</span>  <span class="comment"># 沿输出通道维度剪枝</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 查看通道剪枝后的权重形状</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的conv1.weight形状:"</span>, model.conv1.weight.shape)  </span><br><span class="line"><span class="comment"># 原始形状[16,3,3,3] → 剪枝后[13,3,3,3]（假设移除3个通道）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 永久应用剪枝</span></span><br><span class="line">remove_structured(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 调整后续层（重要！结构化剪枝需适配网络结构）</span></span><br><span class="line"><span class="comment"># 原fc层输入维度为16*26*26，剪枝后变为13*26*26 → 需要重新定义</span></span><br><span class="line">model.fc = nn.Linear(<span class="number">13</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 修改输入维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调模型（同上）</span></span><br></pre></td></tr></table></figure>
-<p><strong>为什么用L2范数剪枝？</strong>：</p>
-<ul>
-<li>避免极端值：均匀缩小</li>
-<li>计算效率：L2范数计算复杂度较低</li>
-</ul>
-<h4 id="实际应用-1"><a href="#实际应用-1" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
-<li>NVIDIA的Nemo框架：对语音识别模型（如QuartzNet）进行结构化剪枝，GPU推理速度提升2倍。  </li>
-<li>无人机避障算法：剪枝后的YOLOv5模型在边缘设备上实时检测障碍物，功耗降低40%。</li>
-</ul>
-<hr>
-<h3 id="三者的对比与协同使用"><a href="#三者的对比与协同使用" class="headerlink" title="三者的对比与协同使用"></a><strong>三者的对比与协同使用</strong></h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>技术</th>
-<th>核心目标</th>
-<th>优势</th>
-<th>局限性</th>
-<th>典型压缩率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>知识蒸馏</td>
-<td>迁移知识到小模型</td>
-<td>精度接近教师模型</td>
-<td>依赖高质量教师模型</td>
-<td>2-5倍</td>
-</tr>
-<tr>
-<td>量化</td>
-<td>降低数值精度</td>
-<td>显著减少体积和计算开销</td>
-<td>可能损失精度（需校准）</td>
-<td>4倍+</td>
-</tr>
-<tr>
-<td>剪枝</td>
-<td>移除冗余参数或结构</td>
-<td>提升推理速度，降低内存占用</td>
-<td>可能破坏模型结构完整性</td>
-<td>2-10倍</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>协同使用案例</strong>：<br>谷歌的MobileNetV4模型结合三者：  </p>
-<ol>
-<li>用知识蒸馏从EfficientNet迁移知识；  </li>
-<li>对模型进行混合精度量化（部分层用INT8，关键层用FP16）；  </li>
-<li>剪枝掉80%的冗余通道，最终模型体积减少6倍，速度提升3倍，精度仅下降2%。  </li>
-</ol>
-<hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>知识蒸馏、量化和剪枝是移动端AI模型压缩的三大核心技术：  </p>
-<ul>
-<li><strong>知识蒸馏</strong>：通过“师生学习”传递知识，适合模型功能迁移；  </li>
-<li><strong>量化</strong>：降低数值精度，直接压缩体积和加速计算；  </li>
-<li><strong>剪枝</strong>：消除冗余参数，提升硬件执行效率。<br>实际应用中，三者常结合使用（如“蒸馏+量化+剪枝”流程），在保证精度的前提下，实现移动端AI模型的极致优化。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Technology</category>
-      </categories>
-      <tags>
-        <tag>AI辅助</tag>
-        <tag>端侧AI</tag>
       </tags>
   </entry>
   <entry>
@@ -1797,6 +1292,511 @@ p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其�
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OS-02 Functions and Structures</title>
+    <url>/2025/02/21/OS/OS02/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Operating systems provide an environment for program executions and services to programs/users<br><span id="more"></span></p>
+<p><img src="/images/OS02-overview.jpg" alt="overview"></p>
+<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
+<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
+<ul>
+<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
+<li>直接执行 eg. <code>cd</code></li>
+</ul>
+</li>
+<li>System program commands: The command is a program name. <ul>
+<li>查找系统文件执行 eg. <code>ls</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
+<li>User</li>
+<li>Kernel<br>转换：系统调用，中断，异常</li>
+</ul>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>System calls are mostly accessed by programs via a high-level Application Program Interface (API) rather than direct system call use.<br>性质：</p>
+<ul>
+<li>易用：无需了解底层实现，直接调用</li>
+<li>可移植：API具有跨平台兼容性</li>
+<li>安全：直接调用与内核交互</li>
+</ul>
+<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><ul>
+<li>寄存器：快，少</li>
+<li>内存表</li>
+<li>栈</li>
+</ul>
+<p>The last two methods do not limit the number or length of parameters being passed 性能损耗</p>
+<h4 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h4><h5 id="Type-1-Process-control"><a href="#Type-1-Process-control" class="headerlink" title="Type 1: Process control"></a>Type 1: Process control</h5><ul>
+<li>Control the current process: end， abort， execute， load……</li>
+<li>Control a different process</li>
+<li>Allocate memory and release memory</li>
+<li>Debugger</li>
+<li>Locks for managing access to shared data between processes</li>
+</ul>
+<h5 id="Type-2-File-management"><a href="#Type-2-File-management" class="headerlink" title="Type 2: File management"></a>Type 2: File management</h5><h5 id="Type-3-Device-management"><a href="#Type-3-Device-management" class="headerlink" title="Type 3: Device management"></a>Type 3: Device management</h5><h5 id="Type-4-Information-maintenance"><a href="#Type-4-Information-maintenance" class="headerlink" title="Type 4: Information maintenance"></a>Type 4: Information maintenance</h5><h5 id="Type-5-Communications"><a href="#Type-5-Communications" class="headerlink" title="Type 5: Communications"></a>Type 5: Communications</h5><ul>
+<li>message passing model 内核中转，离散</li>
+<li>shared-memory model 共享物理内存</li>
+</ul>
+<h5 id="Type-6-Protection"><a href="#Type-6-Protection" class="headerlink" title="Type 6: Protection"></a>Type 6: Protection</h5><h3 id="System-Services"><a href="#System-Services" class="headerlink" title="System Services"></a>System Services</h3><p>In computer hierarchy, system services are higher than system calls.</p>
+<p>System services use system calls to interact with the OS kernel</p>
+<h4 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h4><ul>
+<li>System Programs：Login program, shell, window manager</li>
+<li>Application Programs：Email, web browsers, gaming software, word processors</li>
+</ul>
+<h4 id="Why-Applications-are-Operating-System-Specific："><a href="#Why-Applications-are-Operating-System-Specific：" class="headerlink" title="Why Applications are Operating System Specific："></a>Why Applications are Operating System Specific：</h4><p>Reason: Each operating system provides its own unique system calls</p>
+<p>eg. file format</p>
+<h4 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h4><ul>
+<li>File management</li>
+<li>Status information <ul>
+<li>Some systems implement a registry (注册表) - used to store and retrieve configuration information </li>
+</ul>
+</li>
+<li>File modification</li>
+<li>Programming-language support</li>
+<li>Program loading and execution</li>
+<li>Communications</li>
+<li>Background Services<ul>
+<li>Known as services, subsystems, daemons</li>
+</ul>
+</li>
+</ul>
+<h2 id="Operating-System-Structures"><a href="#Operating-System-Structures" class="headerlink" title="Operating System Structures"></a>Operating System Structures</h2><ul>
+<li>Simple Structure – MS-DOS</li>
+<li>Monolithic (单体)Structure – Original UNIX</li>
+<li>Layered Approach</li>
+<li>Microkernel System Structure - Mach</li>
+<li>Hybrid Systems - windows, macOS, Android </li>
+</ul>
+<h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p><img src="/images/OS02-V.jpeg" alt="visulization"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/images/OS02-S.jpeg" alt="topics"></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解读尼采</title>
+    <url>/2025/02/21/Philosophy/%E5%B0%BC%E9%87%87/</url>
+    <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
+<p>To be continued……<br><span id="more"></span></p>
+<h2 id="虚无主义"><a href="#虚无主义" class="headerlink" title="虚无主义"></a>虚无主义</h2><p>“Nihilism, is an inability to desire”</p>
+<p>虚无主义，是一种欲望的缺失</p>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>“nothing is true，everything is allowed.”</p>
+<p>生活的核心驱动是“情和欲”(erotic), 人生追求无法基于理性？</p>
+<h3 id="虚无的起源"><a href="#虚无的起源" class="headerlink" title="虚无的起源"></a>虚无的起源</h3><p>生活充满随机性，不一定具有逻辑</p>
+<p>量化不一定合理</p>
+<p>自洽就是真理吗？</p>
+<p>“情欲匮乏”与“自我蔑视”self contempt</p>
+]]></content>
+      <categories>
+        <category>Philosophy</category>
+      </categories>
+      <tags>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA DPU Course</title>
+    <url>/2025/02/22/Technology/NVIDIA-DPU-Course/</url>
+    <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
+<h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>NVIDIA BlueField DPU目前主要有以下几代产品:</p>
+<ul>
+<li>BlueField-3 DPU</li>
+<li>BlueField-2 DPU (支持InfiniBand/以太网双版本)</li>
+<li>BlueField-1 系列控制器卡</li>
+</ul>
+<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><h3 id="DOCA软件框架"><a href="#DOCA软件框架" class="headerlink" title="DOCA软件框架"></a>DOCA软件框架</h3><p>DOCA (Data center-on-chip Architecture)是NVIDIA为BlueField DPU开发的软件框架，包含：</p>
+<h4 id="DOCA-SDK-v2-10-0"><a href="#DOCA-SDK-v2-10-0" class="headerlink" title="DOCA SDK (v2.10.0)"></a>DOCA SDK (v2.10.0)</h4><ul>
+<li>RDMA加速SDK</li>
+<li>网络加速SDK</li>
+<li>安全加速SDK</li>
+<li>存储加速SDK</li>
+<li>数据路径加速(DPA) SDK</li>
+<li>管理SDK</li>
+</ul>
+<h4 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h4><ul>
+<li>统一通信接口(UCX)</li>
+<li>RDMA verbs</li>
+<li>GPUDirect</li>
+<li>软件定义网络(SDN)</li>
+<li>P4编程支持</li>
+<li>在线加密</li>
+<li>App Shield运行时安全</li>
+</ul>
+<h2 id="应用场景与功能"><a href="#应用场景与功能" class="headerlink" title="应用场景与功能"></a>应用场景与功能</h2><h3 id="1-网络加速"><a href="#1-网络加速" class="headerlink" title="1. 网络加速"></a>1. 网络加速</h3><h4 id="1-1-网络协议栈卸载"><a href="#1-1-网络协议栈卸载" class="headerlink" title="1.1 网络协议栈卸载"></a>1.1 网络协议栈卸载</h4><ul>
+<li><p><strong>TCP/IP卸载</strong></p>
+<ul>
+<li>完整的TCP/IP协议栈处理</li>
+<li>支持TCP Offload Engine (TOE)</li>
+<li>降低主机CPU负载</li>
+<li>减少网络延迟</li>
+</ul>
+</li>
+<li><p><strong>RDMA技术</strong></p>
+<ul>
+<li>支持RoCE v1/v2 (RDMA over Converged Ethernet)</li>
+<li>支持InfiniBand</li>
+<li>零拷贝数据传输</li>
+<li>内核旁路技术</li>
+<li>QP (Queue Pair) 管理</li>
+<li>支持RDMA Write/Read/Send/Receive操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-网络虚拟化"><a href="#1-2-网络虚拟化" class="headerlink" title="1.2 网络虚拟化"></a>1.2 网络虚拟化</h4><ul>
+<li><p><strong>SR-IOV (Single Root I/O Virtualization)</strong></p>
+<ul>
+<li>支持多达1000个VF (Virtual Function)</li>
+<li>硬件级网络资源隔离</li>
+<li>虚拟机直通技术</li>
+</ul>
+</li>
+<li><p><strong>OVS (Open vSwitch) 加速</strong></p>
+<ul>
+<li>硬件卸载流表处理</li>
+<li>支持OpenFlow协议</li>
+<li>虚拟交换机性能优化</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-高级网络特性"><a href="#1-3-高级网络特性" class="headerlink" title="1.3 高级网络特性"></a>1.3 高级网络特性</h4><ul>
+<li><p><strong>流量管理</strong></p>
+<ul>
+<li>QoS (Quality of Service) 支持</li>
+<li>带宽控制</li>
+<li>流量整形</li>
+<li>拥塞控制</li>
+</ul>
+</li>
+<li><p><strong>网络安全</strong></p>
+<ul>
+<li>IPSec硬件加速</li>
+<li>TLS/SSL卸载</li>
+<li>防火墙规则处理</li>
+<li>DDoS防护</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4-网络性能指标"><a href="#1-4-网络性能指标" class="headerlink" title="1.4 网络性能指标"></a>1.4 网络性能指标</h4><ul>
+<li><p><strong>带宽能力</strong></p>
+<ul>
+<li>支持25/50/100/200/400GbE</li>
+<li>BlueField-3支持高达800Gb/s带宽</li>
+<li>双端口配置选项</li>
+</ul>
+</li>
+<li><p><strong>延迟优化</strong></p>
+<ul>
+<li>端到端延迟&lt;1微秒</li>
+<li>硬件时间戳支持</li>
+<li>精确时间协议(PTP)支持</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-网络编程模型"><a href="#1-5-网络编程模型" class="headerlink" title="1.5 网络编程模型"></a>1.5 网络编程模型</h3><ul>
+<li><p><strong>DPDK支持</strong></p>
+<ul>
+<li>用户态网络驱动</li>
+<li>轮询模式驱动(PMD)</li>
+<li>零拷贝数据包处理</li>
+<li>大页内存支持</li>
+</ul>
+</li>
+<li><p><strong>P4可编程性</strong></p>
+<ul>
+<li>自定义数据包处理流水线</li>
+<li>协议无关的包处理</li>
+<li>灵活的转发规则定义</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-6-相关网络知识"><a href="#1-6-相关网络知识" class="headerlink" title="1.6 相关网络知识"></a>1.6 相关网络知识</h4><ul>
+<li><p><strong>网络分层模型</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">应用层 (L7) - HTTP, FTP, SMTP等</span><br><span class="line">传输层 (L4) - TCP, UDP</span><br><span class="line">网络层 (L3) - IP, ICMP</span><br><span class="line">数据链路层 (L2) - 以太网, MAC</span><br><span class="line">物理层 (L1) - 物理介质</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键网络概念</strong></p>
+<ul>
+<li>MTU (Maximum Transmission Unit)</li>
+<li>VLAN (Virtual LAN)</li>
+<li>VXLAN (Virtual Extensible LAN)</li>
+<li>ARP (Address Resolution Protocol)</li>
+<li>BGP (Border Gateway Protocol)</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-7-性能优化建议"><a href="#1-7-性能优化建议" class="headerlink" title="1.7 性能优化建议"></a>1.7 性能优化建议</h4><ul>
+<li><p><strong>网络调优</strong></p>
+<ul>
+<li>启用巨帧(Jumbo Frame)</li>
+<li>配置RSS (Receive Side Scaling)</li>
+<li>优化中断亲和性</li>
+<li>使用NUMA感知内存分配</li>
+</ul>
+</li>
+<li><p><strong>最佳实践</strong></p>
+<ul>
+<li>合理规划网络拓扑</li>
+<li>选择适当的网络模式</li>
+<li>监控网络性能指标</li>
+<li>定期进行性能测试</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-存储加速"><a href="#2-存储加速" class="headerlink" title="2. 存储加速"></a>2. 存储加速</h3><ul>
+<li>NVMe存储虚拟化</li>
+<li>存储加密与压缩</li>
+<li>零拷贝数据传输</li>
+</ul>
+<h3 id="3-安全功能"><a href="#3-安全功能" class="headerlink" title="3. 安全功能"></a>3. 安全功能</h3><ul>
+<li>硬件加速加密</li>
+<li>IPsec安全网关</li>
+<li>零信任安全架构</li>
+<li>运行时安全保护</li>
+</ul>
+<h3 id="4-虚拟化支持"><a href="#4-虚拟化支持" class="headerlink" title="4. 虚拟化支持"></a>4. 虚拟化支持</h3><ul>
+<li>SR-IOV虚拟化</li>
+<li>虚拟设备模拟</li>
+<li>容器化工作负载支持</li>
+</ul>
+<p><a href="https://www.nvidia.cn/dpubook-3">参考来源</a><br><a href="https://www.nvidia.cn/dpubook-4">DOCA框架文档</a></p>
+]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>NVIDIA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端人工智能技术</title>
+    <url>/2025/02/23/Technology/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<p>本文在deepseek辅助下帮助笔者理解移动端人工智能的知识蒸馏（Knowledge Distillation）、量化（Quantization）和剪枝（Pruning）三种模型压缩技术。<br><span id="more"></span></p>
+<h3 id="1-知识蒸馏（Knowledge-Dististillation）"><a href="#1-知识蒸馏（Knowledge-Dististillation）" class="headerlink" title="1. 知识蒸馏（Knowledge Dististillation）"></a><strong>1. 知识蒸馏（Knowledge Dististillation）</strong></h3><h4 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过训练一个轻量化的“学生模型”（Student Model），模仿复杂“教师模型”（Teacher Model）的输出行为，从而将教师模型的知识迁移到学生模型中。</p>
+<ul>
+<li><strong>知识来源</strong>：教师模型的输出概率分布（软标签）、中间层特征或注意力机制。</li>
+<li><strong>目标</strong>：学生模型在保持小体积的同时，达到接近教师模型的性能。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：图像分类任务（如ImageNet数据集）  </p>
+<ul>
+<li><strong>教师模型</strong>：大型模型（如ResNet-50，准确率76%）。</li>
+<li><strong>学生模型</strong>：轻量模型（如MobileNetV3，准确率直接训练仅70%）。  </li>
+<li><strong>蒸馏过程</strong>：  <ol>
+<li>教师模型对训练数据生成“软标签”（Soft Labels，即各类别概率分布，如<code>[0.7, 0.2, 0.1]</code>）。  </li>
+<li>学生模型同时学习真实标签（硬标签）和软标签。<br>结合硬标签损失和软标签的KL散度损失函数：<script type="math/tex; mode=display">
+L = \alpha L_{CE} + (1 - \alpha) L_{KL}</script>其中，<script type="math/tex">L_{CE}</script>为交叉熵损失，<script type="math/tex">L_{KL}</script>为KL散度损失。</li>
+</ol>
+</li>
+</ul>
+<h4 id="深入思考"><a href="#深入思考" class="headerlink" title="深入思考"></a>深入思考</h4><p>1.<strong>为什么学生模型参数更少却能接近教师性能？</strong></p>
+<p>类比于二级结论，学生模型具有教师模型的先验知识（概率分布），而不需要从底层开始全部学习。我们称之为<strong>决策边界抽象能力</strong>。</p>
+<p>信息论角度：将教师模型中“有效信息”（决策边界、特征相关性）编码到学生模型的参数中，而非复制所有参数。</p>
+<p>2.<strong>软标签概率分布如何生成？</strong></p>
+<p>核心方法：温度缩放（Temperature Scaling）<br>软标签并非直接使用教师模型的原始输出，而是通过引入温度参数（Temperature, T）对概率分布进行平滑处理，以传递类别间的关系信息。</p>
+<p>数学公式：</p>
+<script type="math/tex; mode=display">
+p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其中，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="1.792ex" height="1.357ex" role="img" focusable="false" viewBox="0 -442 792 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mi" transform="translate(498,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>是教师模型在类别<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>的原始输出，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.593ex" height="1.532ex" role="img" focusable="false" viewBox="0 -677 704 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></svg></mjx-container>是温度参数，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.719ex" height="1.645ex" role="img" focusable="false" viewBox="0 -705 760 727"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container>是类别总数。</p>
+<p>T的作用：</p>
+<ul>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.717ex" role="img" focusable="false" viewBox="0 -677 2537.6 759"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，软标签等同于硬标签。</li>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.09ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.622ex" role="img" focusable="false" viewBox="0 -677 2537.6 717"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，概率分布更平滑，类别间关系信息更丰富。</li>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="7.375ex" height="1.557ex" role="img" focusable="false" viewBox="0 -677 3259.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2259.6,0)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g></g></g></svg></mjx-container> 时，概率分布趋近于均匀分布。</li>
+</ul>
+<p>3.<strong>为什么不在训练教师模型时使用软标签？</strong></p>
+<p>根本原因：教师模型的训练目标不同</p>
+<ul>
+<li>教师模型的使命：追求最高精度，而非传递知识<ul>
+<li>教师模型需尽可能拟合数据中的细节，硬标签（明确答案）是更直接的监督信号。</li>
+<li>软标签会引入不必要的“不确定性”，降低模型对正确类别的置信度。</li>
+</ul>
+</li>
+<li>软标签的来源矛盾：<ul>
+<li>知识蒸馏中，软标签由更强大的教师模型生成（例如ResNet-50教MobileNet）。</li>
+<li>若在训练教师模型时使用软标签，需要另一个更强的模型生成软标签，但这会导致无限递归问题（谁来生成这个更强的模型的软标签？）</li>
+</ul>
+</li>
+</ul>
+<p>4.<strong>知识蒸馏的局限性</strong></p>
+<ul>
+<li>需要高质量的教师模型：教师模型需要足够大，才能提供高质量的软标签。</li>
+<li>需要大量计算资源：教师模型需要大量计算资源，才能生成高质量的软标签。</li>
+<li>需要大量数据：教师模型需要大量数据，才能生成高质量的软标签。</li>
+</ul>
+<hr>
+<h3 id="2-量化（Quantization）"><a href="#2-量化（Quantization）" class="headerlink" title="2. 量化（Quantization）"></a><strong>2. 量化（Quantization）</strong></h3><h4 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>将模型参数（权重）和激活值从高精度浮点数（如32位）转换为低精度数值（如8位整数），减少模型体积和计算资源消耗。  </p>
+<ul>
+<li><strong>类型</strong>：  <ul>
+<li><strong>训练后量化（Post-training Quantization）</strong>：直接对训练好的模型进行量化。  </li>
+<li><strong>量化感知训练（Quantization-aware Training）</strong>：在训练过程中模拟量化误差，提升最终量化模型的精度。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：手机端语音识别模型  </p>
+<ul>
+<li><strong>原始模型</strong>：基于LSTM的语音识别模型，使用FP32精度，大小120MB，延迟50ms。  </li>
+<li><strong>量化步骤</strong>：  <ol>
+<li>将权重和激活值从FP32量化为INT8（范围映射到-128~127）。  </li>
+<li>引入反量化（Dequantization）层，在关键计算节点恢复精度。  </li>
+</ol>
+</li>
+<li><strong>结果</strong>：模型大小缩减至30MB，延迟降至15ms，准确率损失小于1%。</li>
+</ul>
+<p>下面以Pytorch为例，展示训练后量化和量化感知训练的实现。</p>
+<h5 id="训练后量化"><a href="#训练后量化" class="headerlink" title="训练后量化"></a>训练后量化</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.quantization</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> mobilenet_v2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 加载预训练模型</span></span><br><span class="line">model = mobilenet_v2(pretrained=<span class="literal">True</span>)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 定义量化配置</span></span><br><span class="line">model.qconfig = torch.quantization.get_default_qconfig(<span class="string">'qnnpack'</span>)  <span class="comment"># 移动端优化配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 插入观察器（Observer）校准量化参数</span></span><br><span class="line">model_fp32_prepared = torch.quantization.prepare(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 用校准数据运行模型（此处用随机数据示例）</span></span><br><span class="line">input_fp32 = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>)  <span class="comment"># 假设输入尺寸为224x224</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    model_fp32_prepared(input_fp32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 转换为量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_fp32_prepared)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存量化模型</span></span><br><span class="line">torch.save(model_int8.state_dict(), <span class="string">"mobilenet_v2_quantized.pth"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查模型大小</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)     <span class="comment"># 约14MB</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"INT8模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2_quantized.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)  <span class="comment"># 约3.5MB</span></span><br></pre></td></tr></table></figure>
+<h5 id="量化感知训练"><a href="#量化感知训练" class="headerlink" title="量化感知训练"></a>量化感知训练</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.quantization <span class="keyword">import</span> QuantStub, DeQuantStub</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 定义支持量化的模型结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuantizableModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.quant = QuantStub()      <span class="comment"># 量化入口</span></span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.dequant = DeQuantStub()  <span class="comment"># 反量化出口</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.quant(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.conv(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.dequant(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 插入伪量化节点</span></span><br><span class="line">model = QuantizableModel()</span><br><span class="line">model.qconfig = torch.quantization.get_default_qat_qconfig(<span class="string">'qnnpack'</span>)</span><br><span class="line">model.train()  <span class="comment"># 切换到训练模式</span></span><br><span class="line">model_prepared = torch.quantization.prepare_qat(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 正常训练流程（需使用FP32数据）</span></span><br><span class="line">optimizer = torch.optim.SGD(model_prepared.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model_prepared(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 转换为最终量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_prepared)</span><br></pre></td></tr></table></figure>
+<h4 id="深入思考-1"><a href="#深入思考-1" class="headerlink" title="深入思考"></a>深入思考</h4><p>手动实现量化计算：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原始FP32计算</span></span><br><span class="line">W_fp32 = torch.tensor([<span class="number">2.5</span>, -<span class="number">1.3</span>, <span class="number">0.8</span>], dtype=torch.float32)</span><br><span class="line">x_fp32 = torch.tensor([<span class="number">0.4</span>, <span class="number">1.2</span>, -<span class="number">0.5</span>], dtype=torch.float32)</span><br><span class="line">y_fp32 = torch.dot(W_fp32, x_fp32)  <span class="comment"># 输出：2.5*0.4 + (-1.3)*1.2 + 0.8*(-0.5) = -1.56</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 量化到INT8（范围假设为[-5, 5]）</span></span><br><span class="line">scale_W = <span class="number">5</span> / <span class="number">127</span>  <span class="comment"># 对称量化，scale = max(abs(W)) / 127</span></span><br><span class="line">W_int8 = torch.clamp((W_fp32 / scale_W).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line">scale_x = <span class="number">5</span> / <span class="number">127</span></span><br><span class="line">x_int8 = torch.clamp((x_fp32 / scale_x).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数计算</span></span><br><span class="line">y_int32 = torch.dot(W_int8.<span class="built_in">float</span>(), x_int8.<span class="built_in">float</span>())  <span class="comment"># 转为float避免溢出</span></span><br><span class="line">y_dequant = y_int32 * (scale_W * scale_x)  <span class="comment"># 反量化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32结果:"</span>, y_fp32.item())        <span class="comment"># -1.56</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"量化结果:"</span>, y_dequant.item())     <span class="comment"># 约-1.55（存在微小误差）</span></span><br></pre></td></tr></table></figure>
+<p>量化完整流程：</p>
+<ul>
+<li>准备阶段<ul>
+<li>插入观察器到模型中，统计各层的权重和激活值分布。</li>
+<li>代码操作：model_prepared = prepare(model)</li>
+</ul>
+</li>
+<li>校准阶段<ul>
+<li>用代表性数据运行模型，观察器记录各层的min/max值。</li>
+<li>代码操作：model_prepared(input_data)</li>
+</ul>
+</li>
+<li>转换阶段<ul>
+<li>根据校准结果计算量化参数，替换浮点算子为量化算子。</li>
+<li>代码操作：model_quantized = convert(model_prepared)</li>
+</ul>
+</li>
+</ul>
+<p><strong>核心公式</strong>：</p>
+<ul>
+<li>量化公式：<script type="math/tex">Q(x) = \text{clamp}\left(\text{round}\left(\frac{x}{\text{scale}} + \text{zero\_point}\right), \text{min}, \text{max}\right)</script><ul>
+<li>clamp：将结果限制在min和max之间</li>
+<li>round：四舍五入</li>
+<li>zero_point：量化偏移量, 用于校准, 通常为0</li>
+</ul>
+</li>
+<li>反量化公式：<script type="math/tex">x = \left(\text{Q}(x) - \text{zero\_point}\right) \times \text{scale}</script></li>
+</ul>
+<h4 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
+<li>TensorFlow Lite：默认支持训练后量化，可将目标检测模型（如SSD MobileNet）从16MB压缩到4MB。  </li>
+<li>苹果Core ML：在iPhone上运行量化后的StyleGAN模型，实现实时人像风格迁移。</li>
+</ul>
+<hr>
+<h3 id="3-剪枝（Pruning）"><a href="#3-剪枝（Pruning）" class="headerlink" title="3. 剪枝（Pruning）"></a><strong>3. 剪枝（Pruning）</strong></h3><h4 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过移除模型中不重要的参数（如接近零的权重）或结构（如冗余神经元），减少模型复杂度。  </p>
+<ul>
+<li><strong>类型</strong>：  <ul>
+<li><strong>非结构化剪枝</strong>：删除单个权重（稀疏化）。  </li>
+<li><strong>结构化剪枝</strong>：删除整层神经元或通道（更适合硬件加速）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：自然语言处理中的BERT模型压缩  </p>
+<ul>
+<li><strong>原始模型</strong>：BERT-base（1.1亿参数，模型大小400MB）。  </li>
+<li><strong>剪枝过程</strong>：  <ol>
+<li>在微调阶段，根据权重绝对值或梯度重要性评分，剪枝30%的注意力头。  </li>
+<li>重新训练剩余参数以恢复精度。  </li>
+</ol>
+</li>
+<li><strong>结果</strong>：模型大小减少至280MB，推理速度提升1.5倍，在GLUE基准上精度下降仅0.5%。</li>
+</ul>
+<p>以下是Pytorch实现剪枝的示例：</p>
+<h5 id="非结构化剪枝"><a href="#非结构化剪枝" class="headerlink" title="非结构化剪枝"></a>非结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.utils.prune <span class="keyword">as</span> prune</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义示例模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">16</span>, <span class="number">3</span>)  <span class="comment"># 输入通道3，输出通道16</span></span><br><span class="line">        <span class="variable language_">self</span>.fc = nn.Linear(<span class="number">16</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 假设输入图像尺寸为28x28</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.conv1(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleCNN()</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 剪枝步骤 ---</span></span><br><span class="line"><span class="comment"># Step 1: 选择剪枝目标（这里剪枝conv1层的权重）</span></span><br><span class="line">parameters_to_prune = [(model.conv1, <span class="string">'weight'</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 应用L1范数剪枝（剪去20%的权重）</span></span><br><span class="line">prune.global_unstructured(</span><br><span class="line">    parameters_to_prune,</span><br><span class="line">    pruning_method=prune.L1Unstructured,</span><br><span class="line">    amount=<span class="number">0.2</span>  <span class="comment"># 剪枝比例20%</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 查看剪枝效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的权重稀疏度："</span>, </span><br><span class="line">      torch.<span class="built_in">sum</span>(model.conv1.weight == <span class="number">0</span>).item() / model.conv1.weight.nelement())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 永久移除剪枝的权重（可选）</span></span><br><span class="line">prune.remove(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 微调剪枝后的模型</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>为什么用L1范数剪枝？</strong>：<br>L1范数具有自然的稀疏性特征，通过最小化L1范数，模型倾向于将一些权重推向0以实现稀疏化，并且计算简单。</p>
+<h5 id="结构化剪枝"><a href="#结构化剪枝" class="headerlink" title="结构化剪枝"></a>结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.nn.utils.prune <span class="keyword">import</span> ln_structured, remove_structured</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 剪枝整个通道（基于L2范数）</span></span><br><span class="line"><span class="comment"># 对conv1层的输出通道进行剪枝（移除20%的通道）</span></span><br><span class="line">prune.ln_structured(</span><br><span class="line">    model.conv1,</span><br><span class="line">    name=<span class="string">"weight"</span>,</span><br><span class="line">    amount=<span class="number">0.2</span>,</span><br><span class="line">    n=<span class="number">2</span>,  <span class="comment"># L2范数</span></span><br><span class="line">    dim=<span class="number">0</span>  <span class="comment"># 沿输出通道维度剪枝</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 查看通道剪枝后的权重形状</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的conv1.weight形状:"</span>, model.conv1.weight.shape)  </span><br><span class="line"><span class="comment"># 原始形状[16,3,3,3] → 剪枝后[13,3,3,3]（假设移除3个通道）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 永久应用剪枝</span></span><br><span class="line">remove_structured(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 调整后续层（重要！结构化剪枝需适配网络结构）</span></span><br><span class="line"><span class="comment"># 原fc层输入维度为16*26*26，剪枝后变为13*26*26 → 需要重新定义</span></span><br><span class="line">model.fc = nn.Linear(<span class="number">13</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 修改输入维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调模型（同上）</span></span><br></pre></td></tr></table></figure>
+<p><strong>为什么用L2范数剪枝？</strong>：</p>
+<ul>
+<li>避免极端值：均匀缩小</li>
+<li>计算效率：L2范数计算复杂度较低</li>
+</ul>
+<h4 id="实际应用-1"><a href="#实际应用-1" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
+<li>NVIDIA的Nemo框架：对语音识别模型（如QuartzNet）进行结构化剪枝，GPU推理速度提升2倍。  </li>
+<li>无人机避障算法：剪枝后的YOLOv5模型在边缘设备上实时检测障碍物，功耗降低40%。</li>
+</ul>
+<hr>
+<h3 id="三者的对比与协同使用"><a href="#三者的对比与协同使用" class="headerlink" title="三者的对比与协同使用"></a><strong>三者的对比与协同使用</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>核心目标</th>
+<th>优势</th>
+<th>局限性</th>
+<th>典型压缩率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识蒸馏</td>
+<td>迁移知识到小模型</td>
+<td>精度接近教师模型</td>
+<td>依赖高质量教师模型</td>
+<td>2-5倍</td>
+</tr>
+<tr>
+<td>量化</td>
+<td>降低数值精度</td>
+<td>显著减少体积和计算开销</td>
+<td>可能损失精度（需校准）</td>
+<td>4倍+</td>
+</tr>
+<tr>
+<td>剪枝</td>
+<td>移除冗余参数或结构</td>
+<td>提升推理速度，降低内存占用</td>
+<td>可能破坏模型结构完整性</td>
+<td>2-10倍</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>协同使用案例</strong>：<br>谷歌的MobileNetV4模型结合三者：  </p>
+<ol>
+<li>用知识蒸馏从EfficientNet迁移知识；  </li>
+<li>对模型进行混合精度量化（部分层用INT8，关键层用FP16）；  </li>
+<li>剪枝掉80%的冗余通道，最终模型体积减少6倍，速度提升3倍，精度仅下降2%。  </li>
+</ol>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>知识蒸馏、量化和剪枝是移动端AI模型压缩的三大核心技术：  </p>
+<ul>
+<li><strong>知识蒸馏</strong>：通过“师生学习”传递知识，适合模型功能迁移；  </li>
+<li><strong>量化</strong>：降低数值精度，直接压缩体积和加速计算；  </li>
+<li><strong>剪枝</strong>：消除冗余参数，提升硬件执行效率。<br>实际应用中，三者常结合使用（如“蒸馏+量化+剪枝”流程），在保证精度的前提下，实现移动端AI模型的极致优化。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>端侧AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用网址(持续更新)</title>
+    <url>/2025/02/21/Tools/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="c7ff6c2bc2468c5dafab5fc4f0475e456932644ebd44b9b4afc79ab17511fe55">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d238dfc0e32a001104ae7d5117be1ef8c373d51e7c0e8b73982e038f290561c2c819ee2fe72e0d698798cd5e204b4ca80c9e09361fdfffa8829aa7fa4c63557338a0cffe6f19f531ca6f4fdc4252e2f4a64c9fd58fcfee0bc5d5a25d894efe1efd38ebf18c55929848c6eb7a63ab2a5c1ddbe2887ab75eb38710144d31024f7bd05f3be8a76cf50121fd6f51a7d26889f130b36f97fafc58a060cb84288ca8755542ae3fd35ea57cb5249803d62c7cd98a0942cdf580e872ef4806182105f1fe80ab3225b42449c2324a31d5c5489d182ef8680c8a62469ceef90b409d244444c88781330f52899dcbb4c359afa31d848742c11780f8e438329843e233f2378de486e8a90e63bdfabbc478d614ccd6c7dcab59200fdf4a28747ef2bfa42f7fac0771ae4cb043373e9c1077fbc9d594380fe9407aff47651b5ac617c170b16b46589c9f7353200d9b399586ce4bc814c55895ee87ebabb8c902640518087a0bb2019b36999570ade2ca2bc9253ee1323168d896f7bf2d6924609035f042dec4d3a8b686b1c031f8d1b8f16e989d2ba08125b4684ce2024bb229ccbfa5b021af4bd3aeeaf62eb700562e0af949a8a59aec6184e5cce68bd62f4b4aa74c021d619caf5ab9f2a3c4c2409a53e0298e501eb381c837cb01f36ca58329e07a962a269f91e4df24e1f349bd064e39808dc1df13ff77d3ae78ecfabff62c1daa36d68a7ae19d771fd83913114cd0dae3a2c2be64065f2c5029c23629707ff81ce1232adc25fa6f783564d403cec616f1cbae93285830d68d6f390af2c3233e3fbac73504a0f672a8a87be9c0d4f752190a39b3bb57770e451ee6beb479d7b51e4790ed5053ed6494e2d9ea0212677965f7fae48ffea0ef7866b08233cf77782689b485ca7b3c2b7c5fc89d41de0c4930c6ebe0410096b23d8e411582fdc9637ab70fc6f10094659a93131a7e6c59f1eabb6ae02aa0038fd29ffad3f089769a21242b10a4cbb330b58d894889e267b669ab7b99c77ebeec42c3a3c9e21ee6e5799b22dd24f57a680ee173df6036f484015a31b18f2eb497ccb7c084f77318c74069bffb06f118dd80d6d0ed27da1ca6d1671e1a06c95c6810be1a20d105f5d54a0d8489f79ff0d644fd964d85469c7639ac0e341f4663414025351ea73614d0e542dc12dd18a9c648062c41e54f8eba34fe2faa026b022015521a369529e72f5a71f933490be050277310f6647cca410b3a6073b6cd17d67878c5ebc8a787571eaebd55c4aba8c239f7a63abd1d4f52d7cef725380bf96694879d61adaaf0a40c03ce2e643eea1c1764eabc9cdf8b800abebc6da1ac1cae71b855607cfe33cfd3049e5815b5d3327612fe48940508f5447c9c0f5f41eec75b917eec504164e0d36b44b3674479c477af1994ba8e95d1ed3564c98779a1275673ee7882ae0c5d8005f35f37d01303fce1b979db64c6e565fea40e680707b1187b3fd349d9fca7b719936dca534a81367dee6d9c1fe774fff96ab37e454a94fc1956914457a8b4d37332ce7ae66e47e03392a7caa6378258f87cee7be28931841f4ec9be032295272b738ddfb07f8ff0da6366287fd3d9c186fe6d9f39001feddc6dc175805a0d8d4a56f18c61e1fe2bf2a3d0dbf8574fc0153fb0b4e84116ce043b64b4095dd52b852046be869a14bd335fe6a9ee185cc151370b1ee1901b8c8904c733e75305825eac18483a0648b05b869ab5f0dad40b3f8b1f0aff51ccc48c0a1d374be742c2581bbd9c07d77c86d693bc81cdd609efc65af4c03ebd596c65162de642c23f63f53d5a4484913c2ea1ac038e8433a310cc5a7d91112781e68d5bbe80fd745eb08de9154e551c8bf035988c1961de30c3e02ee46aaf00d0dd1b2751a1b7d53c46a3d88b13fe65a3e6e3154bc30adb5e0d1747b722784253b2d12da839f939128417708a6c51f6582d64c5ee0a0e64871e58c26be5b5621caf78bf04c6eecc6b8ac654a462643daad160821185db51ea4bd91aacc578d1d37ae5fe60dc7588b25427677c0e09bbc01d71a713cf4cf2e91d6bf1f5f3b717a1ac1489509c699c0178126c69e815cb30c8322ebcdfc86816bc069236c04cb9528b05ff3e61eab42e8bf703909bbd6cd5cb9a8260323f8a36441617e7b94a4f1c5f6f02695d5568ee7933a136f68dd25622f461709cae45fc68c0cf32dd360f7888b969315396367d6ad50ca62b891f22c6a93c763c203e65cb187c9786167686927b34afad2f232801743b45ecf0876b338a9a771b491e7be49ff633c08fc92003a202221fc4bc17396e1621271ff50b99825dfa6a26fbe544ba9ff813e42ac734cf17118c2905ec26cffe9c5c0769949321fadfb06106bb83e6c5089a7acd2b5ef301a0ff89131a8a5799fd7647da749486a6b160031e9514cc1d1ae5e3f8f4fef5df8aa4547197af9db3431a660f4d8161e3bd4e6991d8018cd706e2b6369e21100d6464e05474a5e2652384df1f743111229cc978c2f7bebbf2f363081029f998b76a8505f0acbddab96e4f6ec32cbd6c3dd6bb885ba7a9ab37b3a8f585af82daf511f766961b8dcd05087d82e41a7fc41b9360e582c83d1dc98d75ea9c076815dd22a44df59ee1cfe902d03ebe6f7ceb5779d0395afde6d81e5bfc6f3ea12d98a2cb745c6148ca5ac136f8f32e858462735524360cbd17a6c755088c24ec4b3e05a4a30cedc66953af2a00cb9948fcc9b71abd195439263bfc69853d5d58229c2be36c8a2c92a02472aff5d45c94de94a3f222a53c4c85f4b642bb5bf78415f12cb0ac3211396a9a4d4de70a2cca04af2135ed6d1dbcffa95a5aacdca16c6d942bb887d382e70e8d58f71e2b7c5602e08f2226f81a9f69ce27e47f7f334d52c74acacc7272bc9f8c5d3751857caae5bcb4a9397cd57e2a4634e94376ca2cd6fdf2a4ead6ff6ea8d05468f4ffbac25052273f797e078d999dedbfc319f911ff77b8866b28bcd06f39315e730eb929c60f6f3568ae8f085bd9d6de510e56f2761c4ddb28d9c2652e06897ab7e4340cde793991358f136713f5bd98b35a1468f02a4bba177e0b4010730e468fd8f34121fc07ca7b7b60cae5bde9d8e4201aa7c5a8c8ef54d7391c76be7d8d45c5ed2a7cd2472ea153bf5a831867dda87b8c0345f8b144474e983b1301e132fa6d427bf26920c3ac18b95c5ac11a004faafe234b5ccec7175db883bd12c5e90cbb1153229b15bfad9e76fda2248e89b20dce3b280f70154bf31e8b60e9347139a2c3fbb421195ae3ce8344a7b45afe5bd7a0c00b08d2de92d52d01223fe3699323a568de76c08f17a4b267995de3cf5a28a66592a60fb03152d9762363445740a9422f9827a27f4e51619fa4cef5063255b65d47a5ac24de0a022e3fc58d7894431564ad72e771538d14177e4e14e965b80cc3989abd6059d6465ef5aae6c6ee2d1b59fe41d04ca407044eff936d253d1e92d8f51f7c8ad8a11105d6cb84f14dfe3f6402cec20f4b61c613302bbe8cf8b042058ad387ba55a85cae58f37b1c78c5cced059eade40331fae2338c0a2bd5567540f47424f84cee7cc4bd12eb1c74c964072db9e3c5269feeba71a55e888d1497a5e02892ab79aae3a07c0e0cbfde74db9d35cee380c0c9787a38aa0d3533f2f8d969c465cb456975929595badec8b46ca203787029d0da7eccfb7923ce3c2e0fca0988285f3960d8d1f2a08d036d30d76215d9f3e87e01018bf6e2b0d2bb71ccfe4113f0f9b68581714dd14d6a1a9099e82ceace57d5b45dbbc1662a3a3e4d861924c7e7289107c9f3894618039fa29cb295c6d67d2564540f9aecbda322fcfff966d7a15101e6b95122ac8c820f9cca1f6d0d8526214e236a114355c5ccaa6f018c69045e89349ee648596a0002443ebf7bad69f55ac3bae4c5c3934305b7562f12643ee68168ed02f901e8e8a0b6f8f722ce0afb2706abeea638b73dba8dd0cb02ad79262ba09ba295957df4938e0fb4225bb9c0f24fa7ab3ac5dc3d6ba33068b264b8a9c1a4a56c07be452fcfbc2517c993a6c580ec859a8ea1417ae321ec9699aa4eb157981b7de6483900b6e0a0949e3b6c65481796a215310e06e6e89c19624f1a5bc9f4a08867ce638640f275ede68636dbacc045061b97e374532fe49d2e660d919ea2e4219976a8900643c457c74ab1fdf8c718209d8c3dab4064501ac805530ff374b446dbdf674659dfe9d06da3bdf9feee88b732c08a479a484019d5607968dfd845f7578bcd57a002fa1298ed31815e0d465e0f418c9e784bee1759a25aadc75595374477c96a533368f322008cc8e0ebc58bd8e53f675c8280b96b675dc81a9fb76cec364ebbf6660107c2aedab8fc5b8b3938edf51eddfd83a0905f56d654efa77810d1b19a3ec0fb97bee14aeaa4c6cc5ceb994cd007d025a2aef4480ac445b9c95846b034378dbfe2083c0fca7254c792df0829b7933cabaa02409f4705ef1a3224f1075c480a7d2c70687d842f5d352157bfd040cd1d38ecc25648f462daa9675bf8c17a03d18b045bcce1d6d2d70f252956332de21e4522d920972911714ba74985c40eddd69262d5bc27170b672c7d43dc910e530992551070973009b179f989901f93286ed4ef80d82066d3b28d5ed1014a76cf4591280643dd3e65ab0e3eab17b0e912d84076f1170dcee34bd2d2576989ba7ef1222d5c727961a2f25964aa7ac188bebca5221bb5024073693828df18f599ccd1f2a22b6ca3543883dbbe5415714248094fb1e777b7b8f4956d0f4edeb706ec9a6c71ba948690e5a87d2aa5ee91c5a09f5219cd7056e5e4791224c7039cef65fd9ef6d36e7e88274a698ce070b0603124e64a77619558ad9c08000a8fedfeda128c30664ee4fd20ce15c2aeb7c6c40154e801c6708f7d77c77c7ab5396c0ca11063222d9a6e5821ca58cc8977240ec65a0c1794c3aeb9269002c17c05bb5e4aafcd2e1dee134b2f558132d0f8eb355aa9b87ea4f2450a7e8f91d07a4d78c217ba19786d6e5a6472c7b0957f713c7350db0ac43b05a35f1e09b61881ba94e6228a0faf350930caf390c679abb720704fb6c2763fe0c2f9bd969b8a5d568d6672196ba047948260f456be21315214b2031a8ea76a245f0414b14ffa9f908abf7edb0c379bef611e3411d829796ba4e62caa758917cb04dd860407af2cca38018ec060f636797a33ea76559a378c5fffc0efbc5771150b850d29f7267b3bd4d8178725e9b2d8e545276fd4b3e0c04ce14fbeb4402d57d727afa9e739635f507564a76eedd4231ae789fd17321f3746a71088b78d02a11ebf430034cf42c32be0663a6334bebd25812ae0129f76c7fd4054a1e4f92d200de2dca49278237681df48a90f6c2dab776ddb6a62216c2d59b4dfceae05e2c66d807b284996a563c0590caa0a494ce7d0a754046aae9ad378ff6f18604bcacca875c1ae58e7567554d06d1fa48632fe93852608d7a9ad83fdd3cdd23c8e43b1708272d2035e8dc8acc24951fabaff7f97a4673684f5346ba46c3b2bd30cbedc8f3bf2cac64b5f07e1421d724445381e98dbad1cf00b931f9ae4f476ba47b72e40488a467e3d95338ca4c40717d930f60f6d61f85361d31184f617d4a62072ee318fbe78c14ba42851152881316c4943eccc804001a2366160c41b55efae0eda084398decb9f4bed294179692056cdb5849be2e52c1b27728821aab30df6b64fa24ee95c6b7c8d52a793fa2c10344e31e30362586ac35c0e2a5180fe8873f1369fdf94ef4e52afc05087a740db8cdd72944b4a2ac1dfa72611da073751ab14f911e7d3e3aae7b0dfcaf3a458fd3d6047356d20d9ec968c4ac13a75eb5f000734ec3902866ac9ec7c961212f6f51b6ce1ce683673f8acd474a21cfa758d1064b0b0d4b1cd21262133b0030872d16ef9adaeddbfc001c5787a0eaff135821e745298ca4546dbd7c3b9acbecfcf7909f9cedc08bce21f5c4f9f50d92caa829ab5008a9558889b18df299681d91eee3bc344487e7067b5e2e616c2244eca2904295244f58ea57d50e7892c9148c9c</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>学业规划</tag>
       </tags>
   </entry>
 </search>
