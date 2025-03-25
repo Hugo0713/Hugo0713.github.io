@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Algorithm-2</title>
+    <url>/2025/03/06/Algorithm/Algorithm-2/</url>
+    <content><![CDATA[<p>算法与复杂性相关笔记。 分治<br><span id="more"></span></p>
+<h2 id="Chapter-2-Divide-and-Conquer-Algorithms"><a href="#Chapter-2-Divide-and-Conquer-Algorithms" class="headerlink" title="Chapter 2. Divide-and-Conquer Algorithms"></a>Chapter 2. Divide-and-Conquer Algorithms</h2><h3 id="Recurrence-relations"><a href="#Recurrence-relations" class="headerlink" title="Recurrence relations"></a>Recurrence relations</h3><p><strong>Master theorem:</strong></p>
+<script type="math/tex; mode=display">T(n)=a T(\lceil n / b\rceil)+O\left(n^{d}\right)</script><p>for some constants (a&gt;0) , (b&gt;1) ,and (d ≥0) , then </p>
+<script type="math/tex; mode=display">T(n)= \begin{cases}O\left(n^{d}\right) & if d>log _{b} a \\ O\left(n^{d} log n\right) & if d=log _{b} a \\ O\left(n^{log _{b} a}\right) & if d<log _{b} a .\end{cases}</script><p>d代表非递归部分（即每次递归调用之外的操作）的时间复杂度的指数。</p>
+<p><strong>Example:</strong> 整数乘法的分治算法</p>
+<script type="math/tex; mode=display">T(n)=3 T(n / 2)+O\left(n\right)</script><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><p>基本思想: 利用分治方法使得多项式相乘算法的复杂度降为O(n logn)</p>
+<p>具体实现：借用多项式的点值表示法（n+1个点确定一个n维多项式）的乘法可以在O(n)内完成，将多项式相乘转为点值表示法相乘再转回原系数表示</p>
+<p>fft数学公式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{bmatrix}
+y_0 \\
+y_1 \\
+y_2 \\
+\vdots \\
+y_{n-1}
+\end{bmatrix}
+&=
+\begin{bmatrix}
+W_n^{0\cdot0} & W_n^{0\cdot1} & W_n^{0\cdot2} & \cdots & W_n^{0\cdot(n-1)} \\
+W_n^{1\cdot0} & W_n^{1\cdot1} & W_n^{1\cdot2} & \cdots & W_n^{1\cdot(n-1)} \\
+W_n^{2\cdot0} & W_n^{2\cdot1} & W_n^{2\cdot2} & \cdots & W_n^{2\cdot(n-1)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+W_n^{(n-1)\cdot0} & W_n^{(n-1)\cdot1} & W_n^{(n-1)\cdot2} & \cdots & W_n^{(n-1)\cdot(n-1)}
+\end{bmatrix}
+\begin{bmatrix}
+x_0 \\
+x_1 \\
+x_2 \\
+\vdots \\
+x_{n-1}
+\end{bmatrix}
+\end{aligned}</script><p><a href="https://zhuanlan.zhihu.com/p/347091298">快速傅里叶变换详解</a></p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Algorithm-1</title>
     <url>/2025/02/27/Algorithm/Algorithm-1/</url>
     <content><![CDATA[<p>算法课的相关笔记。Modular arithmetic 、Primality testing、Cryptography(RSA)、Hashing。</p>
@@ -88,50 +132,6 @@
       <tags>
         <tag>Algorithm</tag>
         <tag>AI辅助</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Algorithm-2</title>
-    <url>/2025/03/06/Algorithm/Algorithm-2/</url>
-    <content><![CDATA[<p>算法与复杂性相关笔记。 分治<br><span id="more"></span></p>
-<h2 id="Chapter-2-Divide-and-Conquer-Algorithms"><a href="#Chapter-2-Divide-and-Conquer-Algorithms" class="headerlink" title="Chapter 2. Divide-and-Conquer Algorithms"></a>Chapter 2. Divide-and-Conquer Algorithms</h2><h3 id="Recurrence-relations"><a href="#Recurrence-relations" class="headerlink" title="Recurrence relations"></a>Recurrence relations</h3><p><strong>Master theorem:</strong></p>
-<script type="math/tex; mode=display">T(n)=a T(\lceil n / b\rceil)+O\left(n^{d}\right)</script><p>for some constants (a&gt;0) , (b&gt;1) ,and (d ≥0) , then </p>
-<script type="math/tex; mode=display">T(n)= \begin{cases}O\left(n^{d}\right) & if d>log _{b} a \\ O\left(n^{d} log n\right) & if d=log _{b} a \\ O\left(n^{log _{b} a}\right) & if d<log _{b} a .\end{cases}</script><p>d代表非递归部分（即每次递归调用之外的操作）的时间复杂度的指数。</p>
-<p><strong>Example:</strong> 整数乘法的分治算法</p>
-<script type="math/tex; mode=display">T(n)=3 T(n / 2)+O\left(n\right)</script><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><p>基本思想: 利用分治方法使得多项式相乘算法的复杂度降为O(n logn)</p>
-<p>具体实现：借用多项式的点值表示法（n+1个点确定一个n维多项式）的乘法可以在O(n)内完成，将多项式相乘转为点值表示法相乘再转回原系数表示</p>
-<p>fft数学公式：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\begin{bmatrix}
-y_0 \\
-y_1 \\
-y_2 \\
-\vdots \\
-y_{n-1}
-\end{bmatrix}
-&=
-\begin{bmatrix}
-W_n^{0\cdot0} & W_n^{0\cdot1} & W_n^{0\cdot2} & \cdots & W_n^{0\cdot(n-1)} \\
-W_n^{1\cdot0} & W_n^{1\cdot1} & W_n^{1\cdot2} & \cdots & W_n^{1\cdot(n-1)} \\
-W_n^{2\cdot0} & W_n^{2\cdot1} & W_n^{2\cdot2} & \cdots & W_n^{2\cdot(n-1)} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-W_n^{(n-1)\cdot0} & W_n^{(n-1)\cdot1} & W_n^{(n-1)\cdot2} & \cdots & W_n^{(n-1)\cdot(n-1)}
-\end{bmatrix}
-\begin{bmatrix}
-x_0 \\
-x_1 \\
-x_2 \\
-\vdots \\
-x_{n-1}
-\end{bmatrix}
-\end{aligned}</script><p><a href="https://zhuanlan.zhihu.com/p/347091298">快速傅里叶变换详解</a></p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -640,6 +640,105 @@ n = p_1^{k_1} \cdot p_2^{k_2} \cdot ... \cdot p_m^{k_m}</script><p> 由容斥原
       </tags>
   </entry>
   <entry>
+    <title>CS61C-1 Introduction and C</title>
+    <url>/2025/02/28/CS61C/CS61C-1/</url>
+    <content><![CDATA[<p>记录CS61C课程的学习过程，跟随<a href="https://cs61c.org/sp25/">CS61C: Computer Architecture(Machine Structures)</a>25春季版本。<br>本文包含课程的Introduction和C语言基础。Lecture 1-7, Discussion 1-2。<br><span id="more"></span></p>
+<h2 id="Thinking-about-Machine-Structures"><a href="#Thinking-about-Machine-Structures" class="headerlink" title="Thinking about Machine Structures"></a>Thinking about Machine Structures</h2><p><img src="/images/CS61C-1-1.png" alt="Old-school Machine Structures"></p>
+<h2 id="Great-Ideas-in-Computer-Architecture"><a href="#Great-Ideas-in-Computer-Architecture" class="headerlink" title="Great Ideas in Computer Architecture"></a>Great Ideas in Computer Architecture</h2><ol>
+<li>Abstraction (Layers of Representation/Interpretation)</li>
+<li>Mooreʼs Law</li>
+<li>Principle of Locality/Memory Hierarchy</li>
+<li>Parallelism</li>
+<li>Performance Measurement &amp; Improvement</li>
+<li>Dependability via Redundancy</li>
+</ol>
+<h2 id="Number-representation"><a href="#Number-representation" class="headerlink" title="Number representation"></a>Number representation</h2><h3 id="Bias-Encoding"><a href="#Bias-Encoding" class="headerlink" title="Bias Encoding"></a>Bias Encoding</h3><p>假设我们有一个数据值 x，存储时的计算方式为：存储值 = x - bias（将结果作为无符号数存储）；读取时的计算方式为：实际值 = （存储的无符号数） + bias。</p>
+<p>在 N 位表示中，偏移量通常选为</p>
+<script type="math/tex; mode=display">
+- (2^{N-1} - 1)</script><p>举例：N = 4， bias = -7<br>对0，存储值为：</p>
+<script type="math/tex; mode=display">
+0 - (-7) = 7</script><p>读取时，实际值为：</p>
+<script type="math/tex; mode=display">
+7 + (-7) = 0</script><h2 id="Intro-to-C"><a href="#Intro-to-C" class="headerlink" title="Intro to C"></a>Intro to C</h2><p>由于笔者有丰富的c++开发经验，故着重介绍c语言与c++的区别。</p>
+<h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc hello.c -o hello</span><br></pre></td></tr></table></figure>
+<p>头文件：<code>#include &lt;stdio.h&gt;</code>  </p>
+<h3 id="printf-和-scanf-函数"><a href="#printf-和-scanf-函数" class="headerlink" title="printf 和 scanf 函数"></a>printf 和 scanf 函数</h3><p>参数：</p>
+<ul>
+<li><code>%d</code>：整数</li>
+<li><code>%f</code>：浮点数</li>
+<li><code>%c</code>：字符</li>
+<li><code>%s</code>：字符串</li>
+<li><code>%p</code>：指针</li>
+<li><code>%u</code>：无符号整数</li>
+<li><code>%g</code>：自动选择合适的表示方式</li>
+</ul>
+<p>scanf 函数需要取地址符&amp;，因为 scanf 函数需要将输入的值存储到变量中。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">float</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入整数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个整数: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入浮点数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个浮点数: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;b);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入字符</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个字符: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %c"</span>, &amp;c); <span class="comment">// 注意前面的空格，跳过前面的空白字符</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入字符串</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个字符串: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, str); <span class="comment">// 不需要取地址符，因为数组名即为地址</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出结果</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的整数是: %d\n"</span>, a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的浮点数是: %.2f\n"</span>, b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的字符是: %c\n"</span>, c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的字符串是: %s\n"</span>, str);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><p><code>&lt;string.h&gt;</code> 是C语言标准库中的一个头文件，它提供了一系列用于处理字符串的函数。以下是一些常用函数的详细介绍：</p>
+<ul>
+<li><code>strlen</code>：计算字符串长度</li>
+<li><code>strcpy</code>：复制字符串</li>
+<li><code>strcat</code>：连接字符串</li>
+<li><code>strcmp</code>：比较字符串</li>
+<li><code>strchr</code>：查找字符</li>
+<li><code>strstr</code>：查找子字符串</li>
+<li><code>strncpy</code>：复制指定长度的字符串</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> str1[] = <span class="string">"Hello, World!"</span>;</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">20</span>];  </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算字符串长度</span></span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">strlen</span>(str1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"字符串长度: %d\n"</span>, len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 复制字符串</span></span><br><span class="line">    <span class="built_in">strcpy</span>(str2, str1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"复制后的字符串: %s\n"</span>, str2);   </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 连接字符串</span></span><br><span class="line">    <span class="built_in">strcat</span>(str1, <span class="string">" Welcome!"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"连接后的字符串: %s\n"</span>, str1);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 比较字符串</span></span><br><span class="line">    <span class="type">int</span> cmp = <span class="built_in">strcmp</span>(str1, str2);</span><br><span class="line">    <span class="keyword">if</span> (cmp == <span class="number">0</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"两个字符串相等\n"</span>);</span><br><span class="line">    } </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"str1 小于 str2\n"</span>);</span><br><span class="line">    } </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    {    </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"str1 大于 str2\n"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找字符</span></span><br><span class="line">    <span class="type">char</span> ch = <span class="string">'o'</span>;</span><br><span class="line">    <span class="type">char</span> *pos = <span class="built_in">strchr</span>(str1, ch);</span><br><span class="line">    <span class="keyword">if</span> (pos != <span class="literal">NULL</span>) </span><br><span class="line">    {      </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"字符 %c 的位置: %d\n"</span>, ch, pos - str1);</span><br><span class="line">    } </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"字符 %c 未找到\n"</span>, ch);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>results:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">字符串长度: <span class="number">13</span></span><br><span class="line">复制后的字符串: Hello, World!</span><br><span class="line">连接后的字符串: Hello, World! Welcome!</span><br><span class="line">两个字符串相等</span><br><span class="line">字符 o 的位置: <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>爆典：”C gives you a lot of extra rope, donʼt hang yourself with it!ˮ</p>
+<h3 id="malloc-free-and-realloc"><a href="#malloc-free-and-realloc" class="headerlink" title="malloc, free and realloc"></a>malloc, free and realloc</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">{    </span><br><span class="line"><span class="comment">// 现代C语言中，malloc 返回的是 void* 类型，但编译器会进行隐式转换</span></span><br><span class="line">    <span class="type">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="type">int</span> *arr = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">10</span>);</span><br><span class="line">    <span class="type">int</span> *arr2 = <span class="built_in">realloc</span>(arr, <span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">20</span>);</span><br><span class="line">    *p = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) </span><br><span class="line">    {</span><br><span class="line">        arr[i] = i;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *p);</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="built_in">free</span>(arr);</span><br><span class="line">    <span class="built_in">free</span>(arr2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="K-amp-R-Malloc-Free-Implementation"><a href="#K-amp-R-Malloc-Free-Implementation" class="headerlink" title="K&R Malloc/Free Implementation"></a>K&amp;R Malloc/Free Implementation</h3><ol>
+<li><strong>内存块结构</strong>：每个内存块前都有一个头部，头部包含两个字段。一个是表示该内存块大小的字段，用于记录当前内存块包含的字节数；另一个是指向下一个内存块的指针。在已分配的内存块中，指针字段未被使用；而所有空闲的内存块通过这个指针字段连接起来，形成一个循环链表，方便内存管理。</li>
+<li><strong>malloc()函数实现</strong>：<code>malloc()</code> 函数用于从堆中分配内存。它会在空闲链表中搜索，寻找一个大小足够满足请求的内存块。若找到合适的块，就将其从空闲链表中移除，并根据需要对该块进行分割（如果请求的内存小于找到的块的大小），然后返回指向分配内存起始位置的指针。如果在空闲链表中找不到足够大的块，<code>malloc()</code> 会向操作系统请求更多内存。若操作系统提供的内存仍无法满足请求，<code>malloc()</code> 函数则返回 <code>NULL</code>，表示内存分配失败。</li>
+<li><strong>free()函数实现</strong>：<code>free()</code> 函数用于释放不再使用的堆内存。当调用 <code>free()</code> 时，它首先检查要释放的内存块的相邻内存块是否也处于空闲状态。如果相邻块空闲，<code>free()</code> 会将这些相邻的空闲块合并成一个更大的空闲块，以减少内存碎片，提高内存利用率。若相邻块都在使用中，就直接将当前释放的内存块添加到空闲链表中。这样，后续调用 <code>malloc()</code> 时，该内存块可再次被分配使用。</li>
+<li><strong>设计目标</strong>：K&amp;R实现方式的主要目标是使 <code>malloc()</code> 和 <code>free()</code> 能够高效运行，同时尽量减少内存开销，并避免内存碎片化问题。碎片化指的是虽然系统中有许多空闲内存，但由于这些空闲内存以许多小的不连续块存在，导致无法满足大的内存分配请求。K&amp;R实现方式通过合理的内存块管理和合并策略，在一定程度上缓解了这些问题，为C程序提供了较为有效的内存管理方案。</li>
+</ol>
+<h3 id="Function-Pointers"><a href="#Function-Pointers" class="headerlink" title="Function Pointers"></a>Function Pointers</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">square</span><span class="params">(<span class="type">int</span> x)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">cube</span><span class="params">(<span class="type">int</span> x)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> x * x * x;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 声明一个函数指针，指向一个接收int返回int的函数</span></span><br><span class="line">    <span class="type">int</span> (*math_func)(<span class="type">int</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将函数指针指向square函数</span></span><br><span class="line">    math_func = square;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"平方结果: %d\n"</span>, math_func(<span class="number">5</span>));  <span class="comment">// 输出: 25</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将函数指针指向cube函数</span></span><br><span class="line">    math_func = cube;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"立方结果: %d\n"</span>, math_func(<span class="number">5</span>));  <span class="comment">// 输出: 125</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="Generic-Functions-泛型函数"><a href="#Generic-Functions-泛型函数" class="headerlink" title="Generic Functions 泛型函数"></a>Generic Functions 泛型函数</h3><p>通用指针（void *）不能使用解引用操作符，因为解引用指针需要在编译时确定访问字节数。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 泛型swap函数：交换任意类型的两个元素</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">void</span> *a, <span class="type">void</span> *b, <span class="type">size_t</span> size)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> temp[size];  <span class="comment">// 创建临时缓冲区</span></span><br><span class="line">    <span class="built_in">memcpy</span>(temp, a, size);     <span class="comment">// 将a的内容复制到临时缓冲区</span></span><br><span class="line">    <span class="built_in">memcpy</span>(a, b, size);        <span class="comment">// 将b的内容复制到a</span></span><br><span class="line">    <span class="built_in">memcpy</span>(b, temp, size);     <span class="comment">// 将临时缓冲区的内容复制到b</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="comment">// 交换整数</span></span><br><span class="line">    <span class="type">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换前: x = %d, y = %d\n"</span>, x, y);</span><br><span class="line">    swap(&amp;x, &amp;y, <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换后: x = %d, y = %d\n"</span>, x, y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 交换浮点数</span></span><br><span class="line">    <span class="type">double</span> d1 = <span class="number">3.14</span>, d2 = <span class="number">2.718</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换前: d1 = %f, d2 = %f\n"</span>, d1, d2);</span><br><span class="line">    swap(&amp;d1, &amp;d2, <span class="keyword">sizeof</span>(<span class="type">double</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换后: d1 = %f, d2 = %f\n"</span>, d1, d2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>为实现泛型中的指针运算，需先把<code>void *</code>指针强制转换为<code>char *</code>指针。因为<code>char</code>类型在任何架构下都占 1 字节，转换后指针运算就以字节为单位，保证运算按字节进行。</p>
+<p>示例：</p>
+<p>在swap_ends函数中交换通用数组首尾元素，计算末尾元素地址时，先将指向数组起始地址的<code>void *</code>指针arr转换为<code>char *</code>，再按公式<code>(char * ) arr + (nelems - 1)* nbytes</code>计算，nelems是数组元素个数，nbytes是每个元素的字节大小。</p>
+<h3 id="Floating-Point-Representation"><a href="#Floating-Point-Representation" class="headerlink" title="Floating Point Representation"></a>Floating Point Representation</h3><h4 id="数字表示法回顾"><a href="#数字表示法回顾" class="headerlink" title="数字表示法回顾"></a><strong>数字表示法回顾</strong></h4><p>计算机以二进制表示数字，N位可表示<script type="math/tex">2^N</script>个不同值。无符号整数范围是0到<script type="math/tex">2^N - 1</script> ，有符号整数（补码表示）范围是 <script type="math/tex">-2^{N - 1} 到 2^{N - 1} - 1</script>。</p>
+<h4 id="定点数表示法"><a href="#定点数表示法" class="headerlink" title="定点数表示法"></a><strong>定点数表示法</strong></h4><p>定点数是一种将小数点位置固定的数字表示方法。通过预先确定二进制小数点的位置，可以表示整数和分数部分。</p>
+<p>例如，在8位定点表示中，如果我们规定前4位表示整数部分，后4位表示小数部分：</p>
+<ul>
+<li>数字 5.5 表示为：0101.1000<ul>
+<li>整数部分 5 = 0101₂</li>
+<li>小数部分 0.5 = 0.5 × 2⁴ = 8 = 1000₂</li>
+</ul>
+</li>
+<li>数字 3.25 表示为：0011.0100<ul>
+<li>整数部分 3 = 0011₂</li>
+<li>小数部分 0.25 = 0.25 × 2⁴ = 4 = 0100₂</li>
+</ul>
+</li>
+</ul>
+<p>定点数的优点是运算简单，但缺点是表示范围有限：</p>
+<ul>
+<li>在上述8位系统中，整数部分范围为0-15</li>
+<li>小数部分精度固定为1/16 (0.0625)</li>
+</ul>
+<h4 id="浮点数表示法"><a href="#浮点数表示法" class="headerlink" title="浮点数表示法"></a><strong>浮点数表示法</strong></h4><p>浮点数通过分离二进制点和有效位，能有效利用有限位表示更多数。IEEE 754标准规定单精度浮点数为32位，包括1位符号位、8位指数位和23位有效数位。其中，有效位隐式包含首位1，指数采用127的偏移表示法。</p>
+<p><img src="/images/CS61C-1-2.png" alt="Floating Point Representation"></p>
+<ol>
+<li><strong>浮点数运算特性</strong>：浮点数加法不满足结合律，如不同运算顺序结果可能不同，这是因为浮点数表示是近似的，且大指数对应较大步长。浮点数运算涉及舍入操作，IEEE 754有多种舍入模式 ，如向+∞、-∞舍入，截断，向偶数舍入等。</li>
+<li><strong>特殊浮点数</strong>：特殊浮点数包括零（±0）、无穷（±∞）、非数（NaN）等。指数为0且有效位全0表示±0；指数为0且有效位非0表示非规格化数；指数为255且有效位全0表示±∞；指数为255且有效位非0表示NaN ，用于处理溢出、下溢、非法运算等情况。</li>
+<li><strong>不同精度浮点数</strong>：双精度浮点数（64位）相比单精度，指数偏移为1023，能表示范围更广、精度更高的数。此外，还有半精度（16位）、四精度（128位）等多种浮点数格式，各有不同的应用场景，如半精度在机器学习中用于加速计算。</li>
+</ol>
+<h2 id="Discussion-1"><a href="#Discussion-1" class="headerlink" title="Discussion 1"></a>Discussion 1</h2><p><a href="https://cs61c.org/sp25/pdfs/discussions/disc01-sols.pdf">Discussion 1 Solutions</a></p>
+<h2 id="Discussion-2"><a href="#Discussion-2" class="headerlink" title="Discussion 2"></a>Discussion 2</h2><p><a href="https://cs61c.org/sp25/pdfs/discussions/disc02-sols.pdf">Discussion 2 Solutions</a></p>
+]]></content>
+      <categories>
+        <category>CS61C</category>
+      </categories>
+      <tags>
+        <tag>体系结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>智能语音技术</title>
     <url>/2025/03/03/Audiocc/%E6%99%BA%E8%83%BD%E8%AF%AD%E9%9F%B3%E6%8A%80%E6%9C%AF/</url>
     <content><![CDATA[<p>CS2314：智能语音技术的课堂笔记，由钱彦旻与俞凯老师主讲。<br><span id="more"></span></p>
@@ -802,105 +901,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </categories>
       <tags>
         <tag>语音</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CS61C-1 Introduction and C</title>
-    <url>/2025/02/28/CS61C/CS61C-1/</url>
-    <content><![CDATA[<p>记录CS61C课程的学习过程，跟随<a href="https://cs61c.org/sp25/">CS61C: Computer Architecture(Machine Structures)</a>25春季版本。<br>本文包含课程的Introduction和C语言基础。Lecture 1-7, Discussion 1-2。<br><span id="more"></span></p>
-<h2 id="Thinking-about-Machine-Structures"><a href="#Thinking-about-Machine-Structures" class="headerlink" title="Thinking about Machine Structures"></a>Thinking about Machine Structures</h2><p><img src="/images/CS61C-1-1.png" alt="Old-school Machine Structures"></p>
-<h2 id="Great-Ideas-in-Computer-Architecture"><a href="#Great-Ideas-in-Computer-Architecture" class="headerlink" title="Great Ideas in Computer Architecture"></a>Great Ideas in Computer Architecture</h2><ol>
-<li>Abstraction (Layers of Representation/Interpretation)</li>
-<li>Mooreʼs Law</li>
-<li>Principle of Locality/Memory Hierarchy</li>
-<li>Parallelism</li>
-<li>Performance Measurement &amp; Improvement</li>
-<li>Dependability via Redundancy</li>
-</ol>
-<h2 id="Number-representation"><a href="#Number-representation" class="headerlink" title="Number representation"></a>Number representation</h2><h3 id="Bias-Encoding"><a href="#Bias-Encoding" class="headerlink" title="Bias Encoding"></a>Bias Encoding</h3><p>假设我们有一个数据值 x，存储时的计算方式为：存储值 = x - bias（将结果作为无符号数存储）；读取时的计算方式为：实际值 = （存储的无符号数） + bias。</p>
-<p>在 N 位表示中，偏移量通常选为</p>
-<script type="math/tex; mode=display">
-- (2^{N-1} - 1)</script><p>举例：N = 4， bias = -7<br>对0，存储值为：</p>
-<script type="math/tex; mode=display">
-0 - (-7) = 7</script><p>读取时，实际值为：</p>
-<script type="math/tex; mode=display">
-7 + (-7) = 0</script><h2 id="Intro-to-C"><a href="#Intro-to-C" class="headerlink" title="Intro to C"></a>Intro to C</h2><p>由于笔者有丰富的c++开发经验，故着重介绍c语言与c++的区别。</p>
-<h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc hello.c -o hello</span><br></pre></td></tr></table></figure>
-<p>头文件：<code>#include &lt;stdio.h&gt;</code>  </p>
-<h3 id="printf-和-scanf-函数"><a href="#printf-和-scanf-函数" class="headerlink" title="printf 和 scanf 函数"></a>printf 和 scanf 函数</h3><p>参数：</p>
-<ul>
-<li><code>%d</code>：整数</li>
-<li><code>%f</code>：浮点数</li>
-<li><code>%c</code>：字符</li>
-<li><code>%s</code>：字符串</li>
-<li><code>%p</code>：指针</li>
-<li><code>%u</code>：无符号整数</li>
-<li><code>%g</code>：自动选择合适的表示方式</li>
-</ul>
-<p>scanf 函数需要取地址符&amp;，因为 scanf 函数需要将输入的值存储到变量中。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">float</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> str[<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入整数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个整数: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入浮点数</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个浮点数: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;b);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入字符</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个字符: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">" %c"</span>, &amp;c); <span class="comment">// 注意前面的空格，跳过前面的空白字符</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输入字符串</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"请输入一个字符串: "</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, str); <span class="comment">// 不需要取地址符，因为数组名即为地址</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 输出结果</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的整数是: %d\n"</span>, a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的浮点数是: %.2f\n"</span>, b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的字符是: %c\n"</span>, c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"您输入的字符串是: %s\n"</span>, str);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h3 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h3><p><code>&lt;string.h&gt;</code> 是C语言标准库中的一个头文件，它提供了一系列用于处理字符串的函数。以下是一些常用函数的详细介绍：</p>
-<ul>
-<li><code>strlen</code>：计算字符串长度</li>
-<li><code>strcpy</code>：复制字符串</li>
-<li><code>strcat</code>：连接字符串</li>
-<li><code>strcmp</code>：比较字符串</li>
-<li><code>strchr</code>：查找字符</li>
-<li><code>strstr</code>：查找子字符串</li>
-<li><code>strncpy</code>：复制指定长度的字符串</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> str1[] = <span class="string">"Hello, World!"</span>;</span><br><span class="line">    <span class="type">char</span> str2[<span class="number">20</span>];  </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算字符串长度</span></span><br><span class="line">    <span class="type">int</span> len = <span class="built_in">strlen</span>(str1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"字符串长度: %d\n"</span>, len);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 复制字符串</span></span><br><span class="line">    <span class="built_in">strcpy</span>(str2, str1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"复制后的字符串: %s\n"</span>, str2);   </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 连接字符串</span></span><br><span class="line">    <span class="built_in">strcat</span>(str1, <span class="string">" Welcome!"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"连接后的字符串: %s\n"</span>, str1);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 比较字符串</span></span><br><span class="line">    <span class="type">int</span> cmp = <span class="built_in">strcmp</span>(str1, str2);</span><br><span class="line">    <span class="keyword">if</span> (cmp == <span class="number">0</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"两个字符串相等\n"</span>);</span><br><span class="line">    } </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"str1 小于 str2\n"</span>);</span><br><span class="line">    } </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    {    </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"str1 大于 str2\n"</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 查找字符</span></span><br><span class="line">    <span class="type">char</span> ch = <span class="string">'o'</span>;</span><br><span class="line">    <span class="type">char</span> *pos = <span class="built_in">strchr</span>(str1, ch);</span><br><span class="line">    <span class="keyword">if</span> (pos != <span class="literal">NULL</span>) </span><br><span class="line">    {      </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"字符 %c 的位置: %d\n"</span>, ch, pos - str1);</span><br><span class="line">    } </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"字符 %c 未找到\n"</span>, ch);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>results:</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">字符串长度: <span class="number">13</span></span><br><span class="line">复制后的字符串: Hello, World!</span><br><span class="line">连接后的字符串: Hello, World! Welcome!</span><br><span class="line">两个字符串相等</span><br><span class="line">字符 o 的位置: <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<p>爆典：”C gives you a lot of extra rope, donʼt hang yourself with it!ˮ</p>
-<h3 id="malloc-free-and-realloc"><a href="#malloc-free-and-realloc" class="headerlink" title="malloc, free and realloc"></a>malloc, free and realloc</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">{    </span><br><span class="line"><span class="comment">// 现代C语言中，malloc 返回的是 void* 类型，但编译器会进行隐式转换</span></span><br><span class="line">    <span class="type">int</span> *p = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="type">int</span> *arr = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">10</span>);</span><br><span class="line">    <span class="type">int</span> *arr2 = <span class="built_in">realloc</span>(arr, <span class="keyword">sizeof</span>(<span class="type">int</span>) * <span class="number">20</span>);</span><br><span class="line">    *p = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) </span><br><span class="line">    {</span><br><span class="line">        arr[i] = i;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *p);</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="built_in">free</span>(arr);</span><br><span class="line">    <span class="built_in">free</span>(arr2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h3 id="K-amp-R-Malloc-Free-Implementation"><a href="#K-amp-R-Malloc-Free-Implementation" class="headerlink" title="K&R Malloc/Free Implementation"></a>K&amp;R Malloc/Free Implementation</h3><ol>
-<li><strong>内存块结构</strong>：每个内存块前都有一个头部，头部包含两个字段。一个是表示该内存块大小的字段，用于记录当前内存块包含的字节数；另一个是指向下一个内存块的指针。在已分配的内存块中，指针字段未被使用；而所有空闲的内存块通过这个指针字段连接起来，形成一个循环链表，方便内存管理。</li>
-<li><strong>malloc()函数实现</strong>：<code>malloc()</code> 函数用于从堆中分配内存。它会在空闲链表中搜索，寻找一个大小足够满足请求的内存块。若找到合适的块，就将其从空闲链表中移除，并根据需要对该块进行分割（如果请求的内存小于找到的块的大小），然后返回指向分配内存起始位置的指针。如果在空闲链表中找不到足够大的块，<code>malloc()</code> 会向操作系统请求更多内存。若操作系统提供的内存仍无法满足请求，<code>malloc()</code> 函数则返回 <code>NULL</code>，表示内存分配失败。</li>
-<li><strong>free()函数实现</strong>：<code>free()</code> 函数用于释放不再使用的堆内存。当调用 <code>free()</code> 时，它首先检查要释放的内存块的相邻内存块是否也处于空闲状态。如果相邻块空闲，<code>free()</code> 会将这些相邻的空闲块合并成一个更大的空闲块，以减少内存碎片，提高内存利用率。若相邻块都在使用中，就直接将当前释放的内存块添加到空闲链表中。这样，后续调用 <code>malloc()</code> 时，该内存块可再次被分配使用。</li>
-<li><strong>设计目标</strong>：K&amp;R实现方式的主要目标是使 <code>malloc()</code> 和 <code>free()</code> 能够高效运行，同时尽量减少内存开销，并避免内存碎片化问题。碎片化指的是虽然系统中有许多空闲内存，但由于这些空闲内存以许多小的不连续块存在，导致无法满足大的内存分配请求。K&amp;R实现方式通过合理的内存块管理和合并策略，在一定程度上缓解了这些问题，为C程序提供了较为有效的内存管理方案。</li>
-</ol>
-<h3 id="Function-Pointers"><a href="#Function-Pointers" class="headerlink" title="Function Pointers"></a>Function Pointers</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">square</span><span class="params">(<span class="type">int</span> x)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> x * x;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">cube</span><span class="params">(<span class="type">int</span> x)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> x * x * x;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 声明一个函数指针，指向一个接收int返回int的函数</span></span><br><span class="line">    <span class="type">int</span> (*math_func)(<span class="type">int</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将函数指针指向square函数</span></span><br><span class="line">    math_func = square;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"平方结果: %d\n"</span>, math_func(<span class="number">5</span>));  <span class="comment">// 输出: 25</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将函数指针指向cube函数</span></span><br><span class="line">    math_func = cube;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"立方结果: %d\n"</span>, math_func(<span class="number">5</span>));  <span class="comment">// 输出: 125</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h3 id="Generic-Functions-泛型函数"><a href="#Generic-Functions-泛型函数" class="headerlink" title="Generic Functions 泛型函数"></a>Generic Functions 泛型函数</h3><p>通用指针（void *）不能使用解引用操作符，因为解引用指针需要在编译时确定访问字节数。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 泛型swap函数：交换任意类型的两个元素</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">void</span> *a, <span class="type">void</span> *b, <span class="type">size_t</span> size)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="type">char</span> temp[size];  <span class="comment">// 创建临时缓冲区</span></span><br><span class="line">    <span class="built_in">memcpy</span>(temp, a, size);     <span class="comment">// 将a的内容复制到临时缓冲区</span></span><br><span class="line">    <span class="built_in">memcpy</span>(a, b, size);        <span class="comment">// 将b的内容复制到a</span></span><br><span class="line">    <span class="built_in">memcpy</span>(b, temp, size);     <span class="comment">// 将临时缓冲区的内容复制到b</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="comment">// 交换整数</span></span><br><span class="line">    <span class="type">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换前: x = %d, y = %d\n"</span>, x, y);</span><br><span class="line">    swap(&amp;x, &amp;y, <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换后: x = %d, y = %d\n"</span>, x, y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 交换浮点数</span></span><br><span class="line">    <span class="type">double</span> d1 = <span class="number">3.14</span>, d2 = <span class="number">2.718</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换前: d1 = %f, d2 = %f\n"</span>, d1, d2);</span><br><span class="line">    swap(&amp;d1, &amp;d2, <span class="keyword">sizeof</span>(<span class="type">double</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"交换后: d1 = %f, d2 = %f\n"</span>, d1, d2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>为实现泛型中的指针运算，需先把<code>void *</code>指针强制转换为<code>char *</code>指针。因为<code>char</code>类型在任何架构下都占 1 字节，转换后指针运算就以字节为单位，保证运算按字节进行。</p>
-<p>示例：</p>
-<p>在swap_ends函数中交换通用数组首尾元素，计算末尾元素地址时，先将指向数组起始地址的<code>void *</code>指针arr转换为<code>char *</code>，再按公式<code>(char * ) arr + (nelems - 1)* nbytes</code>计算，nelems是数组元素个数，nbytes是每个元素的字节大小。</p>
-<h3 id="Floating-Point-Representation"><a href="#Floating-Point-Representation" class="headerlink" title="Floating Point Representation"></a>Floating Point Representation</h3><h4 id="数字表示法回顾"><a href="#数字表示法回顾" class="headerlink" title="数字表示法回顾"></a><strong>数字表示法回顾</strong></h4><p>计算机以二进制表示数字，N位可表示<script type="math/tex">2^N</script>个不同值。无符号整数范围是0到<script type="math/tex">2^N - 1</script> ，有符号整数（补码表示）范围是 <script type="math/tex">-2^{N - 1} 到 2^{N - 1} - 1</script>。</p>
-<h4 id="定点数表示法"><a href="#定点数表示法" class="headerlink" title="定点数表示法"></a><strong>定点数表示法</strong></h4><p>定点数是一种将小数点位置固定的数字表示方法。通过预先确定二进制小数点的位置，可以表示整数和分数部分。</p>
-<p>例如，在8位定点表示中，如果我们规定前4位表示整数部分，后4位表示小数部分：</p>
-<ul>
-<li>数字 5.5 表示为：0101.1000<ul>
-<li>整数部分 5 = 0101₂</li>
-<li>小数部分 0.5 = 0.5 × 2⁴ = 8 = 1000₂</li>
-</ul>
-</li>
-<li>数字 3.25 表示为：0011.0100<ul>
-<li>整数部分 3 = 0011₂</li>
-<li>小数部分 0.25 = 0.25 × 2⁴ = 4 = 0100₂</li>
-</ul>
-</li>
-</ul>
-<p>定点数的优点是运算简单，但缺点是表示范围有限：</p>
-<ul>
-<li>在上述8位系统中，整数部分范围为0-15</li>
-<li>小数部分精度固定为1/16 (0.0625)</li>
-</ul>
-<h4 id="浮点数表示法"><a href="#浮点数表示法" class="headerlink" title="浮点数表示法"></a><strong>浮点数表示法</strong></h4><p>浮点数通过分离二进制点和有效位，能有效利用有限位表示更多数。IEEE 754标准规定单精度浮点数为32位，包括1位符号位、8位指数位和23位有效数位。其中，有效位隐式包含首位1，指数采用127的偏移表示法。</p>
-<p><img src="/images/CS61C-1-2.png" alt="Floating Point Representation"></p>
-<ol>
-<li><strong>浮点数运算特性</strong>：浮点数加法不满足结合律，如不同运算顺序结果可能不同，这是因为浮点数表示是近似的，且大指数对应较大步长。浮点数运算涉及舍入操作，IEEE 754有多种舍入模式 ，如向+∞、-∞舍入，截断，向偶数舍入等。</li>
-<li><strong>特殊浮点数</strong>：特殊浮点数包括零（±0）、无穷（±∞）、非数（NaN）等。指数为0且有效位全0表示±0；指数为0且有效位非0表示非规格化数；指数为255且有效位全0表示±∞；指数为255且有效位非0表示NaN ，用于处理溢出、下溢、非法运算等情况。</li>
-<li><strong>不同精度浮点数</strong>：双精度浮点数（64位）相比单精度，指数偏移为1023，能表示范围更广、精度更高的数。此外，还有半精度（16位）、四精度（128位）等多种浮点数格式，各有不同的应用场景，如半精度在机器学习中用于加速计算。</li>
-</ol>
-<h2 id="Discussion-1"><a href="#Discussion-1" class="headerlink" title="Discussion 1"></a>Discussion 1</h2><p><a href="https://cs61c.org/sp25/pdfs/discussions/disc01-sols.pdf">Discussion 1 Solutions</a></p>
-<h2 id="Discussion-2"><a href="#Discussion-2" class="headerlink" title="Discussion 2"></a>Discussion 2</h2><p><a href="https://cs61c.org/sp25/pdfs/discussions/disc02-sols.pdf">Discussion 2 Solutions</a></p>
-]]></content>
-      <categories>
-        <category>CS61C</category>
-      </categories>
-      <tags>
-        <tag>体系结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2318,6 +2318,24 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
+    <title>OS-08：main memory</title>
+    <url>/2025/03/19/OS/OS08/</url>
+    <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Main memory and registers are only storage CPU can access directly.</p>
+<p>但主存访问速度慢于寄存器，可能导致memory stall</p>
+<p>Protection：通过base和limit寄存器确保进程只能访问地址空间内的内存地址</p>
+<p>地址绑定：将逻辑地址转换为物理地址，编译时、加载时、运行时</p>
+<p>MMU：Memory Management Unit，硬件设备，负责逻辑地址到物理地址转换</p>
+<h2 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h2><h2 id="Non-contiguous-Memory-Allocation"><a href="#Non-contiguous-Memory-Allocation" class="headerlink" title="Non-contiguous Memory Allocation"></a>Non-contiguous Memory Allocation</h2><h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Structure of the Page Table<br>Swapping<br>Example: The Intel 32 and 64-bit Architectures</p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OS-07 Deadlocks</title>
     <url>/2025/03/14/OS/OS07/</url>
     <content><![CDATA[<p>记录操作系统中死锁相关内容。<br><span id="more"></span></p>
@@ -2411,24 +2429,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
-    <title>OS-08：main memory</title>
-    <url>/2025/03/19/OS/OS08/</url>
-    <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Main memory and registers are only storage CPU can access directly.</p>
-<p>但主存访问速度慢于寄存器，可能导致memory stall</p>
-<p>Protection：通过base和limit寄存器确保进程只能访问地址空间内的内存地址</p>
-<p>地址绑定：将逻辑地址转换为物理地址，编译时、加载时、运行时</p>
-<p>MMU：Memory Management Unit，硬件设备，负责逻辑地址到物理地址转换</p>
-<h2 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h2><h2 id="Non-contiguous-Memory-Allocation"><a href="#Non-contiguous-Memory-Allocation" class="headerlink" title="Non-contiguous Memory Allocation"></a>Non-contiguous Memory Allocation</h2><h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Structure of the Page Table<br>Swapping<br>Example: The Intel 32 and 64-bit Architectures</p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OS-09：Virtual Memory</title>
     <url>/2025/03/21/OS/OS09/</url>
     <content><![CDATA[<p>该文介绍虚拟内存。<br><span id="more"></span></p>
@@ -2479,21 +2479,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
-    <title>西西弗神话</title>
-    <url>/2025/03/18/Philosophy/%E8%A5%BF%E8%A5%BF%E5%BC%97%E7%A5%9E%E8%AF%9D/</url>
-    <content><![CDATA[<p>重读加缪的《西西弗神话》，记录一些自己的想法。<br><span id="more"></span></p>
-<p>加缪认为“荒诞正是清醒的理性对其局限性的确认”</p>
-<h2 id="判断人生值不值得活，等于回答哲学的根本问题"><a href="#判断人生值不值得活，等于回答哲学的根本问题" class="headerlink" title="判断人生值不值得活，等于回答哲学的根本问题"></a>判断人生值不值得活，等于回答哲学的根本问题</h2><p>荒诞是世界的本来模样，但对荒诞的觉察属于人的理性。也许因为对人的理性的要求天然带有某种高于一切的“理”亦或其他的存在，故而对于真实世界的混沌，这是不可容忍的，即荒诞感的由来。</p>
-<p>“人奋斗到这个地步·，来到非理性面前，内心不由得产生对幸福和理性的渴望。荒诞产生于人类呼唤和世界无理性沉默·之间的对峙。</p>
-]]></content>
-      <categories>
-        <category>Philosophy</category>
-      </categories>
-      <tags>
-        <tag>加缪</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Intro to LLM</title>
     <url>/2025/03/18/Technology/IntrotoLLM/</url>
     <content><![CDATA[<p>Intro to Large Language Models by Andrej Karpathy.<br><span id="more"></span><br><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g&amp;list=PLAqhIrjkxbuW9U8-vZ_s_cjKPT_FqRStI">Videos</a></p>
@@ -2528,204 +2513,18 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
-    <title>移动端人工智能技术</title>
-    <url>/2025/02/23/Technology/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8A%80%E6%9C%AF/</url>
-    <content><![CDATA[<p>本文在deepseek辅助下帮助笔者理解移动端人工智能的知识蒸馏（Knowledge Distillation）、量化（Quantization）和剪枝（Pruning）三种模型压缩技术。<br><span id="more"></span></p>
-<h3 id="1-知识蒸馏（Knowledge-Dististillation）"><a href="#1-知识蒸馏（Knowledge-Dististillation）" class="headerlink" title="1. 知识蒸馏（Knowledge Dististillation）"></a><strong>1. 知识蒸馏（Knowledge Dististillation）</strong></h3><h4 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过训练一个轻量化的“学生模型”（Student Model），模仿复杂“教师模型”（Teacher Model）的输出行为，从而将教师模型的知识迁移到学生模型中。</p>
-<ul>
-<li><strong>知识来源</strong>：教师模型的输出概率分布（软标签）、中间层特征或注意力机制。</li>
-<li><strong>目标</strong>：学生模型在保持小体积的同时，达到接近教师模型的性能。</li>
-</ul>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：图像分类任务（如ImageNet数据集）  </p>
-<ul>
-<li><strong>教师模型</strong>：大型模型（如ResNet-50，准确率76%）。</li>
-<li><strong>学生模型</strong>：轻量模型（如MobileNetV3，准确率直接训练仅70%）。  </li>
-<li><strong>蒸馏过程</strong>：  <ol>
-<li>教师模型对训练数据生成“软标签”（Soft Labels，即各类别概率分布，如<code>[0.7, 0.2, 0.1]</code>）。  </li>
-<li>学生模型同时学习真实标签（硬标签）和软标签。<br>结合硬标签损失和软标签的KL散度损失函数：<script type="math/tex; mode=display">
-L = \alpha L_{CE} + (1 - \alpha) L_{KL}</script>其中，<script type="math/tex">L_{CE}</script>为交叉熵损失，<script type="math/tex">L_{KL}</script>为KL散度损失。</li>
-</ol>
-</li>
-</ul>
-<h4 id="深入思考"><a href="#深入思考" class="headerlink" title="深入思考"></a>深入思考</h4><p>1.<strong>为什么学生模型参数更少却能接近教师性能？</strong></p>
-<p>类比于二级结论，学生模型具有教师模型的先验知识（概率分布），而不需要从底层开始全部学习。我们称之为<strong>决策边界抽象能力</strong>。</p>
-<p>信息论角度：将教师模型中“有效信息”（决策边界、特征相关性）编码到学生模型的参数中，而非复制所有参数。</p>
-<p>2.<strong>软标签概率分布如何生成？</strong></p>
-<p>核心方法：温度缩放（Temperature Scaling）<br>软标签并非直接使用教师模型的原始输出，而是通过引入温度参数（Temperature, T）对概率分布进行平滑处理，以传递类别间的关系信息。</p>
-<p>数学公式：</p>
-<script type="math/tex; mode=display">
-p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其中，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="1.792ex" height="1.357ex" role="img" focusable="false" viewBox="0 -442 792 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mi" transform="translate(498,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>是教师模型在类别<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>的原始输出，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.593ex" height="1.532ex" role="img" focusable="false" viewBox="0 -677 704 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></svg></mjx-container>是温度参数，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.719ex" height="1.645ex" role="img" focusable="false" viewBox="0 -705 760 727"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container>是类别总数。</p>
-<p>T的作用：</p>
-<ul>
-<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.717ex" role="img" focusable="false" viewBox="0 -677 2537.6 759"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，软标签等同于硬标签。</li>
-<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.09ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.622ex" role="img" focusable="false" viewBox="0 -677 2537.6 717"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，概率分布更平滑，类别间关系信息更丰富。</li>
-<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="7.375ex" height="1.557ex" role="img" focusable="false" viewBox="0 -677 3259.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2259.6,0)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g></g></g></svg></mjx-container> 时，概率分布趋近于均匀分布。</li>
-</ul>
-<p>3.<strong>为什么不在训练教师模型时使用软标签？</strong></p>
-<p>根本原因：教师模型的训练目标不同</p>
-<ul>
-<li>教师模型的使命：追求最高精度，而非传递知识<ul>
-<li>教师模型需尽可能拟合数据中的细节，硬标签（明确答案）是更直接的监督信号。</li>
-<li>软标签会引入不必要的“不确定性”，降低模型对正确类别的置信度。</li>
-</ul>
-</li>
-<li>软标签的来源矛盾：<ul>
-<li>知识蒸馏中，软标签由更强大的教师模型生成（例如ResNet-50教MobileNet）。</li>
-<li>若在训练教师模型时使用软标签，需要另一个更强的模型生成软标签，但这会导致无限递归问题（谁来生成这个更强的模型的软标签？）</li>
-</ul>
-</li>
-</ul>
-<p>4.<strong>知识蒸馏的局限性</strong></p>
-<ul>
-<li>需要高质量的教师模型：教师模型需要足够大，才能提供高质量的软标签。</li>
-<li>需要大量计算资源：教师模型需要大量计算资源，才能生成高质量的软标签。</li>
-<li>需要大量数据：教师模型需要大量数据，才能生成高质量的软标签。</li>
-</ul>
-<hr>
-<h3 id="2-量化（Quantization）"><a href="#2-量化（Quantization）" class="headerlink" title="2. 量化（Quantization）"></a><strong>2. 量化（Quantization）</strong></h3><h4 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>将模型参数（权重）和激活值从高精度浮点数（如32位）转换为低精度数值（如8位整数），减少模型体积和计算资源消耗。  </p>
-<ul>
-<li><strong>类型</strong>：  <ul>
-<li><strong>训练后量化（Post-training Quantization）</strong>：直接对训练好的模型进行量化。  </li>
-<li><strong>量化感知训练（Quantization-aware Training）</strong>：在训练过程中模拟量化误差，提升最终量化模型的精度。</li>
-</ul>
-</li>
-</ul>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：手机端语音识别模型  </p>
-<ul>
-<li><strong>原始模型</strong>：基于LSTM的语音识别模型，使用FP32精度，大小120MB，延迟50ms。  </li>
-<li><strong>量化步骤</strong>：  <ol>
-<li>将权重和激活值从FP32量化为INT8（范围映射到-128~127）。  </li>
-<li>引入反量化（Dequantization）层，在关键计算节点恢复精度。  </li>
-</ol>
-</li>
-<li><strong>结果</strong>：模型大小缩减至30MB，延迟降至15ms，准确率损失小于1%。</li>
-</ul>
-<p>下面以Pytorch为例，展示训练后量化和量化感知训练的实现。</p>
-<h5 id="训练后量化"><a href="#训练后量化" class="headerlink" title="训练后量化"></a>训练后量化</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.quantization</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> mobilenet_v2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 加载预训练模型</span></span><br><span class="line">model = mobilenet_v2(pretrained=<span class="literal">True</span>)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 定义量化配置</span></span><br><span class="line">model.qconfig = torch.quantization.get_default_qconfig(<span class="string">'qnnpack'</span>)  <span class="comment"># 移动端优化配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 插入观察器（Observer）校准量化参数</span></span><br><span class="line">model_fp32_prepared = torch.quantization.prepare(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 用校准数据运行模型（此处用随机数据示例）</span></span><br><span class="line">input_fp32 = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>)  <span class="comment"># 假设输入尺寸为224x224</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    model_fp32_prepared(input_fp32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 转换为量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_fp32_prepared)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存量化模型</span></span><br><span class="line">torch.save(model_int8.state_dict(), <span class="string">"mobilenet_v2_quantized.pth"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查模型大小</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)     <span class="comment"># 约14MB</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"INT8模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2_quantized.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)  <span class="comment"># 约3.5MB</span></span><br></pre></td></tr></table></figure>
-<h5 id="量化感知训练"><a href="#量化感知训练" class="headerlink" title="量化感知训练"></a>量化感知训练</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.quantization <span class="keyword">import</span> QuantStub, DeQuantStub</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 定义支持量化的模型结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuantizableModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.quant = QuantStub()      <span class="comment"># 量化入口</span></span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.dequant = DeQuantStub()  <span class="comment"># 反量化出口</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.quant(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.conv(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.dequant(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 插入伪量化节点</span></span><br><span class="line">model = QuantizableModel()</span><br><span class="line">model.qconfig = torch.quantization.get_default_qat_qconfig(<span class="string">'qnnpack'</span>)</span><br><span class="line">model.train()  <span class="comment"># 切换到训练模式</span></span><br><span class="line">model_prepared = torch.quantization.prepare_qat(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 正常训练流程（需使用FP32数据）</span></span><br><span class="line">optimizer = torch.optim.SGD(model_prepared.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model_prepared(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 转换为最终量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_prepared)</span><br></pre></td></tr></table></figure>
-<h4 id="深入思考-1"><a href="#深入思考-1" class="headerlink" title="深入思考"></a>深入思考</h4><p>手动实现量化计算：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原始FP32计算</span></span><br><span class="line">W_fp32 = torch.tensor([<span class="number">2.5</span>, -<span class="number">1.3</span>, <span class="number">0.8</span>], dtype=torch.float32)</span><br><span class="line">x_fp32 = torch.tensor([<span class="number">0.4</span>, <span class="number">1.2</span>, -<span class="number">0.5</span>], dtype=torch.float32)</span><br><span class="line">y_fp32 = torch.dot(W_fp32, x_fp32)  <span class="comment"># 输出：2.5*0.4 + (-1.3)*1.2 + 0.8*(-0.5) = -1.56</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 量化到INT8（范围假设为[-5, 5]）</span></span><br><span class="line">scale_W = <span class="number">5</span> / <span class="number">127</span>  <span class="comment"># 对称量化，scale = max(abs(W)) / 127</span></span><br><span class="line">W_int8 = torch.clamp((W_fp32 / scale_W).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line">scale_x = <span class="number">5</span> / <span class="number">127</span></span><br><span class="line">x_int8 = torch.clamp((x_fp32 / scale_x).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数计算</span></span><br><span class="line">y_int32 = torch.dot(W_int8.<span class="built_in">float</span>(), x_int8.<span class="built_in">float</span>())  <span class="comment"># 转为float避免溢出</span></span><br><span class="line">y_dequant = y_int32 * (scale_W * scale_x)  <span class="comment"># 反量化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32结果:"</span>, y_fp32.item())        <span class="comment"># -1.56</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"量化结果:"</span>, y_dequant.item())     <span class="comment"># 约-1.55（存在微小误差）</span></span><br></pre></td></tr></table></figure>
-<p>量化完整流程：</p>
-<ul>
-<li>准备阶段<ul>
-<li>插入观察器到模型中，统计各层的权重和激活值分布。</li>
-<li>代码操作：model_prepared = prepare(model)</li>
-</ul>
-</li>
-<li>校准阶段<ul>
-<li>用代表性数据运行模型，观察器记录各层的min/max值。</li>
-<li>代码操作：model_prepared(input_data)</li>
-</ul>
-</li>
-<li>转换阶段<ul>
-<li>根据校准结果计算量化参数，替换浮点算子为量化算子。</li>
-<li>代码操作：model_quantized = convert(model_prepared)</li>
-</ul>
-</li>
-</ul>
-<p><strong>核心公式</strong>：</p>
-<ul>
-<li>量化公式：<script type="math/tex">Q(x) = \text{clamp}\left(\text{round}\left(\frac{x}{\text{scale}} + \text{zero\_point}\right), \text{min}, \text{max}\right)</script><ul>
-<li>clamp：将结果限制在min和max之间</li>
-<li>round：四舍五入</li>
-<li>zero_point：量化偏移量, 用于校准, 通常为0</li>
-</ul>
-</li>
-<li>反量化公式：<script type="math/tex">x = \left(\text{Q}(x) - \text{zero\_point}\right) \times \text{scale}</script></li>
-</ul>
-<h4 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
-<li>TensorFlow Lite：默认支持训练后量化，可将目标检测模型（如SSD MobileNet）从16MB压缩到4MB。  </li>
-<li>苹果Core ML：在iPhone上运行量化后的StyleGAN模型，实现实时人像风格迁移。</li>
-</ul>
-<hr>
-<h3 id="3-剪枝（Pruning）"><a href="#3-剪枝（Pruning）" class="headerlink" title="3. 剪枝（Pruning）"></a><strong>3. 剪枝（Pruning）</strong></h3><h4 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过移除模型中不重要的参数（如接近零的权重）或结构（如冗余神经元），减少模型复杂度。  </p>
-<ul>
-<li><strong>类型</strong>：  <ul>
-<li><strong>非结构化剪枝</strong>：删除单个权重（稀疏化）。  </li>
-<li><strong>结构化剪枝</strong>：删除整层神经元或通道（更适合硬件加速）。</li>
-</ul>
-</li>
-</ul>
-<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：自然语言处理中的BERT模型压缩  </p>
-<ul>
-<li><strong>原始模型</strong>：BERT-base（1.1亿参数，模型大小400MB）。  </li>
-<li><strong>剪枝过程</strong>：  <ol>
-<li>在微调阶段，根据权重绝对值或梯度重要性评分，剪枝30%的注意力头。  </li>
-<li>重新训练剩余参数以恢复精度。  </li>
-</ol>
-</li>
-<li><strong>结果</strong>：模型大小减少至280MB，推理速度提升1.5倍，在GLUE基准上精度下降仅0.5%。</li>
-</ul>
-<p>以下是Pytorch实现剪枝的示例：</p>
-<h5 id="非结构化剪枝"><a href="#非结构化剪枝" class="headerlink" title="非结构化剪枝"></a>非结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.utils.prune <span class="keyword">as</span> prune</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义示例模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">16</span>, <span class="number">3</span>)  <span class="comment"># 输入通道3，输出通道16</span></span><br><span class="line">        <span class="variable language_">self</span>.fc = nn.Linear(<span class="number">16</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 假设输入图像尺寸为28x28</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.conv1(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleCNN()</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 剪枝步骤 ---</span></span><br><span class="line"><span class="comment"># Step 1: 选择剪枝目标（这里剪枝conv1层的权重）</span></span><br><span class="line">parameters_to_prune = [(model.conv1, <span class="string">'weight'</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 应用L1范数剪枝（剪去20%的权重）</span></span><br><span class="line">prune.global_unstructured(</span><br><span class="line">    parameters_to_prune,</span><br><span class="line">    pruning_method=prune.L1Unstructured,</span><br><span class="line">    amount=<span class="number">0.2</span>  <span class="comment"># 剪枝比例20%</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 查看剪枝效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的权重稀疏度："</span>, </span><br><span class="line">      torch.<span class="built_in">sum</span>(model.conv1.weight == <span class="number">0</span>).item() / model.conv1.weight.nelement())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 永久移除剪枝的权重（可选）</span></span><br><span class="line">prune.remove(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 微调剪枝后的模型</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>为什么用L1范数剪枝？</strong>：<br>L1范数具有自然的稀疏性特征，通过最小化L1范数，模型倾向于将一些权重推向0以实现稀疏化，并且计算简单。</p>
-<h5 id="结构化剪枝"><a href="#结构化剪枝" class="headerlink" title="结构化剪枝"></a>结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.nn.utils.prune <span class="keyword">import</span> ln_structured, remove_structured</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 剪枝整个通道（基于L2范数）</span></span><br><span class="line"><span class="comment"># 对conv1层的输出通道进行剪枝（移除20%的通道）</span></span><br><span class="line">prune.ln_structured(</span><br><span class="line">    model.conv1,</span><br><span class="line">    name=<span class="string">"weight"</span>,</span><br><span class="line">    amount=<span class="number">0.2</span>,</span><br><span class="line">    n=<span class="number">2</span>,  <span class="comment"># L2范数</span></span><br><span class="line">    dim=<span class="number">0</span>  <span class="comment"># 沿输出通道维度剪枝</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 查看通道剪枝后的权重形状</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的conv1.weight形状:"</span>, model.conv1.weight.shape)  </span><br><span class="line"><span class="comment"># 原始形状[16,3,3,3] → 剪枝后[13,3,3,3]（假设移除3个通道）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 永久应用剪枝</span></span><br><span class="line">remove_structured(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 调整后续层（重要！结构化剪枝需适配网络结构）</span></span><br><span class="line"><span class="comment"># 原fc层输入维度为16*26*26，剪枝后变为13*26*26 → 需要重新定义</span></span><br><span class="line">model.fc = nn.Linear(<span class="number">13</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 修改输入维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调模型（同上）</span></span><br></pre></td></tr></table></figure>
-<p><strong>为什么用L2范数剪枝？</strong>：</p>
-<ul>
-<li>避免极端值：均匀缩小</li>
-<li>计算效率：L2范数计算复杂度较低</li>
-</ul>
-<h4 id="实际应用-1"><a href="#实际应用-1" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
-<li>NVIDIA的Nemo框架：对语音识别模型（如QuartzNet）进行结构化剪枝，GPU推理速度提升2倍。  </li>
-<li>无人机避障算法：剪枝后的YOLOv5模型在边缘设备上实时检测障碍物，功耗降低40%。</li>
-</ul>
-<hr>
-<h3 id="三者的对比与协同使用"><a href="#三者的对比与协同使用" class="headerlink" title="三者的对比与协同使用"></a><strong>三者的对比与协同使用</strong></h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>技术</th>
-<th>核心目标</th>
-<th>优势</th>
-<th>局限性</th>
-<th>典型压缩率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>知识蒸馏</td>
-<td>迁移知识到小模型</td>
-<td>精度接近教师模型</td>
-<td>依赖高质量教师模型</td>
-<td>2-5倍</td>
-</tr>
-<tr>
-<td>量化</td>
-<td>降低数值精度</td>
-<td>显著减少体积和计算开销</td>
-<td>可能损失精度（需校准）</td>
-<td>4倍+</td>
-</tr>
-<tr>
-<td>剪枝</td>
-<td>移除冗余参数或结构</td>
-<td>提升推理速度，降低内存占用</td>
-<td>可能破坏模型结构完整性</td>
-<td>2-10倍</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>协同使用案例</strong>：<br>谷歌的MobileNetV4模型结合三者：  </p>
-<ol>
-<li>用知识蒸馏从EfficientNet迁移知识；  </li>
-<li>对模型进行混合精度量化（部分层用INT8，关键层用FP16）；  </li>
-<li>剪枝掉80%的冗余通道，最终模型体积减少6倍，速度提升3倍，精度仅下降2%。  </li>
-</ol>
-<hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>知识蒸馏、量化和剪枝是移动端AI模型压缩的三大核心技术：  </p>
-<ul>
-<li><strong>知识蒸馏</strong>：通过“师生学习”传递知识，适合模型功能迁移；  </li>
-<li><strong>量化</strong>：降低数值精度，直接压缩体积和加速计算；  </li>
-<li><strong>剪枝</strong>：消除冗余参数，提升硬件执行效率。<br>实际应用中，三者常结合使用（如“蒸馏+量化+剪枝”流程），在保证精度的前提下，实现移动端AI模型的极致优化。</li>
-</ul>
+    <title>西西弗神话</title>
+    <url>/2025/03/18/Philosophy/%E8%A5%BF%E8%A5%BF%E5%BC%97%E7%A5%9E%E8%AF%9D/</url>
+    <content><![CDATA[<p>重读加缪的《西西弗神话》，记录一些自己的想法。<br><span id="more"></span></p>
+<p>加缪认为“荒诞正是清醒的理性对其局限性的确认”</p>
+<h2 id="判断人生值不值得活，等于回答哲学的根本问题"><a href="#判断人生值不值得活，等于回答哲学的根本问题" class="headerlink" title="判断人生值不值得活，等于回答哲学的根本问题"></a>判断人生值不值得活，等于回答哲学的根本问题</h2><p>荒诞是世界的本来模样，但对荒诞的觉察属于人的理性。也许因为对人的理性的要求天然带有某种高于一切的“理”亦或其他的存在，故而对于真实世界的混沌，这是不可容忍的，即荒诞感的由来。</p>
+<p>“人奋斗到这个地步·，来到非理性面前，内心不由得产生对幸福和理性的渴望。荒诞产生于人类呼唤和世界无理性沉默·之间的对峙。</p>
 ]]></content>
       <categories>
-        <category>Technology</category>
+        <category>Philosophy</category>
       </categories>
       <tags>
-        <tag>AI辅助</tag>
-        <tag>端侧AI</tag>
+        <tag>加缪</tag>
       </tags>
   </entry>
   <entry>
@@ -2960,6 +2759,207 @@ p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其�
       </categories>
       <tags>
         <tag>学业规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端人工智能技术</title>
+    <url>/2025/02/23/Technology/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%8A%80%E6%9C%AF/</url>
+    <content><![CDATA[<p>本文在deepseek辅助下帮助笔者理解移动端人工智能的知识蒸馏（Knowledge Distillation）、量化（Quantization）和剪枝（Pruning）三种模型压缩技术。<br><span id="more"></span></p>
+<h3 id="1-知识蒸馏（Knowledge-Dististillation）"><a href="#1-知识蒸馏（Knowledge-Dististillation）" class="headerlink" title="1. 知识蒸馏（Knowledge Dististillation）"></a><strong>1. 知识蒸馏（Knowledge Dististillation）</strong></h3><h4 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过训练一个轻量化的“学生模型”（Student Model），模仿复杂“教师模型”（Teacher Model）的输出行为，从而将教师模型的知识迁移到学生模型中。</p>
+<ul>
+<li><strong>知识来源</strong>：教师模型的输出概率分布（软标签）、中间层特征或注意力机制。</li>
+<li><strong>目标</strong>：学生模型在保持小体积的同时，达到接近教师模型的性能。</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：图像分类任务（如ImageNet数据集）  </p>
+<ul>
+<li><strong>教师模型</strong>：大型模型（如ResNet-50，准确率76%）。</li>
+<li><strong>学生模型</strong>：轻量模型（如MobileNetV3，准确率直接训练仅70%）。  </li>
+<li><strong>蒸馏过程</strong>：  <ol>
+<li>教师模型对训练数据生成“软标签”（Soft Labels，即各类别概率分布，如<code>[0.7, 0.2, 0.1]</code>）。  </li>
+<li>学生模型同时学习真实标签（硬标签）和软标签。<br>结合硬标签损失和软标签的KL散度损失函数：<script type="math/tex; mode=display">
+L = \alpha L_{CE} + (1 - \alpha) L_{KL}</script>其中，<script type="math/tex">L_{CE}</script>为交叉熵损失，<script type="math/tex">L_{KL}</script>为KL散度损失。</li>
+</ol>
+</li>
+</ul>
+<h4 id="深入思考"><a href="#深入思考" class="headerlink" title="深入思考"></a>深入思考</h4><p>1.<strong>为什么学生模型参数更少却能接近教师性能？</strong></p>
+<p>类比于二级结论，学生模型具有教师模型的先验知识（概率分布），而不需要从底层开始全部学习。我们称之为<strong>决策边界抽象能力</strong>。</p>
+<p>信息论角度：将教师模型中“有效信息”（决策边界、特征相关性）编码到学生模型的参数中，而非复制所有参数。</p>
+<p>2.<strong>软标签概率分布如何生成？</strong></p>
+<p>核心方法：温度缩放（Temperature Scaling）<br>软标签并非直接使用教师模型的原始输出，而是通过引入温度参数（Temperature, T）对概率分布进行平滑处理，以传递类别间的关系信息。</p>
+<p>数学公式：</p>
+<script type="math/tex; mode=display">
+p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其中，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="1.792ex" height="1.357ex" role="img" focusable="false" viewBox="0 -442 792 599.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D467" d="M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"></path></g><g data-mml-node="mi" transform="translate(498,-150) scale(0.707)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></svg></mjx-container>是教师模型在类别<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>的原始输出，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.593ex" height="1.532ex" role="img" focusable="false" viewBox="0 -677 704 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></svg></mjx-container>是温度参数，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.719ex" height="1.645ex" role="img" focusable="false" viewBox="0 -705 760 727"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g></g></g></svg></mjx-container>是类别总数。</p>
+<p>T的作用：</p>
+<ul>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.717ex" role="img" focusable="false" viewBox="0 -677 2537.6 759"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，软标签等同于硬标签。</li>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.09ex;" xmlns="http://www.w3.org/2000/svg" width="5.741ex" height="1.622ex" role="img" focusable="false" viewBox="0 -677 2537.6 717"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mn" transform="translate(2037.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container> 时，概率分布更平滑，类别间关系信息更丰富。</li>
+<li>当 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="7.375ex" height="1.557ex" role="img" focusable="false" viewBox="0 -677 3259.6 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mo" transform="translate(981.8,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(2259.6,0)"><path data-c="221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path></g></g></g></svg></mjx-container> 时，概率分布趋近于均匀分布。</li>
+</ul>
+<p>3.<strong>为什么不在训练教师模型时使用软标签？</strong></p>
+<p>根本原因：教师模型的训练目标不同</p>
+<ul>
+<li>教师模型的使命：追求最高精度，而非传递知识<ul>
+<li>教师模型需尽可能拟合数据中的细节，硬标签（明确答案）是更直接的监督信号。</li>
+<li>软标签会引入不必要的“不确定性”，降低模型对正确类别的置信度。</li>
+</ul>
+</li>
+<li>软标签的来源矛盾：<ul>
+<li>知识蒸馏中，软标签由更强大的教师模型生成（例如ResNet-50教MobileNet）。</li>
+<li>若在训练教师模型时使用软标签，需要另一个更强的模型生成软标签，但这会导致无限递归问题（谁来生成这个更强的模型的软标签？）</li>
+</ul>
+</li>
+</ul>
+<p>4.<strong>知识蒸馏的局限性</strong></p>
+<ul>
+<li>需要高质量的教师模型：教师模型需要足够大，才能提供高质量的软标签。</li>
+<li>需要大量计算资源：教师模型需要大量计算资源，才能生成高质量的软标签。</li>
+<li>需要大量数据：教师模型需要大量数据，才能生成高质量的软标签。</li>
+</ul>
+<hr>
+<h3 id="2-量化（Quantization）"><a href="#2-量化（Quantization）" class="headerlink" title="2. 量化（Quantization）"></a><strong>2. 量化（Quantization）</strong></h3><h4 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>将模型参数（权重）和激活值从高精度浮点数（如32位）转换为低精度数值（如8位整数），减少模型体积和计算资源消耗。  </p>
+<ul>
+<li><strong>类型</strong>：  <ul>
+<li><strong>训练后量化（Post-training Quantization）</strong>：直接对训练好的模型进行量化。  </li>
+<li><strong>量化感知训练（Quantization-aware Training）</strong>：在训练过程中模拟量化误差，提升最终量化模型的精度。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：手机端语音识别模型  </p>
+<ul>
+<li><strong>原始模型</strong>：基于LSTM的语音识别模型，使用FP32精度，大小120MB，延迟50ms。  </li>
+<li><strong>量化步骤</strong>：  <ol>
+<li>将权重和激活值从FP32量化为INT8（范围映射到-128~127）。  </li>
+<li>引入反量化（Dequantization）层，在关键计算节点恢复精度。  </li>
+</ol>
+</li>
+<li><strong>结果</strong>：模型大小缩减至30MB，延迟降至15ms，准确率损失小于1%。</li>
+</ul>
+<p>下面以Pytorch为例，展示训练后量化和量化感知训练的实现。</p>
+<h5 id="训练后量化"><a href="#训练后量化" class="headerlink" title="训练后量化"></a>训练后量化</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.quantization</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> mobilenet_v2</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 加载预训练模型</span></span><br><span class="line">model = mobilenet_v2(pretrained=<span class="literal">True</span>)</span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 定义量化配置</span></span><br><span class="line">model.qconfig = torch.quantization.get_default_qconfig(<span class="string">'qnnpack'</span>)  <span class="comment"># 移动端优化配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 插入观察器（Observer）校准量化参数</span></span><br><span class="line">model_fp32_prepared = torch.quantization.prepare(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 用校准数据运行模型（此处用随机数据示例）</span></span><br><span class="line">input_fp32 = torch.randn(<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>)  <span class="comment"># 假设输入尺寸为224x224</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    model_fp32_prepared(input_fp32)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 转换为量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_fp32_prepared)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存量化模型</span></span><br><span class="line">torch.save(model_int8.state_dict(), <span class="string">"mobilenet_v2_quantized.pth"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查模型大小</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)     <span class="comment"># 约14MB</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"INT8模型大小:"</span>, os.path.getsize(<span class="string">"mobilenet_v2_quantized.pth"</span>)/<span class="number">1e6</span>, <span class="string">"MB"</span>)  <span class="comment"># 约3.5MB</span></span><br></pre></td></tr></table></figure>
+<h5 id="量化感知训练"><a href="#量化感知训练" class="headerlink" title="量化感知训练"></a>量化感知训练</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> torch.quantization <span class="keyword">import</span> QuantStub, DeQuantStub</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 定义支持量化的模型结构</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">QuantizableModel</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.quant = QuantStub()      <span class="comment"># 量化入口</span></span><br><span class="line">        <span class="variable language_">self</span>.conv = nn.Conv2d(<span class="number">3</span>, <span class="number">64</span>, kernel_size=<span class="number">3</span>)</span><br><span class="line">        <span class="variable language_">self</span>.dequant = DeQuantStub()  <span class="comment"># 反量化出口</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.quant(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.conv(x)</span><br><span class="line">        x = <span class="variable language_">self</span>.dequant(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 插入伪量化节点</span></span><br><span class="line">model = QuantizableModel()</span><br><span class="line">model.qconfig = torch.quantization.get_default_qat_qconfig(<span class="string">'qnnpack'</span>)</span><br><span class="line">model.train()  <span class="comment"># 切换到训练模式</span></span><br><span class="line">model_prepared = torch.quantization.prepare_qat(model)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 正常训练流程（需使用FP32数据）</span></span><br><span class="line">optimizer = torch.optim.SGD(model_prepared.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model_prepared(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 转换为最终量化模型</span></span><br><span class="line">model_int8 = torch.quantization.convert(model_prepared)</span><br></pre></td></tr></table></figure>
+<h4 id="深入思考-1"><a href="#深入思考-1" class="headerlink" title="深入思考"></a>深入思考</h4><p>手动实现量化计算：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原始FP32计算</span></span><br><span class="line">W_fp32 = torch.tensor([<span class="number">2.5</span>, -<span class="number">1.3</span>, <span class="number">0.8</span>], dtype=torch.float32)</span><br><span class="line">x_fp32 = torch.tensor([<span class="number">0.4</span>, <span class="number">1.2</span>, -<span class="number">0.5</span>], dtype=torch.float32)</span><br><span class="line">y_fp32 = torch.dot(W_fp32, x_fp32)  <span class="comment"># 输出：2.5*0.4 + (-1.3)*1.2 + 0.8*(-0.5) = -1.56</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 量化到INT8（范围假设为[-5, 5]）</span></span><br><span class="line">scale_W = <span class="number">5</span> / <span class="number">127</span>  <span class="comment"># 对称量化，scale = max(abs(W)) / 127</span></span><br><span class="line">W_int8 = torch.clamp((W_fp32 / scale_W).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line">scale_x = <span class="number">5</span> / <span class="number">127</span></span><br><span class="line">x_int8 = torch.clamp((x_fp32 / scale_x).<span class="built_in">round</span>(), <span class="built_in">min</span>=-<span class="number">128</span>, <span class="built_in">max</span>=<span class="number">127</span>).to(torch.int8)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数计算</span></span><br><span class="line">y_int32 = torch.dot(W_int8.<span class="built_in">float</span>(), x_int8.<span class="built_in">float</span>())  <span class="comment"># 转为float避免溢出</span></span><br><span class="line">y_dequant = y_int32 * (scale_W * scale_x)  <span class="comment"># 反量化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"FP32结果:"</span>, y_fp32.item())        <span class="comment"># -1.56</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"量化结果:"</span>, y_dequant.item())     <span class="comment"># 约-1.55（存在微小误差）</span></span><br></pre></td></tr></table></figure>
+<p>量化完整流程：</p>
+<ul>
+<li>准备阶段<ul>
+<li>插入观察器到模型中，统计各层的权重和激活值分布。</li>
+<li>代码操作：model_prepared = prepare(model)</li>
+</ul>
+</li>
+<li>校准阶段<ul>
+<li>用代表性数据运行模型，观察器记录各层的min/max值。</li>
+<li>代码操作：model_prepared(input_data)</li>
+</ul>
+</li>
+<li>转换阶段<ul>
+<li>根据校准结果计算量化参数，替换浮点算子为量化算子。</li>
+<li>代码操作：model_quantized = convert(model_prepared)</li>
+</ul>
+</li>
+</ul>
+<p><strong>核心公式</strong>：</p>
+<ul>
+<li>量化公式：<script type="math/tex">Q(x) = \text{clamp}\left(\text{round}\left(\frac{x}{\text{scale}} + \text{zero\_point}\right), \text{min}, \text{max}\right)</script><ul>
+<li>clamp：将结果限制在min和max之间</li>
+<li>round：四舍五入</li>
+<li>zero_point：量化偏移量, 用于校准, 通常为0</li>
+</ul>
+</li>
+<li>反量化公式：<script type="math/tex">x = \left(\text{Q}(x) - \text{zero\_point}\right) \times \text{scale}</script></li>
+</ul>
+<h4 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
+<li>TensorFlow Lite：默认支持训练后量化，可将目标检测模型（如SSD MobileNet）从16MB压缩到4MB。  </li>
+<li>苹果Core ML：在iPhone上运行量化后的StyleGAN模型，实现实时人像风格迁移。</li>
+</ul>
+<hr>
+<h3 id="3-剪枝（Pruning）"><a href="#3-剪枝（Pruning）" class="headerlink" title="3. 剪枝（Pruning）"></a><strong>3. 剪枝（Pruning）</strong></h3><h4 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a><strong>核心原理</strong></h4><p>通过移除模型中不重要的参数（如接近零的权重）或结构（如冗余神经元），减少模型复杂度。  </p>
+<ul>
+<li><strong>类型</strong>：  <ul>
+<li><strong>非结构化剪枝</strong>：删除单个权重（稀疏化）。  </li>
+<li><strong>结构化剪枝</strong>：删除整层神经元或通道（更适合硬件加速）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a><strong>示例</strong></h4><p><strong>场景</strong>：自然语言处理中的BERT模型压缩  </p>
+<ul>
+<li><strong>原始模型</strong>：BERT-base（1.1亿参数，模型大小400MB）。  </li>
+<li><strong>剪枝过程</strong>：  <ol>
+<li>在微调阶段，根据权重绝对值或梯度重要性评分，剪枝30%的注意力头。  </li>
+<li>重新训练剩余参数以恢复精度。  </li>
+</ol>
+</li>
+<li><strong>结果</strong>：模型大小减少至280MB，推理速度提升1.5倍，在GLUE基准上精度下降仅0.5%。</li>
+</ul>
+<p>以下是Pytorch实现剪枝的示例：</p>
+<h5 id="非结构化剪枝"><a href="#非结构化剪枝" class="headerlink" title="非结构化剪枝"></a>非结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.utils.prune <span class="keyword">as</span> prune</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义示例模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SimpleCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.conv1 = nn.Conv2d(<span class="number">3</span>, <span class="number">16</span>, <span class="number">3</span>)  <span class="comment"># 输入通道3，输出通道16</span></span><br><span class="line">        <span class="variable language_">self</span>.fc = nn.Linear(<span class="number">16</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 假设输入图像尺寸为28x28</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = <span class="variable language_">self</span>.conv1(x)</span><br><span class="line">        x = x.view(x.size(<span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">        x = <span class="variable language_">self</span>.fc(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = SimpleCNN()</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 剪枝步骤 ---</span></span><br><span class="line"><span class="comment"># Step 1: 选择剪枝目标（这里剪枝conv1层的权重）</span></span><br><span class="line">parameters_to_prune = [(model.conv1, <span class="string">'weight'</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 应用L1范数剪枝（剪去20%的权重）</span></span><br><span class="line">prune.global_unstructured(</span><br><span class="line">    parameters_to_prune,</span><br><span class="line">    pruning_method=prune.L1Unstructured,</span><br><span class="line">    amount=<span class="number">0.2</span>  <span class="comment"># 剪枝比例20%</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 查看剪枝效果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的权重稀疏度："</span>, </span><br><span class="line">      torch.<span class="built_in">sum</span>(model.conv1.weight == <span class="number">0</span>).item() / model.conv1.weight.nelement())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 永久移除剪枝的权重（可选）</span></span><br><span class="line">prune.remove(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 5: 微调剪枝后的模型</span></span><br><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">1e-3</span>)</span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> data, target <span class="keyword">in</span> train_loader:  <span class="comment"># 假设已有数据加载器</span></span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = nn.CrossEntropyLoss()(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>为什么用L1范数剪枝？</strong>：<br>L1范数具有自然的稀疏性特征，通过最小化L1范数，模型倾向于将一些权重推向0以实现稀疏化，并且计算简单。</p>
+<h5 id="结构化剪枝"><a href="#结构化剪枝" class="headerlink" title="结构化剪枝"></a>结构化剪枝</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> torch.nn.utils.prune <span class="keyword">import</span> ln_structured, remove_structured</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 1: 剪枝整个通道（基于L2范数）</span></span><br><span class="line"><span class="comment"># 对conv1层的输出通道进行剪枝（移除20%的通道）</span></span><br><span class="line">prune.ln_structured(</span><br><span class="line">    model.conv1,</span><br><span class="line">    name=<span class="string">"weight"</span>,</span><br><span class="line">    amount=<span class="number">0.2</span>,</span><br><span class="line">    n=<span class="number">2</span>,  <span class="comment"># L2范数</span></span><br><span class="line">    dim=<span class="number">0</span>  <span class="comment"># 沿输出通道维度剪枝</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 2: 查看通道剪枝后的权重形状</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"剪枝后的conv1.weight形状:"</span>, model.conv1.weight.shape)  </span><br><span class="line"><span class="comment"># 原始形状[16,3,3,3] → 剪枝后[13,3,3,3]（假设移除3个通道）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 3: 永久应用剪枝</span></span><br><span class="line">remove_structured(model.conv1, <span class="string">'weight'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Step 4: 调整后续层（重要！结构化剪枝需适配网络结构）</span></span><br><span class="line"><span class="comment"># 原fc层输入维度为16*26*26，剪枝后变为13*26*26 → 需要重新定义</span></span><br><span class="line">model.fc = nn.Linear(<span class="number">13</span>*<span class="number">26</span>*<span class="number">26</span>, <span class="number">10</span>)  <span class="comment"># 修改输入维度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 微调模型（同上）</span></span><br></pre></td></tr></table></figure>
+<p><strong>为什么用L2范数剪枝？</strong>：</p>
+<ul>
+<li>避免极端值：均匀缩小</li>
+<li>计算效率：L2范数计算复杂度较低</li>
+</ul>
+<h4 id="实际应用-1"><a href="#实际应用-1" class="headerlink" title="实际应用"></a><strong>实际应用</strong></h4><ul>
+<li>NVIDIA的Nemo框架：对语音识别模型（如QuartzNet）进行结构化剪枝，GPU推理速度提升2倍。  </li>
+<li>无人机避障算法：剪枝后的YOLOv5模型在边缘设备上实时检测障碍物，功耗降低40%。</li>
+</ul>
+<hr>
+<h3 id="三者的对比与协同使用"><a href="#三者的对比与协同使用" class="headerlink" title="三者的对比与协同使用"></a><strong>三者的对比与协同使用</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>核心目标</th>
+<th>优势</th>
+<th>局限性</th>
+<th>典型压缩率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识蒸馏</td>
+<td>迁移知识到小模型</td>
+<td>精度接近教师模型</td>
+<td>依赖高质量教师模型</td>
+<td>2-5倍</td>
+</tr>
+<tr>
+<td>量化</td>
+<td>降低数值精度</td>
+<td>显著减少体积和计算开销</td>
+<td>可能损失精度（需校准）</td>
+<td>4倍+</td>
+</tr>
+<tr>
+<td>剪枝</td>
+<td>移除冗余参数或结构</td>
+<td>提升推理速度，降低内存占用</td>
+<td>可能破坏模型结构完整性</td>
+<td>2-10倍</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>协同使用案例</strong>：<br>谷歌的MobileNetV4模型结合三者：  </p>
+<ol>
+<li>用知识蒸馏从EfficientNet迁移知识；  </li>
+<li>对模型进行混合精度量化（部分层用INT8，关键层用FP16）；  </li>
+<li>剪枝掉80%的冗余通道，最终模型体积减少6倍，速度提升3倍，精度仅下降2%。  </li>
+</ol>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>知识蒸馏、量化和剪枝是移动端AI模型压缩的三大核心技术：  </p>
+<ul>
+<li><strong>知识蒸馏</strong>：通过“师生学习”传递知识，适合模型功能迁移；  </li>
+<li><strong>量化</strong>：降低数值精度，直接压缩体积和加速计算；  </li>
+<li><strong>剪枝</strong>：消除冗余参数，提升硬件执行效率。<br>实际应用中，三者常结合使用（如“蒸馏+量化+剪枝”流程），在保证精度的前提下，实现移动端AI模型的极致优化。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>端侧AI</tag>
       </tags>
   </entry>
 </search>
