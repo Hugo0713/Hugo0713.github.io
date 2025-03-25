@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Algorithm-2</title>
-    <url>/2025/03/06/Algorithm/Algorithm-2/</url>
-    <content><![CDATA[<p>算法与复杂性相关笔记。 分治<br><span id="more"></span></p>
-<h2 id="Chapter-2-Divide-and-Conquer-Algorithms"><a href="#Chapter-2-Divide-and-Conquer-Algorithms" class="headerlink" title="Chapter 2. Divide-and-Conquer Algorithms"></a>Chapter 2. Divide-and-Conquer Algorithms</h2><h3 id="Recurrence-relations"><a href="#Recurrence-relations" class="headerlink" title="Recurrence relations"></a>Recurrence relations</h3><p><strong>Master theorem:</strong></p>
-<script type="math/tex; mode=display">T(n)=a T(\lceil n / b\rceil)+O\left(n^{d}\right)</script><p>for some constants (a&gt;0) , (b&gt;1) ,and (d ≥0) , then </p>
-<script type="math/tex; mode=display">T(n)= \begin{cases}O\left(n^{d}\right) & if d>log _{b} a \\ O\left(n^{d} log n\right) & if d=log _{b} a \\ O\left(n^{log _{b} a}\right) & if d<log _{b} a .\end{cases}</script><p>d代表非递归部分（即每次递归调用之外的操作）的时间复杂度的指数。</p>
-<p><strong>Example:</strong> 整数乘法的分治算法</p>
-<script type="math/tex; mode=display">T(n)=3 T(n / 2)+O\left(n\right)</script><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><p>基本思想: 利用分治方法使得多项式相乘算法的复杂度降为O(n logn)</p>
-<p>具体实现：借用多项式的点值表示法（n+1个点确定一个n维多项式）的乘法可以在O(n)内完成，将多项式相乘转为点值表示法相乘再转回原系数表示</p>
-<p>fft数学公式：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\begin{bmatrix}
-y_0 \\
-y_1 \\
-y_2 \\
-\vdots \\
-y_{n-1}
-\end{bmatrix}
-&=
-\begin{bmatrix}
-W_n^{0\cdot0} & W_n^{0\cdot1} & W_n^{0\cdot2} & \cdots & W_n^{0\cdot(n-1)} \\
-W_n^{1\cdot0} & W_n^{1\cdot1} & W_n^{1\cdot2} & \cdots & W_n^{1\cdot(n-1)} \\
-W_n^{2\cdot0} & W_n^{2\cdot1} & W_n^{2\cdot2} & \cdots & W_n^{2\cdot(n-1)} \\
-\vdots & \vdots & \vdots & \ddots & \vdots \\
-W_n^{(n-1)\cdot0} & W_n^{(n-1)\cdot1} & W_n^{(n-1)\cdot2} & \cdots & W_n^{(n-1)\cdot(n-1)}
-\end{bmatrix}
-\begin{bmatrix}
-x_0 \\
-x_1 \\
-x_2 \\
-\vdots \\
-x_{n-1}
-\end{bmatrix}
-\end{aligned}</script><p><a href="https://zhuanlan.zhihu.com/p/347091298">快速傅里叶变换详解</a></p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Algorithm-1</title>
     <url>/2025/02/27/Algorithm/Algorithm-1/</url>
     <content><![CDATA[<p>算法课的相关笔记。Modular arithmetic 、Primality testing、Cryptography(RSA)、Hashing。</p>
@@ -132,6 +88,50 @@ x_{n-1}
       <tags>
         <tag>Algorithm</tag>
         <tag>AI辅助</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Algorithm-2</title>
+    <url>/2025/03/06/Algorithm/Algorithm-2/</url>
+    <content><![CDATA[<p>算法与复杂性相关笔记。 分治<br><span id="more"></span></p>
+<h2 id="Chapter-2-Divide-and-Conquer-Algorithms"><a href="#Chapter-2-Divide-and-Conquer-Algorithms" class="headerlink" title="Chapter 2. Divide-and-Conquer Algorithms"></a>Chapter 2. Divide-and-Conquer Algorithms</h2><h3 id="Recurrence-relations"><a href="#Recurrence-relations" class="headerlink" title="Recurrence relations"></a>Recurrence relations</h3><p><strong>Master theorem:</strong></p>
+<script type="math/tex; mode=display">T(n)=a T(\lceil n / b\rceil)+O\left(n^{d}\right)</script><p>for some constants (a&gt;0) , (b&gt;1) ,and (d ≥0) , then </p>
+<script type="math/tex; mode=display">T(n)= \begin{cases}O\left(n^{d}\right) & if d>log _{b} a \\ O\left(n^{d} log n\right) & if d=log _{b} a \\ O\left(n^{log _{b} a}\right) & if d<log _{b} a .\end{cases}</script><p>d代表非递归部分（即每次递归调用之外的操作）的时间复杂度的指数。</p>
+<p><strong>Example:</strong> 整数乘法的分治算法</p>
+<script type="math/tex; mode=display">T(n)=3 T(n / 2)+O\left(n\right)</script><h3 id="FFT"><a href="#FFT" class="headerlink" title="FFT"></a>FFT</h3><p>基本思想: 利用分治方法使得多项式相乘算法的复杂度降为O(n logn)</p>
+<p>具体实现：借用多项式的点值表示法（n+1个点确定一个n维多项式）的乘法可以在O(n)内完成，将多项式相乘转为点值表示法相乘再转回原系数表示</p>
+<p>fft数学公式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\begin{bmatrix}
+y_0 \\
+y_1 \\
+y_2 \\
+\vdots \\
+y_{n-1}
+\end{bmatrix}
+&=
+\begin{bmatrix}
+W_n^{0\cdot0} & W_n^{0\cdot1} & W_n^{0\cdot2} & \cdots & W_n^{0\cdot(n-1)} \\
+W_n^{1\cdot0} & W_n^{1\cdot1} & W_n^{1\cdot2} & \cdots & W_n^{1\cdot(n-1)} \\
+W_n^{2\cdot0} & W_n^{2\cdot1} & W_n^{2\cdot2} & \cdots & W_n^{2\cdot(n-1)} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+W_n^{(n-1)\cdot0} & W_n^{(n-1)\cdot1} & W_n^{(n-1)\cdot2} & \cdots & W_n^{(n-1)\cdot(n-1)}
+\end{bmatrix}
+\begin{bmatrix}
+x_0 \\
+x_1 \\
+x_2 \\
+\vdots \\
+x_{n-1}
+\end{bmatrix}
+\end{aligned}</script><p><a href="https://zhuanlan.zhihu.com/p/347091298">快速傅里叶变换详解</a></p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -2411,6 +2411,24 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
+    <title>OS-08：main memory</title>
+    <url>/2025/03/19/OS/OS08/</url>
+    <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Main memory and registers are only storage CPU can access directly.</p>
+<p>但主存访问速度慢于寄存器，可能导致memory stall</p>
+<p>Protection：通过base和limit寄存器确保进程只能访问地址空间内的内存地址</p>
+<p>地址绑定：将逻辑地址转换为物理地址，编译时、加载时、运行时</p>
+<p>MMU：Memory Management Unit，硬件设备，负责逻辑地址到物理地址转换</p>
+<h2 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h2><h2 id="Non-contiguous-Memory-Allocation"><a href="#Non-contiguous-Memory-Allocation" class="headerlink" title="Non-contiguous Memory Allocation"></a>Non-contiguous Memory Allocation</h2><h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Structure of the Page Table<br>Swapping<br>Example: The Intel 32 and 64-bit Architectures</p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OS-09：Virtual Memory</title>
     <url>/2025/03/21/OS/OS09/</url>
     <content><![CDATA[<p>该文介绍虚拟内存。<br><span id="more"></span></p>
@@ -2422,24 +2440,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
 </ul>
 <h2 id="Demand-Paging"><a href="#Demand-Paging" class="headerlink" title="Demand Paging"></a>Demand Paging</h2><p>需要时将页面加载入内存</p>
 <h2 id="Copy-on-Write"><a href="#Copy-on-Write" class="headerlink" title="Copy-on-Write"></a>Copy-on-Write</h2><h2 id="Page-Replacement"><a href="#Page-Replacement" class="headerlink" title="Page Replacement"></a>Page Replacement</h2><h2 id="Allocation-of-Frames"><a href="#Allocation-of-Frames" class="headerlink" title="Allocation of Frames"></a>Allocation of Frames</h2>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OS-08：main memory</title>
-    <url>/2025/03/19/OS/OS08/</url>
-    <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Main memory and registers are only storage CPU can access directly.</p>
-<p>但主存访问速度慢于寄存器，可能导致memory stall</p>
-<p>Protection：通过base和limit寄存器确保进程只能访问地址空间内的内存地址</p>
-<p>地址绑定：将逻辑地址转换为物理地址，编译时、加载时、运行时</p>
-<p>MMU：Memory Management Unit，硬件设备，负责逻辑地址到物理地址转换</p>
-<h2 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h2><h2 id="Non-contiguous-Memory-Allocation"><a href="#Non-contiguous-Memory-Allocation" class="headerlink" title="Non-contiguous Memory Allocation"></a>Non-contiguous Memory Allocation</h2><h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Structure of the Page Table<br>Swapping<br>Example: The Intel 32 and 64-bit Architectures</p>
-]]></content>
       <categories>
         <category>OS</category>
       </categories>
@@ -2525,179 +2525,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </categories>
       <tags>
         <tag>LLM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NVIDIA DPU Course</title>
-    <url>/2025/02/22/Technology/NVIDIA-DPU-Course/</url>
-    <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
-<h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>NVIDIA BlueField DPU目前主要有以下几代产品:</p>
-<ul>
-<li>BlueField-3 DPU</li>
-<li>BlueField-2 DPU (支持InfiniBand/以太网双版本)</li>
-<li>BlueField-1 系列控制器卡</li>
-</ul>
-<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><h3 id="DOCA软件框架"><a href="#DOCA软件框架" class="headerlink" title="DOCA软件框架"></a>DOCA软件框架</h3><p>DOCA (Data center-on-chip Architecture)是NVIDIA为BlueField DPU开发的软件框架，包含：</p>
-<h4 id="DOCA-SDK-v2-10-0"><a href="#DOCA-SDK-v2-10-0" class="headerlink" title="DOCA SDK (v2.10.0)"></a>DOCA SDK (v2.10.0)</h4><ul>
-<li>RDMA加速SDK</li>
-<li>网络加速SDK</li>
-<li>安全加速SDK</li>
-<li>存储加速SDK</li>
-<li>数据路径加速(DPA) SDK</li>
-<li>管理SDK</li>
-</ul>
-<h4 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h4><ul>
-<li>统一通信接口(UCX)</li>
-<li>RDMA verbs</li>
-<li>GPUDirect</li>
-<li>软件定义网络(SDN)</li>
-<li>P4编程支持</li>
-<li>在线加密</li>
-<li>App Shield运行时安全</li>
-</ul>
-<h2 id="应用场景与功能"><a href="#应用场景与功能" class="headerlink" title="应用场景与功能"></a>应用场景与功能</h2><h3 id="1-网络加速"><a href="#1-网络加速" class="headerlink" title="1. 网络加速"></a>1. 网络加速</h3><h4 id="1-1-网络协议栈卸载"><a href="#1-1-网络协议栈卸载" class="headerlink" title="1.1 网络协议栈卸载"></a>1.1 网络协议栈卸载</h4><ul>
-<li><p><strong>TCP/IP卸载</strong></p>
-<ul>
-<li>完整的TCP/IP协议栈处理</li>
-<li>支持TCP Offload Engine (TOE)</li>
-<li>降低主机CPU负载</li>
-<li>减少网络延迟</li>
-</ul>
-</li>
-<li><p><strong>RDMA技术</strong></p>
-<ul>
-<li>支持RoCE v1/v2 (RDMA over Converged Ethernet)</li>
-<li>支持InfiniBand</li>
-<li>零拷贝数据传输</li>
-<li>内核旁路技术</li>
-<li>QP (Queue Pair) 管理</li>
-<li>支持RDMA Write/Read/Send/Receive操作</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2-网络虚拟化"><a href="#1-2-网络虚拟化" class="headerlink" title="1.2 网络虚拟化"></a>1.2 网络虚拟化</h4><ul>
-<li><p><strong>SR-IOV (Single Root I/O Virtualization)</strong></p>
-<ul>
-<li>支持多达1000个VF (Virtual Function)</li>
-<li>硬件级网络资源隔离</li>
-<li>虚拟机直通技术</li>
-</ul>
-</li>
-<li><p><strong>OVS (Open vSwitch) 加速</strong></p>
-<ul>
-<li>硬件卸载流表处理</li>
-<li>支持OpenFlow协议</li>
-<li>虚拟交换机性能优化</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-3-高级网络特性"><a href="#1-3-高级网络特性" class="headerlink" title="1.3 高级网络特性"></a>1.3 高级网络特性</h4><ul>
-<li><p><strong>流量管理</strong></p>
-<ul>
-<li>QoS (Quality of Service) 支持</li>
-<li>带宽控制</li>
-<li>流量整形</li>
-<li>拥塞控制</li>
-</ul>
-</li>
-<li><p><strong>网络安全</strong></p>
-<ul>
-<li>IPSec硬件加速</li>
-<li>TLS/SSL卸载</li>
-<li>防火墙规则处理</li>
-<li>DDoS防护</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-4-网络性能指标"><a href="#1-4-网络性能指标" class="headerlink" title="1.4 网络性能指标"></a>1.4 网络性能指标</h4><ul>
-<li><p><strong>带宽能力</strong></p>
-<ul>
-<li>支持25/50/100/200/400GbE</li>
-<li>BlueField-3支持高达800Gb/s带宽</li>
-<li>双端口配置选项</li>
-</ul>
-</li>
-<li><p><strong>延迟优化</strong></p>
-<ul>
-<li>端到端延迟&lt;1微秒</li>
-<li>硬件时间戳支持</li>
-<li>精确时间协议(PTP)支持</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-5-网络编程模型"><a href="#1-5-网络编程模型" class="headerlink" title="1.5 网络编程模型"></a>1.5 网络编程模型</h3><ul>
-<li><p><strong>DPDK支持</strong></p>
-<ul>
-<li>用户态网络驱动</li>
-<li>轮询模式驱动(PMD)</li>
-<li>零拷贝数据包处理</li>
-<li>大页内存支持</li>
-</ul>
-</li>
-<li><p><strong>P4可编程性</strong></p>
-<ul>
-<li>自定义数据包处理流水线</li>
-<li>协议无关的包处理</li>
-<li>灵活的转发规则定义</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-6-相关网络知识"><a href="#1-6-相关网络知识" class="headerlink" title="1.6 相关网络知识"></a>1.6 相关网络知识</h4><ul>
-<li><p><strong>网络分层模型</strong></p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">应用层 (L7) - HTTP, FTP, SMTP等</span><br><span class="line">传输层 (L4) - TCP, UDP</span><br><span class="line">网络层 (L3) - IP, ICMP</span><br><span class="line">数据链路层 (L2) - 以太网, MAC</span><br><span class="line">物理层 (L1) - 物理介质</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>关键网络概念</strong></p>
-<ul>
-<li>MTU (Maximum Transmission Unit)</li>
-<li>VLAN (Virtual LAN)</li>
-<li>VXLAN (Virtual Extensible LAN)</li>
-<li>ARP (Address Resolution Protocol)</li>
-<li>BGP (Border Gateway Protocol)</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-7-性能优化建议"><a href="#1-7-性能优化建议" class="headerlink" title="1.7 性能优化建议"></a>1.7 性能优化建议</h4><ul>
-<li><p><strong>网络调优</strong></p>
-<ul>
-<li>启用巨帧(Jumbo Frame)</li>
-<li>配置RSS (Receive Side Scaling)</li>
-<li>优化中断亲和性</li>
-<li>使用NUMA感知内存分配</li>
-</ul>
-</li>
-<li><p><strong>最佳实践</strong></p>
-<ul>
-<li>合理规划网络拓扑</li>
-<li>选择适当的网络模式</li>
-<li>监控网络性能指标</li>
-<li>定期进行性能测试</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-存储加速"><a href="#2-存储加速" class="headerlink" title="2. 存储加速"></a>2. 存储加速</h3><ul>
-<li>NVMe存储虚拟化</li>
-<li>存储加密与压缩</li>
-<li>零拷贝数据传输</li>
-</ul>
-<h3 id="3-安全功能"><a href="#3-安全功能" class="headerlink" title="3. 安全功能"></a>3. 安全功能</h3><ul>
-<li>硬件加速加密</li>
-<li>IPsec安全网关</li>
-<li>零信任安全架构</li>
-<li>运行时安全保护</li>
-</ul>
-<h3 id="4-虚拟化支持"><a href="#4-虚拟化支持" class="headerlink" title="4. 虚拟化支持"></a>4. 虚拟化支持</h3><ul>
-<li>SR-IOV虚拟化</li>
-<li>虚拟设备模拟</li>
-<li>容器化工作负载支持</li>
-</ul>
-<p><a href="https://www.nvidia.cn/dpubook-3">参考来源</a><br><a href="https://www.nvidia.cn/dpubook-4">DOCA框架文档</a></p>
-]]></content>
-      <categories>
-        <category>Technology</category>
-      </categories>
-      <tags>
-        <tag>AI辅助</tag>
-        <tag>NVIDIA</tag>
       </tags>
   </entry>
   <entry>
@@ -2899,6 +2726,179 @@ p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其�
       <tags>
         <tag>AI辅助</tag>
         <tag>端侧AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NVIDIA DPU Course</title>
+    <url>/2025/02/22/Technology/NVIDIA-DPU-Course/</url>
+    <content><![CDATA[<p>NVIDIA BlueField 数据处理单元(DPU)是一种高性能网络和计算加速器,专为现代数据中心设计。本文将介绍BlueField DPU的主要组件和功能。<br><span id="more"></span></p>
+<h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>NVIDIA BlueField DPU目前主要有以下几代产品:</p>
+<ul>
+<li>BlueField-3 DPU</li>
+<li>BlueField-2 DPU (支持InfiniBand/以太网双版本)</li>
+<li>BlueField-1 系列控制器卡</li>
+</ul>
+<h2 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h2><h3 id="DOCA软件框架"><a href="#DOCA软件框架" class="headerlink" title="DOCA软件框架"></a>DOCA软件框架</h3><p>DOCA (Data center-on-chip Architecture)是NVIDIA为BlueField DPU开发的软件框架，包含：</p>
+<h4 id="DOCA-SDK-v2-10-0"><a href="#DOCA-SDK-v2-10-0" class="headerlink" title="DOCA SDK (v2.10.0)"></a>DOCA SDK (v2.10.0)</h4><ul>
+<li>RDMA加速SDK</li>
+<li>网络加速SDK</li>
+<li>安全加速SDK</li>
+<li>存储加速SDK</li>
+<li>数据路径加速(DPA) SDK</li>
+<li>管理SDK</li>
+</ul>
+<h4 id="主要组件"><a href="#主要组件" class="headerlink" title="主要组件"></a>主要组件</h4><ul>
+<li>统一通信接口(UCX)</li>
+<li>RDMA verbs</li>
+<li>GPUDirect</li>
+<li>软件定义网络(SDN)</li>
+<li>P4编程支持</li>
+<li>在线加密</li>
+<li>App Shield运行时安全</li>
+</ul>
+<h2 id="应用场景与功能"><a href="#应用场景与功能" class="headerlink" title="应用场景与功能"></a>应用场景与功能</h2><h3 id="1-网络加速"><a href="#1-网络加速" class="headerlink" title="1. 网络加速"></a>1. 网络加速</h3><h4 id="1-1-网络协议栈卸载"><a href="#1-1-网络协议栈卸载" class="headerlink" title="1.1 网络协议栈卸载"></a>1.1 网络协议栈卸载</h4><ul>
+<li><p><strong>TCP/IP卸载</strong></p>
+<ul>
+<li>完整的TCP/IP协议栈处理</li>
+<li>支持TCP Offload Engine (TOE)</li>
+<li>降低主机CPU负载</li>
+<li>减少网络延迟</li>
+</ul>
+</li>
+<li><p><strong>RDMA技术</strong></p>
+<ul>
+<li>支持RoCE v1/v2 (RDMA over Converged Ethernet)</li>
+<li>支持InfiniBand</li>
+<li>零拷贝数据传输</li>
+<li>内核旁路技术</li>
+<li>QP (Queue Pair) 管理</li>
+<li>支持RDMA Write/Read/Send/Receive操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-网络虚拟化"><a href="#1-2-网络虚拟化" class="headerlink" title="1.2 网络虚拟化"></a>1.2 网络虚拟化</h4><ul>
+<li><p><strong>SR-IOV (Single Root I/O Virtualization)</strong></p>
+<ul>
+<li>支持多达1000个VF (Virtual Function)</li>
+<li>硬件级网络资源隔离</li>
+<li>虚拟机直通技术</li>
+</ul>
+</li>
+<li><p><strong>OVS (Open vSwitch) 加速</strong></p>
+<ul>
+<li>硬件卸载流表处理</li>
+<li>支持OpenFlow协议</li>
+<li>虚拟交换机性能优化</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-高级网络特性"><a href="#1-3-高级网络特性" class="headerlink" title="1.3 高级网络特性"></a>1.3 高级网络特性</h4><ul>
+<li><p><strong>流量管理</strong></p>
+<ul>
+<li>QoS (Quality of Service) 支持</li>
+<li>带宽控制</li>
+<li>流量整形</li>
+<li>拥塞控制</li>
+</ul>
+</li>
+<li><p><strong>网络安全</strong></p>
+<ul>
+<li>IPSec硬件加速</li>
+<li>TLS/SSL卸载</li>
+<li>防火墙规则处理</li>
+<li>DDoS防护</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-4-网络性能指标"><a href="#1-4-网络性能指标" class="headerlink" title="1.4 网络性能指标"></a>1.4 网络性能指标</h4><ul>
+<li><p><strong>带宽能力</strong></p>
+<ul>
+<li>支持25/50/100/200/400GbE</li>
+<li>BlueField-3支持高达800Gb/s带宽</li>
+<li>双端口配置选项</li>
+</ul>
+</li>
+<li><p><strong>延迟优化</strong></p>
+<ul>
+<li>端到端延迟&lt;1微秒</li>
+<li>硬件时间戳支持</li>
+<li>精确时间协议(PTP)支持</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-网络编程模型"><a href="#1-5-网络编程模型" class="headerlink" title="1.5 网络编程模型"></a>1.5 网络编程模型</h3><ul>
+<li><p><strong>DPDK支持</strong></p>
+<ul>
+<li>用户态网络驱动</li>
+<li>轮询模式驱动(PMD)</li>
+<li>零拷贝数据包处理</li>
+<li>大页内存支持</li>
+</ul>
+</li>
+<li><p><strong>P4可编程性</strong></p>
+<ul>
+<li>自定义数据包处理流水线</li>
+<li>协议无关的包处理</li>
+<li>灵活的转发规则定义</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-6-相关网络知识"><a href="#1-6-相关网络知识" class="headerlink" title="1.6 相关网络知识"></a>1.6 相关网络知识</h4><ul>
+<li><p><strong>网络分层模型</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">应用层 (L7) - HTTP, FTP, SMTP等</span><br><span class="line">传输层 (L4) - TCP, UDP</span><br><span class="line">网络层 (L3) - IP, ICMP</span><br><span class="line">数据链路层 (L2) - 以太网, MAC</span><br><span class="line">物理层 (L1) - 物理介质</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>关键网络概念</strong></p>
+<ul>
+<li>MTU (Maximum Transmission Unit)</li>
+<li>VLAN (Virtual LAN)</li>
+<li>VXLAN (Virtual Extensible LAN)</li>
+<li>ARP (Address Resolution Protocol)</li>
+<li>BGP (Border Gateway Protocol)</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-7-性能优化建议"><a href="#1-7-性能优化建议" class="headerlink" title="1.7 性能优化建议"></a>1.7 性能优化建议</h4><ul>
+<li><p><strong>网络调优</strong></p>
+<ul>
+<li>启用巨帧(Jumbo Frame)</li>
+<li>配置RSS (Receive Side Scaling)</li>
+<li>优化中断亲和性</li>
+<li>使用NUMA感知内存分配</li>
+</ul>
+</li>
+<li><p><strong>最佳实践</strong></p>
+<ul>
+<li>合理规划网络拓扑</li>
+<li>选择适当的网络模式</li>
+<li>监控网络性能指标</li>
+<li>定期进行性能测试</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-存储加速"><a href="#2-存储加速" class="headerlink" title="2. 存储加速"></a>2. 存储加速</h3><ul>
+<li>NVMe存储虚拟化</li>
+<li>存储加密与压缩</li>
+<li>零拷贝数据传输</li>
+</ul>
+<h3 id="3-安全功能"><a href="#3-安全功能" class="headerlink" title="3. 安全功能"></a>3. 安全功能</h3><ul>
+<li>硬件加速加密</li>
+<li>IPsec安全网关</li>
+<li>零信任安全架构</li>
+<li>运行时安全保护</li>
+</ul>
+<h3 id="4-虚拟化支持"><a href="#4-虚拟化支持" class="headerlink" title="4. 虚拟化支持"></a>4. 虚拟化支持</h3><ul>
+<li>SR-IOV虚拟化</li>
+<li>虚拟设备模拟</li>
+<li>容器化工作负载支持</li>
+</ul>
+<p><a href="https://www.nvidia.cn/dpubook-3">参考来源</a><br><a href="https://www.nvidia.cn/dpubook-4">DOCA框架文档</a></p>
+]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>NVIDIA</tag>
       </tags>
   </entry>
   <entry>
