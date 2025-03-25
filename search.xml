@@ -1140,69 +1140,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
-    <title>面试小记</title>
-    <url>/2025/03/19/Daily/%E9%9D%A2%E8%AF%95%E5%B0%8F%E8%AE%B0/</url>
-    <content><![CDATA[<p>记录“智信班”面试被狠狠拷打后的一些感想。<br><span id="more"></span></p>
-<p>刚刚结束了一场面试，十来分钟的面试被几位老师狠狠拷打。一方面是由于我的简历吹水比较严重（其实也不太算，只是有些夸大其词），更多的是因为我对于自己完成过的项目细节掌握不是很清楚。</p>
-<p>比如说，关于pacman-ai项目，问到了强化学习中的q-learning的q值如何构成，由于8个月前写的项目我不太记得了……又比如线代，问到了最基本的特征值和特征向量，我一时间居然想不起来公式，只记得线性变换方向不变这个特点……最后问道到快排算不算分治，我都不记得快排算法具体内容了……</p>
-<p>总言之，一方面由于自己并没有熟练掌握这些知识，一方面也由于没做什么准备，没有再看看自己在简历中吹水的内容，最后结果就是被狠狠拷打，本身我的学积分不算高，两门代码基础课程也很烂，这样可能会给面试老师留下印象，看来学积分低是有原因的，确实没有学的很好……</p>
-<p>当然，还有一点需要注意的是，我应该对自己完成的项目有充分的了解，对于项目具体细节应该全面掌握。比如再次遇到面试这样的场合，我能很自如地像懂行或者不懂行的人介绍我的工作，让别人了解我在做些什么，这是很重要的能力。</p>
-<p>所以说，以后做科研，其实不管是完成任何工作，都要带着一种面试思维，想象被拷打的过程。或者说，这本身也是一种费曼学习法，你要有能力把你的工作介绍给一个完全不懂/很懂行的人，让他理解你在做些什么，这样你对自己工作的理解才算是到位了。</p>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>随想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>韩国游记</title>
-    <url>/2025/03/10/Daily/%E9%9F%A9%E5%9B%BD%E6%B8%B8%E8%AE%B0/</url>
-    <content><![CDATA[<p>出行时间：3.8~3.10</p>
-<p>出行地点：Busan and Jeju</p>
-<span id="more"></span>
-<h2 id="行前准备"><a href="#行前准备" class="headerlink" title="行前准备"></a>行前准备</h2><p>感谢Busan pass, 很适合我这种特种兵玩法，根据其项目在出行前做好了很极限的攻略。</p>
-<p><a href="/images/Busan.pdf">Busan</a></p>
-<h2 id="3-8"><a href="#3-8" class="headerlink" title="3.8"></a>3.8</h2><p>10：15在pvg的飞机，所以和室友7：30从寝室出发，机联线果然快，基本上80min+到机场。选择廉航的代价就是摆渡车上飞机，以及忍受行程中的推销……</p>
-<p>准点到，丝滑入境，跟预想的时间差不多，13：30出境去领Busan pass实体卡，目前为止都很顺利，直到做紫线差点做反hhh</p>
-<p>室友锐评小韩民国好像他老家遵义，然后开始吐槽韩国人的发型，我们总结出来，男生都是服帖烫，女生都是空气刘海，仗着车上的人听不懂中文开始大声蛐蛐他们。</p>
-<p>本来打算去skyline luge玩，换乘两次一个多小时，本来打算在BEXCO换乘出来吃个午饭再去，出站后在路边找到一家人很多的店，用现金点了冷面和炸猪排，都挺香的很韩式，结果打算用uber打车，结果我号被封了，神经！两个人开始各种尝试Kakao T，但都得需要手机号验证，而我们没开漫游又收不到验证码，陷入死循环……</p>
-<p>最后不得已一路问路找到了BEXCO站，从地铁换乘轻轨？此时已经快四点了，于是当机立断直接去坐海边列车，事实证明这是一个很明智的选择。</p>
-<p>下车后下起了毛毛雨，很幸运到了海边列车松亭站领了票很快就上车了，初次上车有优先权所以有座位，不过可惜的是并不完全在海边走，还有步道与围栏挡着，又是阴天海不是很好看，不过总算有些度假的感觉了。</p>
-<p>很令人惊讶的是，沿路能够看到很多平房与菜地，与高楼大厦形成了鲜明对比，挨的确实太近了。到了青沙浦站下车，宣传册上说这里是酷似《灌篮高手》取景地很是搞笑，往海边走，沿途一家纪念品店，店里一块落地窗真的很好看很出片！海边有两座灯塔，在防波堤上吹吹海风很是惬意。</p>
-<p>坐上胶囊小火车！这真的是Busan之行中最赞的两个项目之一，恰好此时日落，晚霞从远方降临，黄色的胶囊小车在轨道上缓缓前行，轨道旁是一望无际的大海，这种感觉很妙，让我忘却了几乎一切烦恼，真正在那一刻享受内心的安宁。</p>
-<p>本来打算去旁边的X 观景台，不过时间又不够了，在路旁拦下一辆出租去坐游艇。韩国司机也不太懂英语，给他看google map上的地址也是抓耳挠腮，顺带一提，打车有点小贵，不过其实和上海也差不多，起步价4800韩币差不多24元左右。</p>
-<p>游艇上有家台湾人，很有意思，大喊叫x主席快点打过来解放他们，两岸一家亲hhh，慢慢开出穿过广安大桥，天色渐晚，映在海面上，大桥上的白灯与海岸边城市的霓虹交相辉映，真的很享受，不过舰首的风还是蛮大，要是再暖和点就更完美了。韩国的台湾人真的很多，也许免签？遇到一对台湾姐姐，我们都以为20+，一问才知道快四十了属实是很震惊。</p>
-<p>欣赏完自放烟花，游艇也就回港，我们步行前往今天最后一个项目，SPA LAND ，享受下韩国桑拿，Busan pass针对性价比体验感都拉满了，好评！其实馆内有很多种汗蒸馆，不过我们体验了下室外的差不多便离开了。</p>
-<p>此时也才九点左右，坐二号线到西面觅食，结果找好久不知道吃啥（主要是很少店能够微信支付宝支付，我们又不太想用现金，留着打车用），最后再=在路旁拉人推荐餐厅，可惜韩国的素质教育有待加强，英语水平普遍不太好……但都很热情！最后实在没办法找了家餐厅吃汤锅，勉勉强强刷visa完成了晚饭。</p>
-<p>在路边拦下一辆出租车，第一位司机明显是那种老本地人，半天没看懂我们要去哪，语音翻译软件也不会用，把我们赶下车了，碰到的第二位明显懂英文，一下就看懂了，一路飙车把我们带回民俗。韩国司机开的真的很猛，我评价是仅次于香港司机的存在。</p>
-<p>民宿是我特意定在扎噶其市场附近的工业风，叫urbanstay，第一次在国外用airbnb！</p>
-<h2 id="3-9"><a href="#3-9" class="headerlink" title="3.9"></a>3.9</h2><p>早上八点半起，发现书包上的耳廓狐挂件掉了，悲。。。楼下711觅食，想取钱失败，此时我们身上仅剩45000韩币却要撑过一天……</p>
-<p>第一回坐公交，速度很快，我们提前到达了松岛海上缆车站，几乎是第一批游客，很有意思还会给我们发糖hhh</p>
-<p>这是最赞的项目中的另一个。今天出太阳了，天气很好，蔚蓝色的大海，我们选择的水晶车厢底透明，可以看见蒂芙尼蓝色的海水，一路各种拍拍拍，超出片超美，车厢还可以连蓝牙放音乐，体验感拉满。</p>
-<p>到达对岸后，应该是一个公园，很多当地人在登山，我们作为游客下山到旁边的龙宫云桥，在桥上看看海景也很有意思，遇到一队韩国奶奶观光团，热情招呼我们帮他们拍照hhh</p>
-<p>坐缆车回程，再度享受，然后直接拦车去甘川文化村，文化村建在山上，是原来渔民修的房子。我们差不多十点多就到了，开始韩服体验，不过说实话我感觉也没有很韩。到了打卡点又开始拍照，室友嫌弃我拍的太难看，额可惜我水平确实不好。然后偶然看到翻页书，确实很有意思，我们本来打算去拍，只是时间不太够，排队人太多，两个男的也有些奇怪……</p>
-<p>回店换好常服接着逛文化村，可以说昨天安排的太紧，两个项目没玩上，今天又太松，十一点多就没啥安排了，而我们是三点的飞机。于是觅食，但现金得留着打车去机场，好在路遇北京情侣成功换到现金，吃了一碗香喷喷的韩式拉面，店主英文说的很好，店内还有王家卫《东邪西毒》的海报，他说很喜欢王家卫。</p>
-<p>吃完饭逛到一家邮局，来了兴致给朋友寄出一张明信片，感觉很有特殊意义hhh接着打车去机场，坐地铁可能一个半小时，打车二十多分钟就到了，但这也意味着我们要在机场等快两个小时。金海机场蛮小的国内航班就几个登机口。</p>
-<p>差不多四点左右到济州岛，出了机场本来说要把公交卡用完，结果等了半天公交，第一次还坐反了，第二次做的方向正确刚好把卡内钱用完。</p>
-<p>下车步行去酒店，两个人都饿了，进了一家炸鸡店，看到菜单很兴奋，以为10左右的价格是人民币，后来才发现是k韩元，真是小丑了，不过韩式炸鸡味道一般般。</p>
-<p>格洛斯特酒店感觉还好，200多能住算是很划算了，checkin放下行李后赶忙跑去新罗免税店购物，因为七点关门，不过主要就是我室友买买买了，我负责陪同。又去了乐天免税店，踩点买完。之后就是大街上闲逛，发现一家古着店，室友很感兴趣在里面逛了很久，怒消费1k+，也是很有生活了。</p>
-<p>我走进olive young帮朋友代购，但尴尬的是一开始找错人了，我以为的店员其实也是顾客，那个女生不会说英文，叫来她的欧巴跟我用翻译软件，说实话我有点脚趾扣地……</p>
-<p>韩文确实很难看懂，我们找地方都是对图案……这回出国时是真的体会到出国了，会的两门语言都很少见，济州岛可能好一些，但是Busan的中文和英文都比较少，微信和支付宝也没有很推广。</p>
-<h2 id="3-10"><a href="#3-10" class="headerlink" title="3.10"></a>3.10</h2><p>依旧是拦车去机场，这点还算不错，没有打车软件也还是能够打到车的。回国！</p>
-<h2 id="一些感想"><a href="#一些感想" class="headerlink" title="一些感想"></a>一些感想</h2><p>总体而言这次韩国之行还是很愉快的，在极短时间内体验了两座城市，感受到了异域风情，也体验了韩国的交通，风土人情等等，当然有个伴出行比一个人确实好不少，可以一路开开心心唠嗑，遇上事了也能一起商量，还能互相记录美好生活hhh</p>
-<p>在Busan看到海景的感觉确实非同凡响，我在朋友圈中写道，最大的意义在于将我从繁杂的学业中解救出来，在那一瞬间享受这一方内心的安宁，这也是我希望旅游能带给我的，多去看看世界，见识世界。</p>
-<p>不过，放松够了要重新进入学习状态咯！</p>
-]]></content>
-      <categories>
-        <category>Daily</category>
-      </categories>
-      <tags>
-        <tag>旅行</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CS144-1</title>
     <url>/2025/03/03/Networking/CS144-1/</url>
     <content><![CDATA[<p>记录CS144课程的学习过程，跟随<a href="https://cs144.github.io/">CS144: Introduction to Computer Networking</a>25春季版本。<br><span id="more"></span></p>
@@ -1222,6 +1159,107 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       <tags>
         <tag>CS144</tag>
         <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OS-02 Functions and Structures</title>
+    <url>/2025/02/21/OS/OS02/</url>
+    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Operating systems provide an environment for program executions and services to programs/users<br><span id="more"></span></p>
+<p><img src="/images/OS02-overview.jpg" alt="overview"></p>
+<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
+<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
+<ul>
+<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
+<li>直接执行 eg. <code>cd</code></li>
+</ul>
+</li>
+<li>System program commands: The command is a program name. <ul>
+<li>查找系统文件执行 eg. <code>ls</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
+<li>User</li>
+<li>Kernel<br>转换：系统调用，中断，异常</li>
+</ul>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>System calls are mostly accessed by programs via a high-level Application Program Interface (API) rather than direct system call use.<br>性质：</p>
+<ul>
+<li>易用：无需了解底层实现，直接调用</li>
+<li>可移植：API具有跨平台兼容性</li>
+<li>安全：直接调用与内核交互</li>
+</ul>
+<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><ul>
+<li>寄存器：快，少</li>
+<li>内存表</li>
+<li>栈</li>
+</ul>
+<p>The last two methods do not limit the number or length of parameters being passed 性能损耗</p>
+<h4 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h4><h5 id="Type-1-Process-control"><a href="#Type-1-Process-control" class="headerlink" title="Type 1: Process control"></a>Type 1: Process control</h5><ul>
+<li>Control the current process: end， abort， execute， load……</li>
+<li>Control a different process</li>
+<li>Allocate memory and release memory</li>
+<li>Debugger</li>
+<li>Locks for managing access to shared data between processes</li>
+</ul>
+<h5 id="Type-2-File-management"><a href="#Type-2-File-management" class="headerlink" title="Type 2: File management"></a>Type 2: File management</h5><h5 id="Type-3-Device-management"><a href="#Type-3-Device-management" class="headerlink" title="Type 3: Device management"></a>Type 3: Device management</h5><h5 id="Type-4-Information-maintenance"><a href="#Type-4-Information-maintenance" class="headerlink" title="Type 4: Information maintenance"></a>Type 4: Information maintenance</h5><h5 id="Type-5-Communications"><a href="#Type-5-Communications" class="headerlink" title="Type 5: Communications"></a>Type 5: Communications</h5><ul>
+<li>message passing model 内核中转，离散</li>
+<li>shared-memory model 共享物理内存</li>
+</ul>
+<h5 id="Type-6-Protection"><a href="#Type-6-Protection" class="headerlink" title="Type 6: Protection"></a>Type 6: Protection</h5><h3 id="System-Services"><a href="#System-Services" class="headerlink" title="System Services"></a>System Services</h3><p>In computer hierarchy, system services are higher than system calls.</p>
+<p>System services use system calls to interact with the OS kernel</p>
+<h4 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h4><ul>
+<li>System Programs：Login program, shell, window manager</li>
+<li>Application Programs：Email, web browsers, gaming software, word processors</li>
+</ul>
+<h4 id="Why-Applications-are-Operating-System-Specific："><a href="#Why-Applications-are-Operating-System-Specific：" class="headerlink" title="Why Applications are Operating System Specific："></a>Why Applications are Operating System Specific：</h4><p>Reason: Each operating system provides its own unique system calls</p>
+<p>eg. file format</p>
+<h4 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h4><ul>
+<li>File management</li>
+<li>Status information <ul>
+<li>Some systems implement a registry (注册表) - used to store and retrieve configuration information </li>
+</ul>
+</li>
+<li>File modification</li>
+<li>Programming-language support</li>
+<li>Program loading and execution</li>
+<li>Communications</li>
+<li>Background Services<ul>
+<li>Known as services, subsystems, daemons</li>
+</ul>
+</li>
+</ul>
+<h2 id="Operating-System-Structures"><a href="#Operating-System-Structures" class="headerlink" title="Operating System Structures"></a>Operating System Structures</h2><ul>
+<li>Simple Structure – MS-DOS</li>
+<li>Monolithic (单体)Structure – Original UNIX</li>
+<li>Layered Approach</li>
+<li>Microkernel System Structure - Mach</li>
+<li>Hybrid Systems - windows, macOS, Android </li>
+</ul>
+<h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p><img src="/images/OS02-V.jpeg" alt="visulization"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/images/OS02-S.jpeg" alt="topics"></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面试小记</title>
+    <url>/2025/03/19/Daily/%E9%9D%A2%E8%AF%95%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<p>记录“智信班”面试被狠狠拷打后的一些感想。<br><span id="more"></span></p>
+<p>刚刚结束了一场面试，十来分钟的面试被几位老师狠狠拷打。一方面是由于我的简历吹水比较严重（其实也不太算，只是有些夸大其词），更多的是因为我对于自己完成过的项目细节掌握不是很清楚。</p>
+<p>比如说，关于pacman-ai项目，问到了强化学习中的q-learning的q值如何构成，由于8个月前写的项目我不太记得了……又比如线代，问到了最基本的特征值和特征向量，我一时间居然想不起来公式，只记得线性变换方向不变这个特点……最后问道到快排算不算分治，我都不记得快排算法具体内容了……</p>
+<p>总言之，一方面由于自己并没有熟练掌握这些知识，一方面也由于没做什么准备，没有再看看自己在简历中吹水的内容，最后结果就是被狠狠拷打，本身我的学积分不算高，两门代码基础课程也很烂，这样可能会给面试老师留下印象，看来学积分低是有原因的，确实没有学的很好……</p>
+<p>当然，还有一点需要注意的是，我应该对自己完成的项目有充分的了解，对于项目具体细节应该全面掌握。比如再次遇到面试这样的场合，我能很自如地像懂行或者不懂行的人介绍我的工作，让别人了解我在做些什么，这是很重要的能力。</p>
+<p>所以说，以后做科研，其实不管是完成任何工作，都要带着一种面试思维，想象被拷打的过程。或者说，这本身也是一种费曼学习法，你要有能力把你的工作介绍给一个完全不懂/很懂行的人，让他理解你在做些什么，这样你对自己工作的理解才算是到位了。</p>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>随想</tag>
       </tags>
   </entry>
   <entry>
@@ -1405,90 +1443,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       <tags>
         <tag>AI辅助</tag>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OS-02 Functions and Structures</title>
-    <url>/2025/02/21/OS/OS02/</url>
-    <content><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Operating systems provide an environment for program executions and services to programs/users<br><span id="more"></span></p>
-<p><img src="/images/OS02-overview.jpg" alt="overview"></p>
-<h2 id="Functions"><a href="#Functions" class="headerlink" title="Functions"></a>Functions</h2><h3 id="User-Interface"><a href="#User-Interface" class="headerlink" title="User Interface"></a>User Interface</h3><p><strong>Shell</strong>: A computer program that exposes an OS’s services to a human user or other programs. OS shells use either a command-line interface (CLI) or a graphical user interface (GUI)<br>An interpreter</p>
-<h4 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h4><p>Shell：</p>
-<ul>
-<li>Built-in commands: The interpreter contains the code to execute the command. <ul>
-<li>直接执行 eg. <code>cd</code></li>
-</ul>
-</li>
-<li>System program commands: The command is a program name. <ul>
-<li>查找系统文件执行 eg. <code>ls</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="System-Calls"><a href="#System-Calls" class="headerlink" title="System Calls"></a>System Calls</h3><h4 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h4><ul>
-<li>User</li>
-<li>Kernel<br>转换：系统调用，中断，异常</li>
-</ul>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><p>System calls are mostly accessed by programs via a high-level Application Program Interface (API) rather than direct system call use.<br>性质：</p>
-<ul>
-<li>易用：无需了解底层实现，直接调用</li>
-<li>可移植：API具有跨平台兼容性</li>
-<li>安全：直接调用与内核交互</li>
-</ul>
-<h4 id="Parameter-Passing"><a href="#Parameter-Passing" class="headerlink" title="Parameter Passing"></a>Parameter Passing</h4><ul>
-<li>寄存器：快，少</li>
-<li>内存表</li>
-<li>栈</li>
-</ul>
-<p>The last two methods do not limit the number or length of parameters being passed 性能损耗</p>
-<h4 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h4><h5 id="Type-1-Process-control"><a href="#Type-1-Process-control" class="headerlink" title="Type 1: Process control"></a>Type 1: Process control</h5><ul>
-<li>Control the current process: end， abort， execute， load……</li>
-<li>Control a different process</li>
-<li>Allocate memory and release memory</li>
-<li>Debugger</li>
-<li>Locks for managing access to shared data between processes</li>
-</ul>
-<h5 id="Type-2-File-management"><a href="#Type-2-File-management" class="headerlink" title="Type 2: File management"></a>Type 2: File management</h5><h5 id="Type-3-Device-management"><a href="#Type-3-Device-management" class="headerlink" title="Type 3: Device management"></a>Type 3: Device management</h5><h5 id="Type-4-Information-maintenance"><a href="#Type-4-Information-maintenance" class="headerlink" title="Type 4: Information maintenance"></a>Type 4: Information maintenance</h5><h5 id="Type-5-Communications"><a href="#Type-5-Communications" class="headerlink" title="Type 5: Communications"></a>Type 5: Communications</h5><ul>
-<li>message passing model 内核中转，离散</li>
-<li>shared-memory model 共享物理内存</li>
-</ul>
-<h5 id="Type-6-Protection"><a href="#Type-6-Protection" class="headerlink" title="Type 6: Protection"></a>Type 6: Protection</h5><h3 id="System-Services"><a href="#System-Services" class="headerlink" title="System Services"></a>System Services</h3><p>In computer hierarchy, system services are higher than system calls.</p>
-<p>System services use system calls to interact with the OS kernel</p>
-<h4 id="Programs"><a href="#Programs" class="headerlink" title="Programs"></a>Programs</h4><ul>
-<li>System Programs：Login program, shell, window manager</li>
-<li>Application Programs：Email, web browsers, gaming software, word processors</li>
-</ul>
-<h4 id="Why-Applications-are-Operating-System-Specific："><a href="#Why-Applications-are-Operating-System-Specific：" class="headerlink" title="Why Applications are Operating System Specific："></a>Why Applications are Operating System Specific：</h4><p>Reason: Each operating system provides its own unique system calls</p>
-<p>eg. file format</p>
-<h4 id="Services"><a href="#Services" class="headerlink" title="Services"></a>Services</h4><ul>
-<li>File management</li>
-<li>Status information <ul>
-<li>Some systems implement a registry (注册表) - used to store and retrieve configuration information </li>
-</ul>
-</li>
-<li>File modification</li>
-<li>Programming-language support</li>
-<li>Program loading and execution</li>
-<li>Communications</li>
-<li>Background Services<ul>
-<li>Known as services, subsystems, daemons</li>
-</ul>
-</li>
-</ul>
-<h2 id="Operating-System-Structures"><a href="#Operating-System-Structures" class="headerlink" title="Operating System Structures"></a>Operating System Structures</h2><ul>
-<li>Simple Structure – MS-DOS</li>
-<li>Monolithic (单体)Structure – Original UNIX</li>
-<li>Layered Approach</li>
-<li>Microkernel System Structure - Mach</li>
-<li>Hybrid Systems - windows, macOS, Android </li>
-</ul>
-<h2 id="Virtual-Machines"><a href="#Virtual-Machines" class="headerlink" title="Virtual Machines"></a>Virtual Machines</h2><p><img src="/images/OS02-V.jpeg" alt="visulization"></p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p><img src="/images/OS02-S.jpeg" alt="topics"></p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -1718,6 +1672,52 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>韩国游记</title>
+    <url>/2025/03/10/Daily/%E9%9F%A9%E5%9B%BD%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<p>出行时间：3.8~3.10</p>
+<p>出行地点：Busan and Jeju</p>
+<span id="more"></span>
+<h2 id="行前准备"><a href="#行前准备" class="headerlink" title="行前准备"></a>行前准备</h2><p>感谢Busan pass, 很适合我这种特种兵玩法，根据其项目在出行前做好了很极限的攻略。</p>
+<p><a href="/images/Busan.pdf">Busan</a></p>
+<h2 id="3-8"><a href="#3-8" class="headerlink" title="3.8"></a>3.8</h2><p>10：15在pvg的飞机，所以和室友7：30从寝室出发，机联线果然快，基本上80min+到机场。选择廉航的代价就是摆渡车上飞机，以及忍受行程中的推销……</p>
+<p>准点到，丝滑入境，跟预想的时间差不多，13：30出境去领Busan pass实体卡，目前为止都很顺利，直到做紫线差点做反hhh</p>
+<p>室友锐评小韩民国好像他老家遵义，然后开始吐槽韩国人的发型，我们总结出来，男生都是服帖烫，女生都是空气刘海，仗着车上的人听不懂中文开始大声蛐蛐他们。</p>
+<p>本来打算去skyline luge玩，换乘两次一个多小时，本来打算在BEXCO换乘出来吃个午饭再去，出站后在路边找到一家人很多的店，用现金点了冷面和炸猪排，都挺香的很韩式，结果打算用uber打车，结果我号被封了，神经！两个人开始各种尝试Kakao T，但都得需要手机号验证，而我们没开漫游又收不到验证码，陷入死循环……</p>
+<p>最后不得已一路问路找到了BEXCO站，从地铁换乘轻轨？此时已经快四点了，于是当机立断直接去坐海边列车，事实证明这是一个很明智的选择。</p>
+<p>下车后下起了毛毛雨，很幸运到了海边列车松亭站领了票很快就上车了，初次上车有优先权所以有座位，不过可惜的是并不完全在海边走，还有步道与围栏挡着，又是阴天海不是很好看，不过总算有些度假的感觉了。</p>
+<p>很令人惊讶的是，沿路能够看到很多平房与菜地，与高楼大厦形成了鲜明对比，挨的确实太近了。到了青沙浦站下车，宣传册上说这里是酷似《灌篮高手》取景地很是搞笑，往海边走，沿途一家纪念品店，店里一块落地窗真的很好看很出片！海边有两座灯塔，在防波堤上吹吹海风很是惬意。</p>
+<p>坐上胶囊小火车！这真的是Busan之行中最赞的两个项目之一，恰好此时日落，晚霞从远方降临，黄色的胶囊小车在轨道上缓缓前行，轨道旁是一望无际的大海，这种感觉很妙，让我忘却了几乎一切烦恼，真正在那一刻享受内心的安宁。</p>
+<p>本来打算去旁边的X 观景台，不过时间又不够了，在路旁拦下一辆出租去坐游艇。韩国司机也不太懂英语，给他看google map上的地址也是抓耳挠腮，顺带一提，打车有点小贵，不过其实和上海也差不多，起步价4800韩币差不多24元左右。</p>
+<p>游艇上有家台湾人，很有意思，大喊叫x主席快点打过来解放他们，两岸一家亲hhh，慢慢开出穿过广安大桥，天色渐晚，映在海面上，大桥上的白灯与海岸边城市的霓虹交相辉映，真的很享受，不过舰首的风还是蛮大，要是再暖和点就更完美了。韩国的台湾人真的很多，也许免签？遇到一对台湾姐姐，我们都以为20+，一问才知道快四十了属实是很震惊。</p>
+<p>欣赏完自放烟花，游艇也就回港，我们步行前往今天最后一个项目，SPA LAND ，享受下韩国桑拿，Busan pass针对性价比体验感都拉满了，好评！其实馆内有很多种汗蒸馆，不过我们体验了下室外的差不多便离开了。</p>
+<p>此时也才九点左右，坐二号线到西面觅食，结果找好久不知道吃啥（主要是很少店能够微信支付宝支付，我们又不太想用现金，留着打车用），最后再=在路旁拉人推荐餐厅，可惜韩国的素质教育有待加强，英语水平普遍不太好……但都很热情！最后实在没办法找了家餐厅吃汤锅，勉勉强强刷visa完成了晚饭。</p>
+<p>在路边拦下一辆出租车，第一位司机明显是那种老本地人，半天没看懂我们要去哪，语音翻译软件也不会用，把我们赶下车了，碰到的第二位明显懂英文，一下就看懂了，一路飙车把我们带回民俗。韩国司机开的真的很猛，我评价是仅次于香港司机的存在。</p>
+<p>民宿是我特意定在扎噶其市场附近的工业风，叫urbanstay，第一次在国外用airbnb！</p>
+<h2 id="3-9"><a href="#3-9" class="headerlink" title="3.9"></a>3.9</h2><p>早上八点半起，发现书包上的耳廓狐挂件掉了，悲。。。楼下711觅食，想取钱失败，此时我们身上仅剩45000韩币却要撑过一天……</p>
+<p>第一回坐公交，速度很快，我们提前到达了松岛海上缆车站，几乎是第一批游客，很有意思还会给我们发糖hhh</p>
+<p>这是最赞的项目中的另一个。今天出太阳了，天气很好，蔚蓝色的大海，我们选择的水晶车厢底透明，可以看见蒂芙尼蓝色的海水，一路各种拍拍拍，超出片超美，车厢还可以连蓝牙放音乐，体验感拉满。</p>
+<p>到达对岸后，应该是一个公园，很多当地人在登山，我们作为游客下山到旁边的龙宫云桥，在桥上看看海景也很有意思，遇到一队韩国奶奶观光团，热情招呼我们帮他们拍照hhh</p>
+<p>坐缆车回程，再度享受，然后直接拦车去甘川文化村，文化村建在山上，是原来渔民修的房子。我们差不多十点多就到了，开始韩服体验，不过说实话我感觉也没有很韩。到了打卡点又开始拍照，室友嫌弃我拍的太难看，额可惜我水平确实不好。然后偶然看到翻页书，确实很有意思，我们本来打算去拍，只是时间不太够，排队人太多，两个男的也有些奇怪……</p>
+<p>回店换好常服接着逛文化村，可以说昨天安排的太紧，两个项目没玩上，今天又太松，十一点多就没啥安排了，而我们是三点的飞机。于是觅食，但现金得留着打车去机场，好在路遇北京情侣成功换到现金，吃了一碗香喷喷的韩式拉面，店主英文说的很好，店内还有王家卫《东邪西毒》的海报，他说很喜欢王家卫。</p>
+<p>吃完饭逛到一家邮局，来了兴致给朋友寄出一张明信片，感觉很有特殊意义hhh接着打车去机场，坐地铁可能一个半小时，打车二十多分钟就到了，但这也意味着我们要在机场等快两个小时。金海机场蛮小的国内航班就几个登机口。</p>
+<p>差不多四点左右到济州岛，出了机场本来说要把公交卡用完，结果等了半天公交，第一次还坐反了，第二次做的方向正确刚好把卡内钱用完。</p>
+<p>下车步行去酒店，两个人都饿了，进了一家炸鸡店，看到菜单很兴奋，以为10左右的价格是人民币，后来才发现是k韩元，真是小丑了，不过韩式炸鸡味道一般般。</p>
+<p>格洛斯特酒店感觉还好，200多能住算是很划算了，checkin放下行李后赶忙跑去新罗免税店购物，因为七点关门，不过主要就是我室友买买买了，我负责陪同。又去了乐天免税店，踩点买完。之后就是大街上闲逛，发现一家古着店，室友很感兴趣在里面逛了很久，怒消费1k+，也是很有生活了。</p>
+<p>我走进olive young帮朋友代购，但尴尬的是一开始找错人了，我以为的店员其实也是顾客，那个女生不会说英文，叫来她的欧巴跟我用翻译软件，说实话我有点脚趾扣地……</p>
+<p>韩文确实很难看懂，我们找地方都是对图案……这回出国时是真的体会到出国了，会的两门语言都很少见，济州岛可能好一些，但是Busan的中文和英文都比较少，微信和支付宝也没有很推广。</p>
+<h2 id="3-10"><a href="#3-10" class="headerlink" title="3.10"></a>3.10</h2><p>依旧是拦车去机场，这点还算不错，没有打车软件也还是能够打到车的。回国！</p>
+<h2 id="一些感想"><a href="#一些感想" class="headerlink" title="一些感想"></a>一些感想</h2><p>总体而言这次韩国之行还是很愉快的，在极短时间内体验了两座城市，感受到了异域风情，也体验了韩国的交通，风土人情等等，当然有个伴出行比一个人确实好不少，可以一路开开心心唠嗑，遇上事了也能一起商量，还能互相记录美好生活hhh</p>
+<p>在Busan看到海景的感觉确实非同凡响，我在朋友圈中写道，最大的意义在于将我从繁杂的学业中解救出来，在那一瞬间享受这一方内心的安宁，这也是我希望旅游能带给我的，多去看看世界，见识世界。</p>
+<p>不过，放松够了要重新进入学习状态咯！</p>
+]]></content>
+      <categories>
+        <category>Daily</category>
+      </categories>
+      <tags>
+        <tag>旅行</tag>
       </tags>
   </entry>
   <entry>
@@ -2078,6 +2078,102 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
+    <title>OS-06 Process Synchronization</title>
+    <url>/2025/03/07/OS/OS06/</url>
+    <content><![CDATA[<p>本文介绍了操作系统中的进程同步问题。<br><span id="more"></span></p>
+<h2 id="Background-Critical-Section-Problem"><a href="#Background-Critical-Section-Problem" class="headerlink" title="Background: Critical-Section Problem"></a>Background: Critical-Section Problem</h2><p>多个进程并发执行时，都有访问和修改共享资源的代码段（临界区）。若缺乏同步机制，会因多个进程同时进入临界区操作共享资源，导致数据不一致、产生竞争条件(race condition)。</p>
+<p>解决方案：</p>
+<ul>
+<li>互斥性(mutual exclusion)</li>
+<li>进展性(progress)：If no process is executing in its critical section and there exist processes waiting to enter, the selection of entering processes cannot be postponed indefinitely</li>
+<li>有限等待(bounded waiting)</li>
+</ul>
+<h2 id="Synchronization-Mechanisms"><a href="#Synchronization-Mechanisms" class="headerlink" title="Synchronization Mechanisms"></a>Synchronization Mechanisms</h2><h3 id="Peterson’s-Solution"><a href="#Peterson’s-Solution" class="headerlink" title="Peterson’s Solution"></a>Peterson’s Solution</h3><p>假设加载和存储指令是原子操作，不可中断。两个进程共享两个变量，int turn用于指示轮到哪个进程进入临界区，boolean flag[2]数组用于表示进程是否准备好进入临界区，flag[i] = true表示进程<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="2.192ex" height="1.902ex" role="img" focusable="false" viewBox="0 -683 969 840.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="TeXAtom" transform="translate(675,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></g></svg></mjx-container>准备进入。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> turn; <span class="comment">// 轮到哪个进程进入临界区</span></span><br><span class="line">boolean flag[<span class="number">2</span>]; <span class="comment">// 进程是否准备好进入临界区</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P0</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    flag[<span class="number">0</span>] = <span class="literal">true</span>; <span class="comment">// 进程P0准备进入临界区</span></span><br><span class="line">    turn = <span class="number">1</span>; <span class="comment">// 轮到进程P1进入临界区</span></span><br><span class="line">    <span class="keyword">while</span> (flag[<span class="number">1</span>] &amp;&amp; turn == <span class="number">1</span>); <span class="comment">// 如果进程P1准备好进入临界区且轮到进程P1进入临界区，则进程P0等待</span></span><br><span class="line">    critical section <span class="comment">// 进程P0进入临界区</span></span><br><span class="line">    flag[<span class="number">0</span>] = <span class="literal">false</span>; <span class="comment">// 进程P0退出临界区</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P1</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    flag[<span class="number">1</span>] = <span class="literal">true</span>; <span class="comment">// 进程P1准备进入临界区</span></span><br><span class="line">    turn = <span class="number">0</span>; <span class="comment">// 轮到进程P0进入临界区</span></span><br><span class="line">    <span class="keyword">while</span> (flag[<span class="number">0</span>] &amp;&amp; turn == <span class="number">0</span>); <span class="comment">// 如果进程P0准备好进入临界区且轮到进程P0进入临界区，则进程P1等待</span></span><br><span class="line">    critical section <span class="comment">// 进程P1进入临界区</span></span><br><span class="line">    flag[<span class="number">1</span>] = <span class="literal">false</span>; <span class="comment">// 进程P1退出临界区</span></span><br><span class="line">}   </span><br></pre></td></tr></table></figure>
+<p>局限性：</p>
+<p>To improve performance, modern processors and/or compilers may reorder read and write operations that have no dependencies.</p>
+<p>当存在指令重排序时，原本顺序执行的指令可能会改变执行顺序，导致进程同时进入临界区。</p>
+<h3 id="Hardware-Support-for-Synchronization"><a href="#Hardware-Support-for-Synchronization" class="headerlink" title="Hardware Support for Synchronization"></a>Hardware Support for Synchronization</h3><h4 id="Memory-barriers"><a href="#Memory-barriers" class="headerlink" title="Memory barriers"></a>Memory barriers</h4><p>A memory barrier (内存屏障) is an instruction that forces any change in memory to be propagated (visible) to all other processors.</p>
+<p>当执行内存屏障指令时，在同一进程内，它确保所有之前的加载（load）和存储（store）操作都完成后，才会执行后续的加载 / 存储操作。即使处理器或编译器对指令进行了重排序，内存屏障也能保证存储操作在内存中完成，并且在未来的加载 / 存储操作之前对其他处理器可见。</p>
+<h4 id="Hardware-Instructions"><a href="#Hardware-Instructions" class="headerlink" title="Hardware Instructions"></a>Hardware Instructions</h4><p>原子变量(atomic variable)：一个或多个指令的执行是不可分割的，要么全部执行，要么全部不执行。</p>
+<p>局限性：unbounded waiting，竞争资源时获取顺序是随机的。</p>
+<h5 id="Test-and-Set-instruction"><a href="#Test-and-Set-instruction" class="headerlink" title="Test-and-Set instruction"></a>Test-and-Set instruction</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">TestAndSet</span><span class="params">(<span class="type">bool</span> *target)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">bool</span> rv = *target;</span><br><span class="line">    *target = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> rv;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>举例：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> lock = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P0</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (TestAndSet(&amp;lock)); <span class="comment">// 如果lock为true，则等待</span></span><br><span class="line">    critical section <span class="comment">// 进程P0进入临界区</span></span><br><span class="line">    lock = <span class="literal">false</span>; <span class="comment">// 进程P0退出临界区</span></span><br><span class="line">}             </span><br></pre></td></tr></table></figure>
+<p>从并发执行的其他线程或进程的视角看，它瞬间完成，要么完整执行，要么完全不执行。</p>
+<h5 id="Compare-and-Swap-instruction"><a href="#Compare-and-Swap-instruction" class="headerlink" title="Compare-and-Swap instruction"></a>Compare-and-Swap instruction</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">compare_and_swap</span><span class="params">(<span class="type">int</span> *value, <span class="type">int</span> expected, <span class="type">int</span> new_value)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> temp = *value; </span><br><span class="line">    <span class="keyword">if</span> (*value == expected) </span><br><span class="line">        *value = new_value; </span><br><span class="line">    <span class="keyword">return</span> temp; </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>bounded waiting version:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">{</span><br><span class="line">    <span class="comment">/* entry section – acquire the lock */</span> </span><br><span class="line">    waiting[i] = <span class="literal">true</span>;</span><br><span class="line">    key = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (waiting[i] &amp;&amp; key == <span class="number">1</span>) <span class="comment">// use key to exit</span></span><br><span class="line">    key = compare_and_swap(&amp;lock, <span class="number">0</span>, <span class="number">1</span>); </span><br><span class="line">    waiting[i] = <span class="literal">false</span>; </span><br><span class="line">    <span class="comment">/* critical section – release one process */</span> </span><br><span class="line">    j = (i + <span class="number">1</span>) % n; </span><br><span class="line">    <span class="keyword">while</span> ((j != i) &amp;&amp; !waiting[j]) </span><br><span class="line">    j = (j + <span class="number">1</span>) % n; </span><br><span class="line">    <span class="keyword">if</span> (j == i) </span><br><span class="line">    lock = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    waiting[j] = <span class="literal">false</span>; </span><br><span class="line">    <span class="comment">/* remainder section */</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h4 id="Atomic-Variables"><a href="#Atomic-Variables" class="headerlink" title="Atomic Variables"></a>Atomic Variables</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">increment</span><span class="params">(<span class="type">atomic_int</span> *v)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> temp;</span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        temp = *v;</span><br><span class="line">    } <span class="keyword">while</span> (temp != (compare_and_swap(v,temp,temp+<span class="number">1</span>)));</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="Mutex-Locks-and-Semaphores"><a href="#Mutex-Locks-and-Semaphores" class="headerlink" title="Mutex Locks and Semaphores"></a>Mutex Locks and Semaphores</h3><h4 id="Mutex-Locks"><a href="#Mutex-Locks" class="headerlink" title="Mutex Locks"></a>Mutex Locks</h4><p>互斥锁(mutex lock)是最简单的同步工具。一个进程在访问临界区时必须先获得锁；离开时必须释放锁。mutex lock包含一个布尔变量available，表示锁是否可用：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="type">bool</span> available;</span><br><span class="line">} mutex;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">acquire</span><span class="params">(mutex *m)</span> {</span><br><span class="line">    <span class="keyword">while</span> (!m-&gt;available); <span class="comment">// 自旋等待</span></span><br><span class="line">    m-&gt;available = <span class="literal">false</span>;  <span class="comment">// 获得锁</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">release</span><span class="params">(mutex *m)</span> {</span><br><span class="line">    m-&gt;available = <span class="literal">true</span>;   <span class="comment">// 释放锁</span></span><br><span class="line">} </span><br></pre></td></tr></table></figure>
+<p>使用示例：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">mutex lock;  <span class="comment">// 初始化时available为true</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">acquire(&amp;lock);</span><br><span class="line">critical section  <span class="comment">// 临界区</span></span><br><span class="line">release(&amp;lock);</span><br><span class="line">remainder section</span><br></pre></td></tr></table></figure>
+<p>主要特点：</p>
+<ol>
+<li>互斥性：任意时刻只有一个进程可以获得锁</li>
+<li>自旋等待(busy waiting)：进程在等待锁时会持续占用CPU</li>
+<li>适用于：<ul>
+<li>预期等待时间短</li>
+<li>多处理器系统</li>
+</ul>
+</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>自旋等待浪费CPU时间</li>
+<li>可能发生优先级反转(priority inversion)：低优先级进程持有锁时，高优先级进程必须等待</li>
+</ol>
+<h4 id="Semaphores"><a href="#Semaphores" class="headerlink" title="Semaphores"></a>Semaphores</h4><p>信号量(Semaphore)是一个更强大的同步工具，由Dijkstra提出。信号量S是一个整型变量，除了初始化外，只能通过两个原子操作wait(P)和signal(V)来访问：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="type">int</span> value;      <span class="comment">// 信号量的值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">process</span> *<span class="title">list</span>;</span>  <span class="comment">// 等待队列</span></span><br><span class="line">} semaphore;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">wait</span><span class="params">(semaphore *S)</span> </span><br><span class="line">{  <span class="comment">// P操作</span></span><br><span class="line">    S-&gt;value--;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;value &lt; <span class="number">0</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 将当前进程加入等待队列</span></span><br><span class="line">        add_to_list(S-&gt;<span class="built_in">list</span>);</span><br><span class="line">        block();  <span class="comment">// 阻塞当前进程</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">signal</span><span class="params">(semaphore *S)</span> </span><br><span class="line">{  <span class="comment">// V操作</span></span><br><span class="line">    S-&gt;value++;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;value &lt;= <span class="number">0</span> &amp;&amp; S-&gt;<span class="built_in">list</span> != <span class="literal">NULL</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 从等待队列中唤醒一个进程</span></span><br><span class="line">        process *p = remove_from_list(S-&gt;<span class="built_in">list</span>);</span><br><span class="line">        wakeup(p);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>信号量的类型：</p>
+<ol>
+<li><p>二进制信号量(Binary Semaphore)</p>
+<ul>
+<li>值只能为0或1</li>
+<li>类似于mutex lock，但实现机制不同</li>
+<li>适用于互斥和同步</li>
+</ul>
+</li>
+<li><p>计数信号量(Counting Semaphore)</p>
+<ul>
+<li>值可以是任意整数</li>
+<li>用于资源管理</li>
+<li>例如：控制对有限资源的访问</li>
+</ul>
+</li>
+</ol>
+<p>使用示例：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 互斥访问示例</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;  <span class="comment">// 初始化为1</span></span><br><span class="line"></span><br><span class="line">wait(&amp;mutex);</span><br><span class="line">critical section</span><br><span class="line"><span class="title function_">signal</span><span class="params">(&amp;mutex)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产者-消费者问题示例</span></span><br><span class="line">semaphore empty = n;    <span class="comment">// 初始化为缓冲区大小</span></span><br><span class="line">semaphore full = <span class="number">0</span>;     <span class="comment">// 初始化为0</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;    <span class="comment">// 用于互斥访问</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产者</span></span><br><span class="line">wait(&amp;empty);          <span class="comment">// 等待空槽</span></span><br><span class="line">wait(&amp;mutex);          <span class="comment">// 进入临界区</span></span><br><span class="line">    <span class="comment">// 添加数据到缓冲区</span></span><br><span class="line">signal(&amp;mutex);        <span class="comment">// 离开临界区</span></span><br><span class="line">signal(&amp;full);         <span class="comment">// 增加满槽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line">wait(&amp;full);           <span class="comment">// 等待满槽</span></span><br><span class="line">wait(&amp;mutex);          <span class="comment">// 进入临界区</span></span><br><span class="line">    <span class="comment">// 从缓冲区取出数据</span></span><br><span class="line">signal(&amp;mutex);        <span class="comment">// 离开临界区</span></span><br><span class="line">signal(&amp;empty);        <span class="comment">// 增加空槽</span></span><br></pre></td></tr></table></figure>
+<p>信号量的优点：</p>
+<ol>
+<li>没有忙等待，进程阻塞时不消耗CPU</li>
+<li>可以实现更复杂的同步</li>
+<li>适用于多种同步场景</li>
+</ol>
+<p>信号量的缺点：</p>
+<ol>
+<li>使用不当容易导致死锁</li>
+<li>难以保证正确性</li>
+<li>编程容易出错（wait/signal顺序错误）</li>
+</ol>
+<h3 id="Monitors"><a href="#Monitors" class="headerlink" title="Monitors"></a>Monitors</h3><p>抽象： 封装共享数据与操作共享数据的过程，提供一种机制，确保在任何时刻只有一个进程能够访问共享数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">monitor monitor_name {</span><br><span class="line">    // 共享变量声明</span><br><span class="line">    </span><br><span class="line">    // 管程的初始化代码</span><br><span class="line">    </span><br><span class="line">    // 操作共享变量的过程</span><br><span class="line">    procedure P1(...) { ... }</span><br><span class="line">    procedure P2(...) { ... }</span><br><span class="line">    ...</span><br><span class="line">    procedure Pn(...) { ... }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><img src="\images\image_19.png" alt="1"></p>
+<h2 id="Synchronization-Problem-Formulations"><a href="#Synchronization-Problem-Formulations" class="headerlink" title="Synchronization Problem Formulations"></a>Synchronization Problem Formulations</h2><h3 id="Bounded-Buffer-Problem"><a href="#Bounded-Buffer-Problem" class="headerlink" title="Bounded-Buffer Problem"></a>Bounded-Buffer Problem</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">monitor BoundedBuffer </span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> buffer[N];       <span class="comment">// 缓冲区</span></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;       <span class="comment">// 缓冲区中的项目数</span></span><br><span class="line">    <span class="type">int</span> in = <span class="number">0</span>, out = <span class="number">0</span>; <span class="comment">// 放入和取出的位置</span></span><br><span class="line">    </span><br><span class="line">    condition not_full;  <span class="comment">// 缓冲区不满条件</span></span><br><span class="line">    condition not_empty; <span class="comment">// 缓冲区不空条件</span></span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">deposit</span><span class="params">(item)</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (count == N)</span><br><span class="line">            wait(not_full);    <span class="comment">// 如果缓冲区满，等待</span></span><br><span class="line">            </span><br><span class="line">        buffer[in] = item;     <span class="comment">// 放入项目</span></span><br><span class="line">        in = (in + <span class="number">1</span>) % N;     <span class="comment">// 更新位置</span></span><br><span class="line">        count++;               <span class="comment">// 增加计数</span></span><br><span class="line">        </span><br><span class="line">        signal(not_empty);     <span class="comment">// 唤醒等待的消费者</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">remove</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (count == <span class="number">0</span>)</span><br><span class="line">            wait(not_empty);   <span class="comment">// 如果缓冲区空，等待</span></span><br><span class="line">            </span><br><span class="line">        item = buffer[out];    <span class="comment">// 取出项目</span></span><br><span class="line">        out = (out + <span class="number">1</span>) % N;   <span class="comment">// 更新位置</span></span><br><span class="line">        count--;               <span class="comment">// 减少计数</span></span><br><span class="line">        </span><br><span class="line">        signal(not_full);      <span class="comment">// 唤醒等待的生产者</span></span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">BoundedBuffer bb;   <span class="comment">// 创建管程实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">producer</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        item = produce_item();</span><br><span class="line">        bb.deposit(item);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">consumer</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        item = bb.remove();</span><br><span class="line">        consume_item(item);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="Readers-Writers-Problem"><a href="#Readers-Writers-Problem" class="headerlink" title="Readers-Writers Problem"></a>Readers-Writers Problem</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">monitor ReaderWriter </span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> readers = <span class="number">0</span>;     <span class="comment">// 当前读者数量</span></span><br><span class="line">    boolean writing = <span class="literal">false</span>; <span class="comment">// 是否有人在写</span></span><br><span class="line">    </span><br><span class="line">    condition read;      <span class="comment">// 读者等待条件</span></span><br><span class="line">    condition write;     <span class="comment">// 写者等待条件</span></span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">startRead</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (writing || !write.empty())</span><br><span class="line">            wait(read);    <span class="comment">// 如果有人在写或有写者等待，则读者等待</span></span><br><span class="line">            </span><br><span class="line">        readers++;       <span class="comment">// 增加读者数量</span></span><br><span class="line">        signal(read);    <span class="comment">// 允许下一个读者进入</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">endRead</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        readers--;       <span class="comment">// 减少读者数量</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (readers == <span class="number">0</span>)</span><br><span class="line">            signal(write);  <span class="comment">// 如果没有读者了，唤醒写者</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">startWrite</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (readers &gt; <span class="number">0</span> || writing)</span><br><span class="line">            wait(write);   <span class="comment">// 如果有人在读或写，则写者等待</span></span><br><span class="line">            </span><br><span class="line">        writing = <span class="literal">true</span>;    <span class="comment">// 标记有人在写</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">endWrite</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        writing = <span class="literal">false</span>;   <span class="comment">// 标记没人在写</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!read.empty())</span><br><span class="line">            signal(read);   <span class="comment">// 优先唤醒读者</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            signal(write);  <span class="comment">// 否则唤醒写者</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ReaderWriter rw;   <span class="comment">// 创建管程实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 读者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">reader</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        rw.startRead();</span><br><span class="line">        <span class="comment">// 读取共享资源</span></span><br><span class="line">        rw.endRead();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">writer</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        rw.startWrite();</span><br><span class="line">        <span class="comment">// 修改共享资源</span></span><br><span class="line">        rw.endWrite();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="Dining-Philosophers-Problem"><a href="#Dining-Philosophers-Problem" class="headerlink" title="Dining-Philosophers Problem"></a>Dining-Philosophers Problem</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">monitor DiningPhilosophers </span><br><span class="line">{</span><br><span class="line">    <span class="class"><span class="keyword">enum</span> {</span>THINKING, HUNGRY, EATING} state[<span class="number">5</span>];</span><br><span class="line">    condition self[<span class="number">5</span>];</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">initialize</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">            state[i] = THINKING;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">test</span><span class="params">(<span class="type">int</span> i)</span> {</span><br><span class="line">        <span class="keyword">if</span> (state[i] == HUNGRY &amp;&amp; state[(i+<span class="number">4</span>) % <span class="number">5</span>] != EATING &amp;&amp; state[(i+<span class="number">1</span>) % <span class="number">5</span>] != EATING) </span><br><span class="line">        {</span><br><span class="line">            state[i] = EATING;</span><br><span class="line">            signal(self[i]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">pickup</span><span class="params">(<span class="type">int</span> i)</span> </span><br><span class="line">    {</span><br><span class="line">        state[i] = HUNGRY;</span><br><span class="line">        test(i);</span><br><span class="line">        <span class="keyword">if</span> (state[i] != EATING)</span><br><span class="line">            wait(self[i]);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">putdown</span><span class="params">(<span class="type">int</span> i)</span> </span><br><span class="line">    {</span><br><span class="line">        state[i] = THINKING;</span><br><span class="line">        <span class="comment">// 尝试让左右邻居吃</span></span><br><span class="line">        test((i+<span class="number">4</span>) % <span class="number">5</span>);</span><br><span class="line">        test((i+<span class="number">1</span>) % <span class="number">5</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">DiningPhilosophers dp;   <span class="comment">// 创建管程实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 哲学家进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">philosopher</span><span class="params">(<span class="type">int</span> i)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        think();        <span class="comment">// 思考</span></span><br><span class="line">        dp.pickup(i);   <span class="comment">// 拿起筷子</span></span><br><span class="line">        eat();          <span class="comment">// 吃饭</span></span><br><span class="line">        dp.putdown(i);  <span class="comment">// 放下筷子</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OS-05 CPU Scheduling</title>
     <url>/2025/03/05/OS/OS05/</url>
     <content><![CDATA[<p>本文介绍了操作系统中CPU调度的核心概念和实现方法。<br><span id="more"></span></p>
@@ -2222,102 +2318,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
-    <title>OS-06 Process Synchronization</title>
-    <url>/2025/03/07/OS/OS06/</url>
-    <content><![CDATA[<p>本文介绍了操作系统中的进程同步问题。<br><span id="more"></span></p>
-<h2 id="Background-Critical-Section-Problem"><a href="#Background-Critical-Section-Problem" class="headerlink" title="Background: Critical-Section Problem"></a>Background: Critical-Section Problem</h2><p>多个进程并发执行时，都有访问和修改共享资源的代码段（临界区）。若缺乏同步机制，会因多个进程同时进入临界区操作共享资源，导致数据不一致、产生竞争条件(race condition)。</p>
-<p>解决方案：</p>
-<ul>
-<li>互斥性(mutual exclusion)</li>
-<li>进展性(progress)：If no process is executing in its critical section and there exist processes waiting to enter, the selection of entering processes cannot be postponed indefinitely</li>
-<li>有限等待(bounded waiting)</li>
-</ul>
-<h2 id="Synchronization-Mechanisms"><a href="#Synchronization-Mechanisms" class="headerlink" title="Synchronization Mechanisms"></a>Synchronization Mechanisms</h2><h3 id="Peterson’s-Solution"><a href="#Peterson’s-Solution" class="headerlink" title="Peterson’s Solution"></a>Peterson’s Solution</h3><p>假设加载和存储指令是原子操作，不可中断。两个进程共享两个变量，int turn用于指示轮到哪个进程进入临界区，boolean flag[2]数组用于表示进程是否准备好进入临界区，flag[i] = true表示进程<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.357ex;" xmlns="http://www.w3.org/2000/svg" width="2.192ex" height="1.902ex" role="img" focusable="false" viewBox="0 -683 969 840.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="TeXAtom" transform="translate(675,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></g></g></svg></mjx-container>准备进入。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> turn; <span class="comment">// 轮到哪个进程进入临界区</span></span><br><span class="line">boolean flag[<span class="number">2</span>]; <span class="comment">// 进程是否准备好进入临界区</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P0</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    flag[<span class="number">0</span>] = <span class="literal">true</span>; <span class="comment">// 进程P0准备进入临界区</span></span><br><span class="line">    turn = <span class="number">1</span>; <span class="comment">// 轮到进程P1进入临界区</span></span><br><span class="line">    <span class="keyword">while</span> (flag[<span class="number">1</span>] &amp;&amp; turn == <span class="number">1</span>); <span class="comment">// 如果进程P1准备好进入临界区且轮到进程P1进入临界区，则进程P0等待</span></span><br><span class="line">    critical section <span class="comment">// 进程P0进入临界区</span></span><br><span class="line">    flag[<span class="number">0</span>] = <span class="literal">false</span>; <span class="comment">// 进程P0退出临界区</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P1</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    flag[<span class="number">1</span>] = <span class="literal">true</span>; <span class="comment">// 进程P1准备进入临界区</span></span><br><span class="line">    turn = <span class="number">0</span>; <span class="comment">// 轮到进程P0进入临界区</span></span><br><span class="line">    <span class="keyword">while</span> (flag[<span class="number">0</span>] &amp;&amp; turn == <span class="number">0</span>); <span class="comment">// 如果进程P0准备好进入临界区且轮到进程P0进入临界区，则进程P1等待</span></span><br><span class="line">    critical section <span class="comment">// 进程P1进入临界区</span></span><br><span class="line">    flag[<span class="number">1</span>] = <span class="literal">false</span>; <span class="comment">// 进程P1退出临界区</span></span><br><span class="line">}   </span><br></pre></td></tr></table></figure>
-<p>局限性：</p>
-<p>To improve performance, modern processors and/or compilers may reorder read and write operations that have no dependencies.</p>
-<p>当存在指令重排序时，原本顺序执行的指令可能会改变执行顺序，导致进程同时进入临界区。</p>
-<h3 id="Hardware-Support-for-Synchronization"><a href="#Hardware-Support-for-Synchronization" class="headerlink" title="Hardware Support for Synchronization"></a>Hardware Support for Synchronization</h3><h4 id="Memory-barriers"><a href="#Memory-barriers" class="headerlink" title="Memory barriers"></a>Memory barriers</h4><p>A memory barrier (内存屏障) is an instruction that forces any change in memory to be propagated (visible) to all other processors.</p>
-<p>当执行内存屏障指令时，在同一进程内，它确保所有之前的加载（load）和存储（store）操作都完成后，才会执行后续的加载 / 存储操作。即使处理器或编译器对指令进行了重排序，内存屏障也能保证存储操作在内存中完成，并且在未来的加载 / 存储操作之前对其他处理器可见。</p>
-<h4 id="Hardware-Instructions"><a href="#Hardware-Instructions" class="headerlink" title="Hardware Instructions"></a>Hardware Instructions</h4><p>原子变量(atomic variable)：一个或多个指令的执行是不可分割的，要么全部执行，要么全部不执行。</p>
-<p>局限性：unbounded waiting，竞争资源时获取顺序是随机的。</p>
-<h5 id="Test-and-Set-instruction"><a href="#Test-and-Set-instruction" class="headerlink" title="Test-and-Set instruction"></a>Test-and-Set instruction</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">TestAndSet</span><span class="params">(<span class="type">bool</span> *target)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">bool</span> rv = *target;</span><br><span class="line">    *target = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> rv;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>举例：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">bool</span> lock = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">P0</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (TestAndSet(&amp;lock)); <span class="comment">// 如果lock为true，则等待</span></span><br><span class="line">    critical section <span class="comment">// 进程P0进入临界区</span></span><br><span class="line">    lock = <span class="literal">false</span>; <span class="comment">// 进程P0退出临界区</span></span><br><span class="line">}             </span><br></pre></td></tr></table></figure>
-<p>从并发执行的其他线程或进程的视角看，它瞬间完成，要么完整执行，要么完全不执行。</p>
-<h5 id="Compare-and-Swap-instruction"><a href="#Compare-and-Swap-instruction" class="headerlink" title="Compare-and-Swap instruction"></a>Compare-and-Swap instruction</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">compare_and_swap</span><span class="params">(<span class="type">int</span> *value, <span class="type">int</span> expected, <span class="type">int</span> new_value)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> temp = *value; </span><br><span class="line">    <span class="keyword">if</span> (*value == expected) </span><br><span class="line">        *value = new_value; </span><br><span class="line">    <span class="keyword">return</span> temp; </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>bounded waiting version:</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">{</span><br><span class="line">    <span class="comment">/* entry section – acquire the lock */</span> </span><br><span class="line">    waiting[i] = <span class="literal">true</span>;</span><br><span class="line">    key = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (waiting[i] &amp;&amp; key == <span class="number">1</span>) <span class="comment">// use key to exit</span></span><br><span class="line">    key = compare_and_swap(&amp;lock, <span class="number">0</span>, <span class="number">1</span>); </span><br><span class="line">    waiting[i] = <span class="literal">false</span>; </span><br><span class="line">    <span class="comment">/* critical section – release one process */</span> </span><br><span class="line">    j = (i + <span class="number">1</span>) % n; </span><br><span class="line">    <span class="keyword">while</span> ((j != i) &amp;&amp; !waiting[j]) </span><br><span class="line">    j = (j + <span class="number">1</span>) % n; </span><br><span class="line">    <span class="keyword">if</span> (j == i) </span><br><span class="line">    lock = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    waiting[j] = <span class="literal">false</span>; </span><br><span class="line">    <span class="comment">/* remainder section */</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h4 id="Atomic-Variables"><a href="#Atomic-Variables" class="headerlink" title="Atomic Variables"></a>Atomic Variables</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">increment</span><span class="params">(<span class="type">atomic_int</span> *v)</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> temp;</span><br><span class="line">    <span class="keyword">do</span> {</span><br><span class="line">        temp = *v;</span><br><span class="line">    } <span class="keyword">while</span> (temp != (compare_and_swap(v,temp,temp+<span class="number">1</span>)));</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h3 id="Mutex-Locks-and-Semaphores"><a href="#Mutex-Locks-and-Semaphores" class="headerlink" title="Mutex Locks and Semaphores"></a>Mutex Locks and Semaphores</h3><h4 id="Mutex-Locks"><a href="#Mutex-Locks" class="headerlink" title="Mutex Locks"></a>Mutex Locks</h4><p>互斥锁(mutex lock)是最简单的同步工具。一个进程在访问临界区时必须先获得锁；离开时必须释放锁。mutex lock包含一个布尔变量available，表示锁是否可用：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="type">bool</span> available;</span><br><span class="line">} mutex;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">acquire</span><span class="params">(mutex *m)</span> {</span><br><span class="line">    <span class="keyword">while</span> (!m-&gt;available); <span class="comment">// 自旋等待</span></span><br><span class="line">    m-&gt;available = <span class="literal">false</span>;  <span class="comment">// 获得锁</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">release</span><span class="params">(mutex *m)</span> {</span><br><span class="line">    m-&gt;available = <span class="literal">true</span>;   <span class="comment">// 释放锁</span></span><br><span class="line">} </span><br></pre></td></tr></table></figure>
-<p>使用示例：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">mutex lock;  <span class="comment">// 初始化时available为true</span></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">acquire(&amp;lock);</span><br><span class="line">critical section  <span class="comment">// 临界区</span></span><br><span class="line">release(&amp;lock);</span><br><span class="line">remainder section</span><br></pre></td></tr></table></figure>
-<p>主要特点：</p>
-<ol>
-<li>互斥性：任意时刻只有一个进程可以获得锁</li>
-<li>自旋等待(busy waiting)：进程在等待锁时会持续占用CPU</li>
-<li>适用于：<ul>
-<li>预期等待时间短</li>
-<li>多处理器系统</li>
-</ul>
-</li>
-</ol>
-<p>缺点：</p>
-<ol>
-<li>自旋等待浪费CPU时间</li>
-<li>可能发生优先级反转(priority inversion)：低优先级进程持有锁时，高优先级进程必须等待</li>
-</ol>
-<h4 id="Semaphores"><a href="#Semaphores" class="headerlink" title="Semaphores"></a>Semaphores</h4><p>信号量(Semaphore)是一个更强大的同步工具，由Dijkstra提出。信号量S是一个整型变量，除了初始化外，只能通过两个原子操作wait(P)和signal(V)来访问：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> </span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="type">int</span> value;      <span class="comment">// 信号量的值</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">process</span> *<span class="title">list</span>;</span>  <span class="comment">// 等待队列</span></span><br><span class="line">} semaphore;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">wait</span><span class="params">(semaphore *S)</span> </span><br><span class="line">{  <span class="comment">// P操作</span></span><br><span class="line">    S-&gt;value--;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;value &lt; <span class="number">0</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 将当前进程加入等待队列</span></span><br><span class="line">        add_to_list(S-&gt;<span class="built_in">list</span>);</span><br><span class="line">        block();  <span class="comment">// 阻塞当前进程</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">signal</span><span class="params">(semaphore *S)</span> </span><br><span class="line">{  <span class="comment">// V操作</span></span><br><span class="line">    S-&gt;value++;</span><br><span class="line">    <span class="keyword">if</span> (S-&gt;value &lt;= <span class="number">0</span> &amp;&amp; S-&gt;<span class="built_in">list</span> != <span class="literal">NULL</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 从等待队列中唤醒一个进程</span></span><br><span class="line">        process *p = remove_from_list(S-&gt;<span class="built_in">list</span>);</span><br><span class="line">        wakeup(p);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p>信号量的类型：</p>
-<ol>
-<li><p>二进制信号量(Binary Semaphore)</p>
-<ul>
-<li>值只能为0或1</li>
-<li>类似于mutex lock，但实现机制不同</li>
-<li>适用于互斥和同步</li>
-</ul>
-</li>
-<li><p>计数信号量(Counting Semaphore)</p>
-<ul>
-<li>值可以是任意整数</li>
-<li>用于资源管理</li>
-<li>例如：控制对有限资源的访问</li>
-</ul>
-</li>
-</ol>
-<p>使用示例：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 互斥访问示例</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;  <span class="comment">// 初始化为1</span></span><br><span class="line"></span><br><span class="line">wait(&amp;mutex);</span><br><span class="line">critical section</span><br><span class="line"><span class="title function_">signal</span><span class="params">(&amp;mutex)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产者-消费者问题示例</span></span><br><span class="line">semaphore empty = n;    <span class="comment">// 初始化为缓冲区大小</span></span><br><span class="line">semaphore full = <span class="number">0</span>;     <span class="comment">// 初始化为0</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;    <span class="comment">// 用于互斥访问</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产者</span></span><br><span class="line">wait(&amp;empty);          <span class="comment">// 等待空槽</span></span><br><span class="line">wait(&amp;mutex);          <span class="comment">// 进入临界区</span></span><br><span class="line">    <span class="comment">// 添加数据到缓冲区</span></span><br><span class="line">signal(&amp;mutex);        <span class="comment">// 离开临界区</span></span><br><span class="line">signal(&amp;full);         <span class="comment">// 增加满槽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line">wait(&amp;full);           <span class="comment">// 等待满槽</span></span><br><span class="line">wait(&amp;mutex);          <span class="comment">// 进入临界区</span></span><br><span class="line">    <span class="comment">// 从缓冲区取出数据</span></span><br><span class="line">signal(&amp;mutex);        <span class="comment">// 离开临界区</span></span><br><span class="line">signal(&amp;empty);        <span class="comment">// 增加空槽</span></span><br></pre></td></tr></table></figure>
-<p>信号量的优点：</p>
-<ol>
-<li>没有忙等待，进程阻塞时不消耗CPU</li>
-<li>可以实现更复杂的同步</li>
-<li>适用于多种同步场景</li>
-</ol>
-<p>信号量的缺点：</p>
-<ol>
-<li>使用不当容易导致死锁</li>
-<li>难以保证正确性</li>
-<li>编程容易出错（wait/signal顺序错误）</li>
-</ol>
-<h3 id="Monitors"><a href="#Monitors" class="headerlink" title="Monitors"></a>Monitors</h3><p>抽象： 封装共享数据与操作共享数据的过程，提供一种机制，确保在任何时刻只有一个进程能够访问共享数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">monitor monitor_name {</span><br><span class="line">    // 共享变量声明</span><br><span class="line">    </span><br><span class="line">    // 管程的初始化代码</span><br><span class="line">    </span><br><span class="line">    // 操作共享变量的过程</span><br><span class="line">    procedure P1(...) { ... }</span><br><span class="line">    procedure P2(...) { ... }</span><br><span class="line">    ...</span><br><span class="line">    procedure Pn(...) { ... }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<p><img src="\images\image_19.png" alt="1"></p>
-<h2 id="Synchronization-Problem-Formulations"><a href="#Synchronization-Problem-Formulations" class="headerlink" title="Synchronization Problem Formulations"></a>Synchronization Problem Formulations</h2><h3 id="Bounded-Buffer-Problem"><a href="#Bounded-Buffer-Problem" class="headerlink" title="Bounded-Buffer Problem"></a>Bounded-Buffer Problem</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">monitor BoundedBuffer </span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> buffer[N];       <span class="comment">// 缓冲区</span></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;       <span class="comment">// 缓冲区中的项目数</span></span><br><span class="line">    <span class="type">int</span> in = <span class="number">0</span>, out = <span class="number">0</span>; <span class="comment">// 放入和取出的位置</span></span><br><span class="line">    </span><br><span class="line">    condition not_full;  <span class="comment">// 缓冲区不满条件</span></span><br><span class="line">    condition not_empty; <span class="comment">// 缓冲区不空条件</span></span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">deposit</span><span class="params">(item)</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (count == N)</span><br><span class="line">            wait(not_full);    <span class="comment">// 如果缓冲区满，等待</span></span><br><span class="line">            </span><br><span class="line">        buffer[in] = item;     <span class="comment">// 放入项目</span></span><br><span class="line">        in = (in + <span class="number">1</span>) % N;     <span class="comment">// 更新位置</span></span><br><span class="line">        count++;               <span class="comment">// 增加计数</span></span><br><span class="line">        </span><br><span class="line">        signal(not_empty);     <span class="comment">// 唤醒等待的消费者</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">remove</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (count == <span class="number">0</span>)</span><br><span class="line">            wait(not_empty);   <span class="comment">// 如果缓冲区空，等待</span></span><br><span class="line">            </span><br><span class="line">        item = buffer[out];    <span class="comment">// 取出项目</span></span><br><span class="line">        out = (out + <span class="number">1</span>) % N;   <span class="comment">// 更新位置</span></span><br><span class="line">        count--;               <span class="comment">// 减少计数</span></span><br><span class="line">        </span><br><span class="line">        signal(not_full);      <span class="comment">// 唤醒等待的生产者</span></span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">BoundedBuffer bb;   <span class="comment">// 创建管程实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 生产者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">producer</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        item = produce_item();</span><br><span class="line">        bb.deposit(item);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">consumer</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        item = bb.remove();</span><br><span class="line">        consume_item(item);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h3 id="Readers-Writers-Problem"><a href="#Readers-Writers-Problem" class="headerlink" title="Readers-Writers Problem"></a>Readers-Writers Problem</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">monitor ReaderWriter </span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> readers = <span class="number">0</span>;     <span class="comment">// 当前读者数量</span></span><br><span class="line">    boolean writing = <span class="literal">false</span>; <span class="comment">// 是否有人在写</span></span><br><span class="line">    </span><br><span class="line">    condition read;      <span class="comment">// 读者等待条件</span></span><br><span class="line">    condition write;     <span class="comment">// 写者等待条件</span></span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">startRead</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (writing || !write.empty())</span><br><span class="line">            wait(read);    <span class="comment">// 如果有人在写或有写者等待，则读者等待</span></span><br><span class="line">            </span><br><span class="line">        readers++;       <span class="comment">// 增加读者数量</span></span><br><span class="line">        signal(read);    <span class="comment">// 允许下一个读者进入</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">endRead</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        readers--;       <span class="comment">// 减少读者数量</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (readers == <span class="number">0</span>)</span><br><span class="line">            signal(write);  <span class="comment">// 如果没有读者了，唤醒写者</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">startWrite</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (readers &gt; <span class="number">0</span> || writing)</span><br><span class="line">            wait(write);   <span class="comment">// 如果有人在读或写，则写者等待</span></span><br><span class="line">            </span><br><span class="line">        writing = <span class="literal">true</span>;    <span class="comment">// 标记有人在写</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">endWrite</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        writing = <span class="literal">false</span>;   <span class="comment">// 标记没人在写</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!read.empty())</span><br><span class="line">            signal(read);   <span class="comment">// 优先唤醒读者</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            signal(write);  <span class="comment">// 否则唤醒写者</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ReaderWriter rw;   <span class="comment">// 创建管程实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 读者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">reader</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        rw.startRead();</span><br><span class="line">        <span class="comment">// 读取共享资源</span></span><br><span class="line">        rw.endRead();</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写者进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">writer</span><span class="params">()</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        rw.startWrite();</span><br><span class="line">        <span class="comment">// 修改共享资源</span></span><br><span class="line">        rw.endWrite();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<h3 id="Dining-Philosophers-Problem"><a href="#Dining-Philosophers-Problem" class="headerlink" title="Dining-Philosophers Problem"></a>Dining-Philosophers Problem</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">monitor DiningPhilosophers </span><br><span class="line">{</span><br><span class="line">    <span class="class"><span class="keyword">enum</span> {</span>THINKING, HUNGRY, EATING} state[<span class="number">5</span>];</span><br><span class="line">    condition self[<span class="number">5</span>];</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">initialize</span><span class="params">()</span> </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">            state[i] = THINKING;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">test</span><span class="params">(<span class="type">int</span> i)</span> {</span><br><span class="line">        <span class="keyword">if</span> (state[i] == HUNGRY &amp;&amp; state[(i+<span class="number">4</span>) % <span class="number">5</span>] != EATING &amp;&amp; state[(i+<span class="number">1</span>) % <span class="number">5</span>] != EATING) </span><br><span class="line">        {</span><br><span class="line">            state[i] = EATING;</span><br><span class="line">            signal(self[i]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">pickup</span><span class="params">(<span class="type">int</span> i)</span> </span><br><span class="line">    {</span><br><span class="line">        state[i] = HUNGRY;</span><br><span class="line">        test(i);</span><br><span class="line">        <span class="keyword">if</span> (state[i] != EATING)</span><br><span class="line">            wait(self[i]);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    procedure <span class="title function_">putdown</span><span class="params">(<span class="type">int</span> i)</span> </span><br><span class="line">    {</span><br><span class="line">        state[i] = THINKING;</span><br><span class="line">        <span class="comment">// 尝试让左右邻居吃</span></span><br><span class="line">        test((i+<span class="number">4</span>) % <span class="number">5</span>);</span><br><span class="line">        test((i+<span class="number">1</span>) % <span class="number">5</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">DiningPhilosophers dp;   <span class="comment">// 创建管程实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 哲学家进程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">philosopher</span><span class="params">(<span class="type">int</span> i)</span> </span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) </span><br><span class="line">    {</span><br><span class="line">        think();        <span class="comment">// 思考</span></span><br><span class="line">        dp.pickup(i);   <span class="comment">// 拿起筷子</span></span><br><span class="line">        eat();          <span class="comment">// 吃饭</span></span><br><span class="line">        dp.putdown(i);  <span class="comment">// 放下筷子</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>OS-07 Deadlocks</title>
     <url>/2025/03/14/OS/OS07/</url>
     <content><![CDATA[<p>记录操作系统中死锁相关内容。<br><span id="more"></span></p>
@@ -2411,43 +2411,6 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
-    <title>OS-08：main memory</title>
-    <url>/2025/03/19/OS/OS08/</url>
-    <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Main memory and registers are only storage CPU can access directly.</p>
-<p>但主存访问速度慢于寄存器，可能导致memory stall</p>
-<p>Protection：通过base和limit寄存器确保进程只能访问地址空间内的内存地址</p>
-<p>地址绑定：将逻辑地址转换为物理地址，编译时、加载时、运行时</p>
-<p>MMU：Memory Management Unit，硬件设备，负责逻辑地址到物理地址转换</p>
-<h2 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h2><h2 id="Non-contiguous-Memory-Allocation"><a href="#Non-contiguous-Memory-Allocation" class="headerlink" title="Non-contiguous Memory Allocation"></a>Non-contiguous Memory Allocation</h2><h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Structure of the Page Table<br>Swapping<br>Example: The Intel 32 and 64-bit Architectures</p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OS-09：Virtual Memory</title>
-    <url>/2025/03/21/OS/OS09/</url>
-    <content><![CDATA[<p>该文介绍虚拟内存。<br><span id="more"></span></p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>程序运行时并非所有代码和数据都需要同时使用，即不需要全部加载入物理内存。</p>
-<p>虚拟内存：separation of user logical memory from physical memory</p>
-<ul>
-<li>逻辑内存可比物理内存大很多</li>
-<li>多进程可共享</li>
-</ul>
-<h2 id="Demand-Paging"><a href="#Demand-Paging" class="headerlink" title="Demand Paging"></a>Demand Paging</h2><p>需要时将页面加载入内存</p>
-<h2 id="Copy-on-Write"><a href="#Copy-on-Write" class="headerlink" title="Copy-on-Write"></a>Copy-on-Write</h2><h2 id="Page-Replacement"><a href="#Page-Replacement" class="headerlink" title="Page Replacement"></a>Page Replacement</h2><h2 id="Allocation-of-Frames"><a href="#Allocation-of-Frames" class="headerlink" title="Allocation of Frames"></a>Allocation of Frames</h2>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解读尼采</title>
     <url>/2025/02/21/Philosophy/%E5%B0%BC%E9%87%87/</url>
     <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
@@ -2494,6 +2457,43 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </tags>
   </entry>
   <entry>
+    <title>OS-09：Virtual Memory</title>
+    <url>/2025/03/21/OS/OS09/</url>
+    <content><![CDATA[<p>该文介绍虚拟内存。<br><span id="more"></span></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>程序运行时并非所有代码和数据都需要同时使用，即不需要全部加载入物理内存。</p>
+<p>虚拟内存：separation of user logical memory from physical memory</p>
+<ul>
+<li>逻辑内存可比物理内存大很多</li>
+<li>多进程可共享</li>
+</ul>
+<h2 id="Demand-Paging"><a href="#Demand-Paging" class="headerlink" title="Demand Paging"></a>Demand Paging</h2><p>需要时将页面加载入内存</p>
+<h2 id="Copy-on-Write"><a href="#Copy-on-Write" class="headerlink" title="Copy-on-Write"></a>Copy-on-Write</h2><h2 id="Page-Replacement"><a href="#Page-Replacement" class="headerlink" title="Page Replacement"></a>Page Replacement</h2><h2 id="Allocation-of-Frames"><a href="#Allocation-of-Frames" class="headerlink" title="Allocation of Frames"></a>Allocation of Frames</h2>]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OS-08：main memory</title>
+    <url>/2025/03/19/OS/OS08/</url>
+    <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Main memory and registers are only storage CPU can access directly.</p>
+<p>但主存访问速度慢于寄存器，可能导致memory stall</p>
+<p>Protection：通过base和limit寄存器确保进程只能访问地址空间内的内存地址</p>
+<p>地址绑定：将逻辑地址转换为物理地址，编译时、加载时、运行时</p>
+<p>MMU：Memory Management Unit，硬件设备，负责逻辑地址到物理地址转换</p>
+<h2 id="Contiguous-Memory-Allocation"><a href="#Contiguous-Memory-Allocation" class="headerlink" title="Contiguous Memory Allocation"></a>Contiguous Memory Allocation</h2><h2 id="Non-contiguous-Memory-Allocation"><a href="#Non-contiguous-Memory-Allocation" class="headerlink" title="Non-contiguous Memory Allocation"></a>Non-contiguous Memory Allocation</h2><h3 id="Paging"><a href="#Paging" class="headerlink" title="Paging"></a>Paging</h3><p>Structure of the Page Table<br>Swapping<br>Example: The Intel 32 and 64-bit Architectures</p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Intro to LLM</title>
     <url>/2025/03/18/Technology/IntrotoLLM/</url>
     <content><![CDATA[<p>Intro to Large Language Models by Andrej Karpathy.<br><span id="more"></span><br><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g&amp;list=PLAqhIrjkxbuW9U8-vZ_s_cjKPT_FqRStI">Videos</a></p>
@@ -2525,6 +2525,41 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       </categories>
       <tags>
         <tag>LLM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips</title>
+    <url>/2025/03/17/Tools/tips/</url>
+    <content><![CDATA[<p>本文记录各种方面的tips。<br><span id="more"></span></p>
+<h2 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h2><h3 id="如何让别人心甘情愿地把所学教给我"><a href="#如何让别人心甘情愿地把所学教给我" class="headerlink" title="如何让别人心甘情愿地把所学教给我"></a>如何让别人心甘情愿地把所学教给我</h3><p><a href="https://www.zhihu.com/question/38714506/answer/122832829098">出处</a></p>
+<p>价值可视定律： 人们只会为看得见的回报付出精力。</p>
+<p>要点：</p>
+<ul>
+<li>具体问题</li>
+<li>降低教学成本</li>
+<li>心理学tricks<ul>
+<li>凌晨：睡眠记忆效应</li>
+<li>认知洁癖</li>
+<li>认知失调理论：自证</li>
+</ul>
+</li>
+<li>即时反馈：让对方产生成就感（好为人师是每个人的天性）</li>
+</ul>
+<h3 id="如何长时间高效学习"><a href="#如何长时间高效学习" class="headerlink" title="如何长时间高效学习"></a>如何长时间高效学习</h3><p><a href="https://www.zhihu.com/question/28358499/answer/73162464">出处</a></p>
+<p>一些有趣的观点：</p>
+<ul>
+<li>把每一次学习当成考试？ 建立仪式感</li>
+<li>知识的学习 术语-&gt;框架-&gt;纵览 核心思想：弱化文字阅读</li>
+<li>换几本教材看，不理解是教材的问题而非你的问题</li>
+<li>完成规定任务量，在热情高涨时中断学习，记住最后快乐的感觉而不是burnout</li>
+</ul>
+<h3 id="learning-how-to-learn"><a href="#learning-how-to-learn" class="headerlink" title="learning-how-to-learn"></a>learning-how-to-learn</h3><p><a href="https://www.coursera.org/learn/learning-how-to-learn/home/">learning-how-to-learn</a></p>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -2698,6 +2733,32 @@ F(e^{j\omega}) = \sum_{n=-\infty}^{\infty} f(n) e^{-j\omega n}</script><h3 id="D
       <tags>
         <tag>AI辅助</tag>
         <tag>NVIDIA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用网址(持续更新)</title>
+    <url>/2025/02/21/Tools/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="ac70165f9d856407f32441c39b58948faf60d1238f966867d3a804f6899fd5b6">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d238dfc0e32a001104ae7d5117be1ef8c373d51e7c0e8b73982e038f290561c2c819ee2fe72e0d698798cd5e204b4ca80c9e09361fdfffa8829aa7fa4c63557338a0cffe6f19f531ca6f4fdc4252e2f4a64c9fd58fcfee0bc5d5a25d894efe1efd38ebf18c55929848c6eb7a63ab2a5c1ddbe2887ab75eb38710144d31024f7bd05f3be8a76cf50121fd6f51a7d26889f130b36f97fafc58a060cb84288ca8755542ae3fd35ea57cb5249803d62c7cd98a0942cdf580e872ef4806182105f1fe80ab3225b42449c2324a31d5c5489d182ef8680c8a62469ceef90b409d244444c88781330f52899dcbb4c359afa31d848742c11780f8e438329843e233f2378de486e8a90e63bdfabbc478d614ccd6c7dcab59200fdf4a28747ef2bfa42f7fac0771ae4cb043373e9c1077fbc9d594380fe9407aff47651b5ac617c170b16b46589c9f7353200d9b399586ce4bc814c55895ee87ebabb8c902640518087a0bb2019b36999570ade2ca2bc9253ee1323168d896f7bf2d6924609035f042dec4d3a8b686b1c031f8d1b8f16e989d2ba08125b4684ce2024bb229ccbfa5b021af4bd3aeeaf62eb700562e0af949a8a59aec6184e5cce68bd62f4b4aa74c021d619caf5ab9f2a3c4c2409a53e0298e501eb381c837cb01f36ca58329e07a962a269f91e4df24e1f349bd064e39808dc1df13ff77d3ae78ecfabff62c1daa36d68a7ae19d771fd83913114cd0dae3a2c2be64065f2c5029c23629707ff81ce1232adc25fa6f783564d403cec616f1cbae93285830d68d6f390af2c3233e3fbac73504a0f672a8a87be9c0d4f752190a39b3bb57770e451ee6beb479d7b51e4790ed5053ed6494e2d9ea0212677965f7fae48ffea0ef7866b08233cf77782689b485ca7b3c2b7c5fc89d41de0c4930c6ebe0410096b23d8e411582fdc9637ab70fc6f10094659a93131a7e6c59f1eabb6ae02aa0038fd29ffad3f089769a21242b10a4cbb330b58d894889e267b669ab7b99c77ebeec42c3a3c9e21ee6e5799b22dd24f57a680ee173df6036f484015a31b18f2eb497ccb7c084f77318c74069bffb06f118dd80d6d0ed27da1ca6d1671e1a06c95c6810be1a20d105f5d54a0d8489f79ff0d644fd964d85469c7639ac0e341f4663414025351ea73614d0e542dc12dd18a9c648062c41e54f8eba34fe2faa026b022015521a369529e72f5a71f933490be050277310f6647cca410b3a6073b6cd17d67878c5ebc8a787571eaebd55c4aba8c239f7a63abd1d4f52d7cef725380bf96694879d61adaaf0a40c03ce2e643eea1c1764eabc9cdf8b800abebc6da1ac1cae71b855607cfe33cfd3049e5815b5d3327612fe48940508f5447c9c0f5f41eec75b917eec504164e0d36b44b3674479c477af1994ba8e95d1ed3564c98779a1275673ee7882ae0c5d8005f35f37d01303fce1b979db64c6e565fea40e680707b1187b3fd349d9fca7b719936dca534a81367dee6d9c1fe774fff96ab37e454a94fc1956914457a8b4d37332ce7ae66e47e03392a7caa6378258f87cee7be28931841f4ec9be032295272b738ddfb07f8ff0da6366287fd3d9c186fe6d9f39001feddc6dc175805a0d8d4a56f18c61e1fe2bf2a3d0dbf8574fc0153fb0b4e84116ce043b64b4095dd52b852046be869a14bd335fe6a9ee185cc151370b1ee1901b8c8904c733e75305825eac18483a0648b05b869ab5f0dad40b3f8b1f0aff51ccc48c0a1d374be742c2581bbd9c07d77c86d693bc81cdd609efc65af4c03ebd596c65162de642c23f63f53d5a4484913c2ea1ac038e8433a310cc5a7d91112781e68d5bbe80fd745eb08de9154e551c8bf035988c1961de30c3e02ee46aaf00d0dd1b2751a1b7d53c46a3d88b13fe65a3e6e3154bc30adb5e0d1747b722784253b2d12da839f939128417708a6c51f6582d64c5ee0a0e64871e58c26be5b5621caf78bf04c6eecc6b8ac654a462643daad160821185db51ea4bd91aacc578d1d37ae5fe60dc7588b25427677c0e09bbc01d71a713cf4cf2e91d6bf1f5f3b717a1ac1489509c699c0178126c69e815cb30c8322ebcdfc86816bc069236c04cb9528b05ff3e61eab42e8bf703909bbd6cd5cb9a8260323f8a36441617e7b94a4f1c5f6f02695d5568ee7933a136f68dd25622f461709cae45fc68c0cf32dd360f7888b969315396367d6ad50ca62b891f22c6a93c763c203e65cb187c9786167686927b34afad2f232801743b45ecf0876b338a9a771b491e7be49ff633c08fc92003a202221fc4bc17396e1621271ff50b99825dfa6a26fbe544ba9ff813e42ac734cf17118c2905ec26cffe9c5c0769949321fadfb06106bb83e6c5089a7acd2b5ef301a0ff89131a8a5799fd7647da749486a6b160031e9514cc1d1ae5e3f8f4fef5df8aa4547197af9db3431a660f4d8161e3bd4e6991d8018cd706e2b6369e21100d6464e05474a5e2652384df1f743111229cc978c2f7bebbf2f363081029f998b76a8505f0acbddab96e4f6ec32cbd6c3dd6bb885ba7a9ab37b3a8f585af82daf511f766961b8dcd05087d82e41a7fc41b9360e582c83d1dc98d75ea9c076815dd22a44df59ee1cfe902d03ebe6f7ceb5779d0395afde6d81e5bfc6f3ea12d98a2cb745c6148ca5ac136f8f32e858462735524360cbd17a6c755088c24ec4b3e05a4a30cedc66953af2a00cb9948fcc9b71abd195439263bfc69853d5d58229c2be36c8a2c92a02472aff5d45c94de94a3f222a53c4c85f4b642bb5bf78415f12cb0ac3211396a9a4d4de70a2cca04af2135ed6d1dbcffa95a5aacdca16c6d942bb887d382e70e8d58f71e2b7c5602e08f2226f81a9f69ce27e47f7f334d52c74acacc7272bc9f8c5d3751857caae5bcb4a9397cd57e2a4634e94376ca2cd6fdf2a4ead6ff6ea8d05468f4ffbac25052273f797e078d999dedbfc319f911ff77b8866b28bcd06f39315e730eb929c60f6f3568ae8f085bd9d6de510e56f2761c4ddb28d9c2652e06897ab7e4340cde793991358f136713f5bd98b35a1468f02a4bba177e0b4010730e468fd8f34121fc07ca7b7b60cae5bde9d8e4201aa7c5a8c8ef54d7391c76be7d8d45c5ed2a7cd2472ea153bf5a831867dda87b8c0345f8b144474e983b1301e132fa6d427bf26920c3ac18b95c5ac11a004faafe234b5ccec7175db883bd12c5e90cbb1153229b15bfad9e76fda2248e89b20dce3b280f70154bf31e8b60e9347139a2c3fbb421195ae3ce8344a7b45afe5bd7a0c00b08d2de92d52d01223fe3699323a568de76c08f17a4b267995de3cf5a28a66592a60fb03152d9762363445740a9422f9827a27f4e51619fa4cef5063255b65d47a5ac24de0a022e3fc58d7894431564ad72e771538d14177e4e14e965b80cc3989abd6059d6465ef5aae6c6ee2d1b59fe41d04ca407044eff936d253d1e92d8f51f7c8ad8a11105d6cb84f14dfe3f6402cec20f4b61c613302bbe8cf8b042058ad387ba55a85cae58f37b1c78c5cced059eade40331fae2338c0a2bd5567540f47424f84cee7cc4bd12eb1c74c964072db9e3c5269feeba71a55e888d1497a5e02892ab79aae3a07c0e0cbfde74db9d35cee380c0c9787a38aa0d3533f2f8d969c465cb456975929595badec8b46ca203787029d0da7eccfb7923ce3c2e0fca0988285f3960d8d1f2a08d036d30d76215d9f3e87e01018bf6e2b0d2bb71ccfe4113f0f9b68581714dd14d6a1a9099e82ceace57d5b45dbbc1662a3a3e4d861924c7e7289107c9f3894618039fa29cb295c6d67d2564540f9aecbda322fcfff966d7a15101e6b95122ac8c820f9cca1f6d0d8526214e236a114355c5ccaa6f018c69045e89349ee648596a0002443ebf7bad69f55ac3bae4c5c3934305b7562f12643ee68168ed02f901e8e8a0b6f8f722ce0afb2706abeea638b73dba8dd0cb02ad79262ba09ba295957df4938e0fb4225bb9c0f24fa7ab3ac5dc3d6ba33068b264b8a9c1a4a56c07be452fcfbc2517c993a6c580ec859a8ea1417ae321ec9699aa4eb157981b7de6483900b6e0a0949e3b6c65481796a215310e06e6e89c19624f1a5bc9f4a08867ce638640f275ede68636dbacc045061b97e374532fe49d2e660d919ea2e4219976a8900643c457c74ab1fdf8c718209d8c3dab4064501ac805530ff374b446dbdf674659dfe9d06da3bdf9feee88b732c08a479a484019d5607968dfd845f7578bcd57a002fa1298ed31815e0d465e0f418c9e784bee1759a25aadc75595374477c96a533368f322008cc8e0ebc58bd8e53f675c8280b96b675dc81a9fb76cec364ebbf6660107c2aedab8fc5b8b3938edf51eddfd83a0905f56d654efa77810d1b19a3ec0fb97bee14aeaa4c6cc5ceb994cd007d025a2aef4480ac445b9c95846b034378dbfe2083c0fca7254c792df0829b7933cabaa02409f4705ef1a3224f1075c480a7d2c70687d842f5d352157bfd040cd1d38ecc25648f462daa9675bf8c17a03d18b045bcce1d6d2d70f252956332de21e4522d920972911714ba74985c40eddd69262d5bc27170b672c7d43dc910e530992551070973009b179f989901f93286ed4ef80d82066d3b28d5ed1014a76cf4591280643dd3e65ab0e3eab17b0e912d84076f1170dcee34bd2d2576989ba7ef1222d5c727961a2f25964aa7ac188bebca5221bb5024073693828df18f599ccd1f2a22b6ca3543883dbbe5415714248094fb1e777b7b8f4956d0f4edeb706ec9a6c71ba948690e5a87d2aa5ee91c5a09f5219cd7056e5e4791224c7039cef65fd9ef6d36e7e88274a698ce070b0603124e64a77619558ad9c08000a8fedfeda128c30664ee4fd20ce15c2aeb7c6c40154e801c6708f7d77c77c7ab5396c0ca11063222d9a6e5821ca58cc8977240ec65a0c1794c3aeb9269002c17c05bb5e4aafcd2e1dee134b2f558132d0f8eb355aa9b65f2024cad634e2ffe8b2f3a1f592b505f0796c27483d8c7f9331113267570d50077df9251ebe8c4b1d278fdba5d1171e480af81bc082cfa65dc25b1be985ee1ab95c0d90fcef04fb21d00f1f561e287288d72e87788fb7eb897e81beb308a7b2a7fbb87599453c4d6db222db92a10b54fff62dd2d9c8afd85f56df817a7a844d95cdc21a9d5c5900c5da6b3b61e9f101bc4ad4580877ee12879a76bb978ea8d8828bb5ac3d07cdd249e7bd36538513e7047efdce4c703b0bc6b9dfc357a07abd218b3525dc5e116efa93fe1eb3d765363f5be864d69a075784eca13a6f0f5120d581d500c4576d8f02b226a848675a2328c0cb237bc3beab913029ea8b6782ce97915b49ae09831a7355644c6330ef1fe135446caf86f9964acb581d297882e2db73b45b172f35c7b0ecf79712c0a205ef39e215b738bc7b63b134eece9541649b0f4dd4f47798aeacd9cce2aaf5613e9310db1be56fac4ea22196969456421517153657449dafdd54abc0eeb71406da408901fc6b33af37c6db3db4436d48616978c09a649c4bf29f36136db7ac8c8662f48e867da24349d0877a67fe82ff710f3ce75aadf52e839fe16a51b6c688e8b07fbd77e134c9f2ed19f2da6c5469de0ef8419e4192585caf2279fc111106209a6f43f2ed739ab9c65524fe3c0b3d4f94a39c1173e3a6b2ed0468942b85ab3a8223db8f45534fd5780974886ef4c55580f6d5dc99873d5b8f739c219cf708f1de1b950a183b469d0e2314cc882a36ac3db2ed22df48400b0573325d5ca49de4ceb3a88182acb6ae74a069f3b5b000721d08951a3595474e9b6d007d7d8552e4cff16816a22f53a4a5e35a044277e11c11eef61c93900e6027083dcd7375b97711b241b28df36e391f013d6c06904146dac83609a6e363d36fbd27a6928363ef9a8c6735c5064eb3eec5f0c8c120f32f2624076242e26c7b6d1671193d2a23a2523040fb3a6dda7dbd0d2a0491cbfded20cb5cba5159a63518a47cafcd3b0740caf70948f608db51c0c606b997c60b32a06f1984e00bdac803d6477c0678994e78b4bcd3030aa8962580466c2aa50d311cc94ca9dc9c5e6f91ed145461254dea443f025227219e74d4e191bc3462c2749ed13f3b635c4ba8f7ffad2069dcaa5</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>学业规划</tag>
       </tags>
   </entry>
   <entry>
@@ -2899,67 +2960,6 @@ p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其�
       <tags>
         <tag>AI辅助</tag>
         <tag>端侧AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips</title>
-    <url>/2025/03/17/Tools/tips/</url>
-    <content><![CDATA[<p>本文记录各种方面的tips。<br><span id="more"></span></p>
-<h2 id="提问"><a href="#提问" class="headerlink" title="提问"></a>提问</h2><h3 id="如何让别人心甘情愿地把所学教给我"><a href="#如何让别人心甘情愿地把所学教给我" class="headerlink" title="如何让别人心甘情愿地把所学教给我"></a>如何让别人心甘情愿地把所学教给我</h3><p><a href="https://www.zhihu.com/question/38714506/answer/122832829098">出处</a></p>
-<p>价值可视定律： 人们只会为看得见的回报付出精力。</p>
-<p>要点：</p>
-<ul>
-<li>具体问题</li>
-<li>降低教学成本</li>
-<li>心理学tricks<ul>
-<li>凌晨：睡眠记忆效应</li>
-<li>认知洁癖</li>
-<li>认知失调理论：自证</li>
-</ul>
-</li>
-<li>即时反馈：让对方产生成就感（好为人师是每个人的天性）</li>
-</ul>
-<h3 id="如何长时间高效学习"><a href="#如何长时间高效学习" class="headerlink" title="如何长时间高效学习"></a>如何长时间高效学习</h3><p><a href="https://www.zhihu.com/question/28358499/answer/73162464">出处</a></p>
-<p>一些有趣的观点：</p>
-<ul>
-<li>把每一次学习当成考试？ 建立仪式感</li>
-<li>知识的学习 术语-&gt;框架-&gt;纵览 核心思想：弱化文字阅读</li>
-<li>换几本教材看，不理解是教材的问题而非你的问题</li>
-<li>完成规定任务量，在热情高涨时中断学习，记住最后快乐的感觉而不是burnout</li>
-</ul>
-<h3 id="learning-how-to-learn"><a href="#learning-how-to-learn" class="headerlink" title="learning-how-to-learn"></a>learning-how-to-learn</h3><p><a href="https://www.coursera.org/learn/learning-how-to-learn/home/">learning-how-to-learn</a></p>
-]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>Tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用网址(持续更新)</title>
-    <url>/2025/02/21/Tools/%E5%B8%B8%E7%94%A8%E7%BD%91%E5%9D%80/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="ac70165f9d856407f32441c39b58948faf60d1238f966867d3a804f6899fd5b6">42f59dd9f792a26c4a34d7806b09502bbcf0be2b86ec1c260d3c73e837ec0f6960b23f3103ca7c3c2c9669c3a41fa0c6527faf963f0b471bbd8da1085cfd986ad53579a4abdba169b0409c615bd11de5e34c91d832ebd3aba12bb8a5ab5a00fbb28b42fa1ac3be6e4cf3c68b8f0f5b3bef1757375d50e466e2a3aa7e676d48078efc1a9d7009278591bb9b62ee103d16b6e394f4890a2d50ca8b4b632eec5132104fff7c3b52bd9b4a520d09ea0c48546bd998e2b41cc43615acfa33e36e326903029a8fad2053b3cefcde7b68e6d1b05d0f8372a70d46df1322e67a19f33845ee315c6051431da2063b5827ec3b43f1f72592207767919a2e2b76f8e142781bb713e1c54fc75fb02ae131b863010f4bcce0b32c4d190129e6a244d32e7accc06feef5a9e38714b117db28236b615a04245f507dc3ec48b03b4c6bf7d8a11d271a0e12d2605375ce7c45988b970416dba842de0ba1c0b8a165be8a0e33fe18c5bb1a47def217c0337e845147e6d6e60bbc7eaaadce981539e9e0f6dbfd32d45095502bbfe553d5199ae3e1f9fe36bb4f3d274f47501528ed76959842a5057c1004b69120c26fe4e12b042d81dc2492ee83f07aa393f9fa5e60f236b0c311b82fa175345999c16ce0a7651eb582ab0bced36513b1f475ccd3684409d7d0adb8b7016f085b90573dc2b03744a18cfb301c2dc3a4604183c2a00c7a8891b66bce941d149aec3ab61687706b3a436cc3171e5b4792c45cfe4108de0ba81ed18f1d238dfc0e32a001104ae7d5117be1ef8c373d51e7c0e8b73982e038f290561c2c819ee2fe72e0d698798cd5e204b4ca80c9e09361fdfffa8829aa7fa4c63557338a0cffe6f19f531ca6f4fdc4252e2f4a64c9fd58fcfee0bc5d5a25d894efe1efd38ebf18c55929848c6eb7a63ab2a5c1ddbe2887ab75eb38710144d31024f7bd05f3be8a76cf50121fd6f51a7d26889f130b36f97fafc58a060cb84288ca8755542ae3fd35ea57cb5249803d62c7cd98a0942cdf580e872ef4806182105f1fe80ab3225b42449c2324a31d5c5489d182ef8680c8a62469ceef90b409d244444c88781330f52899dcbb4c359afa31d848742c11780f8e438329843e233f2378de486e8a90e63bdfabbc478d614ccd6c7dcab59200fdf4a28747ef2bfa42f7fac0771ae4cb043373e9c1077fbc9d594380fe9407aff47651b5ac617c170b16b46589c9f7353200d9b399586ce4bc814c55895ee87ebabb8c902640518087a0bb2019b36999570ade2ca2bc9253ee1323168d896f7bf2d6924609035f042dec4d3a8b686b1c031f8d1b8f16e989d2ba08125b4684ce2024bb229ccbfa5b021af4bd3aeeaf62eb700562e0af949a8a59aec6184e5cce68bd62f4b4aa74c021d619caf5ab9f2a3c4c2409a53e0298e501eb381c837cb01f36ca58329e07a962a269f91e4df24e1f349bd064e39808dc1df13ff77d3ae78ecfabff62c1daa36d68a7ae19d771fd83913114cd0dae3a2c2be64065f2c5029c23629707ff81ce1232adc25fa6f783564d403cec616f1cbae93285830d68d6f390af2c3233e3fbac73504a0f672a8a87be9c0d4f752190a39b3bb57770e451ee6beb479d7b51e4790ed5053ed6494e2d9ea0212677965f7fae48ffea0ef7866b08233cf77782689b485ca7b3c2b7c5fc89d41de0c4930c6ebe0410096b23d8e411582fdc9637ab70fc6f10094659a93131a7e6c59f1eabb6ae02aa0038fd29ffad3f089769a21242b10a4cbb330b58d894889e267b669ab7b99c77ebeec42c3a3c9e21ee6e5799b22dd24f57a680ee173df6036f484015a31b18f2eb497ccb7c084f77318c74069bffb06f118dd80d6d0ed27da1ca6d1671e1a06c95c6810be1a20d105f5d54a0d8489f79ff0d644fd964d85469c7639ac0e341f4663414025351ea73614d0e542dc12dd18a9c648062c41e54f8eba34fe2faa026b022015521a369529e72f5a71f933490be050277310f6647cca410b3a6073b6cd17d67878c5ebc8a787571eaebd55c4aba8c239f7a63abd1d4f52d7cef725380bf96694879d61adaaf0a40c03ce2e643eea1c1764eabc9cdf8b800abebc6da1ac1cae71b855607cfe33cfd3049e5815b5d3327612fe48940508f5447c9c0f5f41eec75b917eec504164e0d36b44b3674479c477af1994ba8e95d1ed3564c98779a1275673ee7882ae0c5d8005f35f37d01303fce1b979db64c6e565fea40e680707b1187b3fd349d9fca7b719936dca534a81367dee6d9c1fe774fff96ab37e454a94fc1956914457a8b4d37332ce7ae66e47e03392a7caa6378258f87cee7be28931841f4ec9be032295272b738ddfb07f8ff0da6366287fd3d9c186fe6d9f39001feddc6dc175805a0d8d4a56f18c61e1fe2bf2a3d0dbf8574fc0153fb0b4e84116ce043b64b4095dd52b852046be869a14bd335fe6a9ee185cc151370b1ee1901b8c8904c733e75305825eac18483a0648b05b869ab5f0dad40b3f8b1f0aff51ccc48c0a1d374be742c2581bbd9c07d77c86d693bc81cdd609efc65af4c03ebd596c65162de642c23f63f53d5a4484913c2ea1ac038e8433a310cc5a7d91112781e68d5bbe80fd745eb08de9154e551c8bf035988c1961de30c3e02ee46aaf00d0dd1b2751a1b7d53c46a3d88b13fe65a3e6e3154bc30adb5e0d1747b722784253b2d12da839f939128417708a6c51f6582d64c5ee0a0e64871e58c26be5b5621caf78bf04c6eecc6b8ac654a462643daad160821185db51ea4bd91aacc578d1d37ae5fe60dc7588b25427677c0e09bbc01d71a713cf4cf2e91d6bf1f5f3b717a1ac1489509c699c0178126c69e815cb30c8322ebcdfc86816bc069236c04cb9528b05ff3e61eab42e8bf703909bbd6cd5cb9a8260323f8a36441617e7b94a4f1c5f6f02695d5568ee7933a136f68dd25622f461709cae45fc68c0cf32dd360f7888b969315396367d6ad50ca62b891f22c6a93c763c203e65cb187c9786167686927b34afad2f232801743b45ecf0876b338a9a771b491e7be49ff633c08fc92003a202221fc4bc17396e1621271ff50b99825dfa6a26fbe544ba9ff813e42ac734cf17118c2905ec26cffe9c5c0769949321fadfb06106bb83e6c5089a7acd2b5ef301a0ff89131a8a5799fd7647da749486a6b160031e9514cc1d1ae5e3f8f4fef5df8aa4547197af9db3431a660f4d8161e3bd4e6991d8018cd706e2b6369e21100d6464e05474a5e2652384df1f743111229cc978c2f7bebbf2f363081029f998b76a8505f0acbddab96e4f6ec32cbd6c3dd6bb885ba7a9ab37b3a8f585af82daf511f766961b8dcd05087d82e41a7fc41b9360e582c83d1dc98d75ea9c076815dd22a44df59ee1cfe902d03ebe6f7ceb5779d0395afde6d81e5bfc6f3ea12d98a2cb745c6148ca5ac136f8f32e858462735524360cbd17a6c755088c24ec4b3e05a4a30cedc66953af2a00cb9948fcc9b71abd195439263bfc69853d5d58229c2be36c8a2c92a02472aff5d45c94de94a3f222a53c4c85f4b642bb5bf78415f12cb0ac3211396a9a4d4de70a2cca04af2135ed6d1dbcffa95a5aacdca16c6d942bb887d382e70e8d58f71e2b7c5602e08f2226f81a9f69ce27e47f7f334d52c74acacc7272bc9f8c5d3751857caae5bcb4a9397cd57e2a4634e94376ca2cd6fdf2a4ead6ff6ea8d05468f4ffbac25052273f797e078d999dedbfc319f911ff77b8866b28bcd06f39315e730eb929c60f6f3568ae8f085bd9d6de510e56f2761c4ddb28d9c2652e06897ab7e4340cde793991358f136713f5bd98b35a1468f02a4bba177e0b4010730e468fd8f34121fc07ca7b7b60cae5bde9d8e4201aa7c5a8c8ef54d7391c76be7d8d45c5ed2a7cd2472ea153bf5a831867dda87b8c0345f8b144474e983b1301e132fa6d427bf26920c3ac18b95c5ac11a004faafe234b5ccec7175db883bd12c5e90cbb1153229b15bfad9e76fda2248e89b20dce3b280f70154bf31e8b60e9347139a2c3fbb421195ae3ce8344a7b45afe5bd7a0c00b08d2de92d52d01223fe3699323a568de76c08f17a4b267995de3cf5a28a66592a60fb03152d9762363445740a9422f9827a27f4e51619fa4cef5063255b65d47a5ac24de0a022e3fc58d7894431564ad72e771538d14177e4e14e965b80cc3989abd6059d6465ef5aae6c6ee2d1b59fe41d04ca407044eff936d253d1e92d8f51f7c8ad8a11105d6cb84f14dfe3f6402cec20f4b61c613302bbe8cf8b042058ad387ba55a85cae58f37b1c78c5cced059eade40331fae2338c0a2bd5567540f47424f84cee7cc4bd12eb1c74c964072db9e3c5269feeba71a55e888d1497a5e02892ab79aae3a07c0e0cbfde74db9d35cee380c0c9787a38aa0d3533f2f8d969c465cb456975929595badec8b46ca203787029d0da7eccfb7923ce3c2e0fca0988285f3960d8d1f2a08d036d30d76215d9f3e87e01018bf6e2b0d2bb71ccfe4113f0f9b68581714dd14d6a1a9099e82ceace57d5b45dbbc1662a3a3e4d861924c7e7289107c9f3894618039fa29cb295c6d67d2564540f9aecbda322fcfff966d7a15101e6b95122ac8c820f9cca1f6d0d8526214e236a114355c5ccaa6f018c69045e89349ee648596a0002443ebf7bad69f55ac3bae4c5c3934305b7562f12643ee68168ed02f901e8e8a0b6f8f722ce0afb2706abeea638b73dba8dd0cb02ad79262ba09ba295957df4938e0fb4225bb9c0f24fa7ab3ac5dc3d6ba33068b264b8a9c1a4a56c07be452fcfbc2517c993a6c580ec859a8ea1417ae321ec9699aa4eb157981b7de6483900b6e0a0949e3b6c65481796a215310e06e6e89c19624f1a5bc9f4a08867ce638640f275ede68636dbacc045061b97e374532fe49d2e660d919ea2e4219976a8900643c457c74ab1fdf8c718209d8c3dab4064501ac805530ff374b446dbdf674659dfe9d06da3bdf9feee88b732c08a479a484019d5607968dfd845f7578bcd57a002fa1298ed31815e0d465e0f418c9e784bee1759a25aadc75595374477c96a533368f322008cc8e0ebc58bd8e53f675c8280b96b675dc81a9fb76cec364ebbf6660107c2aedab8fc5b8b3938edf51eddfd83a0905f56d654efa77810d1b19a3ec0fb97bee14aeaa4c6cc5ceb994cd007d025a2aef4480ac445b9c95846b034378dbfe2083c0fca7254c792df0829b7933cabaa02409f4705ef1a3224f1075c480a7d2c70687d842f5d352157bfd040cd1d38ecc25648f462daa9675bf8c17a03d18b045bcce1d6d2d70f252956332de21e4522d920972911714ba74985c40eddd69262d5bc27170b672c7d43dc910e530992551070973009b179f989901f93286ed4ef80d82066d3b28d5ed1014a76cf4591280643dd3e65ab0e3eab17b0e912d84076f1170dcee34bd2d2576989ba7ef1222d5c727961a2f25964aa7ac188bebca5221bb5024073693828df18f599ccd1f2a22b6ca3543883dbbe5415714248094fb1e777b7b8f4956d0f4edeb706ec9a6c71ba948690e5a87d2aa5ee91c5a09f5219cd7056e5e4791224c7039cef65fd9ef6d36e7e88274a698ce070b0603124e64a77619558ad9c08000a8fedfeda128c30664ee4fd20ce15c2aeb7c6c40154e801c6708f7d77c77c7ab5396c0ca11063222d9a6e5821ca58cc8977240ec65a0c1794c3aeb9269002c17c05bb5e4aafcd2e1dee134b2f558132d0f8eb355aa9b65f2024cad634e2ffe8b2f3a1f592b505f0796c27483d8c7f9331113267570d50077df9251ebe8c4b1d278fdba5d1171e480af81bc082cfa65dc25b1be985ee1ab95c0d90fcef04fb21d00f1f561e287288d72e87788fb7eb897e81beb308a7b2a7fbb87599453c4d6db222db92a10b54fff62dd2d9c8afd85f56df817a7a844d95cdc21a9d5c5900c5da6b3b61e9f101bc4ad4580877ee12879a76bb978ea8d8828bb5ac3d07cdd249e7bd36538513e7047efdce4c703b0bc6b9dfc357a07abd218b3525dc5e116efa93fe1eb3d765363f5be864d69a075784eca13a6f0f5120d581d500c4576d8f02b226a848675a2328c0cb237bc3beab913029ea8b6782ce97915b49ae09831a7355644c6330ef1fe135446caf86f9964acb581d297882e2db73b45b172f35c7b0ecf79712c0a205ef39e215b738bc7b63b134eece9541649b0f4dd4f47798aeacd9cce2aaf5613e9310db1be56fac4ea22196969456421517153657449dafdd54abc0eeb71406da408901fc6b33af37c6db3db4436d48616978c09a649c4bf29f36136db7ac8c8662f48e867da24349d0877a67fe82ff710f3ce75aadf52e839fe16a51b6c688e8b07fbd77e134c9f2ed19f2da6c5469de0ef8419e4192585caf2279fc111106209a6f43f2ed739ab9c65524fe3c0b3d4f94a39c1173e3a6b2ed0468942b85ab3a8223db8f45534fd5780974886ef4c55580f6d5dc99873d5b8f739c219cf708f1de1b950a183b469d0e2314cc882a36ac3db2ed22df48400b0573325d5ca49de4ceb3a88182acb6ae74a069f3b5b000721d08951a3595474e9b6d007d7d8552e4cff16816a22f53a4a5e35a044277e11c11eef61c93900e6027083dcd7375b97711b241b28df36e391f013d6c06904146dac83609a6e363d36fbd27a6928363ef9a8c6735c5064eb3eec5f0c8c120f32f2624076242e26c7b6d1671193d2a23a2523040fb3a6dda7dbd0d2a0491cbfded20cb5cba5159a63518a47cafcd3b0740caf70948f608db51c0c606b997c60b32a06f1984e00bdac803d6477c0678994e78b4bcd3030aa8962580466c2aa50d311cc94ca9dc9c5e6f91ed145461254dea443f025227219e74d4e191bc3462c2749ed13f3b635c4ba8f7ffad2069dcaa5</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>Tools</category>
-      </categories>
-      <tags>
-        <tag>学业规划</tag>
       </tags>
   </entry>
 </search>
