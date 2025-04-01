@@ -257,31 +257,6 @@ n = p_1^{k_1} \cdot p_2^{k_2} \cdot ... \cdot p_m^{k_m}</script><p> 由容斥原
       </tags>
   </entry>
   <entry>
-    <title>Audiocc</title>
-    <url>/2025/03/13/Audiocc/audiocc/</url>
-    <content><![CDATA[<p>记录在sjtu Audiocc Lab 的科研规划与经历<br><span id="more"></span></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>进组已有半年，因大二上过摆，搁置了科研任务，同时也耽搁了论文投稿，甚至于目前还处于入门上手阶段，实为惭愧。于3月13日与lcd老师详谈，决定调整科研规划。整体计划先熟悉espnet的使用，后续根据idea开始着手准备九月初ddl的ICASSP投稿。</p>
-<h2 id="科研规划"><a href="#科研规划" class="headerlink" title="科研规划"></a>科研规划</h2><h3 id="熟悉espnet"><a href="#熟悉espnet" class="headerlink" title="熟悉espnet"></a>熟悉espnet</h3><p>今天lcd老师向我演示了espnet的大致使用流程，介绍了整体结构框架，以及vscode远程debug的方法。他说可以想想有什么idea能够投九月份的ICASSP(应该是还太早他们也没开始准备)</p>
-<p>那么我这一周左右的任务是在wsj0上跑通整个enh部分的流程，从stage1到stage11左右，并且手写一个separator(推荐transformer)。</p>
-<p>注意stage1不需要matlab的数据处理部分，通过一些操作去掉。</p>
-<p>给自己定下ddl，下周三之前完成，也就是3.19号，这期间晚上可以多去电院3-520，听听学长学姐们的讨论，更多了解这个方向。</p>
-<p>以下记录每日科研投入。</p>
-<h4 id="3-17"><a href="#3-17" class="headerlink" title="3-17"></a>3-17</h4><p>第一天到实验室工作，但是似乎晚上没什么人……一开始不太记得要做什么，研究了一会有了些眉目，详见<a href="https://hugo0713.com/2025/03/17/Audiocc/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%B7%91enh1-sh/">从零开始跑espnet语音分离</a></p>
-<p>工作快三小时，卡在配环境上面，碰到了一个bug感觉像是环境的问题，但导还没回我，悲</p>
-<p>竟然十点不到就只剩我一个人了，想必师兄师姐们的博士生活都很丰富吧</p>
-<p>目前卡在stage1，数据准备尚未完成……</p>
-<p>后续手动安装，成功开跑，跑完数据准备前四个stage</p>
-<h4 id="3-19"><a href="#3-19" class="headerlink" title="3-19"></a>3-19</h4><p>在实验室待了一个下午，总算是完全解决环境问题，从espnet到espnet3，搞坏了两个环境，成功跑完stage5，明天或者后天在开始training部分的调试。</p>
-]]></content>
-      <categories>
-        <category>Research</category>
-      </categories>
-      <tags>
-        <tag>语音</tag>
-        <tag>学业规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>espnet的enh训练任务分析笔记</title>
     <url>/2025/02/19/Audiocc/espnet%E7%9A%84enh.sh%E7%9A%84%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>This is the common recipe for ESPnet2 speech enhancement frontend.</strong><br><strong>这是 ESPnet2 语音增强前端的通用配方。</strong></p>
@@ -826,6 +801,31 @@ p(x) \equiv \mathcal{N}\left(\mu, \sigma^{2}\right)=\frac{1}{\sqrt{2\pi\sigma^{2
       </tags>
   </entry>
   <entry>
+    <title>Audiocc</title>
+    <url>/2025/03/13/Audiocc/audiocc/</url>
+    <content><![CDATA[<p>记录在sjtu Audiocc Lab 的科研规划与经历<br><span id="more"></span></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>进组已有半年，因大二上过摆，搁置了科研任务，同时也耽搁了论文投稿，甚至于目前还处于入门上手阶段，实为惭愧。于3月13日与lcd老师详谈，决定调整科研规划。整体计划先熟悉espnet的使用，后续根据idea开始着手准备九月初ddl的ICASSP投稿。</p>
+<h2 id="科研规划"><a href="#科研规划" class="headerlink" title="科研规划"></a>科研规划</h2><h3 id="熟悉espnet"><a href="#熟悉espnet" class="headerlink" title="熟悉espnet"></a>熟悉espnet</h3><p>今天lcd老师向我演示了espnet的大致使用流程，介绍了整体结构框架，以及vscode远程debug的方法。他说可以想想有什么idea能够投九月份的ICASSP(应该是还太早他们也没开始准备)</p>
+<p>那么我这一周左右的任务是在wsj0上跑通整个enh部分的流程，从stage1到stage11左右，并且手写一个separator(推荐transformer)。</p>
+<p>注意stage1不需要matlab的数据处理部分，通过一些操作去掉。</p>
+<p>给自己定下ddl，下周三之前完成，也就是3.19号，这期间晚上可以多去电院3-520，听听学长学姐们的讨论，更多了解这个方向。</p>
+<p>以下记录每日科研投入。</p>
+<h4 id="3-17"><a href="#3-17" class="headerlink" title="3-17"></a>3-17</h4><p>第一天到实验室工作，但是似乎晚上没什么人……一开始不太记得要做什么，研究了一会有了些眉目，详见<a href="https://hugo0713.com/2025/03/17/Audiocc/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E8%B7%91enh1-sh/">从零开始跑espnet语音分离</a></p>
+<p>工作快三小时，卡在配环境上面，碰到了一个bug感觉像是环境的问题，但导还没回我，悲</p>
+<p>竟然十点不到就只剩我一个人了，想必师兄师姐们的博士生活都很丰富吧</p>
+<p>目前卡在stage1，数据准备尚未完成……</p>
+<p>后续手动安装，成功开跑，跑完数据准备前四个stage</p>
+<h4 id="3-19"><a href="#3-19" class="headerlink" title="3-19"></a>3-19</h4><p>在实验室待了一个下午，总算是完全解决环境问题，从espnet到espnet3，搞坏了两个环境，成功跑完stage5，明天或者后天在开始training部分的调试。</p>
+]]></content>
+      <categories>
+        <category>Research</category>
+      </categories>
+      <tags>
+        <tag>语音</tag>
+        <tag>学业规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CS61C-1 Introduction and C</title>
     <url>/2025/02/28/CS61C/CS61C-1/</url>
     <content><![CDATA[<p>记录CS61C课程的学习过程，跟随<a href="https://cs61c.org/sp25/">CS61C: Computer Architecture(Machine Structures)</a>25春季版本。<br>本文包含课程的Introduction和C语言基础。Lecture 1-7, Discussion 1-2。<br><span id="more"></span></p>
@@ -1293,257 +1293,6 @@ p(x) \equiv \mathcal{N}\left(\mu, \sigma^{2}\right)=\frac{1}{\sqrt{2\pi\sigma^{2
       </categories>
       <tags>
         <tag>旅行</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CS144-1</title>
-    <url>/2025/03/03/Networking/CS144-1/</url>
-    <content><![CDATA[<p>记录CS144课程的学习过程，跟随<a href="https://cs144.github.io/">CS144: Introduction to Computer Networking</a>25春季版本。<br><span id="more"></span></p>
-<h2 id="Lec1：Introduction"><a href="#Lec1：Introduction" class="headerlink" title="Lec1：Introduction"></a>Lec1：Introduction</h2><p>Goals：</p>
-<ul>
-<li>To learn how the Internet works.</li>
-<li>To learn why the Internet was designed this way.</li>
-<li>To learn how to use the Internet.</li>
-<li>To build some significant pieces of the Internet.</li>
-<li>To learn the underlying principles and technologies of networking.</li>
-</ul>
-<p><a href="/web/20250303142629/https://cs144.github.io/">a snap shot</a></p>
-]]></content>
-      <categories>
-        <category>Networking</category>
-      </categories>
-      <tags>
-        <tag>CS144</tag>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计网-物理层</title>
-    <url>/2025/02/24/Networking/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/</url>
-    <content><![CDATA[<p>物理层是计算机网络的最底层，主要负责数据的物理传输。</p>
-<p>物理层为数据链路层提供服务，使数据链路层只需要考虑如何封装数据链路层协议数据单元（PDU），而不需要考虑数据是如何传输的。<br><span id="more"></span></p>
-<p>注：有关计算机网络的相关概论知识，可参考以下：</p>
-<ul>
-<li><a href="https://blog.csdn.net/qq_46331050/article/details/120118138?spm=1001.2014.3001.5501">计算机网络概述</a></li>
-</ul>
-<h2 id="计算机网络基本重要概念"><a href="#计算机网络基本重要概念" class="headerlink" title="计算机网络基本重要概念"></a>计算机网络基本重要概念</h2><ul>
-<li>因特网的组成：<ul>
-<li>边缘部分： 由所有连接在因特网上的主机组成。</li>
-<li>核心部分： 由大量网络和连接这些网络的路由器组成。</li>
-</ul>
-</li>
-<li>路由器： 连接两个或多个网络的设备，负责在多个网络之间转发数据包。</li>
-<li>交换方式：<ul>
-<li>电路交换： 在数据传输之前，需要先建立一条专用的物理连接，数据传输过程中，这条连接一直存在。</li>
-<li>报文交换： 不需要建立连接，数据传输过程中，不需要建立连接。</li>
-<li>分组交换： 将数据分成多个小数据包，每个数据包独立传输，数据传输过程中，不需要建立连接。</li>
-</ul>
-</li>
-<li>协议： 通信双方必须遵循的规则，包括：<ul>
-<li>语法：数据与控制信息的结构或格式</li>
-<li>语义：需要发出何种控制信息，完成何种动作以及做出何种响应</li>
-<li>同步：事件实现顺序的详细说明</li>
-</ul>
-</li>
-<li>服务： 在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务，而与下层无关。</li>
-<li>接口： 上层使用下层服务的入口，下层为上层提供服务的出口。</li>
-<li>实体： 表示任何可发送或接收信息的硬件或软件进程。</li>
-<li>服务访问点： 在同一系统中相邻两层的实体交换信息的逻辑接口，称为服务访问点SAP。<ul>
-<li>数据链路层： 数据链路层SAP称为帧的“头”和“尾”</li>
-<li>网络层： 网络层SAP称为IP地址<ul>
-<li>IP地址： 网络层地址，用于标识网络中的一个节点</li>
-</ul>
-</li>
-<li>传输层： 传输层SAP称为端口<ul>
-<li>端口： 传输层地址，用于标识一个进程</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>服务原语：<ul>
-<li>PDU： 协议数据单元，对等实体之间传送的数据包称为协议数据单元。</li>
-<li>SDU： 服务数据单元，层与层之间传送的数据包称为服务数据单元。</li>
-</ul>
-</li>
-<li>连接唯一性：四元组（源IP地址，源端口，目的IP地址，目的端口）唯一标识一个连接</li>
-</ul>
-<h2 id="一、物理层的基本概念"><a href="#一、物理层的基本概念" class="headerlink" title="一、物理层的基本概念"></a>一、物理层的基本概念</h2><h3 id="1-1-物理层的功能"><a href="#1-1-物理层的功能" class="headerlink" title="1.1 物理层的功能"></a>1.1 物理层的功能</h3><ul>
-<li>定义物理接口特性<ul>
-<li>机械特性： 接口的形状、尺寸、引脚数目和排列情况</li>
-<li>电气特性： 接口的电压范围、电流强度、阻抗匹配、传输速率等</li>
-<li>功能特性： 接口的信号线功能</li>
-<li>规程特性： 接口的规程</li>
-</ul>
-</li>
-<li>定义传输介质的特性</li>
-<li>定义数据传输速率</li>
-<li>比特同步和时钟同步</li>
-<li>比特编码方式的定义</li>
-</ul>
-<h3 id="1-2-数据通信的基本概念"><a href="#1-2-数据通信的基本概念" class="headerlink" title="1.2 数据通信的基本概念"></a>1.2 数据通信的基本概念</h3><ul>
-<li>数据（Data）：传送信息的实体</li>
-<li>信号（Signal）：数据的电气或电磁表现</li>
-<li>模拟信号：连续的信号</li>
-<li>数字信号：离散的信号</li>
-</ul>
-<h2 id="二、传输介质"><a href="#二、传输介质" class="headerlink" title="二、传输介质"></a>二、传输介质</h2><h3 id="2-1-导向传输介质"><a href="#2-1-导向传输介质" class="headerlink" title="2.1 导向传输介质"></a>2.1 导向传输介质</h3><ol>
-<li><p>双绞线</p>
-<ul>
-<li>非屏蔽双绞线（UTP）</li>
-<li>屏蔽双绞线（STP）</li>
-<li>常用于以太网</li>
-</ul>
-</li>
-<li><p>同轴电缆</p>
-<ul>
-<li>基带同轴电缆</li>
-<li>宽带同轴电缆</li>
-<li>抗干扰能力强</li>
-</ul>
-</li>
-<li><p>光纤</p>
-<ul>
-<li>单模光纤</li>
-<li>多模光纤</li>
-<li>传输距离远，带宽大</li>
-</ul>
-</li>
-</ol>
-<h3 id="2-2-非导向传输介质"><a href="#2-2-非导向传输介质" class="headerlink" title="2.2 非导向传输介质"></a>2.2 非导向传输介质</h3><ul>
-<li>无线电波</li>
-<li>微波</li>
-<li>红外线</li>
-<li>激光</li>
-</ul>
-<h2 id="三、传输方式"><a href="#三、传输方式" class="headerlink" title="三、传输方式"></a>三、传输方式</h2><h3 id="3-1-串行传输与并行传输"><a href="#3-1-串行传输与并行传输" class="headerlink" title="3.1 串行传输与并行传输"></a>3.1 串行传输与并行传输</h3><ul>
-<li>串行传输： 数据逐位按顺序依次传输</li>
-<li>并行传输： 数据同时多位按顺序依次传输</li>
-</ul>
-<h3 id="3-2-同步传输与异步传输"><a href="#3-2-同步传输与异步传输" class="headerlink" title="3.2 同步传输与异步传输"></a>3.2 同步传输与异步传输</h3><ul>
-<li>同步传输： 数据块按固定长度依次传输<ul>
-<li>外同步： 添加单独时钟信号线</li>
-<li>内同步： 数据中包含时钟信息</li>
-</ul>
-</li>
-<li>异步传输： 数据块按不定长度依次传输</li>
-</ul>
-<h3 id="3-3-单工、半双工与全双工"><a href="#3-3-单工、半双工与全双工" class="headerlink" title="3.3 单工、半双工与全双工"></a>3.3 单工、半双工与全双工</h3><ul>
-<li>单工： 单向传输 无线电广播</li>
-<li>半双工： 双向交替传输 对讲机</li>
-<li>全双工： 双向同时传输 电话</li>
-</ul>
-<h2 id="四、信道与信道容量"><a href="#四、信道与信道容量" class="headerlink" title="四、信道与信道容量"></a>四、信道与信道容量</h2><h3 id="4-1-信道的基本概念"><a href="#4-1-信道的基本概念" class="headerlink" title="4.1 信道的基本概念"></a>4.1 信道的基本概念</h3><ul>
-<li>单工通信：单向传输</li>
-<li>半双工通信：双向交替传输</li>
-<li>全双工通信：双向同时传输</li>
-</ul>
-<h3 id="4-2-信道容量"><a href="#4-2-信道容量" class="headerlink" title="4.2 信道容量"></a>4.2 信道容量</h3><ul>
-<li>奈奎斯特定理：理想低通信道的最高码元速率<ul>
-<li>公式：<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.546ex;" xmlns="http://www.w3.org/2000/svg" width="17.31ex" height="2.116ex" role="img" focusable="false" viewBox="0 -694 7650.8 935.4"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="TeXAtom" transform="translate(792,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(878,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mi" transform="translate(1407,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g><g data-mml-node="mo" transform="translate(2519.1,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(3574.9,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(4074.9,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="msub" transform="translate(5000.6,0)"><g data-mml-node="mi"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mn" transform="translate(1311,-241.4) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(6715.1,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(6881.8,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g></g></g></svg></mjx-container></li>
-<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.717ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 759 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g></g></g></svg></mjx-container>：带宽</li>
-<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.74ex" height="1.595ex" role="img" focusable="false" viewBox="0 -683 769 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g></g></g></svg></mjx-container>：电平数</li>
-</ul>
-</li>
-<li>香农定理：信道的最大数据传输速率<ul>
-<li>公式：<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="20.967ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 9267.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g><g data-mml-node="mo" transform="translate(1037.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2093.6,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="msub" transform="translate(3019.2,0)"><g data-mml-node="mi"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mn" transform="translate(1311,-241.4) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(4733.8,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mo" transform="translate(4733.8,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(5122.8,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5845,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(6845.2,0)"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(7490.2,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(7990.2,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mo" transform="translate(8878.2,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
-<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.717ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 759 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g></g></g></svg></mjx-container>：带宽</li>
-<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.6ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2033 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(645,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(1145,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container>：信噪比</li>
-</ul>
-</li>
-<li>信噪比与带宽的关系</li>
-</ul>
-<h2 id="五、数字传输系统"><a href="#五、数字传输系统" class="headerlink" title="五、数字传输系统"></a>五、数字传输系统</h2><h3 id="5-1-编码与调制"><a href="#5-1-编码与调制" class="headerlink" title="5.1 编码与调制"></a>5.1 编码与调制</h3><ol>
-<li><p>基带传输</p>
-<ul>
-<li>不归零编码（NRZ）：存在同步问题<ul>
-<li>正电平表示1，负电平表示0</li>
-</ul>
-</li>
-<li>归零编码（RZ）：自同步，编码效率低</li>
-<li>曼彻斯特编码<ul>
-<li>每个码元中间有跳变，负跳变表示1，正跳变表示0</li>
-</ul>
-</li>
-<li>差分曼彻斯特编码</li>
-</ul>
-</li>
-<li><p>带通传输</p>
-<ul>
-<li>调幅（AM）</li>
-<li>调频（FM）</li>
-<li>调相（PM）</li>
-</ul>
-</li>
-</ol>
-<h3 id="5-2-多路复用技术"><a href="#5-2-多路复用技术" class="headerlink" title="5.2 多路复用技术"></a>5.2 多路复用技术</h3><ul>
-<li>频分复用（FDM）</li>
-<li>时分复用（TDM）</li>
-<li>波分复用（WDM）</li>
-<li>码分复用（CDM）</li>
-</ul>
-<h2 id="六、物理层设备"><a href="#六、物理层设备" class="headerlink" title="六、物理层设备"></a>六、物理层设备</h2><h3 id="6-1-中继器"><a href="#6-1-中继器" class="headerlink" title="6.1 中继器"></a>6.1 中继器</h3><ul>
-<li>功能：放大信号</li>
-<li>特点：不能连接不同类型网络</li>
-<li>5-4-3规则</li>
-</ul>
-<h3 id="6-2-集线器"><a href="#6-2-集线器" class="headerlink" title="6.2 集线器"></a>6.2 集线器</h3><ul>
-<li>功能：多端口中继器</li>
-<li>特点：共享带宽，冲突域</li>
-<li>工作方式：广播方式</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Networking</category>
-      </categories>
-      <tags>
-        <tag>AI辅助</tag>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解读尼采</title>
-    <url>/2025/02/21/Philosophy/%E5%B0%BC%E9%87%87/</url>
-    <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
-<p>To be continued……<br><span id="more"></span></p>
-<h2 id="虚无主义"><a href="#虚无主义" class="headerlink" title="虚无主义"></a>虚无主义</h2><p>“Nihilism, is an inability to desire”</p>
-<p>虚无主义，是一种欲望的缺失</p>
-<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>“nothing is true，everything is allowed.”</p>
-<p>生活的核心驱动是“情和欲”(erotic), 人生追求无法基于理性？</p>
-<h3 id="虚无的起源"><a href="#虚无的起源" class="headerlink" title="虚无的起源"></a>虚无的起源</h3><p>生活充满随机性，不一定具有逻辑</p>
-<p>量化不一定合理</p>
-<p>自洽就是真理吗？</p>
-<p>“情欲匮乏”与“自我蔑视”self contempt</p>
-<h2 id="Free-Will"><a href="#Free-Will" class="headerlink" title="Free Will"></a>Free Will</h2><p><a href="https://www.youtube.com/watch?v=rzzxFuyJX5E">Reject Free Will, Become Who You Are | Brian Leiter on Nietzsche</a></p>
-<p>I think how to define “Free Will” is the most important thing in the debate of whether to reject free will and become who you are.</p>
-<p>If assumed something fundamental and pure in anybody that influence our behaviour, and contribute to Niezsche’s unique fatalism, how to extract or give an outline of it?</p>
-<h3 id="Contemporary-Positions-on-Free-Will"><a href="#Contemporary-Positions-on-Free-Will" class="headerlink" title="Contemporary Positions on Free Will"></a>Contemporary Positions on Free Will</h3><p>What is free will? non-determined and based on moral responsibility.<br><img src="\images\image_18.png" alt="1"></p>
-<h3 id="Arguments-against"><a href="#Arguments-against" class="headerlink" title="Arguments against"></a>Arguments against</h3><h3 id="Prescriptions"><a href="#Prescriptions" class="headerlink" title="Prescriptions"></a>Prescriptions</h3><p>SelbstVberwindung! (自我克服)</p>
-<ol>
-<li>free from morality, face the true humanity</li>
-<li>Will zur Macht(权力意志) destroy and create</li>
-<li>unstoppable !!!</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Philosophy</category>
-      </categories>
-      <tags>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>西西弗神话</title>
-    <url>/2025/03/18/Philosophy/%E8%A5%BF%E8%A5%BF%E5%BC%97%E7%A5%9E%E8%AF%9D/</url>
-    <content><![CDATA[<p>重读加缪的《西西弗神话》，记录一些自己的想法。<br><span id="more"></span></p>
-<p>加缪认为“荒诞正是清醒的理性对其局限性的确认”</p>
-<h2 id="判断人生值不值得活，等于回答哲学的根本问题"><a href="#判断人生值不值得活，等于回答哲学的根本问题" class="headerlink" title="判断人生值不值得活，等于回答哲学的根本问题"></a>判断人生值不值得活，等于回答哲学的根本问题</h2><p>荒诞是世界的本来模样，但对荒诞的觉察属于人的理性。也许因为对人的理性的要求天然带有某种高于一切的“理”亦或其他的存在，故而对于真实世界的混沌，这是不可容忍的，即荒诞感的由来。</p>
-<p>“人奋斗到这个地步·，来到非理性面前，内心不由得产生对幸福和理性的渴望。荒诞产生于人类呼唤和世界无理性沉默·之间的对峙。</p>
-]]></content>
-      <categories>
-        <category>Philosophy</category>
-      </categories>
-      <tags>
-        <tag>加缪</tag>
       </tags>
   </entry>
   <entry>
@@ -2550,6 +2299,86 @@ p(x) \equiv \mathcal{N}\left(\mu, \sigma^{2}\right)=\frac{1}{\sqrt{2\pi\sigma^{2
       </tags>
   </entry>
   <entry>
+    <title>OS-09：Virtual Memory</title>
+    <url>/2025/03/21/OS/OS09/</url>
+    <content><![CDATA[<p>该文介绍虚拟内存。<br><span id="more"></span></p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>程序运行时并非所有代码和数据都需要同时使用，即不需要全部加载入物理内存。</p>
+<p>虚拟内存：separation of user logical memory from physical memory</p>
+<ul>
+<li>逻辑内存可比物理内存大很多</li>
+<li>多进程可共享</li>
+</ul>
+<h2 id="Demand-Paging"><a href="#Demand-Paging" class="headerlink" title="Demand Paging"></a>Demand Paging</h2><p>需要时将页面加载入内存</p>
+<p>Valid-Invalid Bit：valid表示页面在内存中，invalid表示不在内存中</p>
+<p>Page Fault: 访问不在内存中的页面</p>
+<p>1<a href="\images\image_21.png">1</a></p>
+<p>Free-Frame List: 空闲帧列表,zero-fill-on-demand(按需清零)</p>
+<h2 id="Copy-on-Write"><a href="#Copy-on-Write" class="headerlink" title="Copy-on-Write"></a>Copy-on-Write</h2><ul>
+<li><strong>原理</strong>：允许父进程和子进程在初始阶段共享内存中的相同页面。只有当其中一个进程尝试修改共享页面时，系统才会为该页面创建一个副本，这种方式避免了在进程创建时对大量共享页面的不必要复制。</li>
+<li><strong>优势</strong>：提高了进程创建的效率。由于只有被修改的页面才会被复制，减少了内存复制操作和时间开销，从而加快了进程创建速度。</li>
+<li><strong>内存分配</strong>：涉及的空闲页面从按需清零的页面池中分配，以保证快速执行需求分页操作。页面池需始终有空闲帧，避免在缺页时因无空闲帧而进行额外处理。</li>
+<li><strong>系统调用应用</strong>：vfork()是fork()系统调用的变体，它利用写时复制技术，让父进程暂停执行，子进程使用父进程的写时复制地址空间。这一设计使得子进程能够高效地调用exec()，常被用于实现UNIX命令行外壳接口。 </li>
+</ul>
+<h2 id="Page-Replacement"><a href="#Page-Replacement" class="headerlink" title="Page Replacement"></a>Page Replacement</h2><p>find some page in memory, but not in use, page it out</p>
+<p>Performance – want an algorithm with minimum # page faults</p>
+<p>内存中的页面可能被修改，modify (dirty) bit用于标记页面是否被改动过。在页面置换时，只将其置为 1，即被修改过的页面写回磁盘；未修改的页面，由于内容与磁盘存储一致，无需写回，从而减少了不必要的磁盘 I/O 操作，降低了页面传输开销，即仅将修改的页面写回磁盘。</p>
+<p><img src="\images\image_22.png" alt="1"></p>
+<h3 id="Page-Replacement-Algorithms"><a href="#Page-Replacement-Algorithms" class="headerlink" title="Page Replacement Algorithms"></a>Page Replacement Algorithms</h3><h4 id="First-In-First-Out-FIFO-Page-Replacement"><a href="#First-In-First-Out-FIFO-Page-Replacement" class="headerlink" title="First-In-First-Out (FIFO) Page Replacement"></a>First-In-First-Out (FIFO) Page Replacement</h4><ul>
+<li><strong>原理</strong>：选择最早进入内存的页面进行替换，即选择队列中最早进入的页面进行替换。</li>
+</ul>
+<h4 id="Optimal-Page-Replacement"><a href="#Optimal-Page-Replacement" class="headerlink" title="Optimal Page Replacement"></a>Optimal Page Replacement</h4><ul>
+<li><strong>原理</strong>：选择未来最长时间不被访问的页面进行替换，即选择队列中未来最长时间不被访问的页面进行替换。<br>但无法预知未来，故很难实现</li>
+</ul>
+<h4 id="Least-Recently-Used-LRU-Page-Replacement"><a href="#Least-Recently-Used-LRU-Page-Replacement" class="headerlink" title="Least Recently Used (LRU) Page Replacement"></a>Least Recently Used (LRU) Page Replacement</h4><ul>
+<li><strong>原理</strong>：选择最近最久未使用的页面进行替换，即选择队列中最近最久未被访问的页面进行替换。</li>
+</ul>
+<h4 id="LRU-Approximation-Page-Replacement"><a href="#LRU-Approximation-Page-Replacement" class="headerlink" title="LRU Approximation Page Replacement"></a>LRU Approximation Page Replacement</h4><ul>
+<li><strong>原理</strong>：近似 LRU 算法，通过使用栈或计数器等数据结构来近似实现 LRU 算法。</li>
+<li>Second-Chance Algorithm：将页面置于环形队列中，当页面被访问时，将其移至队尾，否则将其移出队列。</li>
+</ul>
+<p><img src="\images\image_23.png" alt="1"></p>
+<h4 id="Counting-Page-Replacement"><a href="#Counting-Page-Replacement" class="headerlink" title="Counting Page Replacement"></a>Counting Page Replacement</h4><ul>
+<li><strong>原理</strong>：通过计数器记录页面的访问次数，选择访问次数最少的页面进行替换。</li>
+</ul>
+<hr>
+<p>Global vs. Local Replacement</p>
+<ul>
+<li>Global replacement: process selects a replacement frame from the set of all frames; one process can take a frame from another</li>
+<li>Local replacement: each process selects from only its own set of allocated frames</li>
+</ul>
+<h2 id="Allocation-of-Frames"><a href="#Allocation-of-Frames" class="headerlink" title="Allocation of Frames"></a>Allocation of Frames</h2><p>Each process needs minimum number of frames</p>
+<ul>
+<li>Fixed Allocation<ul>
+<li>Equal allocation</li>
+<li>Proportional allocation: Allocate according to the size of process</li>
+</ul>
+</li>
+<li>Priority allocation</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>Virtual memory abstracts physical memory into an extremely large uniform array of storage</li>
+<li>Benefits of virtual memory: <ul>
+<li>(1) a program can be larger than physical<br>memory, </li>
+<li>(2) a program does not need to be entirely in memory, </li>
+<li>(3)processes can share memory </li>
+<li>(4) processes can be created more efficiently.</li>
+</ul>
+</li>
+<li>Demand paging loads pages only when they are demanded during program execution</li>
+<li>A page fault occurs when a page currently not in memory is accessed</li>
+<li>Copy-on-write allows the child process to share its parent’s address, and only make a copy when one of them modifies a page</li>
+<li>Page replacement algorithms: FIFO, optimal, LRU, LRU-approximations.</li>
+<li>Discussed frame allocation among processes</li>
+</ul>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OS-08：main memory</title>
     <url>/2025/03/19/OS/OS08/</url>
     <content><![CDATA[<p>进入Memory Management 部分，该文介绍 main memory。<br><span id="more"></span></p>
@@ -2658,77 +2487,10 @@ PA = \begin{cases} LA + RR, & 0 \leq LA < LR \\ \text{error}, & LA \geq LR \end{
       </tags>
   </entry>
   <entry>
-    <title>OS-09：Virtual Memory</title>
-    <url>/2025/03/21/OS/OS09/</url>
-    <content><![CDATA[<p>该文介绍虚拟内存。<br><span id="more"></span></p>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>程序运行时并非所有代码和数据都需要同时使用，即不需要全部加载入物理内存。</p>
-<p>虚拟内存：separation of user logical memory from physical memory</p>
-<ul>
-<li>逻辑内存可比物理内存大很多</li>
-<li>多进程可共享</li>
-</ul>
-<h2 id="Demand-Paging"><a href="#Demand-Paging" class="headerlink" title="Demand Paging"></a>Demand Paging</h2><p>需要时将页面加载入内存</p>
-<p>Valid-Invalid Bit：valid表示页面在内存中，invalid表示不在内存中</p>
-<p>Page Fault: 访问不在内存中的页面</p>
-<p>1<a href="\images\image_21.png">1</a></p>
-<p>Free-Frame List: 空闲帧列表,zero-fill-on-demand(按需清零)</p>
-<h2 id="Copy-on-Write"><a href="#Copy-on-Write" class="headerlink" title="Copy-on-Write"></a>Copy-on-Write</h2><ul>
-<li><strong>原理</strong>：允许父进程和子进程在初始阶段共享内存中的相同页面。只有当其中一个进程尝试修改共享页面时，系统才会为该页面创建一个副本，这种方式避免了在进程创建时对大量共享页面的不必要复制。</li>
-<li><strong>优势</strong>：提高了进程创建的效率。由于只有被修改的页面才会被复制，减少了内存复制操作和时间开销，从而加快了进程创建速度。</li>
-<li><strong>内存分配</strong>：涉及的空闲页面从按需清零的页面池中分配，以保证快速执行需求分页操作。页面池需始终有空闲帧，避免在缺页时因无空闲帧而进行额外处理。</li>
-<li><strong>系统调用应用</strong>：vfork()是fork()系统调用的变体，它利用写时复制技术，让父进程暂停执行，子进程使用父进程的写时复制地址空间。这一设计使得子进程能够高效地调用exec()，常被用于实现UNIX命令行外壳接口。 </li>
-</ul>
-<h2 id="Page-Replacement"><a href="#Page-Replacement" class="headerlink" title="Page Replacement"></a>Page Replacement</h2><p>find some page in memory, but not in use, page it out</p>
-<p>Performance – want an algorithm with minimum # page faults</p>
-<p>内存中的页面可能被修改，modify (dirty) bit用于标记页面是否被改动过。在页面置换时，只将其置为 1，即被修改过的页面写回磁盘；未修改的页面，由于内容与磁盘存储一致，无需写回，从而减少了不必要的磁盘 I/O 操作，降低了页面传输开销，即仅将修改的页面写回磁盘。</p>
-<p><img src="\images\image_22.png" alt="1"></p>
-<h3 id="Page-Replacement-Algorithms"><a href="#Page-Replacement-Algorithms" class="headerlink" title="Page Replacement Algorithms"></a>Page Replacement Algorithms</h3><h4 id="First-In-First-Out-FIFO-Page-Replacement"><a href="#First-In-First-Out-FIFO-Page-Replacement" class="headerlink" title="First-In-First-Out (FIFO) Page Replacement"></a>First-In-First-Out (FIFO) Page Replacement</h4><ul>
-<li><strong>原理</strong>：选择最早进入内存的页面进行替换，即选择队列中最早进入的页面进行替换。</li>
-</ul>
-<h4 id="Optimal-Page-Replacement"><a href="#Optimal-Page-Replacement" class="headerlink" title="Optimal Page Replacement"></a>Optimal Page Replacement</h4><ul>
-<li><strong>原理</strong>：选择未来最长时间不被访问的页面进行替换，即选择队列中未来最长时间不被访问的页面进行替换。<br>但无法预知未来，故很难实现</li>
-</ul>
-<h4 id="Least-Recently-Used-LRU-Page-Replacement"><a href="#Least-Recently-Used-LRU-Page-Replacement" class="headerlink" title="Least Recently Used (LRU) Page Replacement"></a>Least Recently Used (LRU) Page Replacement</h4><ul>
-<li><strong>原理</strong>：选择最近最久未使用的页面进行替换，即选择队列中最近最久未被访问的页面进行替换。</li>
-</ul>
-<h4 id="LRU-Approximation-Page-Replacement"><a href="#LRU-Approximation-Page-Replacement" class="headerlink" title="LRU Approximation Page Replacement"></a>LRU Approximation Page Replacement</h4><ul>
-<li><strong>原理</strong>：近似 LRU 算法，通过使用栈或计数器等数据结构来近似实现 LRU 算法。</li>
-<li>Second-Chance Algorithm：将页面置于环形队列中，当页面被访问时，将其移至队尾，否则将其移出队列。</li>
-</ul>
-<p><img src="\images\image_23.png" alt="1"></p>
-<h4 id="Counting-Page-Replacement"><a href="#Counting-Page-Replacement" class="headerlink" title="Counting Page Replacement"></a>Counting Page Replacement</h4><ul>
-<li><strong>原理</strong>：通过计数器记录页面的访问次数，选择访问次数最少的页面进行替换。</li>
-</ul>
-<hr>
-<p>Global vs. Local Replacement</p>
-<ul>
-<li>Global replacement: process selects a replacement frame from the set of all frames; one process can take a frame from another</li>
-<li>Local replacement: each process selects from only its own set of allocated frames</li>
-</ul>
-<h2 id="Allocation-of-Frames"><a href="#Allocation-of-Frames" class="headerlink" title="Allocation of Frames"></a>Allocation of Frames</h2><p>Each process needs minimum number of frames</p>
-<ul>
-<li>Fixed Allocation<ul>
-<li>Equal allocation</li>
-<li>Proportional allocation: Allocate according to the size of process</li>
-</ul>
-</li>
-<li>Priority allocation</li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>Virtual memory abstracts physical memory into an extremely large uniform array of storage</li>
-<li>Benefits of virtual memory: <ul>
-<li>(1) a program can be larger than physical<br>memory, </li>
-<li>(2) a program does not need to be entirely in memory, </li>
-<li>(3)processes can share memory </li>
-<li>(4) processes can be created more efficiently.</li>
-</ul>
-</li>
-<li>Demand paging loads pages only when they are demanded during program execution</li>
-<li>A page fault occurs when a page currently not in memory is accessed</li>
-<li>Copy-on-write allows the child process to share its parent’s address, and only make a copy when one of them modifies a page</li>
-<li>Page replacement algorithms: FIFO, optimal, LRU, LRU-approximations.</li>
-<li>Discussed frame allocation among processes</li>
-</ul>
+    <title>OS-11：File System</title>
+    <url>/2025/03/28/OS/OS11/</url>
+    <content><![CDATA[<p>介绍文件系统的相关概念。<br><span id="more"></span></p>
+<h2 id="File-Concepts"><a href="#File-Concepts" class="headerlink" title="File Concepts"></a>File Concepts</h2><h2 id="Access-Methods"><a href="#Access-Methods" class="headerlink" title="Access Methods"></a>Access Methods</h2><p>Directory Structures<br>File System Structures and Operations<br>Partition and Mounting<br>Allocation Methods<br>Free Space Management<br>Virtual and Remote File Systems</p>
 ]]></content>
       <categories>
         <category>OS</category>
@@ -2741,19 +2503,6 @@ PA = \begin{cases} LA + RR, & 0 \leq LA < LR \\ \text{error}, & LA \geq LR \end{
     <title>OS-10：storage</title>
     <url>/2025/03/28/OS/OS10/</url>
     <content><![CDATA[<span id="more"></span>]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OS-11：File System</title>
-    <url>/2025/03/28/OS/OS11/</url>
-    <content><![CDATA[<p>介绍文件系统的相关概念。<br><span id="more"></span></p>
-<h2 id="File-Concepts"><a href="#File-Concepts" class="headerlink" title="File Concepts"></a>File Concepts</h2><h2 id="Access-Methods"><a href="#Access-Methods" class="headerlink" title="Access Methods"></a>Access Methods</h2><p>Directory Structures<br>File System Structures and Operations<br>Partition and Mounting<br>Allocation Methods<br>Free Space Management<br>Virtual and Remote File Systems</p>
-]]></content>
       <categories>
         <category>OS</category>
       </categories>
@@ -3228,6 +2977,257 @@ p_i = \frac{e^{\frac{z_i}{T}}}{\sum_{j=1}^{C} e^{\frac{z_j}{T}}}</script><p>其�
       </categories>
       <tags>
         <tag>学业规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CS144-1</title>
+    <url>/2025/03/03/Networking/CS144-1/</url>
+    <content><![CDATA[<p>记录CS144课程的学习过程，跟随<a href="https://cs144.github.io/">CS144: Introduction to Computer Networking</a>25春季版本。<br><span id="more"></span></p>
+<h2 id="Lec1：Introduction"><a href="#Lec1：Introduction" class="headerlink" title="Lec1：Introduction"></a>Lec1：Introduction</h2><p>Goals：</p>
+<ul>
+<li>To learn how the Internet works.</li>
+<li>To learn why the Internet was designed this way.</li>
+<li>To learn how to use the Internet.</li>
+<li>To build some significant pieces of the Internet.</li>
+<li>To learn the underlying principles and technologies of networking.</li>
+</ul>
+<p><a href="/web/20250303142629/https://cs144.github.io/">a snap shot</a></p>
+]]></content>
+      <categories>
+        <category>Networking</category>
+      </categories>
+      <tags>
+        <tag>CS144</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计网-物理层</title>
+    <url>/2025/02/24/Networking/%E8%AE%A1%E7%BD%91-%E7%89%A9%E7%90%86%E5%B1%82/</url>
+    <content><![CDATA[<p>物理层是计算机网络的最底层，主要负责数据的物理传输。</p>
+<p>物理层为数据链路层提供服务，使数据链路层只需要考虑如何封装数据链路层协议数据单元（PDU），而不需要考虑数据是如何传输的。<br><span id="more"></span></p>
+<p>注：有关计算机网络的相关概论知识，可参考以下：</p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_46331050/article/details/120118138?spm=1001.2014.3001.5501">计算机网络概述</a></li>
+</ul>
+<h2 id="计算机网络基本重要概念"><a href="#计算机网络基本重要概念" class="headerlink" title="计算机网络基本重要概念"></a>计算机网络基本重要概念</h2><ul>
+<li>因特网的组成：<ul>
+<li>边缘部分： 由所有连接在因特网上的主机组成。</li>
+<li>核心部分： 由大量网络和连接这些网络的路由器组成。</li>
+</ul>
+</li>
+<li>路由器： 连接两个或多个网络的设备，负责在多个网络之间转发数据包。</li>
+<li>交换方式：<ul>
+<li>电路交换： 在数据传输之前，需要先建立一条专用的物理连接，数据传输过程中，这条连接一直存在。</li>
+<li>报文交换： 不需要建立连接，数据传输过程中，不需要建立连接。</li>
+<li>分组交换： 将数据分成多个小数据包，每个数据包独立传输，数据传输过程中，不需要建立连接。</li>
+</ul>
+</li>
+<li>协议： 通信双方必须遵循的规则，包括：<ul>
+<li>语法：数据与控制信息的结构或格式</li>
+<li>语义：需要发出何种控制信息，完成何种动作以及做出何种响应</li>
+<li>同步：事件实现顺序的详细说明</li>
+</ul>
+</li>
+<li>服务： 在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务，而与下层无关。</li>
+<li>接口： 上层使用下层服务的入口，下层为上层提供服务的出口。</li>
+<li>实体： 表示任何可发送或接收信息的硬件或软件进程。</li>
+<li>服务访问点： 在同一系统中相邻两层的实体交换信息的逻辑接口，称为服务访问点SAP。<ul>
+<li>数据链路层： 数据链路层SAP称为帧的“头”和“尾”</li>
+<li>网络层： 网络层SAP称为IP地址<ul>
+<li>IP地址： 网络层地址，用于标识网络中的一个节点</li>
+</ul>
+</li>
+<li>传输层： 传输层SAP称为端口<ul>
+<li>端口： 传输层地址，用于标识一个进程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>服务原语：<ul>
+<li>PDU： 协议数据单元，对等实体之间传送的数据包称为协议数据单元。</li>
+<li>SDU： 服务数据单元，层与层之间传送的数据包称为服务数据单元。</li>
+</ul>
+</li>
+<li>连接唯一性：四元组（源IP地址，源端口，目的IP地址，目的端口）唯一标识一个连接</li>
+</ul>
+<h2 id="一、物理层的基本概念"><a href="#一、物理层的基本概念" class="headerlink" title="一、物理层的基本概念"></a>一、物理层的基本概念</h2><h3 id="1-1-物理层的功能"><a href="#1-1-物理层的功能" class="headerlink" title="1.1 物理层的功能"></a>1.1 物理层的功能</h3><ul>
+<li>定义物理接口特性<ul>
+<li>机械特性： 接口的形状、尺寸、引脚数目和排列情况</li>
+<li>电气特性： 接口的电压范围、电流强度、阻抗匹配、传输速率等</li>
+<li>功能特性： 接口的信号线功能</li>
+<li>规程特性： 接口的规程</li>
+</ul>
+</li>
+<li>定义传输介质的特性</li>
+<li>定义数据传输速率</li>
+<li>比特同步和时钟同步</li>
+<li>比特编码方式的定义</li>
+</ul>
+<h3 id="1-2-数据通信的基本概念"><a href="#1-2-数据通信的基本概念" class="headerlink" title="1.2 数据通信的基本概念"></a>1.2 数据通信的基本概念</h3><ul>
+<li>数据（Data）：传送信息的实体</li>
+<li>信号（Signal）：数据的电气或电磁表现</li>
+<li>模拟信号：连续的信号</li>
+<li>数字信号：离散的信号</li>
+</ul>
+<h2 id="二、传输介质"><a href="#二、传输介质" class="headerlink" title="二、传输介质"></a>二、传输介质</h2><h3 id="2-1-导向传输介质"><a href="#2-1-导向传输介质" class="headerlink" title="2.1 导向传输介质"></a>2.1 导向传输介质</h3><ol>
+<li><p>双绞线</p>
+<ul>
+<li>非屏蔽双绞线（UTP）</li>
+<li>屏蔽双绞线（STP）</li>
+<li>常用于以太网</li>
+</ul>
+</li>
+<li><p>同轴电缆</p>
+<ul>
+<li>基带同轴电缆</li>
+<li>宽带同轴电缆</li>
+<li>抗干扰能力强</li>
+</ul>
+</li>
+<li><p>光纤</p>
+<ul>
+<li>单模光纤</li>
+<li>多模光纤</li>
+<li>传输距离远，带宽大</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-非导向传输介质"><a href="#2-2-非导向传输介质" class="headerlink" title="2.2 非导向传输介质"></a>2.2 非导向传输介质</h3><ul>
+<li>无线电波</li>
+<li>微波</li>
+<li>红外线</li>
+<li>激光</li>
+</ul>
+<h2 id="三、传输方式"><a href="#三、传输方式" class="headerlink" title="三、传输方式"></a>三、传输方式</h2><h3 id="3-1-串行传输与并行传输"><a href="#3-1-串行传输与并行传输" class="headerlink" title="3.1 串行传输与并行传输"></a>3.1 串行传输与并行传输</h3><ul>
+<li>串行传输： 数据逐位按顺序依次传输</li>
+<li>并行传输： 数据同时多位按顺序依次传输</li>
+</ul>
+<h3 id="3-2-同步传输与异步传输"><a href="#3-2-同步传输与异步传输" class="headerlink" title="3.2 同步传输与异步传输"></a>3.2 同步传输与异步传输</h3><ul>
+<li>同步传输： 数据块按固定长度依次传输<ul>
+<li>外同步： 添加单独时钟信号线</li>
+<li>内同步： 数据中包含时钟信息</li>
+</ul>
+</li>
+<li>异步传输： 数据块按不定长度依次传输</li>
+</ul>
+<h3 id="3-3-单工、半双工与全双工"><a href="#3-3-单工、半双工与全双工" class="headerlink" title="3.3 单工、半双工与全双工"></a>3.3 单工、半双工与全双工</h3><ul>
+<li>单工： 单向传输 无线电广播</li>
+<li>半双工： 双向交替传输 对讲机</li>
+<li>全双工： 双向同时传输 电话</li>
+</ul>
+<h2 id="四、信道与信道容量"><a href="#四、信道与信道容量" class="headerlink" title="四、信道与信道容量"></a>四、信道与信道容量</h2><h3 id="4-1-信道的基本概念"><a href="#4-1-信道的基本概念" class="headerlink" title="4.1 信道的基本概念"></a>4.1 信道的基本概念</h3><ul>
+<li>单工通信：单向传输</li>
+<li>半双工通信：双向交替传输</li>
+<li>全双工通信：双向同时传输</li>
+</ul>
+<h3 id="4-2-信道容量"><a href="#4-2-信道容量" class="headerlink" title="4.2 信道容量"></a>4.2 信道容量</h3><ul>
+<li>奈奎斯特定理：理想低通信道的最高码元速率<ul>
+<li>公式：<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.546ex;" xmlns="http://www.w3.org/2000/svg" width="17.31ex" height="2.116ex" role="img" focusable="false" viewBox="0 -694 7650.8 935.4"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g><g data-mml-node="TeXAtom" transform="translate(792,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(878,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mi" transform="translate(1407,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g><g data-mml-node="mo" transform="translate(2519.1,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(3574.9,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(4074.9,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="msub" transform="translate(5000.6,0)"><g data-mml-node="mi"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mn" transform="translate(1311,-241.4) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(6715.1,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(6881.8,0)"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g></g></g></svg></mjx-container></li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.717ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 759 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g></g></g></svg></mjx-container>：带宽</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.74ex" height="1.595ex" role="img" focusable="false" viewBox="0 -683 769 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g></g></g></svg></mjx-container>：电平数</li>
+</ul>
+</li>
+<li>香农定理：信道的最大数据传输速率<ul>
+<li>公式：<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="20.967ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 9267.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path></g><g data-mml-node="mo" transform="translate(1037.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(2093.6,0)"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g><g data-mml-node="msub" transform="translate(3019.2,0)"><g data-mml-node="mi"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mn" transform="translate(1311,-241.4) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(4733.8,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mo" transform="translate(4733.8,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(5122.8,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5845,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(6845.2,0)"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(7490.2,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(7990.2,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g><g data-mml-node="mo" transform="translate(8878.2,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="1.717ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 759 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"></path></g></g></g></svg></mjx-container>：带宽</li>
+<li><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.6ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2033 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D446" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(645,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mi" transform="translate(1145,0)"><path data-c="1D441" d="M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"></path></g></g></g></svg></mjx-container>：信噪比</li>
+</ul>
+</li>
+<li>信噪比与带宽的关系</li>
+</ul>
+<h2 id="五、数字传输系统"><a href="#五、数字传输系统" class="headerlink" title="五、数字传输系统"></a>五、数字传输系统</h2><h3 id="5-1-编码与调制"><a href="#5-1-编码与调制" class="headerlink" title="5.1 编码与调制"></a>5.1 编码与调制</h3><ol>
+<li><p>基带传输</p>
+<ul>
+<li>不归零编码（NRZ）：存在同步问题<ul>
+<li>正电平表示1，负电平表示0</li>
+</ul>
+</li>
+<li>归零编码（RZ）：自同步，编码效率低</li>
+<li>曼彻斯特编码<ul>
+<li>每个码元中间有跳变，负跳变表示1，正跳变表示0</li>
+</ul>
+</li>
+<li>差分曼彻斯特编码</li>
+</ul>
+</li>
+<li><p>带通传输</p>
+<ul>
+<li>调幅（AM）</li>
+<li>调频（FM）</li>
+<li>调相（PM）</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-2-多路复用技术"><a href="#5-2-多路复用技术" class="headerlink" title="5.2 多路复用技术"></a>5.2 多路复用技术</h3><ul>
+<li>频分复用（FDM）</li>
+<li>时分复用（TDM）</li>
+<li>波分复用（WDM）</li>
+<li>码分复用（CDM）</li>
+</ul>
+<h2 id="六、物理层设备"><a href="#六、物理层设备" class="headerlink" title="六、物理层设备"></a>六、物理层设备</h2><h3 id="6-1-中继器"><a href="#6-1-中继器" class="headerlink" title="6.1 中继器"></a>6.1 中继器</h3><ul>
+<li>功能：放大信号</li>
+<li>特点：不能连接不同类型网络</li>
+<li>5-4-3规则</li>
+</ul>
+<h3 id="6-2-集线器"><a href="#6-2-集线器" class="headerlink" title="6.2 集线器"></a>6.2 集线器</h3><ul>
+<li>功能：多端口中继器</li>
+<li>特点：共享带宽，冲突域</li>
+<li>工作方式：广播方式</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Networking</category>
+      </categories>
+      <tags>
+        <tag>AI辅助</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>西西弗神话</title>
+    <url>/2025/03/18/Philosophy/%E8%A5%BF%E8%A5%BF%E5%BC%97%E7%A5%9E%E8%AF%9D/</url>
+    <content><![CDATA[<p>重读加缪的《西西弗神话》，记录一些自己的想法。<br><span id="more"></span></p>
+<p>加缪认为“荒诞正是清醒的理性对其局限性的确认”</p>
+<h2 id="判断人生值不值得活，等于回答哲学的根本问题"><a href="#判断人生值不值得活，等于回答哲学的根本问题" class="headerlink" title="判断人生值不值得活，等于回答哲学的根本问题"></a>判断人生值不值得活，等于回答哲学的根本问题</h2><p>荒诞是世界的本来模样，但对荒诞的觉察属于人的理性。也许因为对人的理性的要求天然带有某种高于一切的“理”亦或其他的存在，故而对于真实世界的混沌，这是不可容忍的，即荒诞感的由来。</p>
+<p>“人奋斗到这个地步·，来到非理性面前，内心不由得产生对幸福和理性的渴望。荒诞产生于人类呼唤和世界无理性沉默·之间的对峙。</p>
+]]></content>
+      <categories>
+        <category>Philosophy</category>
+      </categories>
+      <tags>
+        <tag>加缪</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解读尼采</title>
+    <url>/2025/02/21/Philosophy/%E5%B0%BC%E9%87%87/</url>
+    <content><![CDATA[<p>本笔记源于对视频<a href="https://www.bilibili.com/video/BV1X46iYaEgA/?spm_id_from=333.1387.homepage.video_card.click&amp;vd_source=18b7c2df1803634b8448a869f204a1d6">解读尼采</a>的相关笔记与感悟，与笔者近期研究的存在主义相关。</p>
+<p>To be continued……<br><span id="more"></span></p>
+<h2 id="虚无主义"><a href="#虚无主义" class="headerlink" title="虚无主义"></a>虚无主义</h2><p>“Nihilism, is an inability to desire”</p>
+<p>虚无主义，是一种欲望的缺失</p>
+<h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><p>“nothing is true，everything is allowed.”</p>
+<p>生活的核心驱动是“情和欲”(erotic), 人生追求无法基于理性？</p>
+<h3 id="虚无的起源"><a href="#虚无的起源" class="headerlink" title="虚无的起源"></a>虚无的起源</h3><p>生活充满随机性，不一定具有逻辑</p>
+<p>量化不一定合理</p>
+<p>自洽就是真理吗？</p>
+<p>“情欲匮乏”与“自我蔑视”self contempt</p>
+<h2 id="Free-Will"><a href="#Free-Will" class="headerlink" title="Free Will"></a>Free Will</h2><p><a href="https://www.youtube.com/watch?v=rzzxFuyJX5E">Reject Free Will, Become Who You Are | Brian Leiter on Nietzsche</a></p>
+<p>I think how to define “Free Will” is the most important thing in the debate of whether to reject free will and become who you are.</p>
+<p>If assumed something fundamental and pure in anybody that influence our behaviour, and contribute to Niezsche’s unique fatalism, how to extract or give an outline of it?</p>
+<h3 id="Contemporary-Positions-on-Free-Will"><a href="#Contemporary-Positions-on-Free-Will" class="headerlink" title="Contemporary Positions on Free Will"></a>Contemporary Positions on Free Will</h3><p>What is free will? non-determined and based on moral responsibility.<br><img src="\images\image_18.png" alt="1"></p>
+<h3 id="Arguments-against"><a href="#Arguments-against" class="headerlink" title="Arguments against"></a>Arguments against</h3><h3 id="Prescriptions"><a href="#Prescriptions" class="headerlink" title="Prescriptions"></a>Prescriptions</h3><p>SelbstVberwindung! (自我克服)</p>
+<ol>
+<li>free from morality, face the true humanity</li>
+<li>Will zur Macht(权力意志) destroy and create</li>
+<li>unstoppable !!!</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Philosophy</category>
+      </categories>
+      <tags>
+        <tag>尼采</tag>
       </tags>
   </entry>
 </search>
