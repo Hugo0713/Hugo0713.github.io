@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Hugo</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://hugo0713.com/</id>
+  <link href="https://hugo0713.com/" rel="alternate"/>
+  <link href="https://hugo0713.com/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Hugo</rights>
+  <subtitle>Shine or Die</subtitle>
+  <title>Hugo's Cyber Heritage</title>
+  <updated>2026-09-17T00:02:11.456Z</updated>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="ML" scheme="https://hugo0713.com/categories/ML/"/>
+    <category term="PCA" scheme="https://hugo0713.com/tags/PCA/"/>
+    <id>https://hugo0713.com/2025/12/11/ML/PCA/</id>
+    <link href="https://hugo0713.com/2025/12/11/ML/PCA/"/>
+    <published>2025-12-11T11:10:34.000Z</published>
+    <summary>
+      <![CDATA[<p>PCA（主成分分析）相关内容。<br>]]>
+    </summary>
+    <title>PCA</title>
+    <updated>2026-09-17T00:02:11.456Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="ANL" scheme="https://hugo0713.com/categories/ANL/"/>
+    <category term="llm" scheme="https://hugo0713.com/tags/llm/"/>
+    <id>https://hugo0713.com/2025/11/28/MM/Speculative-Decoding/</id>
+    <link href="https://hugo0713.com/2025/11/28/MM/Speculative-Decoding/"/>
+    <published>2025-11-27T16:17:51.000Z</published>
+    <summary>
+      <![CDATA[<p>Speculative Decoding 知识学习<br>]]>
+    </summary>
+    <title>Speculative-Decoding</title>
+    <updated>2026-09-17T03:18:44.414Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="ML" scheme="https://hugo0713.com/categories/ML/"/>
+    <category term="机器学习" scheme="https://hugo0713.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://hugo0713.com/2025/11/20/ML/%E4%BB%8EK-means%E5%88%B0GMM/</id>
+    <link href="https://hugo0713.com/2025/11/20/ML/%E4%BB%8EK-means%E5%88%B0GMM/"/>
+    <published>2025-11-20T15:05:47.000Z</published>
+    <summary>
+      <![CDATA[<p>从K-means到GMM<br>]]>
+    </summary>
+    <title>从K-means到GMM</title>
+    <updated>2026-09-17T00:02:11.457Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="CloudComputing" scheme="https://hugo0713.com/categories/CloudComputing/"/>
+    <category term="云计算" scheme="https://hugo0713.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    <id>https://hugo0713.com/2025/11/04/CloudComputing/cloudcomputing/</id>
+    <link href="https://hugo0713.com/2025/11/04/CloudComputing/cloudcomputing/"/>
+    <published>2025-11-04T06:22:57.000Z</published>
+    <summary>
+      <![CDATA[<p>有关云计算课程CS3328的内容总结<br>]]>
+    </summary>
+    <title>云计算课程总结</title>
+    <updated>2026-09-17T00:02:11.450Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Cryptography" scheme="https://hugo0713.com/categories/Cryptography/"/>
+    <category term="密码学" scheme="https://hugo0713.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    <id>https://hugo0713.com/2025/10/16/cryptography/crypto2/</id>
+    <link href="https://hugo0713.com/2025/10/16/cryptography/crypto2/"/>
+    <published>2025-10-16T14:55:47.000Z</published>
+    <summary>
+      <![CDATA[<p>DES加密算法。<br>]]>
+    </summary>
+    <title>crypto2</title>
+    <updated>2026-09-17T00:02:11.470Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="CloudComputing" scheme="https://hugo0713.com/categories/CloudComputing/"/>
+    <category term="虚拟化" scheme="https://hugo0713.com/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+    <id>https://hugo0713.com/2025/10/16/CloudComputing/%E8%99%9A%E6%8B%9F%E5%8C%96/</id>
+    <link href="https://hugo0713.com/2025/10/16/CloudComputing/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+    <published>2025-10-16T06:14:35.000Z</published>
+    <summary>
+      <![CDATA[<p>虚拟化相关内容。<br>]]>
+    </summary>
+    <title>虚拟化</title>
+    <updated>2026-09-17T00:02:11.451Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Cryptography" scheme="https://hugo0713.com/categories/Cryptography/"/>
+    <category term="密码学" scheme="https://hugo0713.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    <id>https://hugo0713.com/2025/10/10/cryptography/crypto1/</id>
+    <link href="https://hugo0713.com/2025/10/10/cryptography/crypto1/"/>
+    <published>2025-10-10T12:35:04.000Z</published>
+    <summary>
+      <![CDATA[<p>CS3314 密码学课程内容<br>]]>
+    </summary>
+    <title>crypto1</title>
+    <updated>2026-09-17T00:02:11.469Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Audiocc" scheme="https://hugo0713.com/categories/Audiocc/"/>
+    <category term="信号与系统" scheme="https://hugo0713.com/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://hugo0713.com/2025/08/11/Audiocc/%E4%BF%A1%E5%8F%B7/</id>
+    <link href="https://hugo0713.com/2025/08/11/Audiocc/%E4%BF%A1%E5%8F%B7/"/>
+    <published>2025-08-11T10:20:08.000Z</published>
+    <summary>
+      <![CDATA[<p>关于信号相关知识的深入探究。<br>]]>
+    </summary>
+    <title>信号</title>
+    <updated>2026-09-17T00:02:11.448Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Audiocc" scheme="https://hugo0713.com/categories/Audiocc/"/>
+    <category term="ICASSP" scheme="https://hugo0713.com/tags/ICASSP/"/>
+    <category term="CV" scheme="https://hugo0713.com/tags/CV/"/>
+    <id>https://hugo0713.com/2025/07/25/Audiocc/BPPV/</id>
+    <link href="https://hugo0713.com/2025/07/25/Audiocc/BPPV/"/>
+    <published>2025-07-25T08:21:25.000Z</published>
+    <summary>
+      <![CDATA[<p>关于眼震识别判断BPPV项目的相关资料.<br>]]>
+    </summary>
+    <title>BPPV</title>
+    <updated>2026-09-17T00:02:11.447Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="CloudComputing" scheme="https://hugo0713.com/categories/CloudComputing/"/>
+    <category term="k8s" scheme="https://hugo0713.com/tags/k8s/"/>
+    <id>https://hugo0713.com/2025/07/07/CloudComputing/outline/</id>
+    <link href="https://hugo0713.com/2025/07/07/CloudComputing/outline/"/>
+    <published>2025-07-07T11:45:55.000Z</published>
+    <summary>
+      <![CDATA[<p>kubernete 概述。<br>]]>
+    </summary>
+    <title>K8s-Outline</title>
+    <updated>2026-09-17T00:02:11.451Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="CloudComputing" scheme="https://hugo0713.com/categories/CloudComputing/"/>
+    <category term="programming language" scheme="https://hugo0713.com/tags/programming-language/"/>
+    <id>https://hugo0713.com/2025/07/02/CloudComputing/go/</id>
+    <link href="https://hugo0713.com/2025/07/02/CloudComputing/go/"/>
+    <published>2025-07-02T10:11:52.000Z</published>
+    <summary>
+      <![CDATA[<p>Go语言学习笔记。<br>]]>
+    </summary>
+    <title>GO</title>
+    <updated>2026-09-17T00:02:11.450Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="CS61C" scheme="https://hugo0713.com/categories/CS61C/"/>
+    <category term="system" scheme="https://hugo0713.com/tags/system/"/>
+    <id>https://hugo0713.com/2025/06/18/CS61C/arch/</id>
+    <link href="https://hugo0713.com/2025/06/18/CS61C/arch/"/>
+    <published>2025-06-18T04:09:15.000Z</published>
+    <summary>
+      <![CDATA[<p>计算机体系结构的总复习<br>]]>
+    </summary>
+    <title>Computer Architecture Review</title>
+    <updated>2026-09-17T03:07:50.995Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="MATH" scheme="https://hugo0713.com/categories/MATH/"/>
+    <category term="Algorithm" scheme="https://hugo0713.com/tags/Algorithm/"/>
+    <id>https://hugo0713.com/2025/06/15/Math/CS2304/</id>
+    <link href="https://hugo0713.com/2025/06/15/Math/CS2304/"/>
+    <published>2025-06-15T08:04:15.000Z</published>
+    <summary>
+      <![CDATA[<p>CS2304 计算机科学中的数学基础课程期末复习。<br>]]>
+    </summary>
+    <title>CS2304 Overall Review</title>
+    <updated>2026-09-17T00:02:11.459Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Philosophy" scheme="https://hugo0713.com/categories/Philosophy/"/>
+    <category term="科幻" scheme="https://hugo0713.com/tags/%E7%A7%91%E5%B9%BB/"/>
+    <id>https://hugo0713.com/2025/06/15/Philosophy/%E7%A7%91%E5%B9%BB%E4%BD%9C%E5%93%81/</id>
+    <link href="https://hugo0713.com/2025/06/15/Philosophy/%E7%A7%91%E5%B9%BB%E4%BD%9C%E5%93%81/"/>
+    <published>2025-06-14T17:36:05.000Z</published>
+    <summary>
+      <![CDATA[<p>笔者的两篇科幻作品。<br>]]>
+    </summary>
+    <title>科幻作品</title>
+    <updated>2026-09-17T00:02:11.465Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Technology" scheme="https://hugo0713.com/categories/Technology/"/>
+    <category term="量子物理" scheme="https://hugo0713.com/tags/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86/"/>
+    <id>https://hugo0713.com/2025/06/09/Technology/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86/</id>
+    <link href="https://hugo0713.com/2025/06/09/Technology/%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86/"/>
+    <published>2025-06-09T11:24:03.000Z</published>
+    <summary>
+      <![CDATA[<p>量子物理期末复习<br>]]>
+    </summary>
+    <title>量子物理</title>
+    <updated>2026-09-17T00:02:11.468Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="MATH" scheme="https://hugo0713.com/categories/MATH/"/>
+    <category term="Algorithm" scheme="https://hugo0713.com/tags/Algorithm/"/>
+    <id>https://hugo0713.com/2025/06/07/Math/Algorithm/</id>
+    <link href="https://hugo0713.com/2025/06/07/Math/Algorithm/"/>
+    <published>2025-06-07T12:37:42.000Z</published>
+    <summary>
+      <![CDATA[<p>算法总复习，包含分治，图算法，动态规划，线性规划，P与NP，规约等重点知识的总结。<br>]]>
+    </summary>
+    <title>Algorithm：Overall Review</title>
+    <updated>2026-09-17T00:02:11.458Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="MATH" scheme="https://hugo0713.com/categories/MATH/"/>
+    <category term="Algorithm" scheme="https://hugo0713.com/tags/Algorithm/"/>
+    <id>https://hugo0713.com/2025/05/20/Math/%E9%9A%8F%E6%9C%BA%E5%9B%BE/</id>
+    <link href="https://hugo0713.com/2025/05/20/Math/%E9%9A%8F%E6%9C%BA%E5%9B%BE/"/>
+    <published>2025-05-20T05:37:28.000Z</published>
+    <summary>
+      <![CDATA[<p>CS2304关于随机图的内容。<br>]]>
+    </summary>
+    <title>Introduction to Random Graphs</title>
+    <updated>2026-09-17T00:02:11.460Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="CloudComputing" scheme="https://hugo0713.com/categories/CloudComputing/"/>
+    <category term="云计算" scheme="https://hugo0713.com/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    <id>https://hugo0713.com/2025/05/19/CloudComputing/introduction/</id>
+    <link href="https://hugo0713.com/2025/05/19/CloudComputing/introduction/"/>
+    <published>2025-05-18T16:54:00.000Z</published>
+    <summary>
+      <![CDATA[<p>Introduction of Cloud Computing —— one of the NUS SOC Workshop courses.<br>]]>
+    </summary>
+    <title>Introduction to Cloud Computing</title>
+    <updated>2026-09-17T00:02:11.451Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="Philosophy" scheme="https://hugo0713.com/categories/Philosophy/"/>
+    <category term="Thinking" scheme="https://hugo0713.com/tags/Thinking/"/>
+    <id>https://hugo0713.com/2025/04/14/Philosophy/%E4%BF%A1%E6%81%AF%E6%B4%AA%E6%B5%81/</id>
+    <link href="https://hugo0713.com/2025/04/14/Philosophy/%E4%BF%A1%E6%81%AF%E6%B4%AA%E6%B5%81/"/>
+    <published>2025-04-14T02:01:29.000Z</published>
+    <summary>
+      <![CDATA[<p>关于现代社会信息洪流相关的一些思考。<br>]]>
+    </summary>
+    <title>信息洪流</title>
+    <updated>2026-09-17T00:02:11.464Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Hugo</name>
+    </author>
+    <category term="MATH" scheme="https://hugo0713.com/categories/MATH/"/>
+    <category term="Algorithm" scheme="https://hugo0713.com/tags/Algorithm/"/>
+    <category term="图论" scheme="https://hugo0713.com/tags/%E5%9B%BE%E8%AE%BA/"/>
+    <id>https://hugo0713.com/2025/04/14/Math/%E5%9B%BE%E8%AE%BA/</id>
+    <link href="https://hugo0713.com/2025/04/14/Math/%E5%9B%BE%E8%AE%BA/"/>
+    <published>2025-04-14T00:56:56.000Z</published>
+    <summary>
+      <![CDATA[<p>介绍图论进阶知识。<br>]]>
+    </summary>
+    <title>图论</title>
+    <updated>2026-09-17T00:02:11.459Z</updated>
+  </entry>
+</feed>
